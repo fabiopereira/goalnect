@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Goalnect</title>
+
+		<%= stylesheet_link_tag "application", :media => "all"  %>
+		<%= stylesheet_link_tag "jquery-ui-1.8.20.custom.css", :media => "all"  %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "jquery-1.7.2.min" %>
+		<%= javascript_include_tag "jquery-ui-1.8.20.custom.min.js" %>
+		<%= csrf_meta_tags %>
+	</head>
+
+	<body>
+		<header>
+			<div style="float: left;">
+				Goalnect
+				<div>
+					<div id="search">
+						Search user or team:
+						<input type="text"/>
+					
+					<% if user_signed_in? %>
+					Signed in as <%= current_user.email %>
+					<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+					<% end %>
+</div> 
+		</header>
+		<section id="main">
+			<div class="flash">
+				<% flash.each do |type, message| -%>
+				<div class="message <%= type %>">
+					<p>
+						<%= message %>
+					</p>
+				</div>
+				<% end -%>
+			</div>
+			<%= yield %>
+		</section>
+		<footer>
+			<sub>Service Desk | Goalnect</sub>
+		</footer>
+	</body>
+</html>
