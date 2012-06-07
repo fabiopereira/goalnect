@@ -3,28 +3,16 @@
 	<head>
 		<title>Goalnect</title>
 
-		<%= stylesheet_link_tag "application", :media => "all"  %>
+		<%= stylesheet_link_tag "application", media: "all"  %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
+		<%= render 'layouts/shim' %>
+
 	</head>
 
 	<body>
-		<header>
-			<div>
-				<div id="topLogoDiv">
-					<%= image_tag("goalnect-logo01.png", :id => "topLogo", :alt => "Goalnect") %>
-				</div>
-				<div id="search">
-					Goalnect with
-					<input type="text" placeholder="friends or teams"/>
+		<%= render 'layouts/header' %>
 
-					<% if user_signed_in? %>
-					Signed in as <%= current_user.email %>
-					<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-					<% end %>
-				</div>
-				<div>
-		</header>
 		<section id="main">
 			<div class="flash">
 				<% flash.each do |type, message| -%>
@@ -35,7 +23,9 @@
 				</div>
 				<% end -%>
 			</div>
-			<%= yield %>
+			<div class="container">
+				<%= yield %>
+			</div>
 		</section>
 		<footer>
 			<sub>Service Desk | Goalnect</sub>
