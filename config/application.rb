@@ -40,7 +40,7 @@ module Goalnect
     config.filter_parameters += [:password]
 	
 	# Added here after installing Devise. Recommended by Devise if using Heroku
-	config.assets.initialize_on_precompile = false
+	config.assets.initialize_on_precompile = true
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
