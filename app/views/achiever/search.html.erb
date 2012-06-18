@@ -1,0 +1,9 @@
+<h1>Achievers</h1>
+<h3>Result from your search '<%= params[:q] %>'</h3>
+<ul>
+<% @achievers.each do |achiever| %>
+<li>
+	<a href="/achiever/<%= achiever.url %>"><%= achiever.screen_name %></a>
+</li>
+<% end %>
+</ul>

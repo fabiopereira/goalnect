@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :url, :screen_name
   # attr_accessible :title, :body
+  
+  
+  def self.search(q)
+    find(:all, :conditions => ['url LIKE :q OR screen_name LIKE :q OR email LIKE :q', {:q => "%#{q}%"}])
+  end
+
 end

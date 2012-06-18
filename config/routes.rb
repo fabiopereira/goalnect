@@ -1,7 +1,9 @@
 Goalnect::Application.routes.draw do
   get "achiever/view"
   devise_for :users
-  match 'achiever/:user_url' => 'achiever#view'
+  match '/search' => 'achiever#search'
+  match '/search/:q' => 'achiever#search'
+  match '/achiever/:user_url' => 'achiever#view'
   authenticated :user do
     root to: 'achiever#view'
   end

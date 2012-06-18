@@ -7,4 +7,9 @@ class AchieverController < ApplicationController
 
     @achiever = User.find_by_url(user_url)
   end
+  
+  def search
+    q = params[:q]
+    @achievers = User.search(q)
+  end
 end
