@@ -1,4 +1,4 @@
-<%= form_for(@goal, :url => url_for(:controller => 'goals', :action => 'create') ) do |f| %>
+<%= form_for(@goal, :url => '/goals/create' ) do |f| %>
 <% if @goal.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>

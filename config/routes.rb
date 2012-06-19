@@ -12,6 +12,7 @@ Goalnect::Application.routes.draw do
   
   match '/:user_url/goals' => 'goals#index'
   match '/:user_url/goals/new' => 'goals#new'
+  match '/goals/create' => 'goals#create'
   match '/:user_url/goals/show/:id' => 'goals#show'
   match '/:user_url/goals/edit/:id' => 'goals#edit'
   
