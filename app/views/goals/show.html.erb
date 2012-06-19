@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Owner:</b>
+  <%= @goal.owner.screen_name %>
+</p>
+
+<p>
+  <b>Achiever:</b>
+  <%= @goal.achiever.screen_name %>
+</p>
+
+<p>
+  <b>Option:</b>
+  <%= @goal.option.name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @goal.status %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @goal.description %>
+</p>
+
+<p>
+  <b>Achieved on:</b>
+  <%= @goal.achieved_on %>
+</p>
+
+<p>
+  <b>Due on:</b>
+  <%= @goal.due_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_goal_path(@achiever.url, @goal.id) %> |
+<%= link_to 'Back', goals_path(@achiever.url) %>

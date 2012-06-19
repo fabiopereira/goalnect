@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @goal_option.name %>
+</p>
+
+<p>
+  <b>Is system:</b>
+  <%= @goal_option.is_system %>
+</p>
+
+
+<%= link_to 'Edit', edit_goal_option_path(@goal_option) %> |
+<%= link_to 'Back', goal_options_path %>

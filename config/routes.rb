@@ -1,9 +1,20 @@
 Goalnect::Application.routes.draw do
+
+  resources :goal_options
+
+  #resources :goals
+
   get "achiever/view"
   devise_for :users
   match '/search' => 'achiever#search'
   match '/search/:q' => 'achiever#search'
-  match '/achiever/:user_url' => 'achiever#view'
+  match '/:user_url' => 'achiever#view'
+  
+  match '/:user_url/goals' => 'goals#index'
+  match '/:user_url/goals/new' => 'goals#new'
+  match '/:user_url/goals/show/:id' => 'goals#show'
+  match '/:user_url/goals/edit/:id' => 'goals#edit'
+  
   authenticated :user do
     root to: 'achiever#view'
   end

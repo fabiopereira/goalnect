@@ -1,0 +1,34 @@
+<h1>Listing goals</h1>
+
+<table>
+  <tr>
+    <th>Owner</th>
+    <th>Achiever</th>
+    <th>Option</th>
+    <th>Status</th>
+    <th>Description</th>
+    <th>Achieved on</th>
+    <th>Due on</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @goals.each do |goal| %>
+  <tr>
+    <td><%= goal.owner.screen_name %></td>
+    <td><%= goal.achiever.screen_name %></td>
+    <td><%= goal.option.name %></td>
+    <td><%= goal.status %></td>
+    <td><%= goal.description %></td>
+    <td><%= goal.achieved_on %></td>
+    <td><%= goal.due_on %></td>
+    <td><%= link_to 'Show', show_goal_path(@achiever.url, goal.id) %></td>
+    <td><%= link_to 'Edit', edit_goal_path(@achiever.url, goal.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Goal', new_goal_path(@achiever.url) %>

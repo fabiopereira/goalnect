@@ -1,0 +1,2 @@
+module GoalOptionsHelper
+end

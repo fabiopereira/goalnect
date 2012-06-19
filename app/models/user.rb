@@ -13,5 +13,9 @@ class User < ActiveRecord::Base
   def self.search(q)
     find(:all, :conditions => ['url LIKE :q OR screen_name LIKE :q OR email LIKE :q', {:q => "%#{q}%"}])
   end
+  
+  def full_url
+    "/#{self.url}"
+  end
 
 end

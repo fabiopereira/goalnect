@@ -2,8 +2,6 @@
 <h3>Result from your search '<%= params[:q] %>'</h3>
 <ul>
 <% @achievers.each do |achiever| %>
-<li>
-	<a href="/achiever/<%= achiever.url %>"><%= achiever.screen_name %></a>
-</li>
+<li><a href="<%= achiever.full_url %>"><%= achiever.screen_name %></a></li>
 <% end %>
 </ul>

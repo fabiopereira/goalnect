@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602074602) do
+ActiveRecord::Schema.define(:version => 20120618124154) do
+
+  create_table "goal_options", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_system"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "goals", :force => true do |t|
+    t.integer  "owner_user_id"
+    t.integer  "achiever_user_id"
+    t.integer  "goal_option_id"
+    t.integer  "status"
+    t.text     "description"
+    t.date     "achieved_on"
+    t.date     "due_on"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "goals", ["achiever_user_id"], :name => "index_goals_on_achiever_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

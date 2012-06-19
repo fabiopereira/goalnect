@@ -20,10 +20,15 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass', '2.0.0'
+  #gem 'bootstrap-sass', '2.0.0'
+  gem 'jquery-rails'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 end
 
-gem 'jquery-rails'
+gem 'will_paginate'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
