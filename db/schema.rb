@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618124154) do
+ActiveRecord::Schema.define(:version => 20120621112545) do
 
   create_table "goal_options", :force => true do |t|
     t.string   "name"
@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(:version => 20120618124154) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "url",                    :default => "", :null => false
+    t.string   "username",               :default => "", :null => false
     t.string   "screen_name",            :default => "", :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-  add_index "users", ["url"], :name => "index_users_on_url", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_url", :unique => true
 
 end

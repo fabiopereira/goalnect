@@ -1,11 +1,11 @@
 class AchieverController < ApplicationController
   def view
-    user_url = params[:user_url]
-    if (!user_url)
-      user_url = current_user.url
+    user_username = params[:user_username]
+    if (!user_username)
+      user_username = current_user.username
     end
 
-    @achiever = User.find_by_url(user_url)
+    @achiever = User.find_by_username(user_username)
   end
   
   def search

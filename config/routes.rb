@@ -8,13 +8,13 @@ Goalnect::Application.routes.draw do
   devise_for :users
   match '/search' => 'achiever#search'
   match '/search/:q' => 'achiever#search'
-  match '/:user_url' => 'achiever#view'
+  match '/:user_username' => 'achiever#view'
   
-  match '/:user_url/goals' => 'goals#index'
-  match '/:user_url/goals/new' => 'goals#new'
+  match '/:user_username/goals' => 'goals#index'
+  match '/:user_username/goals/new' => 'goals#new'
   match '/goals/create' => 'goals#create'
-  match '/:user_url/goals/show/:id' => 'goals#show'
-  match '/:user_url/goals/edit/:id' => 'goals#edit'
+  match '/:user_username/goals/show/:id' => 'goals#show'
+  match '/:user_username/goals/edit/:id' => 'goals#edit'
   
   authenticated :user do
     root to: 'achiever#view'

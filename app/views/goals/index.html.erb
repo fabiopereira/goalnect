@@ -23,12 +23,12 @@
     <td><%= goal.description %></td>
     <td><%= goal.achieved_on %></td>
     <td><%= goal.due_on %></td>
-    <td><%= link_to 'Show', show_goal_path(@achiever.url, goal.id) %></td>
-    <td><%= link_to 'Edit', edit_goal_path(@achiever.url, goal.id) %></td>
+    <td><%= link_to 'Show', show_goal_path(@achiever.username, goal.id) %></td>
+    <td><%= link_to 'Edit', edit_goal_path(@achiever.username, goal.id) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Goal', new_goal_path(@achiever.url) %>
+<%= link_to 'New Goal', new_goal_path(@achiever.username) %>

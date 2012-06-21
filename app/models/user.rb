@@ -6,16 +6,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :url, :screen_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :screen_name
   # attr_accessible :title, :body
   
   
   def self.search(q)
-    find(:all, :conditions => ['url LIKE :q OR screen_name LIKE :q OR email LIKE :q', {:q => "%#{q}%"}])
+    find(:all, :conditions => ['username LIKE :q OR screen_name LIKE :q OR email LIKE :q', {:q => "%#{q}%"}])
   end
   
   def full_url
-    "/#{self.url}"
+    "/#{self.username}"
   end
 
 end
