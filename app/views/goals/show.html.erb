@@ -1,40 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @goal.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p>
-  <b>Owner:</b>
-  <%= @goal.owner.screen_name %>
-</p>
+<dl class="dl-horizontal">
 
-<p>
-  <b>Achiever:</b>
-  <%= @goal.achiever.screen_name %>
-</p>
+  <dt><strong><%= model_class.human_attribute_name(:owner) %>:</strong></dt>
+  <dd><%= @goal.owner.screen_name %></dd>
 
-<p>
-  <b>Option:</b>
-  <%= @goal.option.name %>
-</p>
+  <dt><strong><%= model_class.human_attribute_name(:achiever) %>:</strong></dt>
+  <dd><%= @goal.achiever.screen_name %></dd>
 
-<p>
-  <b>Status:</b>
-  <%= @goal.status %>
-</p>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @goal.option.name%></dd>
 
-<p>
-  <b>Description:</b>
-  <%= @goal.description %>
-</p>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @goal.status %></dd>
 
-<p>
-  <b>Achieved on:</b>
-  <%= @goal.achieved_on %>
-</p>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @goal.description %></dd>
 
-<p>
-  <b>Due on:</b>
-  <%= @goal.due_on %>
-</p>
+  <dt><strong><%= model_class.human_attribute_name(:achieved_on) %>:</strong></dt>
+  <dd><%= @goal.achieved_on %></dd>
 
+  <dt><strong><%= model_class.human_attribute_name(:due_on) %>:</strong></dt>
+  <dd><%= @goal.due_on %></dd>
 
-<%= link_to 'Edit', edit_goal_path(@achiever.username, @goal.id) %> |
-<%= link_to 'Back', goals_path(@achiever.username) %>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              goals_path(@goal.achiever.username), :class => 'btn'  %>
+</div>

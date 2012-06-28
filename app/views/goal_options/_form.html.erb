@@ -1,25 +1,23 @@
-<%= form_for(@goal_option) do |f| %>
-  <% if @goal_option.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@goal_option.errors.count, "error") %> prohibited this goal_option from being saved:</h2>
+<%= form_for @goal_option, :html => { :class => 'form-horizontal' } do |f| %>
 
-      <ul>
-      <% @goal_option.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :is_system, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :is_system, :class => 'check_box' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :is_system %><br />
-    <%= f.check_box :is_system %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                goal_options_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'devise', '2.1.0'
+#gem 'omniauth'
+#gem 'omniauth-facebook'
+#gem 'oauth2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,13 +23,16 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  #gem 'bootstrap-sass', '2.0.0'
-  gem 'jquery-rails'
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-  gem 'jquery-ui-rails'
+  #gem 'twitter-bootstrap-rails' 
+  gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git", :branch => "static"
+  #gem 'execjs'
+  #gem 'therubyracer', :platform => :ruby
+  
 end
-
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'will_paginate'
+
 
 
 

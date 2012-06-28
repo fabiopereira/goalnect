@@ -1,34 +1,48 @@
-<h1>Listing goals</h1>
+<%- model_class = Goal.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
 
-<table>
-  <tr>
-    <th>Owner</th>
-    <th>Achiever</th>
-    <th>Option</th>
-    <th>Status</th>
-    <th>Description</th>
-    <th>Achieved on</th>
-    <th>Due on</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+ 	  <th><%= model_class.human_attribute_name(:goal_title) %></th>
 
-<% @goals.each do |goal| %>
-  <tr>
-    <td><%= goal.owner.screen_name %></td>
-    <td><%= goal.achiever.screen_name %></td>
-    <td><%= goal.option.name %></td>
-    <td><%= goal.status %></td>
-    <td><%= goal.description %></td>
-    <td><%= goal.achieved_on %></td>
-    <td><%= goal.due_on %></td>
-    <td><%= link_to 'Show', show_goal_path(@achiever.username, goal.id) %></td>
-    <td><%= link_to 'Edit', edit_goal_path(@achiever.username, goal.id) %></td>
-  </tr>
-<% end %>
+      <th><%= model_class.human_attribute_name(:owner) %></th>
+
+      <th><%= model_class.human_attribute_name(:achiever) %></th>
+
+      <th><%= model_class.human_attribute_name(:status) %></th>
+
+	  <th><%= model_class.human_attribute_name(:due_on) %></th>
+
+      <th><%= model_class.human_attribute_name(:achieved_on) %></th>
+
+      
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @goals.each do |goal| %>
+      <tr>
+        <td><%= link_to goal.option.name,  show_goal_path(@achiever.username, goal.id) %></td>
+
+        <td><%= goal.owner.screen_name%></td>
+
+        <td><%= goal.achiever.screen_name %></td>
+
+        <td><%= goal.status %></td>
+
+		<td><%= goal.due_on %></td>
+
+        <td><%= goal.achieved_on %></td>
+        
+        <td>
+			"achieved button??"          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Goal', new_goal_path(@achiever.username) %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_goal_path(@achiever.username),
+            :class => 'btn btn-primary' %>

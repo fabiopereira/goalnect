@@ -1,30 +1,4 @@
-<h1>Editing goal</h1>
-
-<%= form_for(@goal) do |f| %>
-<% if @goal.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
-
-	<ul>
-		<% @goal.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
-
-<br/>
-<div class="field">
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-</div>
-<div class="actions">
-	<%= f.submit %>
-</div>
-<% end %>
-
-
-<%= link_to 'Show', show_goal_path(@achiever.username, @goal.id) %> |
-<%= link_to 'Back', goals_path(@achiever.username) %>
+<%- model_class = @goal.class -%>
+<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                 :default => "Edit #{model_class.model_name.human}") %></h1>
+<%= render :partial => 'form' %>
