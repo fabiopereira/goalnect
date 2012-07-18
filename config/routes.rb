@@ -16,6 +16,8 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/show/:id' => 'goals#show'
   match '/:user_username/goals/edit/:id' => 'goals#edit'
   
+  match '/auth/:provider/callback' => 'authentications#create'
+  
   authenticated :user do
     root to: 'achiever#view'
   end

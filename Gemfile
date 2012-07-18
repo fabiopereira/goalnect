@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'devise', '2.1.0'
-#gem 'omniauth'
-#gem 'omniauth-facebook'
-#gem 'oauth2'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'oauth2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
