@@ -1,26 +1,26 @@
 Goalnect::Application.routes.draw do
 
-  resources :goal_options
+  #resources :goal_options
 
   #resources :goals
 
-  get "achiever/view"
-  devise_for :users
-  match '/search' => 'achiever#search'
-  match '/search/:q' => 'achiever#search'
-  match '/:user_username' => 'achiever#view'
+  #get "achiever/view"
+  #devise_for :users
+  #match '/search' => 'achiever#search'
+  #match '/search/:q' => 'achiever#search'
+  #match '/:user_username' => 'achiever#view'
   
-  match '/:user_username/goals' => 'goals#index'
-  match '/:user_username/goals/new' => 'goals#new'
-  match '/goals/create' => 'goals#create'
-  match '/:user_username/goals/show/:id' => 'goals#show'
-  match '/:user_username/goals/edit/:id' => 'goals#edit'
+  #match '/:user_username/goals' => 'goals#index'
+  #match '/:user_username/goals/new' => 'goals#new'
+  #match '/goals/create' => 'goals#create'
+  #match '/:user_username/goals/show/:id' => 'goals#show'
+  #match '/:user_username/goals/edit/:id' => 'goals#edit'
   
-  match '/auth/:provider/callback' => 'authentications#create'
+  #match '/auth/:provider/callback' => 'authentications#create'
   
-  authenticated :user do
-    root to: 'achiever#view'
-  end
+  #authenticated :user do
+  #  root to: 'achiever#view'
+  #end
   root to: 'home#index'
 
 #root :to => "home#index"
