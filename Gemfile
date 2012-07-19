@@ -24,17 +24,12 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   #gem 'twitter-bootstrap-rails' 
-  gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git", :branch => "static"
   #gem 'execjs'
   #gem 'therubyracer', :platform => :ruby
+  gem 'twitter-bootstrap-rails'
   
 end
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'will_paginate'
-
-
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
