@@ -30,6 +30,10 @@ setImageFlow = function (){
     
 }
 
+$('.submittable').click(function() {
+  $(this).parents('form:first').submit();
+});
+
 (function($){
 	
 	$.extend({

@@ -21,6 +21,7 @@ Goalnect::Application.routes.draw do
   #authenticated :user do
   #  root to: 'achiever#view'
   #end
+
   root to: 'home#index'
 
 #root :to => "home#index"
