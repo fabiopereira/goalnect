@@ -50,6 +50,7 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.1)
       multipart-post (~> 1.1)
+    google-analytics-rails (0.0.3)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.1)
@@ -148,6 +149,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise (= 2.1.0)
+  google-analytics-rails
   jquery-rails
   oauth2
   omniauth

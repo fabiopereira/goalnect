@@ -5,6 +5,7 @@ gem 'devise', '2.1.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'oauth2'
+gem 'google-analytics-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
