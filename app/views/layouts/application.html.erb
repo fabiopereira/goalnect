@@ -39,15 +39,13 @@
 			</div>
 			
 			<div class="container">
-				<div style="height: 0px; width: 0px">
-					<%= image_tag("asset.session.howDoesItWork-hover.png") %>
-					<%= image_tag("asset.session.whyWeAreDifferent-hover.png") %>
-					<%= image_tag("Mountain-Dream-hover.png") %>
-				</div>
+
 				<%= image_tag("goalnect.home.bg.mountain.png", class: "bg-image") %>
 				<%= yield %>
 				
-				
+				<%= image_tag("asset.session.howDoesItWork-hover.png", class: "preloadImage") %>
+				<%= image_tag("asset.session.whyWeAreDifferent-hover.png", class: "preloadImage") %>
+				<%= image_tag("Mountain-Dream-hover.png", class: "preloadImage") %>
 				
 			</div>
 		</section>
