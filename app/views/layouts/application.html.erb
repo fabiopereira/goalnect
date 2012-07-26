@@ -4,14 +4,31 @@
 		<title>Goalnect</title>
 		<%= stylesheet_link_tag "application", media: "all"  %>
 		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "jquery.smoothAnchors" %>
+		<%= javascript_include_tag "jquery.scroll	To" %>
 		<%= csrf_meta_tags %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= render 'layouts/shim' %>
-	</head>
-
-	<body>
+		<header>
 		<%= render 'layouts/header' %>
-
+		</header>
+	</head>
+	<script>
+		
+		
+		  $(document).ready(function(){
+			var new_position = $('#startHome').offset() ;
+			window.scrollTo(new_position.left,new_position.top);
+			if(navigator.platform != 'iPad' && navigator.platform != 'iPhone' && navigator.platform != 'iPod') {
+				$.smoothAnchors(2500, "swing", false);
+			}
+			
+		  });
+	</script>
+	<body>
+		
 		<section id="main">
+			
 			<div class="flash">
 				<% flash.each do |type, message| -%>
 				<div class="message <%= type %>">
@@ -21,15 +38,26 @@
 				</div>
 				<% end -%>
 			</div>
+			
 			<div class="container">
+				
+				<%= image_tag("goalnect.home.bg.mountain.png", class: "bg-image") %>
+			
 				<%= yield %>
+				
+				
+				
 			</div>
 		</section>
 		<footer>
 			<sub>
 				<center>
+					
 					Goalnect
+					
 				</center></sub>
 		</footer>
+		</div>
+		
 	</body>
 </html>

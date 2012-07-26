@@ -27,12 +27,16 @@
 // Example:
 // @linkColor: #ff0000;
 #top {
+	border-top: 5px solid #3399CC;
+	position: fixed;
 	background-color: #FFF;
 	height: 60px;
+	width: 100%;
 	padding: 10px 0 10px 0;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.1);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.1);
-	box-shadow: 0 1px 3px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.1)
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.1);
+	z-index: 10000;
 }
 #top .navbar .nav {
 	margin-top: 14px
@@ -57,6 +61,79 @@
 #top .dropdown-menu a i, .nav-list [class^="icon-"] {
 	margin-right: 10px
 }
-body {
-	border-top: 5px solid #3399CC
+
+.bg-image {
+  background: center no-repeat;
+  z-index: -1000;
+  top: 50px;
+  //position: static;
+  //width: 1000px;
+  //height: 4040px;
+}
+
+#whyContent{
+  top: 1400px;	
+  position: absolute;
+  background: url('videoscreen.png') no-repeat;
+  background-size:800px 550px;
+  width:  800px;
+  height: 550px;
+  left: 550px;
+}
+.videoBackGroundFrame{
+   width:  1000px;
+   height: 600px;
+   position: absolute;
+   z-index: 9;
+}
+.video_frame{
+   z-index: 10;
+   position: absolute;
+   top: 100px;
+   left: 80px;
+}
+#howContent{
+   top: 2380px;	
+   position: absolute;
+}
+.flowImage{//1920 - 1080
+   width: 700px;
+   height: 510px;
+   top: 40px;
+   position: absolute;
+}
+
+
+#homeContent{
+   top: 3600px;	
+   position: absolute;
+   height: 200px;
+}
+#whyImage{
+  display: inline-block;
+  background: url('why.png') no-repeat;
+  width: 346px;
+  height: 160px;
+  position: absolute;
+  left: 330px;
+  top: 100px;
+}
+
+#whyImage:hover {
+  // background: url('why-hover.png') no-repeat;
+}
+
+#howImage{
+  display: block;
+  background: url('asset.session.howDoesItWork.png') no-repeat;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 700px;
+  top: 10px;
+}
+
+#howImage:hover {
+  // background: url('how-hover.png') no-repeat;
+  
 }

@@ -15,3 +15,17 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+setVideoFrame = function () {
+    $('#fade').css('display','block');
+    $('#lightBoxContent').append('<iframe id="video_frame" src="http://player.vimeo.com/video/29110208?title=0&amp;byline=0&amp;portrait=0" width="640" height="385" frameborder="0"></iframe>');
+    $('#lightbox').css('display','block');
+    
+}
+
+setImageFlow = function (){
+    $('#fade').css('display','block');
+    $('#lightBoxContent').append('<img src="/assets/goalnect.home.flow.png" id="goalnectFlow" width="800" height="600" ></img>');
+    $('#lightbox').css('display','block');
+    
+}
