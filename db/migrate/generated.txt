@@ -1,0 +1,10 @@
+
+rails generate model Country name:string
+
+rails g migration add_dob_and_country_to_user dob:date country_id: integer
+
+
+rails g migration add_confirmation_token_and_confirmed_at_and_confirmation_sent_at_to_user dob:date country_id: integer
+
+rake db:migrate
+

@@ -50,6 +50,15 @@ Goalnect::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  
+  # http://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
+  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "127.0.0.1",
+    :port    => 25,
+    :domain  => 'yourdomain.com'
+  }  
 
   # Enable threaded mode
   # config.threadsafe!

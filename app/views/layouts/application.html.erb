@@ -3,6 +3,8 @@
 	<head>
 		<title>Goalnect</title>
 		<%= stylesheet_link_tag "application", media: "all"  %>
+		<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,18 +14,7 @@
 		<%= render 'layouts/header' %>
 		</header>
 	</head>
-	<script>
-		
-		
-		  $(document).ready(function(){
-			var new_position = $('#startHome').offset() ;
-			window.scrollTo(new_position.left,new_position.top);
-			if(navigator.platform != 'iPad' && navigator.platform != 'iPhone' && navigator.platform != 'iPod') {
-				$.smoothAnchors(2500, "swing", false);
-			}
-			
-		  });
-	</script>
+	
 	<body>
 		
 		<section id="main">
@@ -38,16 +29,12 @@
 				<% end -%>
 			</div>
 			
-			<div class="container">
+			<div id="container" class="container">
 
-				<%= image_tag("goalnect.home.bg.mountain.png", class: "bg-image") %>
+				
 				<%= yield %>
 				
-				<div style="display: none">
-				<%= image_tag("asset.session.howDoesItWork-hover.png", class: "preloadImage") %>
-				<%= image_tag("asset.session.whyWeAreDifferent-hover.png", class: "preloadImage") %>
-				<%= image_tag("Mountain-Dream-hover.png", class: "preloadImage") %>					
-				</div>
+
 
 				
 			</div>

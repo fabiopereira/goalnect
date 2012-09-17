@@ -1,3 +1,14 @@
+<script>	
+	  $(document).ready(function(){
+		var new_position = $('#startHome').offset() ;
+		window.scrollTo(new_position.left,new_position.top);
+		if(navigator.platform != 'iPad' && navigator.platform != 'iPhone' && navigator.platform != 'iPod') {
+			$.smoothAnchors(2500, "swing", false);
+		}
+		
+	  });
+</script>
+<%= image_tag("goalnect.home.bg.mountain.png", class: "bg-image") %>
 <div class="span12">
 
 <div id="amazingContent" class="span12">
@@ -39,6 +50,11 @@
 </div>
 
 
+</div>
+<div style="display: none">
+<%= image_tag("asset.session.howDoesItWork-hover.png", class: "preloadImage") %>
+<%= image_tag("asset.session.whyWeAreDifferent-hover.png", class: "preloadImage") %>
+<%= image_tag("Mountain-Dream-hover.png", class: "preloadImage") %>					
 </div>
 
 
