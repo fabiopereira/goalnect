@@ -28,7 +28,7 @@ test:
   username: postgres
   password: senha
   
-#production:
+###production:
 #  adapter: sqlite3
 #  database: db/production.sqlite3
 #  pool: 5
