@@ -2,7 +2,9 @@ DEPRECATED Multiple Heroku Environments
 http://jqr.github.com/2009/04/25/deploying-multiple-environments-on-heroku.html
 NEW This is better for multiple Heroku Environments
 https://github.com/fastestforward/heroku_san         
+                   
 
+heroku config --app goalnect-staging
 
 ###################
 # Push to Staging
@@ -24,8 +26,13 @@ heroku logs --app staging-goalnect
 https://github.com/fastestforward/heroku_san
 ###################
 
-# We already Ran this only ONCE to create heroku apps: DON'T RUN AGAIN
+# We already Ran this only ONCE to create heroku apps: 
+# DON'T RUN AGAIN - only if you want to create heroku apps again
 rake all heroku:create heroku:rack_env  
+
+# Run this on each dev machine
+heroku login
+heroku keys:add ~/.ssh/id_rsa.pub
 
 #Config heroku envs
 rake all heroku:config
@@ -34,5 +41,8 @@ rake all heroku:remotes
 #Deploy using:
 rake staging deploy
 
-  
+
+heroku run gem install sqlite3 -v '1.3.6' --app goalnect-staging
+
+
 
