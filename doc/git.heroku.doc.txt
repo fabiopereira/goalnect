@@ -1,16 +1,32 @@
-Multiple Heroku Environments
+DEPRECATED Multiple Heroku Environments
 http://jqr.github.com/2009/04/25/deploying-multiple-environments-on-heroku.html
+NEW This is better for multiple Heroku Environments
+https://github.com/fastestforward/heroku_san         
 
 
 ###################
 # Push to Staging
 ###################
-git push staging master
-heroku run rake db:migrate --app staging-goalnect
-heroku run rake assets:precompile --app staging-goalnect
+rake staging deploy
 
-
+@deprecated git push staging master
+@deprecated heroku run rake db:migrate --app staging-goalnect
+@deprecated heroku run rake assets:precompile --app staging-goalnect
 
 # View logs from staging
 heroku logs --app staging-goalnect
+
+
+
+###################
+# Heroku San (NEW)
+# uses heroku.yml
+# https://github.com/fastestforward/heroku_san
+###################
+
+# We already Ran this only ONCE to create heroku apps: DON'T RUN AGAIN
+rake all heroku:create 
+heroku:rack_env                 
+
+  
 

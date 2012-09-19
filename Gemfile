@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :development do
+    gem 'heroku_san'
+end
+
 gem 'rails', '3.2.3'
 gem 'devise', '2.1.0'
 gem 'omniauth'
