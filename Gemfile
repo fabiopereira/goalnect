@@ -10,6 +10,7 @@ group :development, :test do
 #  gem 'sqlite3'
 end
 
+gem 'thin'
 gem 'rails', '3.2.3'
 gem 'devise', '2.1.0'
 gem 'omniauth'
