@@ -21,12 +21,18 @@ heroku logs --app staging-goalnect
 ###################
 # Heroku San (NEW)
 # uses heroku.yml
-# https://github.com/fastestforward/heroku_san
+https://github.com/fastestforward/heroku_san
 ###################
 
 # We already Ran this only ONCE to create heroku apps: DON'T RUN AGAIN
-rake all heroku:create 
-heroku:rack_env                 
+rake all heroku:create heroku:rack_env  
+
+#Config heroku envs
+rake all heroku:config
+rake all heroku:remotes               
+
+#Deploy using:
+rake staging deploy
 
   
 
