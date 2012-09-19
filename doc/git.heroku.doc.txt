@@ -12,9 +12,11 @@ heroku config --app goalnect-staging
 rm -rf public/assets
 RAILS_ENV=production bundle exec rake assets:precompile
 git add public/assets
+git rm $(git ls-files --deleted)
 git commit -m "vendor compiled assets"
+git push origin master
 rake staging deploy
-heroku run rake assets:precompile --app goalnect-staging
+# heroku run rake assets:precompile --app goalnect-staging
 
 @deprecated git push staging master
 @deprecated heroku run rake db:migrate --app staging-goalnect
