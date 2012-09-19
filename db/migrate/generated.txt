@@ -6,4 +6,5 @@ rails g migration add_dob_and_country_to_user dob:date country_id: integer
 rails g migration add_email_confirmation_to_user confirmation_token:string, confirmed_at:datetime, confirmation_sent_at:datetime
 
 rake db:migrate
-
+                    
+rails g migration  drop_country_table
