@@ -18,6 +18,8 @@ production:
     BUNDLE_WITHOUT: "development:test"
     GOOGLE_ANALYTICS: "UA-33640820-1" 
     RAILS_ENV: "production"
+    GMAIL_USERNAME: "team@goalnect.com"
+    GMAIL_PASSWORD: "helpmygoal1234"
 
 staging:
   app: goalnect-staging
@@ -25,6 +27,8 @@ staging:
   config: &default
     BUNDLE_WITHOUT: "development:test"
     RAILS_ENV: "staging"
+    GMAIL_USERNAME: "team@goalnect.com"
+    GMAIL_PASSWORD: "helpmygoal1234"
   addons:
     - pgbackups:auto-week
     - memcache:5mb

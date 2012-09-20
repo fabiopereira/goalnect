@@ -54,7 +54,7 @@ Goalnect::Application.configure do
   # http://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
   
   
-  config.action_mailer.default_url_options = { :host => 'staging-goalnect.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'goalnect-staging.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
