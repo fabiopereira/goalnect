@@ -18,7 +18,8 @@ gem 'omniauth-facebook'
 gem 'oauth2'
 gem 'google-analytics-rails'
 gem 'sprockets-image_compressor'  
-gem 'active_hash'
+gem 'active_hash'      
+gem 'carrierwave'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

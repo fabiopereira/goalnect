@@ -4,7 +4,6 @@ NEW This is better for multiple Heroku Environments
 https://github.com/fastestforward/heroku_san         
                    
 
-heroku config --app goalnect-staging
 
 ###################
 # Push to Staging
@@ -46,6 +45,7 @@ heroku keys:add ~/.ssh/id_rsa.pub
 #Config heroku envs
 rake all heroku:config
 rake all heroku:remotes               
+heroku config --app goalnect-staging
 
 #Deploy using:
 rake staging deploy
