@@ -1,10 +1,22 @@
 source 'https://rubygems.org'
 
-group :development do
-    gem 'heroku_san'
-    gem 'sqlite3'
+group :production, :staging, :demo do
+  gem 'pg'
 end
 
+group :development, :test do
+  gem 'mailcatcher'
+  gem 'heroku_san'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem "database_cleaner", ">= 0.7.2"
+  gem 'factory_girl_rails', "~> 4.0"
+  gem 'email_spec'
+end
+
+gem 'thin'
 gem 'rails', '3.2.3'
 gem 'devise', '2.1.0'
 gem 'omniauth'
@@ -12,15 +24,12 @@ gem 'omniauth-facebook'
 gem 'oauth2'
 gem 'google-analytics-rails'
 gem 'sprockets-image_compressor'  
-gem 'active_hash'
-
-gem 'mailcatcher'
+gem 'active_hash'      
+gem 'carrierwave'
+gem 'rmagick'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'pg'
-
 
 # Gems used only for assets and not required
 # in production environments by default.

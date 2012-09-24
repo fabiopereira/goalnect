@@ -12,4 +12,7 @@ class AchieverController < ApplicationController
     q = params[:q]
     @achievers = User.search(q)
   end
+  
+  
 end
+  

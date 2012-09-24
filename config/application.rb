@@ -1,6 +1,13 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+#require 'rails/all'
+# Pick the frameworks you want:
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "active_resource/railtie"
+require "sprockets/railtie"
+# require "rails/test_unit/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -38,6 +45,12 @@ module Goalnect
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+	
+    # don't generate RSpec tests for views and helpers
+    config.generators do |g|
+      g.view_specs false
+      g.helper_specs false
+    end	
 	
 	# Added here after installing Devise. Recommended by Devise if using Heroku
 	config.assets.initialize_on_precompile = false

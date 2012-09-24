@@ -11,9 +11,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :screen_name, :dob, :country_id, :unconfirmed_email
   # attr_accessible :title, :body
   
-  belongs_to_active_hash :country
-    
+  belongs_to_active_hash :country  
   has_many :authentications, :dependent => :delete_all
+  
+  # CarrierWave Image Uploads
+  attr_accessible :image
+  mount_uploader :image, ImageUploader
   
   validates_presence_of :username
   validates_uniqueness_of :username

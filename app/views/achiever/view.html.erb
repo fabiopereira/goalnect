@@ -4,4 +4,5 @@
 </p>
 Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
 
+<%= image_tag @achiever.image_url(:thumb) if @achiever.image? %>
 <%= render 'goals/new_goal_url' %>

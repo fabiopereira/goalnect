@@ -3,30 +3,80 @@ http://jqr.github.com/2009/04/25/deploying-multiple-environments-on-heroku.html
 NEW This is better for multiple Heroku Environments
 https://github.com/fastestforward/heroku_san         
 
+###################                   
+# Testing
+###################
+Installing RSpec
+http://edgeguides.rubyonrails.org/testing.html
+http://railsapps.github.com/tutorial-rails-devise-rspec-cucumber.html
+gem 'rspec-rails'
+bundle install
+rails generate rspec:install	
+rake --tasks --describe
+
+Run RSpect
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare
+
+cd spec
+mkdir controllers
+cd controllers
+curl -o home_controller_spec.rb https://raw.github.com/RailsApps/rails3-devise-rspec-cucumber/master/spec/controllers/home_controller_spec.rb
+curl -o users_controller_spec.rb https://raw.github.com/RailsApps/rails3-devise-rspec-cucumber/master/spec/controllers/users_controller_spec.rb
+cd ../
+mkdir models
+cd models
+curl -o user_spec.rb https://raw.github.com/RailsApps/rails3-devise-rspec-cucumber/master/spec/models/user_spec.rb
+cd ../../
+
 
 ###################
 # Push to Staging
-###################
+###################  
+rm -rf public/assets
+RAILS_ENV=production bundle exec rake assets:precompile
+git add public/assets
+git rm $(git ls-files --deleted)
+git commit -m "vendor compiled assets"
+git push origin master
 rake staging deploy
+# heroku run rake assets:precompile --app goalnect-staging
 
 @deprecated git push staging master
 @deprecated heroku run rake db:migrate --app staging-goalnect
 @deprecated heroku run rake assets:precompile --app staging-goalnect
 
+
+
 # View logs from staging
-heroku logs --app staging-goalnect
+heroku logs --app goalnect-staging
 
 
 
 ###################
 # Heroku San (NEW)
 # uses heroku.yml
-# https://github.com/fastestforward/heroku_san
+https://github.com/fastestforward/heroku_san
 ###################
 
-# We already Ran this only ONCE to create heroku apps: DON'T RUN AGAIN
-rake all heroku:create 
-heroku:rack_env                 
+# We already Ran this only ONCE to create heroku apps: 
+# DON'T RUN AGAIN - only if you want to create heroku apps again
+rake all heroku:create heroku:rack_env  
 
-  
+# Run this on each dev machine
+heroku login
+heroku keys:add ~/.ssh/id_rsa.pub
+
+#Config heroku envs
+rake all heroku:config
+rake all heroku:remotes               
+heroku config --app goalnect-staging
+
+#Deploy using:
+rake staging deploy
+
+
+rake staging heroku:config:list 
+
+
 
