@@ -16,6 +16,6 @@
 .project
 
 # Ignore all images uploaded locally.
-# /public/uploads
+/public/uploads
 
 
