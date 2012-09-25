@@ -8,3 +8,18 @@ rails g migration add_email_confirmation_to_user confirmation_token:string, conf
 rake db:migrate
                     
 rails g migration  drop_country_table
+
+rails g migration  drop_goal_and_goal_option_table
+
+rails g migration  create_goals_and_goal_users
+
+rails g migration  drop_goal_table
+
+rails g migration add_is_challenge_to_goal is_challenge:boolean
+
+
+
+### GENERATE NEW MODEL/CONTROLLER/MIGRATION and ADD BOOTSTRAP THEME
+rails g scaffold Post title:string description:text
+rake db:migrate
+rails g bootstrap:themed Posts

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921205658) do
+ActiveRecord::Schema.define(:version => 20120924191804) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -28,26 +28,19 @@ ActiveRecord::Schema.define(:version => 20120921205658) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "goal_options", :force => true do |t|
-    t.string   "name"
-    t.boolean  "is_system"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "goals", :force => true do |t|
-    t.integer  "owner_user_id"
-    t.integer  "achiever_user_id"
-    t.integer  "goal_option_id"
-    t.integer  "status"
+    t.integer  "owner_id"
     t.text     "description"
-    t.date     "achieved_on"
+    t.string   "title"
     t.date     "due_on"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "achiever_id"
+    t.integer  "status_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  add_index "goals", ["achiever_user_id"], :name => "index_goals_on_achiever_user_id"
+  add_index "goals", ["achiever_id"], :name => "index_goals_on_achiever_id"
+  add_index "goals", ["owner_id"], :name => "index_goals_on_owner_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

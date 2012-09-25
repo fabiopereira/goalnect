@@ -16,9 +16,7 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/1
   # GET /:user_username/goals/1.json
   def show
-    @goal = Goal.find(params[:id])
-    @achiever = @goal.achiever
-
+    @goal = Goal.find(params[:goal_id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @goal }
@@ -28,13 +26,11 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/new
   # GET /:user_username/goals/new.json
   def new
-    @achiever = getAchiever
-
+    @achiever_username = params[:user_username]
     @goal = Goal.new
-
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @goal }
+      format.json { render json: @goal}
     end
   end
 
@@ -44,34 +40,29 @@ class GoalsController < ApplicationController
     @achiever = @goal.achiever
   end
 
-  # POST /:user_username/goals
-  # POST /:user_username/goals.json
   def create
-    params[:goal][:owner] = current_user
-    achiever_id = params[:goal][:achiever]
-    if (current_user.id == achiever_id)
-      params[:goal][:achiever] = current_user
-      params[:goal][:status] = 2
-    else
-      params[:goal][:achiever] = User.find(achiever_id)
-      params[:goal][:status] = 1
-    end
-    params[:goal][:option] = GoalOption.find(params[:goal][:option])
-
+    params[:goal][:achiever] = find_achiever(params)
+    params[:goal][:owner] = current_user    
     @goal = Goal.new(params[:goal])
-
+    @achiever_username = params[:user_username]
     respond_to do |format|
-
       if @goal.save
-        format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: 'Goal was successfully created.'}
-        format.json { render json: @goal, status: :created, location: @goal }
+          format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: 'Goal was successfully created.' }
       else
-        format.html { redirect_to new_goal_path(params[:goal][:achiever][:username]) }
-        format.json { render json: @goal.errors, status: :unprocessable_entity }
+          format.html { render action: "new" }
       end
     end
   end
-
+  
+  def find_achiever(params)
+    achiever_username = params[:user_username]
+    if (current_user.username == achiever_username)
+      current_user
+    else
+      User.find_by_username(achiever_username)
+    end
+  end
+  
   # PUT /:user_username/goals/1
   # PUT /:user_username/goals/1.json
   def update

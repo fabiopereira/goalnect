@@ -10,16 +10,10 @@
   <dd><%= @goal.achiever.screen_name %></dd>
 
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @goal.option.name%></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @goal.status %></dd>
+  <dd><%= @goal.title%></dd>
 
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @goal.description %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:achieved_on) %>:</strong></dt>
-  <dd><%= @goal.achieved_on %></dd>
 
   <dt><strong><%= model_class.human_attribute_name(:due_on) %>:</strong></dt>
   <dd><%= @goal.due_on %></dd>
