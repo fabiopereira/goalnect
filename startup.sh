@@ -4,10 +4,13 @@
 # git clone git@github.com:camilahayashi/goalnect.git
 # git clone https://github.com/camilahayashi/goalnect.git
 # also install this https://toolbelt.heroku.com/
-
+                                        
+brew update #if already installd, otherwise, install homebrew
+brew install imagemagick
 bundle install
 rake db:setup
 mailcatcher
 rails server
-# run tests
+# rake spec
+
 
