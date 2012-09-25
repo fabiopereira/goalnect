@@ -7,7 +7,7 @@
 
 	<div class="span6 well" style="background: white;">
 		<div>
-				<div class="row well">
+				<div class="span5 row well">
 					<b>ABOUT ME:</b> <br/>
 					<% if @achiever.about_me.blank? %>
 						Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
@@ -15,7 +15,7 @@
 					<%= @achiever.about_me %>
 					<% end %>
 				</div>
-				<div class="row well" style="background: white;">
+				<div class="span5 row well" style="background: white;">
 					<b>GOALS:</b> 
 					<% my_goals = @achiever.find_my_goals() %>
 					<% is_my_home = my_goals.empty? && current_user.id == @achiever.id %>
@@ -53,7 +53,7 @@
 					
 					
 				</div>
-				<div class=" row well" style="background: white;">
+				<div class="span5 row well" style="background: white;">
 					<b>THE JOURNEY:</b> <br/>
 						Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
 				</div>
