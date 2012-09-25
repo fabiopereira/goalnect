@@ -1,33 +1,30 @@
-<%= form_for @goal, :url => '/goals/create', :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @goal, :url => '/'+@achiever_username+'/goals/create', :html => { :class => 'form-horizontal' } do |f| %>    
 
-	<%= f.hidden_field :achiever, value: @achiever.id %>
-
-
-  <div class="control-group">
-    <%= f.label :goal_option_id, :class => 'control-label' %>
-    <div class="controls">
-     <%= collection_select(:goal, :option, GoalOption.all, :id, :name) %>
+	<%= render 'layouts/model_error_messages', :target => @goal %>
+    <div class="control-group">
+	<%= f.label :title, :class => 'control-label' %>
+	<div class="controls">
+      <%= f.text_field :title %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
+      <%= f.text_area :description, :class => 'text_area', :size => "50x10"  %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :due_on, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :due_on, :class => 'date_select' %>
+      <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year] %>
     </div>
   </div>
 
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                goals_path(@achiever.username), :class => 'btn' %>
+	<%= link_to t('.cancel', :default => t("helpers.links.cancel")), '/'+@achiever_username, :class => 'btn' %>
   </div>
 <% end %>

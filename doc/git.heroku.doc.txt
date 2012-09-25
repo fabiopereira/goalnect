@@ -18,10 +18,11 @@ Run RSpect
 bundle exec rake db:migrate
 bundle exec rake db:test:prepare
 
+
 cd spec
 mkdir controllers
 cd controllers
-curl -o home_controller_spec.rb https://raw.github.com/RailsApps/rails3-devise-rspec-cucumber/master/spec/controllers/home_controller_spec.rb
+curl -o home_controller_spec.rbhttps://raw.github.com/RailsApps/rails3-devise-rspec-cucumber/master/spec/controllers/home_controller_spec.rb
 curl -o users_controller_spec.rb https://raw.github.com/RailsApps/rails3-devise-rspec-cucumber/master/spec/controllers/users_controller_spec.rb
 cd ../
 mkdir models

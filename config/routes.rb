@@ -1,11 +1,5 @@
 Goalnect::Application.routes.draw do
 
-  resources :goal_options
-
-  resources :goals
-  
-  resources :countries
-
   get "achiever/view"
   devise_for :users
   match '/search' => 'achiever#search'
@@ -14,9 +8,11 @@ Goalnect::Application.routes.draw do
   
   match '/:user_username/goals' => 'goals#index'
   match '/:user_username/goals/new' => 'goals#new'
-  match '/goals/create' => 'goals#create'
-  match '/:user_username/goals/show/:id' => 'goals#show'
+  match '/:user_username/goals/create' => 'goals#create'
+  match '/:user_username/goals/show/:goal_id' => 'goals#show'
   match '/:user_username/goals/edit/:id' => 'goals#edit'
+  
+  match '/:user_username/edit' => 'achiever#edit'
   
   match '/auth/:provider/callback' => 'authentications#create'
   

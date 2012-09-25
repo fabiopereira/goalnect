@@ -14,3 +14,8 @@
 /log/*.log
 /tmp
 .project
+
+# Ignore all images uploaded locally.
+/public/uploads
+
+

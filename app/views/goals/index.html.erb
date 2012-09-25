@@ -10,11 +10,8 @@
 
       <th><%= model_class.human_attribute_name(:achiever) %></th>
 
-      <th><%= model_class.human_attribute_name(:status) %></th>
-
 	  <th><%= model_class.human_attribute_name(:due_on) %></th>
 
-      <th><%= model_class.human_attribute_name(:achieved_on) %></th>
 
       
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -23,17 +20,14 @@
   <tbody>
     <% @goals.each do |goal| %>
       <tr>
-        <td><%= link_to goal.option.name,  show_goal_path(@achiever.username, goal.id) %></td>
+        <td><%= link_to goal.title,  show_goal_path(goal.achiever.username, goal.id) %></td>
 
         <td><%= goal.owner.screen_name%></td>
 
         <td><%= goal.achiever.screen_name %></td>
 
-        <td><%= goal.status %></td>
-
 		<td><%= goal.due_on %></td>
 
-        <td><%= goal.achieved_on %></td>
         
         <td>
 			"achieved button??"          

@@ -1,12 +1,12 @@
 class Goal < ActiveRecord::Base
-  attr_accessible :achieved_on, :achiever, :description, :due_on, :option, :owner, :status
-  
-  belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_user_id'
-  belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_user_id'
-  belongs_to :option, :class_name => 'GoalOption', :foreign_key => 'goal_option_id'
-  
-  def self.find_by_achiever_id(q)
-    find(:all, :conditions => ['achiever_user_id = :q', {:q => "#{q}"}])
+  attr_accessible :description, :due_on, :owner, :title, :achiever
+  belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
+  belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_id'
+
+  validates_presence_of :description, :due_on, :owner, :title
+
+  def self.find_goals_dared_by(user)
+    find(:all, :conditions => ['achiever_id != :u and owner_id = :u', {:u => user.id}])
   end
   
   

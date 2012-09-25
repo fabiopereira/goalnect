@@ -1,16 +1,73 @@
-<h1>Achiever#view</h1>
-<p>
-	Find me in app/views/achiever/view.html.erb
-</p>
-Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
+<div class="row"> 
+	<div class="span2 well">
+		IMAGEM AQUI<br/>
+		<%= image_tag @achiever.image_url(:thumb) if @achiever.image? %><br/>
+		<h4><%= @achiever.screen_name %></h4>
+	</div>  
 
-<%= image_tag @achiever.image_url(:thumb) if @achiever.image? %>
+	<div class="span6 well" style="background: white;">
+		<div>
+				<div class="row well">
+					ABOUT ME: <br/>
+						Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
+				</div>
+				<div class="row well">
+					MY GOALS: 
+					<% my_goals = @achiever.find_my_goals() %>
+					<% is_my_home = my_goals.empty? && current_user.id == @achiever.id %>
+					<%= render 'goals/new_goal_url' %>
+					<br/>
+					
+					<%if is_my_home %>
+						Your next step is to <%= link_to 'commit to a goal', new_goal_path(@achiever.username) %>
+					<%else%>
+					
+					<table class="table table-striped">
+					  <thead>
+					    <tr>
 
-<div>
-<%= render 'goals/new_goal_url' %>
+					 	  <th>Title</th>
+
+					      <th>Dared By</th>
+
+						  <th>Due</th>
+
+					      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+						
+					    <% my_goals.each do |goal| %>
+					      <tr>
+					        <td><%= link_to goal.title,  show_goal_path(goal.achiever.username, goal.id) %></td>
+
+					        <td><%= goal.owner.screen_name%></td>
+
+							<td><%= goal.due_on %></td>
+
+					        <td>
+								"achieved button??"          
+					        </td>
+					      </tr>
+					    <% end %>
+					  </tbody>
+					</table>
+					
+					<% end %>
+					
+					
+				</div>
+				<div class="row well">
+					THE JOURNEY: <br/>
+						Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
+				</div>
+		</div>
+	</div>
+	<div class="span2 well">
+		+ Join a Team <br/>
+		+ Create a team<br/><br/>
+		
+		+ Join Event<br/>
+		+ Create Event
+	</div>
 </div>
-<div>
-<%= link_to 'Edit', edit_user_registration_path(@user) %>	
-</div>
-
-                                                         
