@@ -28,13 +28,6 @@ ActiveRecord::Schema.define(:version => 20120924191804) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "goal_options", :force => true do |t|
-    t.string   "name"
-    t.boolean  "is_system"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "goals", :force => true do |t|
     t.integer  "owner_id"
     t.text     "description"
