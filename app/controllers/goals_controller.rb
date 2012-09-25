@@ -5,7 +5,7 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals.json
   def index
     @achiever = getAchiever
-    @goals = Goal.find_by_achiever_id(@achiever.id)
+    @goals = Goal.find_all_by_achiever_id(@achiever.id)
 
     respond_to do |format|
       format.html # index.html.erb

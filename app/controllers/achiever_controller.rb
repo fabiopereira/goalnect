@@ -13,6 +13,9 @@ class AchieverController < ApplicationController
     @achievers = User.search(q)
   end
   
+  def edit
+    
+  end
   
 end
   

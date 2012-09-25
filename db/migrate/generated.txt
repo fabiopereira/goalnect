@@ -20,6 +20,7 @@ rails g migration add_is_challenge_to_goal is_challenge:boolean
 
 
 ### GENERATE NEW MODEL/CONTROLLER/MIGRATION and ADD BOOTSTRAP THEME
-rails g scaffold Post title:string description:text
+rails g scaffold Event title:string description:text date:date image:string registration_fee:decimal
 rake db:migrate
-rails g bootstrap:themed Posts
+rails g bootstrap:themed Event
+################

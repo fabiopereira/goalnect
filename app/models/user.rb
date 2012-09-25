@@ -35,6 +35,14 @@ class User < ActiveRecord::Base
     find(:all, :conditions => ['username LIKE :q OR screen_name LIKE :q OR email LIKE :q', {:q => "%#{q}%"}])
   end
   
+  def find_my_goals
+    Goal.find_all_by_achiever_id(self.id)
+  end
+  
+  def find_goals_i_dared
+    Goal.find_goals_dared_by(self)
+  end
+  
   def full_url
     "/#{self.username}"
   end

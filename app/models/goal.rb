@@ -5,8 +5,9 @@ class Goal < ActiveRecord::Base
 
   validates_presence_of :description, :due_on, :owner, :title
 
-  def self.find_by_achiever_id(q)
-    find(:all, :conditions => ['achiever_id = :q', {:q => "#{q}"}])
+  def self.find_goals_dared_by(user)
+    find(:all, :conditions => ['achiever_id != :u and owner_id = :u', {:u => user.id}])
   end
+  
   
 end
