@@ -20,8 +20,9 @@ class AchieverController < ApplicationController
   end
   
   def update
+      @user = current_user
       respond_to do |format|
-        if current_user.update_attributes(params[:user])
+        if  @user.update_attributes(params[:user])
           format.html { redirect_to root_path}
         else
           format.html { render action: "edit"  }
