@@ -17,6 +17,8 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/1.json
   def show
     @goal = Goal.find(params[:goal_id])
+    @goal_comment = GoalComment.new
+    @goal_support = GoalSupport.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @goal }
@@ -53,6 +55,50 @@ class GoalsController < ApplicationController
       end
     end
   end
+  
+  def add_comment
+    params[:goal_comment][:goal_id] = params[:goal_id]
+    params[:goal_comment][:user_id] = current_user.id
+    @goal_comment = GoalComment.new(params[:goal_comment])
+     respond_to do |format|
+        @goal_comment.save
+        format.json { render json: @goal_comment.to_json(
+              :include => {:user => {:only => :screen_name}}
+            ), status: :created, location: @goal_comment }
+      end
+  end
+  
+  def support
+    @goal_supports =  GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);
+    if @goal_supports.nil?
+       add_support
+    else
+       update_support @goal_supports.first
+    end
+  end
+  
+  def add_support
+    params[:goal_support][:goal_id] = params[:goal_id]
+    params[:goal_support][:user_id] = current_user.id
+    @goal_support = GoalSupport.new(params[:goal_support])
+     respond_to do |format|
+        if @goal_support.save
+          format.json { render json: @goal_support.to_json(:include => {:user => {:only => :screen_name}}), status: :created, location: @goal_support }
+        else
+           format.json { render json: @goal_support.errors, status: :unprocessable_entity }
+        end
+     end
+  end
+  
+  def update_support(goal_support)
+     respond_to do |format|
+        if goal_support.update_attributes(params[:goal_support])
+          format.json { render json: goal_support.to_json(:include => {:user => {:only => :screen_name}}), status: :created, location: goal_support }
+        else
+           format.json { render json: goal_support.errors, status: :unprocessable_entity }
+        end
+     end
+  end  
   
   def find_achiever(params)
     achiever_username = params[:user_username]

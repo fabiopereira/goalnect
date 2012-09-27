@@ -1,0 +1,26 @@
+	<%= form_for @goal_support, :format => :json, :remote => true,  :html => { :'data-type' => 'json' } do |f| %>
+  <div class="control-group">
+    <%= f.label :i_support, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :i_support, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :goal_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :goal_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :user_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                goal_support_path, :class => 'btn' %>
+  </div>
+<% end %>

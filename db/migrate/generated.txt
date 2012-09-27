@@ -21,9 +21,22 @@ rails g migration add_about_me_to_user about_me:text
 
 
 ### GENERATE NEW MODEL/CONTROLLER/MIGRATION and ADD BOOTSTRAP THEME
-rails g scaffold Event title:string description:text date:date image:string registration_fee:decimal
+rails g scaffold Event title:string description:text date:date image:string registration_fee:decimal moderated:boolean team:boolean min_participants_team:integer max_participants_team:integer total_participants:integer min_age:integer max_age:integer registrations_until:date
 rake db:migrate
 rails g bootstrap:themed Event
 ################
+
+
+### Generate Feedback
+rails g scaffold GoalFeedback message:text photo:string video:string goal_id:integer points:integer 
+rake db:migrate
+rails g bootstrap:themed GoalFeedback
+
+### Generate GoalSupport
+rails g scaffold GoalSupport i_support:boolean goal_id:integer user_id:integer
+rake db:migrate
+rails g bootstrap:themed GoalSupport
+
+
 
 

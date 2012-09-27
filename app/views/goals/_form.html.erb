@@ -14,6 +14,9 @@
       <%= f.text_area :description, :class => 'text_area', :size => "50x10"  %>
     </div>
   </div>
+<script type="text/javascript">
+    $('.text_area').wysihtml5();
+</script>
 
   <div class="control-group">
     <%= f.label :due_on, :class => 'control-label' %>

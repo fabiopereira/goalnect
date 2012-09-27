@@ -27,6 +27,8 @@ gem 'sprockets-image_compressor'
 gem 'active_hash'      
 gem 'carrierwave'
 gem 'rmagick'
+gem 'bootstrap-wysihtml5-rails'
+gem "opinio"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -63,3 +65,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "kaminari"

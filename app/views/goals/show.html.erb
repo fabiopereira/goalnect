@@ -1,26 +1,69 @@
-<%- model_class = @goal.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<div class="span7">
+	<%- model_class = @goal.class -%>
+	<h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= @goal.due_on %></h4>
 
-<dl class="dl-horizontal">
-
-  <dt><strong><%= model_class.human_attribute_name(:owner) %>:</strong></dt>
-  <dd><%= @goal.owner.screen_name %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:achiever) %>:</strong></dt>
-  <dd><%= @goal.achiever.screen_name %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @goal.title%></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @goal.description %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:due_on) %>:</strong></dt>
-  <dd><%= @goal.due_on %></dd>
-
-</dl>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              goals_path(@goal.achiever.username), :class => 'btn'  %>
+	<pre><%=raw @goal.description %></pre>
+	<div class="form-actions">
+		<%= link_to t('.back', :default => t("helpers.links.back")), '/'+@goal.achiever.username, :class => 'btn' %>
+	</div>
 </div>
+<div class="span4">
+	<div class="span3 row well">
+		<%= form_for @goal_support, :format => :json, :remote => true,  :url => '/'+@goal.achiever.username+'/goals/support/'+@goal.id.to_s+'.json', :html => { :'data-type' => 'json' } do |f| %>
+		   <%= render 'layouts/model_error_messages', :target => @goal_support %>
+		   <%= f.check_box :i_support, :class => 'check_box', :style => 'display:none' %>
+		 <%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "I Believe", :onclick => "$('#goal_support_i_support').prop('checked', true);"%>
+		<%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "Srsly?!?", :onclick => "$('#goal_support_i_support').prop('checked', false);"%>
+		<% end %>
+		<div id="test">
+		</div>
+	</div>
+	<div class="span3 row well" style="background:white">
+		<table class="table table-striped table-condensed">
+		  <thead>
+		    <tr>
+		 	  <th>Name</th>
+		      <th>Value</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		      <tr>
+		        <td>Fabio Pereira</td>
+		        <td>$ 50.00</td>
+		      </tr>
+			  <tr>
+		        <td>Daniella Hayashi</td>
+		        <td>$ 30.00</td>
+		      </tr> 		
+		  </tbody>
+		</table>
+		<input type="button" value="Donate" class="btn btn-primary"/>
+	</div>
+	<div class="span3 row well">
+		<%= form_for @goal_comment, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_comment/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
+			<%= render 'layouts/model_error_messages', :target => @goal_comment %>
+		  <div class="field">
+		    <%= f.label :message %><br />
+		    <%= f.text_area :message, :rows => 2 %>
+		    <%= f.submit nil, :class => 'btn btn-primary', :value => 'Send', :disable_with => 'Saving...' %>
+		  </div>
+		<% end %>
+		<div id="comments_div">
+			<% comments = @goal.find_comments() %>	
+			    <% comments.each do |comment| %>
+				<b><%= comment.user.screen_name%>:</b> <%= comment.message%><br/>
+			<% end %>
+		</div>
+		<script>
+			$('#new_goal_comment').on('ajax:success',function(event, data, status, xhr){
+		    	$('#comments_div').append(data.user.screen_name + ':' + data.message + '<br/>');
+			});
+			$('#new_goal_support').on('ajax:success',function(event, data, status, xhr){
+			   $('#test').html(data.id);
+			});
+		</script>
+
+	</div>
+</div>
+
+

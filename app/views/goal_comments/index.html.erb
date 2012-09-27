@@ -1,0 +1,27 @@
+<h1>Listing goal_comments</h1>
+
+<table>
+  <tr>
+    <th>Message</th>
+    <th>Goal</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @goal_comments.each do |goal_comment| %>
+  <tr>
+    <td><%= goal_comment.message %></td>
+    <td><%= goal_comment.goal_id %></td>
+    <td><%= goal_comment.user_id %></td>
+    <td><%= link_to 'Show', goal_comment %></td>
+    <td><%= link_to 'Edit', edit_goal_comment_path(goal_comment) %></td>
+    <td><%= link_to 'Destroy', goal_comment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Goal comment', new_goal_comment_path %>

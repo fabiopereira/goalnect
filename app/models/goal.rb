@@ -9,5 +9,8 @@ class Goal < ActiveRecord::Base
     find(:all, :conditions => ['achiever_id != :u and owner_id = :u', {:u => user.id}])
   end
   
+  def find_comments
+    GoalComment.find_all_by_goal_id(self.id)
+  end
   
 end

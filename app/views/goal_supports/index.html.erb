@@ -1,0 +1,27 @@
+<h1>Listing goal_supports</h1>
+
+<table>
+  <tr>
+    <th>I support</th>
+    <th>Goal</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @goal_supports.each do |goal_support| %>
+  <tr>
+    <td><%= goal_support.i_support %></td>
+    <td><%= goal_support.goal_id %></td>
+    <td><%= goal_support.user_id %></td>
+    <td><%= link_to 'Show', goal_support %></td>
+    <td><%= link_to 'Edit', edit_goal_support_path(goal_support) %></td>
+    <td><%= link_to 'Destroy', goal_support, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Goal support', new_goal_support_path %>
