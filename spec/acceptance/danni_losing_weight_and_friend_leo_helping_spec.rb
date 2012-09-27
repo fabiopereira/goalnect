@@ -41,9 +41,9 @@ feature 'Danni losing weight and friend leo helping', %q{
     # fill_in 'user_dob', :with => danni['dob'].strftime("%d/%m/%Y") 
     fill_in 'dob', :with => 27.years.ago.strftime("%d/%m/%Y") 
     
-    # click_on 'Sign up'
-    # 
-    # page.should have_content 'confirmation link has been sent to your email'
+    click_on 'Sign up'
+    
+    page.should have_content 'confirmation link has been sent to your email'
     
   end
 
