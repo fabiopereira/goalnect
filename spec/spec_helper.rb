@@ -5,10 +5,15 @@ require 'rspec/rails'
 require 'rspec/autorun'
 # require 'ruby-debug'
 
-require 'email_spec'
+require 'email_spec'        
 
-Capybara::Screenshot.screen_shot_and_save_page
-Capybara.javascript_driver = :webkit
+require 'rails/test_help'
+        
+require 'capybara/rspec'
+# Capybara::Screenshot.screen_shot_and_save_page
+
+# Capybara.javascript_driver = :webkit
+Capybara.default_driver = :selenium
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

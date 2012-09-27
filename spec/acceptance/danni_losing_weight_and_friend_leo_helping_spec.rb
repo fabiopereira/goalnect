@@ -44,7 +44,19 @@ feature 'Danni losing weight and friend leo helping', %q{
     click_on 'Sign up'
     
     page.should have_content 'confirmation link has been sent to your email'
+
+    visit '/' + danni['username']
+    page.should have_content 'You need to sign in or sign up before continuing'
     
+    fill_in "user_email",    :with => danni['email']
+    fill_in 'user_password', :with => danni['password']
+    click_on 'Sign in'
+    page.should have_content 'You have to confirm your account before continuing'
+    
+    user = User.find_by_username(danni['username'])
+    visit '/users/confirmation?confirmation_token=' + user.confirmation_token
+    
+    page.should have_content 'ABOUT ME'
   end
 
 end

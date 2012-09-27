@@ -286,6 +286,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   rmagick
   sass-rails (~> 3.2.3)
+  selenium-webdriver
   sprockets-image_compressor
   steak
   thin
