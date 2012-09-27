@@ -8,6 +8,8 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'heroku_san'
   gem 'steak'
+  gem 'capybara-screenshot'
+  gem 'capybara-webkit'
 end
 
 group :test do
