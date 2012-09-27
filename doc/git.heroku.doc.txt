@@ -3,6 +3,8 @@ Run tests in parallel
 spork-rails
 chat with users
 http://www.olark.com/
+if you don't want to login everytime
+https://github.com/plataformatec/devise/wiki/How-To:-Test-with-Capybara
 
 
 
