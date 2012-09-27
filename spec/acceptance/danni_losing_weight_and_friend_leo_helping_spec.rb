@@ -1,15 +1,15 @@
 require 'acceptance/acceptance_helper'
 
 feature 'Danni losing weight and friend leo helping', %q{
-  In order to ...
-  As a ...
-  I want ...
+  In order for Danni to lose 35kg in 12 months she needs support from her friends
+  As a Goalnect Achiever Danni needs to register her goal and ask friends to support and believe that she can achieve it 
 } do
 
-  scenario 'first scenario' do
-    true.should == true
+  scenario 'Danni 12 months journey losing 35kg' do
+    danni = FactoryGirl.build(:any_user)
     visit '/'
-    page.should have_content 'Login'
+    click_on 'Login'
+    page.should have_content 'Sign in'
   end
 
 end
