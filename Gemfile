@@ -7,13 +7,13 @@ end
 group :development, :test do
   gem 'mailcatcher'
   gem 'heroku_san'
-  gem 'rspec-rails'
+  gem 'steak'
 end
 
 group :test do
   gem "database_cleaner", ">= 0.7.2"
   gem 'factory_girl_rails', "~> 4.0"
-  gem 'email_spec'
+  gem 'email_spec'  
 end
 
 gem 'thin'
