@@ -5,9 +5,10 @@ feature 'Danni losing weight and friend leo helping', %q{
   As a Goalnect Achiever Danni needs to register her goal and ask friends to support and believe that she can achieve it 
 } do
   
-  scenario 'Danni 12 months journey losing 35kg' do  
+  scenario 'Danni living her 12 months journey losing 35kg with friend Leo' do  
     danni = logged_in 'danni'
     commit_to_a_goal 'Lose 35kg'
+    leo = logged_in 'leo'
   end
 
 end
