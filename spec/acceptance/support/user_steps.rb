@@ -40,7 +40,7 @@ module UserSteps
     user = User.find_by_username(user.username)
   end
   
-	def logged_in username          
+	def ensure_logged_in username          
 	  user = User.find_by_username(username)
 	  
 	  if is_logged_in(username)
