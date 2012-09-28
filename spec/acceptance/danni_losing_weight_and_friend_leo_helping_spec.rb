@@ -7,6 +7,7 @@ feature 'Danni losing weight and friend leo helping', %q{
   
   scenario 'Danni 12 months journey losing 35kg' do  
     danni = logged_in 'danni'
+    commit_to_a_goal 'Lose 35kg'
   end
 
 end
