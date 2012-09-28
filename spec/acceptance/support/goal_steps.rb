@@ -11,6 +11,13 @@ module GoalSteps
 	  page.should have_content 'Goal was successfully created'
 	  Goal.find_by_title title
 	end
+	
+	def support_believing user, goal
+	  visit "/#{user.username}/goals/show/#{goal.id}"
+	  page.should have_content goal.title
+	  click_on 'I Believe'
+	end
+	
 end
 
 RSpec.configuration.include GoalSteps, :type => :acceptance
