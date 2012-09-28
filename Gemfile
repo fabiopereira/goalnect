@@ -11,12 +11,9 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
   gem 'capybara-screenshot'
-end
-
-group :test do
-  gem "database_cleaner", ">= 0.7.2"
   gem 'factory_girl_rails', "~> 4.0"
   gem 'email_spec'  
+  # gem "database_cleaner", ">= 0.7.2"
 end
 
 gem 'thin'

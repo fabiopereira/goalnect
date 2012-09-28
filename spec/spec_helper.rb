@@ -48,14 +48,19 @@ RSpec.configure do |config|
   config.order = "random"    
   
   # Configuring database_cleaner
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-  end
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  # config.before(:suite) do
+  #   DatabaseCleaner.strategy = :truncation
+  # end
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  #   @user = User.create! :screen_name => 'First User', 
+  #                 :email => 'user@example.com', 
+  #                 :username => 'user1',
+  #                 :password => 'please', 
+  #                 :password_confirmation => 'please'
+  # end
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
   # End database_cleaner  
 end

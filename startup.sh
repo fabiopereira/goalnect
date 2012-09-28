@@ -4,6 +4,12 @@
 # git clone git@github.com:camilahayashi/goalnect.git
 # git clone https://github.com/camilahayashi/goalnect.git
 # also install this https://toolbelt.heroku.com/
+# Install RVM https://rvm.io/rvm/install/
+# Install Bundler http://gembundler.com/
+
+# Tutorial
+# http://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/
+# Google and download GCC-10.7-v2.pkg
                                         
 brew update #if already installd, otherwise, install homebrew
 brew install imagemagick
