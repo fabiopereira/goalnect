@@ -1,6 +1,6 @@
 <script>	
 	  $(document).ready(function(){
-		 $("#dob").datepicker();
+		 $("#dob").datepicker({changeYear : true, changeMonth : true});
 	  });
 </script>
 <h2>Sign up</h2>
@@ -20,7 +20,7 @@
     <div><%= f.label :screen_name %><br />
   <%= f.text_field :screen_name %></div>
   
-    <div>url: www.goalnect.com.au/<br />
+    <div>www.goalnect.com.au/<br />
   <%= f.text_field :username %></div>
 
   <div class="control-group">
@@ -31,7 +31,7 @@
   </div>
 
  <div class="control-group">
-    <<%= f.label 'country', 'Country' %>
+    <%= f.label 'country', 'Country' %>
     <div class="controls">
      <%= collection_select(:user, :country_id, Country.all, :id, :name) %>
     </div>

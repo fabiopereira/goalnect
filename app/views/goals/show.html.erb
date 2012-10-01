@@ -9,13 +9,15 @@
 </div>
 <div class="span4">
 	<div class="span3 row well">
-		<%= form_for @goal_support, :format => :json, :remote => true,  :url => '/'+@goal.achiever.username+'/goals/support/'+@goal.id.to_s+'.json', :html => { :'data-type' => 'json' } do |f| %>
-		   <%= render 'layouts/model_error_messages', :target => @goal_support %>
-		   <%= f.check_box :i_support, :class => 'check_box', :style => 'display:none' %>
-		 <%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "I Believe", :onclick => "$('#goal_support_i_support').prop('checked', true);"%>
-		<%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "Srsly?!?", :onclick => "$('#goal_support_i_support').prop('checked', false);"%>
-		<% end %>
-		<div id="test">
+		<div id="support_form_div_id">
+			<%= form_for @goal_support, :format => :json, :remote => true,  :url => '/'+@goal.achiever.username+'/goals/add_support/'+@goal.id.to_s+'.json', :html => { :'data-type' => 'json' } do |f| %>
+			   <%= render 'layouts/model_error_messages', :target => @goal_support %>
+			   <%= f.check_box :i_support, :class => 'check_box', :style => 'display:none' %>
+			 <%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "I Believe", :onclick => "$('#goal_support_i_support').prop('checked', true);"%>
+			<%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "Srsly?!?", :onclick => "$('#goal_support_i_support').prop('checked', false);"%>
+			<% end %>
+		</div>
+		<div id="support_info_msg">
 		</div>
 	</div>
 	<div class="span3 row well" style="background:white">
@@ -55,11 +57,27 @@
 			<% end %>
 		</div>
 		<script>
+			$().ready(function() {
+				$.getJSON(
+					"<%= '/'+@goal.achiever.username+'/goals/support_info/'+@goal.id.to_s+'.json' %>",
+					renderSupportSection
+				);
+			})
+			
+			function renderSupportSection (data){
+				$("#support_form_div_id").hide();
+				if (!data.has_given_support){
+					$("#support_form_div_id").show();
+				}
+				$("#support_info_msg").html("your support: " + data.support_value + " - believes: " + data.support_true_count + " - Srsly: " + data.support_false_count);
+			} 
+		
+		
 			$('#new_goal_comment').on('ajax:success',function(event, data, status, xhr){
 		    	$('#comments_div').append(data.user.screen_name + ':' + data.message + '<br/>');
 			});
 			$('#new_goal_support').on('ajax:success',function(event, data, status, xhr){
-			   $('#test').html(data.id);
+			   renderSupportSection(data);
 			});
 		</script>
 

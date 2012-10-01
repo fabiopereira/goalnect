@@ -68,38 +68,34 @@ class GoalsController < ApplicationController
       end
   end
   
-  def support
-    @goal_supports =  GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);
-    if @goal_supports.nil?
-       add_support
+  def add_support
+      goal_supports =  GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);
+      if @goal_supports.nil?
+         params[:goal_support][:goal_id] = params[:goal_id]
+         params[:goal_support][:user_id] = current_user.id
+         @goal_support = GoalSupport.create(params[:goal_support])
+      else
+         @goal_support = goal_supports.first.update_attributes(params[:goal_support])
+      end
+      support_info
+  end
+    
+  def support_info
+    @support = Hash.new
+    @support[:support_true_count]  = GoalSupport.where(:goal_id=>params[:goal_id]).where(:i_support=>true).count;
+    @support[:support_false_count] = GoalSupport.where(:goal_id=>params[:goal_id]).where(:i_support=>false).count;
+    goal_supports = GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);
+    if goal_supports.nil? || goal_supports.empty?
+      @support[:has_given_support] = false;
     else
-       update_support @goal_supports.first
+      @support[:has_given_support] = true;
+      @support[:support_value] = goal_supports.first.i_support
+    end
+    respond_to do |format|
+      format.json { render json: @support}  
     end
   end
-  
-  def add_support
-    params[:goal_support][:goal_id] = params[:goal_id]
-    params[:goal_support][:user_id] = current_user.id
-    @goal_support = GoalSupport.new(params[:goal_support])
-     respond_to do |format|
-        if @goal_support.save
-          format.json { render json: @goal_support.to_json(:include => {:user => {:only => :screen_name}}), status: :created, location: @goal_support }
-        else
-           format.json { render json: @goal_support.errors, status: :unprocessable_entity }
-        end
-     end
-  end
-  
-  def update_support(goal_support)
-     respond_to do |format|
-        if goal_support.update_attributes(params[:goal_support])
-          format.json { render json: goal_support.to_json(:include => {:user => {:only => :screen_name}}), status: :created, location: goal_support }
-        else
-           format.json { render json: goal_support.errors, status: :unprocessable_entity }
-        end
-     end
-  end  
-  
+ 
   def find_achiever(params)
     achiever_username = params[:user_username]
     if (current_user.username == achiever_username)

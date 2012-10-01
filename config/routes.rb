@@ -16,7 +16,8 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/create' => 'goals#create'
   match '/:user_username/goals/show/:goal_id' => 'goals#show'
   match '/:user_username/goals/add_comment/:goal_id' => 'goals#add_comment'
-  match '/:user_username/goals/support/:goal_id' => 'goals#support'
+  match '/:user_username/goals/add_support/:goal_id' => 'goals#add_support'
+  match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/edit/:id' => 'goals#edit'
   
   match '/achiever/edit' => 'achiever#edit'
