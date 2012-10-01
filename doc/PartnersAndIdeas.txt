@@ -1,0 +1,9 @@
+**********************************
+Ana Maria Braga
+Ana Maria Braga no dia 1 de Outubro 2012 passou reportagem sobre aplicativos
+
+
+**********************************
+circleci
+- Falar nas redes sociais que usamos o circleci para o nosso build
+
