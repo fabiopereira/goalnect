@@ -8,7 +8,7 @@ module GoalSteps
     # fill_in 'goal_description', :with => description
     # fill_in 'goal_due_on', :with => 2.months.from_now
 	  click_on 'Create Goal'
-	  page.should have_content 'Goal was successfully created'
+	  page.should have_content 'Goal was successfully created NOT PRESENT'
 	  Goal.find_by_title title
 	end
 	
