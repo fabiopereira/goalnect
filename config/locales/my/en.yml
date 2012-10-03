@@ -1,0 +1,10 @@
+en:
+  devise:
+    sessions:
+      sign_in: 'Sign in'
+    links:
+      forgot_your_password: 'Forgot your password?'
+      sign_up: 'Sign up'
+      didnt_receive_confirmation: "Didn't receive confirmation instructions?"
+      didnt_receive_unlock: "Didn't receive unlock instructions?"
+

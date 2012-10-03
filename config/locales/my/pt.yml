@@ -1,0 +1,17 @@
+pt:
+  devise:
+    sessions:
+      sign_in: 'Efeturar login'
+    links:
+      forgot_your_password: 'Esqueceu sua senha?'
+      sign_up: 'Cadastrar-se'
+      didnt_receive_confirmation: "Não recebeu instruções para confirmação?"
+      didnt_receive_unlock: "Não recebeu instruções para desbloqueio?"
+  activerecord:
+    models:
+      user: "Usuário"
+    attributes:
+      user:
+        email: "Email"      
+        password: "Senha"      
+        remember_me: "Mantenha-me conectado"      
