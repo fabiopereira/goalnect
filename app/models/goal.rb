@@ -14,7 +14,7 @@ class Goal < ActiveRecord::Base
   end
   
   def self.find_active_goals(user)
-    find(:all, :conditions => ['achiever_id = :u and goal_stage_id != :pending and  goal_stage_id != :not_accepted', {:u => user.id, :pending => GoalStage::PENDING.id, :not_accepted => GoalStage::NOT_ACCEPTED}])
+    find(:all, :conditions => ['achiever_id = :u and goal_stage_id != :abandoned and  goal_stage_id != :not_accepted', {:u => user.id, :abandoned => GoalStage::ABANDONED.id, :not_accepted => GoalStage::NOT_ACCEPTED.id}])
   end
   
   def find_comments

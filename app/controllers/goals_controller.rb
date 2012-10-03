@@ -47,6 +47,12 @@ class GoalsController < ApplicationController
     params[:goal][:owner] = current_user    
     @goal = Goal.new(params[:goal])
     @achiever_username = params[:user_username]
+    @goal.goal_stage_changed_at = Time.now
+    if @goal.owner.id == @goal.achiever.id
+      @goal.goal_stage_id = GoalStage::JUST_STARTED.id
+    else
+       @goal.goal_stage_id = GoalStage::PENDING.id
+    end
     respond_to do |format|
       if @goal.save
           format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: 'Goal was successfully created.' }
