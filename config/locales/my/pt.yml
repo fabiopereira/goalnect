@@ -15,3 +15,5 @@ pt:
         email: "Email"      
         password: "Senha"      
         remember_me: "Mantenha-me conectado"      
+
+  search_friends: "Buscar"
