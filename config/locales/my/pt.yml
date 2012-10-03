@@ -15,12 +15,17 @@ pt:
       user:
         email: "Email"      
         password: "Senha"      
+        photo: "Foto"      
         remember_me: "Mantenha-me conectado"      
-        password_confirmation: ""
+        password_confirmation: "Confirmação de senha"
         screen_name: "Nome"
         username: "Sua página"
+        about_me: "Sobre mim"
         dob: "Data de nascimento"
         country_id: "País ID"
         country: "País"
         
   search_friends: "Buscar"
+  edit: "Editar"
+  cancel: "Cancelar"
+  change: "Mudar"

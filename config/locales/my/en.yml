@@ -2,6 +2,7 @@ en:
   devise:
     sessions:
       sign_in: 'Sign in'
+      sign_up: 'Sign up'
     links:
       forgot_your_password: 'Forgot your password?'
       sign_up: 'Sign up'

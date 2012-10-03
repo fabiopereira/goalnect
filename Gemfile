@@ -26,10 +26,13 @@ gem 'oauth2'
 gem 'google-analytics-rails'
 gem 'sprockets-image_compressor'  
 gem 'active_hash'      
-gem 'carrierwave'
-gem 'rmagick'
 gem 'bootstrap-wysihtml5-rails'
 gem "opinio"
+
+# Image Upload
+gem 'carrierwave'
+gem 'rmagick'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
