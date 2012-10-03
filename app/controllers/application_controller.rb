@@ -19,7 +19,12 @@ class ApplicationController < ActionController::Base
   end
   
   def set_locale_from_param
-    params[:locale]
+    locale_param = params[:locale]
+    available_locales_as_s = I18n.available_locales.map { |x| x.to_s }
+    if locale_param && !available_locales_as_s.include?(locale_param)
+      raise "Invalid locale parameter #{locale_param}"
+    end
+    locale_param
   end
   
   def set_locale_from_current_user
