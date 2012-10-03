@@ -46,9 +46,7 @@ class ApplicationController < ActionController::Base
   # 127.0.0.1 local.goalnect.org.br
   def set_locale_from_domain
     parsed_locale = request.host.split('.').last
-    logger.debug "Getting locale from host #{request.host} parsed_locale #{parsed_locale}"
     parsed_locale = parsed_locale == "br" ? "pt" : parsed_locale
-    logger.debug "Available locales #{I18n.available_locales}"
     I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
   end
 
