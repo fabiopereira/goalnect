@@ -2,6 +2,7 @@ pt:
   devise:
     sessions:
       sign_in: 'Efeturar login'
+      sign_up: 'Cadastre-se'
     links:
       forgot_your_password: 'Esqueceu sua senha?'
       sign_up: 'Cadastrar-se'
@@ -15,5 +16,11 @@ pt:
         email: "Email"      
         password: "Senha"      
         remember_me: "Mantenha-me conectado"      
-
+        password_confirmation: ""
+        screen_name: "Nome"
+        username: "Sua página"
+        dob: "Data de nascimento"
+        country_id: "País ID"
+        country: "País"
+        
   search_friends: "Buscar"

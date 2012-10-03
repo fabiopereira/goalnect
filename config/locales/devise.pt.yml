@@ -13,7 +13,7 @@ pt:
       invalid_token: 'O token de autenticação não é válido.'
       locked: 'Sua conta está bloqueada.'
       timeout: 'Sua sessão expirou, por favor, efetue login novamente para continuar.'
-      unauthenticated: 'Para continuar, efetue login ou registre-se.'
+      unauthenticated: 'Para continuar, efetue login ou cadastre-se.'
       unconfirmed: 'Antes de continuar, confirme a sua conta.'
     mailer:
       confirmation_instructions:
