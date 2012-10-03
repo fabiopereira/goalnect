@@ -8,6 +8,12 @@ https://github.com/plataformatec/devise/wiki/How-To:-Test-with-Capybara
 speed up your tests
 https://github.com/plataformatec/devise/wiki/Speed-up-your-unit-tests
 
+I18n
+DOC -     http://guides.rubyonrails.org/i18n.html
+Plugins - http://ruby-i18n.org/wiki
+
+Log4r (similar to log4j) step by step
+http://stackoverflow.com/questions/5664136/how-to-configure-log4r-with-rails-3-0-x
 
 DEPRECATED Multiple Heroku Environments
 http://jqr.github.com/2009/04/25/deploying-multiple-environments-on-heroku.html

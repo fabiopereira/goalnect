@@ -16,6 +16,7 @@ group :development, :test do
   # gem "database_cleaner", ">= 0.7.2"
 end
 
+gem 'log4r'
 gem 'thin'
 gem 'rails', '3.2.3'
 gem 'devise', '2.1.0'

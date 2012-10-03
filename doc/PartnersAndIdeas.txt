@@ -26,6 +26,9 @@ circleci
 
 http://catarse.me/
 www.juntos.com.vc
+http://www.mudaromundo.com.br/
+youseed.com
+
 
 
 **********************************

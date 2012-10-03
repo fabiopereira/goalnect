@@ -10,6 +10,6 @@ FactoryGirl.define do
     confirmed_at DateTime.now
     screen_name {|u| "#{u.username} Screen Name"  }
     dob 27.years.ago
-    country_id 1
+    country_id Country::AUSTRALIA.id
   end
 end 

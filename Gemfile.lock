@@ -123,6 +123,7 @@ GEM
     libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
+    log4r (1.1.10)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -275,6 +276,7 @@ DEPENDENCIES
   heroku_san
   jquery-rails
   kaminari
+  log4r
   mailcatcher
   oauth2
   omniauth

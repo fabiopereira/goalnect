@@ -12,6 +12,10 @@ class GoalStage < ActiveHash::Base
   enum_accessor :name
   
   def self.possible_goal_stage_updates
-    values = [GoalStage::HALF_WAY_THERE, GoalStage::ALMOST_THERE, GoalStage::DONE, GoalStage::ABANDONED]
+    values = [
+      GoalStage::HALF_WAY_THERE, 
+      GoalStage::ALMOST_THERE, 
+      GoalStage::DONE, 
+      GoalStage::ABANDONED]
   end
 end
