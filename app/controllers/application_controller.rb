@@ -22,7 +22,11 @@ class ApplicationController < ActionController::Base
   end
   
   def set_locale_from_accept_language_http_header
-    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
+    locale_from_accept_language = accept_language.scan(/^[a-z]{2}/).first
+    logger.debug "locale accept_language #{accept_language}"
+    logger.debug "locale_from_accept_language #{accept_language} is #{locale_from_accept_language}"
+    locale_from_accept_language
   end
   
   # To test this locally, add to /etc/hosts 
