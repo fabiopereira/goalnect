@@ -17,7 +17,7 @@
 				</div>
 				<div class="span5 row well" style="background: white;">
 					<b>GOALS:</b> 
-					<% my_goals = @achiever.find_my_goals() %>
+					<% my_goals = @achiever.find_active_goals() %>
 					<% is_my_home = my_goals.empty? && current_user.id == @achiever.id %>
 					<%= render 'goals/new_goal_url' %>
 					<br/>

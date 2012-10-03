@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     Goal.find_goals_dared_by(self)
   end
   
+  def find_active_goals
+    Goal.find_active_goals(self)
+  end
+  
   def full_url
     "/#{self.username}"
   end

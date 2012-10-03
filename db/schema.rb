@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926191150) do
+ActiveRecord::Schema.define(:version => 20121003133507) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20120926191150) do
     t.string   "token"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "owner_id",         :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "body",             :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "countries", :force => true do |t|
@@ -50,9 +59,10 @@ ActiveRecord::Schema.define(:version => 20120926191150) do
     t.string   "title"
     t.date     "due_on"
     t.integer  "achiever_id"
-    t.integer  "status_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "goal_stage_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.datetime "goal_stage_changed_at"
   end
 
   add_index "goals", ["achiever_id"], :name => "index_goals_on_achiever_id"

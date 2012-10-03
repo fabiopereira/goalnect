@@ -1,7 +1,15 @@
 <div class="span7">
 	<%- model_class = @goal.class -%>
 	<h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= @goal.due_on %></h4>
-
+	<div class="well" style="background:white">
+		This goal is  <span><%= @goal.goalStage.name%> (<%= @goal.goal_stage_changed_at%>)</span>
+		<% if current_user.id == @goal.achiever.id%>
+			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
+			<%= collection_select(:goal, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
+		 	<%= f.submit nil, :class => 'btn btn-primary' %>
+			<% end %>
+		<% end %>
+	</div>
 	<pre><%=raw @goal.description %></pre>
 	<div class="form-actions">
 		<%= link_to t('.back', :default => t("helpers.links.back")), '/'+@goal.achiever.username, :class => 'btn' %>

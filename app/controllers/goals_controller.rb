@@ -95,6 +95,17 @@ class GoalsController < ApplicationController
       format.json { render json: @support}  
     end
   end
+  
+  def change_stage
+    @goal = Goal.find(params[:goal_id])
+    if @goal.achiever.id == current_user.id
+      @goal.goal_stage_changed_at = Time.now
+      @goal.update_attributes(params[:goal])
+    end
+     respond_to do |format|
+      format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id) }  
+     end
+  end
  
   def find_achiever(params)
     achiever_username = params[:user_username]
