@@ -8,6 +8,7 @@ def create
  
   if authentication
     # Authentication found, sign the user in.
+    puts 'signed in with facebook!!!'
     flash[:notice] = "Signed in successfully."
     sign_in_and_redirect(:user, authentication.user)
   else
@@ -15,9 +16,11 @@ def create
     user = User.new
     user.apply_omniauth(auth)
     if user.save(:validate => false)
+       puts 'created user and signed in with facebook!!!'
       flash[:notice] = "Account created and signed in successfully."
       sign_in_and_redirect(:user, user)
     else
+       puts 'problems with facebook!!!'
       flash[:error] = "Error while creating a user account. Please try again."
       redirect_to root_url
     end

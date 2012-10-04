@@ -1,21 +1,54 @@
+<%- model_class = @goal.class -%>
+<h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= @goal.due_on %></h4>
 <div class="span7">
-	<%- model_class = @goal.class -%>
-	<h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= @goal.due_on %></h4>
-	<div class="well" style="background:white">
-		This goal is  <span><%= @goal.goalStage.name%> (<%= @goal.goal_stage_changed_at%>)</span>
-		<% if current_user.id == @goal.achiever.id%>
-			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
-			<%= collection_select(:goal, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
-		 	<%= f.submit nil, :class => 'btn btn-primary' %>
-			<% end %>
-		<% end %>
+	<div class="jq-tabs">
+		<ul>
+			<li><a href="#tabs-1">Description</a></li>
+			<li><a href="#tabs-2">Journey</a></li>
+			<li><a href="#tabs-3">Comments</a></li>
+		</ul>
+		<div id="tabs-1">
+			<pre><%=raw @goal.description %></pre>
+		</div>
+		<div id="tabs-2">
+				<% if current_user.id == @goal.achiever.id%>
+				<%= form_for @goal_comment, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_comment/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
+					<%= render 'layouts/model_error_messages', :target => @goal_comment %>
+				  <div class="field">
+				    <%= f.label :feedback %><br />
+				    <%= f.text_area :message, :rows => 10 %>
+				    <%= f.submit nil, :class => 'btn btn-primary', :value => 'Send', :disable_with => 'Saving...' %>
+				  </div>
+				<% end %>
+				<% end %>
+				<div id="comments_div">
+					<% comments = @goal.find_comments() %>	
+					    <% comments.each do |comment| %>
+					<hr style="color: #717171; height: 1px;">
+					<%= comment.message%>
+					<span class="small_i_font">(<%= comment.created_at %>)</span>
+					<% end %>
+			    </div>
+		</div>
+		<div id="tabs-3">
+			<div id="fb-root"></div>
+			<fb:comments href="/<%=@goal.achiever.username + '/goals/show/' + @goal.id.to_s %>"></fb:comments>
+		</div>
 	</div>
-	<pre><%=raw @goal.description %></pre>
 	<div class="form-actions">
 		<%= link_to t('.back', :default => t("helpers.links.back")), '/'+@goal.achiever.username, :class => 'btn' %>
 	</div>
 </div>
 <div class="span4">
+	<div class="span3 row well" style="background:white">
+		Status: <%= @goal.goalStage.name%> <span class="small_i_font">(<%= @goal.goal_stage_changed_at.strftime("%m/%d/%Y") %>)</span>
+		<% if current_user.id == @goal.achiever.id%>
+			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
+			Change to: <%= collection_select(:goal, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
+		 	<%= f.submit nil, :class => 'btn btn-primary' %>
+			<% end %>
+		<% end %>
+	</div>
 	<div class="span3 row well">
 		<div id="support_form_div_id">
 			<%= form_for @goal_support, :format => :json, :remote => true,  :url => '/'+@goal.achiever.username+'/goals/add_support/'+@goal.id.to_s+'.json', :html => { :'data-type' => 'json' } do |f| %>
@@ -49,21 +82,8 @@
 		</table>
 		<input type="button" value="Donate" class="btn btn-primary"/>
 	</div>
-	<div class="span3 row well">
-		<%= form_for @goal_comment, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_comment/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
-			<%= render 'layouts/model_error_messages', :target => @goal_comment %>
-		  <div class="field">
-		    <%= f.label :message %><br />
-		    <%= f.text_area :message, :rows => 2 %>
-		    <%= f.submit nil, :class => 'btn btn-primary', :value => 'Send', :disable_with => 'Saving...' %>
-		  </div>
-		<% end %>
-		<div id="comments_div">
-			<% comments = @goal.find_comments() %>	
-			    <% comments.each do |comment| %>
-				<b><%= comment.user.screen_name%>:</b> <%= comment.message%><br/>
-			<% end %>
-		</div>
+
+	
 		<script>
 			$().ready(function() {
 				$.getJSON(
@@ -82,14 +102,15 @@
 		
 		
 			$('#new_goal_comment').on('ajax:success',function(event, data, status, xhr){
-		    	$('#comments_div').append(data.user.screen_name + ':' + data.message + '<br/>');
+		    	$("#comments_div").append("<hr style='color: #717171; height: 1px;'>" + data.message + "<span class='small_i_font'>(" + data.created_at + ")</span>");
+				$("#goal_comment_message").val('');
 			});
+			
 			$('#new_goal_support').on('ajax:success',function(event, data, status, xhr){
 			   renderSupportSection(data);
 			});
 		</script>
 
-	</div>
 </div>
 
 
