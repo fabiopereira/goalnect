@@ -12,8 +12,11 @@ def create
     flash[:notice] = "Signed in successfully."
     sign_in_and_redirect(:user, authentication.user)
   else
-    # Authentication not found, thus a new user.
-    user = User.new
+    user = User.find_by_email(auth['extra']['raw_info']['email'])
+    if user.nil?
+      # Authentication not found, thus a new user.
+      user = User.new
+    end
     user.apply_omniauth(auth)
     if user.save(:validate => false)
        puts 'created user and signed in with facebook!!!'
