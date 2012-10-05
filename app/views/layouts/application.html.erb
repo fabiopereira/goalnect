@@ -19,7 +19,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta property="fb:app_id" content="457960647556335">
 		<%= render 'layouts/shim' %>
-		<%= analytics_init if Rails.env.production? %>
+		<%= analytics_init if Rails.env.production? || Rails.env.staging? %>
 		<header>
 		<%= render 'layouts/header' %>
 		</header>
