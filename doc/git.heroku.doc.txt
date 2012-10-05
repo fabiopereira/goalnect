@@ -18,7 +18,12 @@ http://stackoverflow.com/questions/5664136/how-to-configure-log4r-with-rails-3-0
 DEPRECATED Multiple Heroku Environments
 http://jqr.github.com/2009/04/25/deploying-multiple-environments-on-heroku.html
 NEW This is better for multiple Heroku Environments
-https://github.com/fastestforward/heroku_san         
+https://github.com/fastestforward/heroku_san     
+
+error pg_dump mismatch
+sudo find / -name pg_dump
+sudo mv /usr/bin/pg_dump /usr/bin/pg_dump_old
+sudo ln -s /usr/local/Cellar/postgresql/9.2.1/bin/pg_dump /usr/bin/pg_dump    
 
 ###################                   
 # Testing
