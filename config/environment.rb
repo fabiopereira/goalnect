@@ -5,3 +5,5 @@ require File.expand_path('../application', __FILE__)
 Goalnect::Application.initialize!
 
 #ENV['RAILS_ENV'] ||= 'production'
+
+Date::DATE_FORMATS.merge!(:default => "%d/%m/%Y")

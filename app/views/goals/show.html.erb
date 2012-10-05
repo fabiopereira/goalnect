@@ -41,7 +41,7 @@
 </div>
 <div class="span4">
 	<div class="span3 row well" style="background:white">
-		Status: <%= @goal.goalStage.name%> <span class="small_i_font">(<%= @goal.goal_stage_changed_at.strftime("%m/%d/%Y") %>)</span>
+		Status: <%= @goal.goalStage.name%> <span class="small_i_font"> (<%= l @goal.goal_stage_changed_at, :format => :short %>)</span>
 		<% if current_user.id == @goal.achiever.id%>
 			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
 			Change to: <%= collection_select(:goal, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
