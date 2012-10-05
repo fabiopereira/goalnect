@@ -35,7 +35,7 @@ module UserSteps
     fill_in 'dob', :with => user.dob.strftime("%d/%m/%Y")
     click_on 'Sign up'   
     user = User.find_by_username(user.username)
-    visit "/users/confirmation?confirmation_token=#{user.confirmation_token}" 
+    # visit "/users/confirmation?confirmation_token=#{user.confirmation_token}" 
     page.should have_content 'ABOUT ME'       
     user = User.find_by_username(user.username)
   end
