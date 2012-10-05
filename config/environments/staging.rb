@@ -85,5 +85,5 @@ Goalnect::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
   #google analytics
-  GA.tracker = "UA-33640820-1"
+  GA.tracker = "UA-33640820-2"
 end
