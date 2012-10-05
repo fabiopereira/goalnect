@@ -6,8 +6,18 @@
 		<%= stylesheet_link_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css"%>
 		
 		<%= javascript_include_tag "application" %>
+		<script src="http://connect.facebook.net/en_US/all.js#xfbml=1">
+		</script>
+		<script>
+		$(function() {
+				$( ".jq-tabs" ).tabs();
+			});
+			</script>
+		
+		</script>
 		<%= csrf_meta_tags %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="fb:app_id" content="457960647556335">
 		<%= render 'layouts/shim' %>
 		<%= analytics_init if Rails.env.production? %>
 		<header>

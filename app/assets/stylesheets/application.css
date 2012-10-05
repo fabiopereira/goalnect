@@ -13,3 +13,11 @@
  *= require bootstrap-wysihtml5
  */
 /* universal */
+#main {
+	margin-top: 60px;
+}
+
+.small_i_font{
+	font-size:x-small;
+	font-style:italic;
+}

@@ -65,13 +65,18 @@ class GoalsController < ApplicationController
   def add_comment
     params[:goal_comment][:goal_id] = params[:goal_id]
     params[:goal_comment][:user_id] = current_user.id
-    @goal_comment = GoalComment.new(params[:goal_comment])
-     respond_to do |format|
-        @goal_comment.save
-        format.json { render json: @goal_comment.to_json(
-              :include => {:user => {:only => :screen_name}}
-            ), status: :created, location: @goal_comment }
-      end
+    
+    goal = Goal.find_by_id(params[:goal_id])
+    if goal.achiever.id == current_user.id
+      @goal_comment = GoalComment.new(params[:goal_comment])
+      @goal_comment.save
+      respond_to do |format| 
+          format.json { render json: @goal_comment.to_json(
+                :include => {:user => {:only => :screen_name}}
+              ), status: :created, location: @goal_comment }
+        end
+    end
+     
   end
   
   def add_support
