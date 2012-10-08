@@ -44,12 +44,19 @@
 	
 </div>
 <div class="span3">
-	<%= image_tag("followUs.png") %><br/>
+	<%= image_tag("headline-#{I18n.locale}.png") %><br/>
+</div>
+<div id="headlineSubtitle" class="span3">
+	<p><%= t "headline.home.subtitle" %></p>
+</div>
+<div class="span3">
   <center>
-  <%= image_tag("comingsoon2.png") %>
+  <%= image_tag("comingsoon-#{I18n.locale}.png") %>
+<div class="span2">
   <a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png") %></a>
   <a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png") %></a>
   <a href="mailto:team@goalnect.com" target="blank"><%= image_tag("goalnect-mailto-48x48.png") %></a>
+</div>
   </center>
 </div>
 

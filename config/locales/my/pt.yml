@@ -8,6 +8,9 @@ pt:
       sign_up: 'Cadastrar-se'
       didnt_receive_confirmation: "Não recebeu instruções para confirmação?"
       didnt_receive_unlock: "Não recebeu instruções para desbloqueio?"
+  headline:
+    home:
+      subtitle: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
   activerecord:
     models:
       user: "Usuário"

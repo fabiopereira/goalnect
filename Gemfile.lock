@@ -258,7 +258,6 @@ GEM
     skinny (0.2.2)
       eventmachine (~> 1.0)
       thin
-    skitter-rails (0.0.1)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -333,7 +332,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   selenium-webdriver
   sidekiq
-  skitter-rails
   sprockets-image_compressor
   steak
   thin
