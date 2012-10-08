@@ -32,7 +32,12 @@ gem "opinio"
 # Image Upload
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
 
+gem "pagseguro"
+gem "faker"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

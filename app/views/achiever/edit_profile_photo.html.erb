@@ -1,0 +1,19 @@
+
+<div class="row well">
+	<b>Change profile photo</b>
+	<%= form_for @user, :url => '/achiever/update', :html => { :class => 'form-horizontal', :multipart => true } do |f| %>    
+
+		<%= render 'layouts/model_error_messages', :target => @user %>
+
+	   <div class="control-group">
+		<%= f.label :photo, :class => 'control-label' %>
+		<div class="controls">
+		 <%= f.file_field :image %>
+	    </div>
+	  </div>
+	  <div class="form-actions">
+	    <%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= link_to t('cancel'), '/'+@user.username, :class => 'btn' %>
+	  </div>
+	<% end %>
+</div>

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  # protect_from_forgery
   before_filter :set_locale
+  skip_before_filter :verify_authenticity_token
 
   # http://guides.rubyonrails.org/i18n.html
   def set_locale

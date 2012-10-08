@@ -1,5 +1,7 @@
 Goalnect::Application.routes.draw do
 
+ # resources :goal_donations
+
   resources :goal_supports
 
   resources :goal_comments
@@ -9,7 +11,7 @@ Goalnect::Application.routes.draw do
   devise_for :users
   match '/search' => 'achiever#search'
   match '/search/:q' => 'achiever#search'
-  match '/:user_username' => 'achiever#view'
+  #match '/:user_username' => 'achiever#view'
   
   match '/:user_username/goals' => 'goals#index'
   match '/:user_username/goals/new' => 'goals#new'
@@ -19,9 +21,14 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/add_support/:goal_id' => 'goals#add_support'
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
+  match '/goal_donations/new/:goal_id' => 'goal_donations#new'
+  match '/goal_donations/create/:goal_id' => 'goal_donations#create'
+  match '/goal_donations/confirm' => 'goal_donations#confirm'
+  match '/goal_donations/show/:id' => 'goal_donations#show'
   
   
   match '/achiever/edit' => 'achiever#edit'
+  match '/achiever/edit_profile_photo' => 'achiever#edit_profile_photo'
   match '/achiever/update' => 'achiever#update'
   
   match '/auth/:provider/callback' => 'authentications#create'

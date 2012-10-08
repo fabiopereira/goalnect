@@ -1,6 +1,8 @@
 <div class="row"> 
 	<div class="span2 well">
 		<p align="right"><%= link_to t('edit'), '/achiever/edit' if current_user.id == @achiever.id %></p>
+		<p align="right"><%= link_to t('edit_profile_photo'), '/achiever/edit_profile_photo' if current_user.id == @achiever.id %></p>
+		
 		<%= image_tag @achiever.image_url(:thumb) if @achiever.image? %><br/>
 		<h4><%= @achiever.screen_name %></h4>
 	</div>  

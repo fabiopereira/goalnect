@@ -164,5 +164,6 @@ class GoalsController < ApplicationController
       User.find_by_username(user_username)
     end
   end
-
+  
+  
 end

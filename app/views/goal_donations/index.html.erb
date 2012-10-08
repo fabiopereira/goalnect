@@ -1,0 +1,29 @@
+<h1>Listing goal_donations</h1>
+
+<table>
+  <tr>
+    <th>Message</th>
+    <th>Goal</th>
+    <th>User</th>
+    <th>Amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @goal_donations.each do |goal_donation| %>
+  <tr>
+    <td><%= goal_donation.message %></td>
+    <td><%= goal_donation.goal_id %></td>
+    <td><%= goal_donation.user_id %></td>
+    <td><%= goal_donation.amount %></td>
+    <td><%= link_to 'Show', goal_donation %></td>
+    <td><%= link_to 'Edit', edit_goal_donation_path(goal_donation) %></td>
+    <td><%= link_to 'Destroy', goal_donation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Goal donation', new_goal_donation_path %>

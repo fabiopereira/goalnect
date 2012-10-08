@@ -1,0 +1,2 @@
+module GoalDonationsHelper
+end

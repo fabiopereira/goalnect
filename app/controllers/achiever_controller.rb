@@ -19,6 +19,10 @@ class AchieverController < ApplicationController
     @user = current_user
   end
   
+  def edit_profile_photo
+    edit
+  end
+  
   def update
       @user = current_user
       respond_to do |format|
