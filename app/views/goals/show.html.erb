@@ -1,5 +1,5 @@
 <%- model_class = @goal.class -%>
-<h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= @goal.due_on %></h4>
+<h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= l @goal.due_on %></h4>
 <div class="span7">
 	<div class="jq-tabs">
 		<ul>
