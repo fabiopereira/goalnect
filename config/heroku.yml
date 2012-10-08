@@ -27,6 +27,7 @@ staging:
   config: &default
     BUNDLE_WITHOUT: "development:test"
     RAILS_ENV: "staging"
+    GOOGLE_ANALYTICS: "UA-33640820-2" 
     GMAIL_USERNAME: "team@goalnect.com"
     GMAIL_PASSWORD: "helpmygoal1234"
   addons:

@@ -1,3 +1,7 @@
+Registro br e heroku
+http://i.ndigo.com.br/2012/04/registro-br-e-heroku-configurando-dns/
+
+
 #Things to look at later
 Run tests in parallel
 spork-rails
