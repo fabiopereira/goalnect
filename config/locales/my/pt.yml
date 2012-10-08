@@ -10,7 +10,8 @@ pt:
       didnt_receive_unlock: "Não recebeu instruções para desbloqueio?"
   headline:
     home:
-      subtitle: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
+      subtitle1: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
+      subtitle2: "É uma idéia trazida da Inglaterra e da Austrália especialmente para todos os brasileiros"
   activerecord:
     models:
       user: "Usuário"
