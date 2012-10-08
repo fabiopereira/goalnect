@@ -10,27 +10,14 @@
           <a class="brand" href="/"><%= image_tag("goalnect.logo.png", id: "logo", alt: "Goalnect", width: "135") %></a>
           <div class="nav-collapse collapse" style="height: 0px;">
             <ul class="nav pull-right">
-				<% if !user_signed_in? %>
-				<li>
-					<a href="#how">How Does It Work</a>
-				</li>
-				<li>
-					<a href="#why">Why We Are Different</a>
-				</li>
-				<li>
-					<a href="#amazing">Are you amazing?</a>
-				</li>
-				<li>
-					<a href="mailto:team@goalnect.com" target="blank">Contact</a>
-				</li>
-				<%end%>
+				<% if user_signed_in? %>
 				<li>
 				<form action="/search">
 				  <input id="q" name="q" type="text" placeholder="<%= t 'search_friends' %>"/>
 				  <input type="submit" value="Search"/>                
 				</form>
 				</li>
-				<% if user_signed_in? %>
+				
 				  <span id='current_user_username' style='display:none'>
 				  	<%=current_user.username %>
 				  </span>
@@ -39,7 +26,7 @@
 				  </li>
 				<% else %>
 				  <li>
-				  <%= link_to('Login', new_user_session_path)  %>  
+				 <!-- <%= link_to('Login', new_user_session_path)  %>  -->
 				  </li>
 				<% end %>
             </ul>

@@ -27,7 +27,7 @@ gem 'google-analytics-rails'
 gem 'sprockets-image_compressor'  
 gem 'active_hash'      
 gem 'bootstrap-wysihtml5-rails'
-gem "opinio"
+
 
 # Image Upload
 gem 'carrierwave'

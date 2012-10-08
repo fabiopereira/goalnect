@@ -1,60 +1,56 @@
-<script>	
-	  $(document).ready(function(){
-		var new_position = $('#startHome').offset() ;
-		window.scrollTo(new_position.left,new_position.top);
-		if(navigator.platform != 'iPad' && navigator.platform != 'iPhone' && navigator.platform != 'iPod') {
-			$.smoothAnchors(2500, "swing", false);
-		}
-		
-	  });
+<script type="text/javascript">
+	var box_skitter_large = null;
+	$(document).ready(function() {
+		$('.box_skitter_large').skitter({
+			numbers_align: "center", 
+ 			dots: true, 
+ 			preview: true, 
+ 			focus: true, 
+ 			focus_position: "leftTop", 
+ 			controls: true, 
+ 			controls_position: "leftTop", 
+ 			progressbar: true, 
+ 			progressbar_css: { 
+				top:'5px', 
+				left:'590px', 
+				height:10, 
+				borderRadius:'2px', 
+				width:200, 
+				backgroundColor:'#000', 
+				opacity:.7 
+			}, 
+ 			animateNumberOver: { 'backgroundColor':'#555' }, 
+ 			enable_navigation_keys: true
+, 
+			onLoad: function(self) {
+				if (this.thumbs) $('.border-skitter').height(350);
+				box_skitter_large = self;
+			}
+		});
+	});
 </script>
-<%= image_tag("goalnect.home.bg.mountain.png", class: "bg-image") %>
-<div class="span12">
 
-<div id="amazingContent" class="span12">
-  <a name="amazing"></a>
-  
-  <div id="preSignUp">
-  <%= image_tag("followUs.png") %><br/>
+<div class="span8">
+	
+		<section class="border-skitter content-width">
+			<div class="box_skitter box_skitter_large">
+						<ul>
+							<li><%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %><div class="label_text"><p>Como funciona</p></div></li>
+							<li> <iframe class="video_frame" src="http://player.vimeo.com/video/46359215?title=0&amp;byline=0&amp;portrait=0&amp;api=1" width="640" height="385" frameborder="0" webkitallowfullscreen="" allowfullscreen=""></iframe><div class="label_text"><p>Pq somos diferentes</p></div></li>
+						</ul>
+					</div>
+				</section>
+
+	
+</div>
+<div class="span3">
+	<%= image_tag("followUs.png") %><br/>
   <center>
   <%= image_tag("comingsoon2.png") %>
   <a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png") %></a>
   <a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png") %></a>
   <a href="mailto:team@goalnect.com" target="blank"><%= image_tag("goalnect-mailto-48x48.png") %></a>
   </center>
-  </div>
-</div>
-
-<div id="whyContent" class="span12">
-  <a name="why"></a>
-  <div class="span3">
-  </div>
-  <div class="span6">
- <iframe class="video_frame" src="http://player.vimeo.com/video/46359215?title=0&amp;byline=0&amp;portrait=0&amp;api=1" width="640" height="385" frameborder="0" webkitallowfullscreen="" allowfullscreen=""></iframe>     
-  </div>
-  
-</div>
-
-
-<div id="howContent" class="span12">
-  <a name="how"></a>
-    <%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %>
-</div>
-
-
-<div id="homeContent" class="span12">
-        <a href="#amazing" id="mountainDream"></a>  
-        <a href="#why" id="whyImage"></a>  
-        <a href="#how" id="howImage"></a>
-        <a name="home" id="startHome"></a>
-</div>
-
-
-</div>
-<div style="display: none">
-<%= image_tag("asset.session.howDoesItWork-hover.png", class: "preloadImage") %>
-<%= image_tag("asset.session.whyWeAreDifferent-hover.png", class: "preloadImage") %>
-<%= image_tag("Mountain-Dream-hover.png", class: "preloadImage") %>					
 </div>
 
 
