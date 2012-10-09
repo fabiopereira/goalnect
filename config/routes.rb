@@ -13,7 +13,7 @@ Goalnect::Application.routes.draw do
   end
   match '/search' => 'achiever#search'
   match '/search/:q' => 'achiever#search'
-  #match '/:user_username' => 'achiever#view'
+  match '/:user_username' => 'achiever#view'
   
   match '/:user_username/goals' => 'goals#index'
   match '/:user_username/goals/new' => 'goals#new'
