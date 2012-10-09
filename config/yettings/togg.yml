@@ -1,0 +1,21 @@
+defaults: &defaults
+  feature_login: true
+  feature_payment: true
+
+development: 
+  <<: *defaults
+  
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+demo:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  feature_login: false
+  
+  
