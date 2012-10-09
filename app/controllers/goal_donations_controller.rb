@@ -46,8 +46,18 @@ class GoalDonationsController < ApplicationController
   
   def confirm
     return unless request.post?
+    
     pagseguro_notification do |notification|
-      puts 'NOTIFICATION' + notification.attributes.keys
+      logger.debug "NOTIFICATION RECEIVED FROM PagSeguro:"
+      
+      ap "VALID? #{notification.valid?}"
+      ap "TransacaoID? #{notification.transaction_id}"
+      ap "#{notification.inspect}"
+      ap "PRODUCTS #{notification.products}"
+      ap "BUYER #{notification.buyer}"
+      ap "STATUS #{notification.status}"
+      ap "PAYMENT #{notification.payment_method}"
+      ap "PROC_AT #{notification.processed_at}"
       # Aqui você deve verificar se o pedido possui os mesmos produtos
       # que você cadastrou. O produto só deve ser liberado caso o status
       # do pedido seja "completed" ou "approved"

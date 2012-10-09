@@ -41,6 +41,7 @@ rails g bootstrap:themed GoalSupport
 
 
 rails g scaffold GoalDonation message:text, goal_id:integer, user_id:integer, amount:decimal
+rails g scaffold GoalDonationPaymentNotification goal_donation_id:integer, price_cents:integer, 
 
 
 
