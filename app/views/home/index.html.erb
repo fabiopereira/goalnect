@@ -1,47 +1,11 @@
-<script type="text/javascript">
-	var box_skitter_large = null;
-	$(document).ready(function() {
-		$('.box_skitter_large').skitter({
-			numbers_align: "center", 
- 			dots: true, 
- 			preview: true, 
- 			focus: true, 
- 			focus_position: "leftTop", 
- 			controls: true, 
- 			controls_position: "leftTop", 
- 			progressbar: true, 
- 			progressbar_css: { 
-				top:'5px', 
-				left:'590px', 
-				height:10, 
-				borderRadius:'2px', 
-				width:200, 
-				backgroundColor:'#000', 
-				opacity:.7 
-			}, 
- 			animateNumberOver: { 'backgroundColor':'#555' }, 
- 			enable_navigation_keys: true
-, 
-			onLoad: function(self) {
-				if (this.thumbs) $('.border-skitter').height(350);
-				box_skitter_large = self;
-			}
-		});
-	});
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto({show_title: false, social_tools:false});
+  });
 </script>
-
 <div class="span8">
-	
-		<section class="border-skitter content-width">
-			<div class="box_skitter box_skitter_large">
-						<ul>
-							<li><%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %><div class="label_text"><p>Como funciona</p></div></li>
-							<li> <iframe class="video_frame" src="http://player.vimeo.com/video/46359215?title=0&amp;byline=0&amp;portrait=0&amp;api=1" width="640" height="385" frameborder="0" webkitallowfullscreen="" allowfullscreen=""></iframe><div class="label_text"><p>Pq somos diferentes</p></div></li>
-						</ul>
-					</div>
-				</section>
-
-	
+<%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %> 
 </div>
 <div class="span3">
 	<%= image_tag("headline-#{I18n.locale}.png") %><br/>
@@ -52,14 +16,19 @@
 </div>
 <div class="span3">
   <center>
+	<br/>
+	<a href="<%= t "vimeo.teaser" %>" rel="prettyPhoto" title=""><%= image_tag("video-thumb.png", class: "flowImage") %></a>
+	<br/>
   <%= image_tag("comingsoon-#{I18n.locale}.png") %>
 <div class="span2">
   <a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png") %></a>
   <a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png") %></a>
   <a href="mailto:team@goalnect.com" target="blank"><%= image_tag("goalnect-mailto-48x48.png") %></a>
 </div>
-  </center>
+ </center>
 </div>
+
+
 
 
 
