@@ -29,7 +29,11 @@ class ApplicationController < ActionController::Base
   end
   
   def set_locale_from_current_user
-    current_user && current_user.country ? current_user.country.locale : nil
+    if (defined? current_user)
+      current_user && current_user.country ? current_user.country.locale : nil
+    else
+      nil
+    end
   end
   
   def set_locale_from_accept_language_http_header

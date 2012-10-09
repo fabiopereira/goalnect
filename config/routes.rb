@@ -8,7 +8,9 @@ Goalnect::Application.routes.draw do
   resources :goal
 
   get "achiever/view"
-  devise_for :users
+  Togg.le(:feature_login) do
+    devise_for :users
+  end
   match '/search' => 'achiever#search'
   match '/search/:q' => 'achiever#search'
   #match '/:user_username' => 'achiever#view'

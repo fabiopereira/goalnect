@@ -10,6 +10,7 @@
           <a class="brand" href="/"><%= image_tag("goalnect.logo.png", id: "logo", alt: "Goalnect", width: "135") %></a>
           <div class="nav-collapse collapse" style="height: 0px;">
             <ul class="nav pull-right">
+				<% Togg.le(:feature_login) do %>
 				<% if user_signed_in? %>
 				<li>
 				<form action="/search">
@@ -26,8 +27,9 @@
 				  </li>
 				<% else %>
 				  <li>
-				 <!-- <%= link_to('Login', new_user_session_path)  %>  -->
+				    <%= link_to('Login', new_user_session_path)  %>
 				  </li>
+				<% end %>
 				<% end %>
             </ul>
           </div>
