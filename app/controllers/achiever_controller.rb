@@ -1,5 +1,5 @@
 class AchieverController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:view, :search] 
   
   def view
     user_username = params[:user_username]

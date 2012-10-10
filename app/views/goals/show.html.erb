@@ -11,7 +11,7 @@
 			<pre><%=raw @goal.description %></pre>
 		</div>
 		<div id="tabs-2">
-				<% if current_user.id == @goal.achiever.id%>
+				<% if current_user_is_achiever? %>
 				<%= form_for @goal_comment, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_comment/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
 					<%= render 'layouts/model_error_messages', :target => @goal_comment %>
 				  <div class="field">
@@ -42,7 +42,7 @@
 <div class="span4">
 	<div class="span3 row well" style="background:white">
 		Status: <%= @goal.goalStage.name%> <span class="small_i_font"> (<%= l @goal.goal_stage_changed_at, :format => :short %>)</span>
-		<% if current_user.id == @goal.achiever.id%>
+		<% if current_user_is_achiever? %>
 			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
 			Change to: <%= collection_select(:goal, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
 		 	<%= f.submit nil, :class => 'btn btn-primary' %>
@@ -51,11 +51,13 @@
 	</div>
 	<div class="span3 row well">
 		<div id="support_form_div_id">
+			<% if current_user %>
 			<%= form_for @goal_support, :format => :json, :remote => true,  :url => '/'+@goal.achiever.username+'/goals/add_support/'+@goal.id.to_s+'.json', :html => { :'data-type' => 'json' } do |f| %>
 			   <%= render 'layouts/model_error_messages', :target => @goal_support %>
 			   <%= f.check_box :i_support, :class => 'check_box', :style => 'display:none' %>
 			 <%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "I Believe", :onclick => "$('#goal_support_i_support').prop('checked', true);"%>
 			<%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "Srsly?!?", :onclick => "$('#goal_support_i_support').prop('checked', false);"%>
+			<% end %>
 			<% end %>
 		</div>
 		<div id="support_info_msg">
