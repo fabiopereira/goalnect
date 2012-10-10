@@ -15,6 +15,7 @@ pt:
   activerecord:
     models:
       user: "Usuário"
+      goal_donation: "Doação"
     attributes:
       user:
         email: "Email"      
@@ -28,6 +29,11 @@ pt:
         dob: "Data de nascimento"
         country_id: "País ID"
         country: "País"
+      goal_donation:
+        donor_name: "Nome"
+        
+  donation:
+      anonymous_login_message: "Você está fazendo uma doação anônima"
         
   search_friends: "Buscar"
   edit: "Editar"

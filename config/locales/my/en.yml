@@ -16,4 +16,7 @@ en:
       subtitle2: "It is the first 'gamefied' crowdfunding platform ever created"
   vimeo:
     teaser: "http://vimeo.com/46359215"
+    
+  donation:
+    anonymous_login_message: "You are donating anonymously"
   

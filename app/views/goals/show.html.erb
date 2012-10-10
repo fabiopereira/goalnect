@@ -67,17 +67,17 @@
 		    <tr>
 		 	  <th>Name</th>
 		      <th>Value</th>
+		      <th>Status</th>
 		    </tr>
 		  </thead>
 		  <tbody>
+		      <% @goal.goal_donations.each do |goal_donation| %>
 		      <tr>
-		        <td>Fabio Pereira</td>
-		        <td>$ 50.00</td>
+		        <td><%= goal_donation.donor_name%></td>
+		        <td><%= goal_donation.amount %></td>
+				<td><%= goal_donation.displayed_status %></td>
 		      </tr>
-			  <tr>
-		        <td>Daniella Hayashi</td>
-		        <td>$ 30.00</td>
-		      </tr> 		
+		    <% end %>		
 		  </tbody>
 		</table>
 		<a href="/goal_donations/new/<%=@goal.id.to_s%>" class="btn btn-primary" style="color:white">Donate</a>

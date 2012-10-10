@@ -18,6 +18,7 @@ class GoalDonationsController < ApplicationController
     params[:goal_donation][:goal_id] = params[:goal_id]
     if current_user
       params[:goal_donation][:user_id] = current_user.id
+      params[:goal_donation][:donor_name] = current_user.screen_name
     end
     @goal_donation = GoalDonation.new(params[:goal_donation])
     respond_to do |format|

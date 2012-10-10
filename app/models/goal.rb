@@ -6,6 +6,7 @@ class Goal < ActiveRecord::Base
   belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_id'
 
   belongs_to_active_hash :goalStage 
+  has_many :goal_donations
 
   validates_presence_of :description, :due_on, :owner, :title
 
