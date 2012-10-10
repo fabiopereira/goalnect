@@ -1,7 +1,8 @@
 require 'acceptance/support/user_steps'
+require 'acceptance/support/donation_payment_notification'
 
 module GoalSteps
-  include UserSteps
+  include UserSteps, DonationPaymentNotificationSteps
 	def commit_to_a_goal title
 	  visit '/'
 	  click_on 'New Goal'
@@ -58,18 +59,7 @@ module GoalSteps
     
 	  goal_donation = GoalDonation.find_by_message(message)
 	  
-	  #assert received confirmation from pagseguro
-	  uri = URI.parse(current_url)
-    PagSeguro.config["base"] = "#{uri.scheme}://#{uri.host}:#{uri.port}"
-	  ENV["ID"] = goal_donation.id.to_s
-	  PagSeguro::Rake.run
-    goal_donation = GoalDonation.find_by_message(message)
-    goal_donation.current_status.should be == 'completed'
-    
-    visit_goal goal
-    page.should have_content goal_donation.amount
-    page.should have_content goal_donation.donor_name
-    page.should have_content 'completed'
+	 donation_payment_notification goal, goal_donation
     
 	end
 	
@@ -86,7 +76,7 @@ module GoalSteps
     page.should have_content "Donor name can't be blank"
 	  donor_name = "Anonymous #{rand(1..1000)}"
     amount = rand(10..1000)
-    message = 'message bla!'
+    message = "message bla! #{rand(1..1000)}"
     fill_in 'goal_donation_donor_name' , :with => donor_name
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
@@ -96,22 +86,19 @@ module GoalSteps
     page.should have_content "Donation received, waiting for pagseguro to confirm"
     
     #assert that goal_donation was created successfully
-    goal_donation = GoalDonation.find_by_donor_name(donor_name)
+    goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
     goal_donation.donor_name.should be == donor_name
     goal_donation.message.should be == message
     goal_donation.user_id.should be_nil
     goal_donation.displayed_status.should be == 'waiting_notification'
     
-    #assert received confirmation from pagseguro
-	  uri = URI.parse(current_url)
-    PagSeguro.config["base"] = "#{uri.scheme}://#{uri.host}:#{uri.port}"
-	  ENV["ID"] = goal_donation.id.to_s
-	  PagSeguro::Rake.run
-    goal_donation = GoalDonation.find_by_message(message)
-    goal_donation.current_status.should be == 'completed'
+   donation_payment_notification goal, goal_donation
+    
     
 	end
+	
+	
 	
 end
 
