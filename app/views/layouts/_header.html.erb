@@ -21,10 +21,7 @@
 				  <input type="submit" value="Search"/>                
 				</form>
 				</li>
-				
-				  <span id='current_user_username' style='display:none'>
-				  	<%=current_user.username %>
-				  </span>
+				 <input type="hidden" id="current_user_test" value="<%=current_user.username %>"/>
 				  <li>
 				  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
 				  </li>

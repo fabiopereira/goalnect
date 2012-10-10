@@ -3,17 +3,21 @@ module UserSteps
   PASSWORD = '123456'  
   
   def logout_current_user
-    if page.has_css?('#current_user_username')
+    if is_logged_in?
       click_on 'Logout'
     end
   end
   
   def user_is_logged_in? username
-    is_logged_in? && page.find('#current_user_username').text == username
+    is_logged_in? && find_username == username
   end        
   
   def is_logged_in?
-    page.has_css?('#current_user_username')
+    page.has_css?('#current_user_test')
+  end
+  
+  def find_username
+    page.find('#current_user_test').value
   end
   
   def login_user user
@@ -45,7 +49,7 @@ module UserSteps
   end
   
 	def ensure_logged_in username          
-	  user = User.find_by_username(username)
+	  user = find_current_user username
 	  
 	  if user_is_logged_in?(username)
 	    visit '/'
@@ -62,6 +66,11 @@ module UserSteps
 	  
 	  user
 	end
+	
+	def find_current_user username
+	  User.find_by_username(username)
+	end
+	
 end
 
 RSpec.configuration.include UserSteps, :type => :acceptance

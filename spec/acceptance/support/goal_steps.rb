@@ -29,6 +29,8 @@ module GoalSteps
 	def donate_logged_in goal
 	  visit_goal goal
     is_logged_in?.should == true
+    username= find_username
+    current_user = find_current_user username
 	  click_on 'Donate'
     page.should have_content "New goal_donation"
 	  click_on 'Donate'
@@ -43,16 +45,13 @@ module GoalSteps
     page.should have_content "Goal donation was successfully created"
 	  click_on 'PagSeguro'
     page.should have_content "Donation received, waiting for pagseguro to confirm"
-
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
-    #goal_donation.donor_name.should be == current_user.screen_name
-
-	  visit_goal goal
+    goal_donation.donor_name.should be == current_user.screen_name
+    visit_goal goal
     page.should have_content goal_donation.amount
     page.should have_content goal_donation.donor_name
-
 	  GoalDonation.find_by_message(message)
 	end
 	
