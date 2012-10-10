@@ -1,4 +1,5 @@
 require 'acceptance/support/user_steps'
+
 module GoalSteps
   include UserSteps
 	def commit_to_a_goal title
@@ -45,6 +46,7 @@ module GoalSteps
     page.should have_content "Goal donation was successfully created"
 	  click_on 'PagSeguro'
     page.should have_content "Donation received, waiting for pagseguro to confirm"
+    
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
@@ -52,7 +54,23 @@ module GoalSteps
     visit_goal goal
     page.should have_content goal_donation.amount
     page.should have_content goal_donation.donor_name
-	  GoalDonation.find_by_message(message)
+    page.should have_content 'waiting_notification'
+    
+	  goal_donation = GoalDonation.find_by_message(message)
+	  
+	  #assert received confirmation from pagseguro
+	  uri = URI.parse(current_url)
+    PagSeguro.config["base"] = "#{uri.scheme}://#{uri.host}:#{uri.port}"
+	  ENV["ID"] = goal_donation.id.to_s
+	  PagSeguro::Rake.run
+    goal_donation = GoalDonation.find_by_message(message)
+    goal_donation.current_status.should be == 'completed'
+    
+    visit_goal goal
+    page.should have_content goal_donation.amount
+    page.should have_content goal_donation.donor_name
+    page.should have_content 'completed'
+    
 	end
 	
 end
