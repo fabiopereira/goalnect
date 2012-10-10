@@ -11,7 +11,7 @@
 			<pre><%=raw @goal.description %></pre>
 		</div>
 		<div id="tabs-2">
-				<% if current_user_is_achiever? %>
+				<% if current_user_is_achiever?(@goal.achiever) %>
 				<%= form_for @goal_comment, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_comment/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
 					<%= render 'layouts/model_error_messages', :target => @goal_comment %>
 				  <div class="field">
@@ -42,7 +42,7 @@
 <div class="span4">
 	<div class="span3 row well" style="background:white">
 		Status: <%= @goal.goalStage.name%> <span class="small_i_font"> (<%= l @goal.goal_stage_changed_at, :format => :short %>)</span>
-		<% if current_user_is_achiever? %>
+		<% if current_user_is_achiever?(@goal.achiever) %>
 			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
 			Change to: <%= collection_select(:goal, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
 		 	<%= f.submit nil, :class => 'btn btn-primary' %>

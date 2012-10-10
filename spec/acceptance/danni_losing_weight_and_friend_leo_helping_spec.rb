@@ -15,6 +15,7 @@ feature 'Danni losing weight and friend leo helping', %q{
     leo = ensure_logged_in 'leo'
     support_believing dannis_goal
     donate_logged_in dannis_goal
+    donate_anonymously dannis_goal
     
   end
 
