@@ -8,11 +8,11 @@ module UserSteps
     end
   end
   
-  def user_is_logged_in username
-    is_logged_in && page.find('#current_user_username').text == username
+  def user_is_logged_in? username
+    is_logged_in? && page.find('#current_user_username').text == username
   end        
   
-  def is_logged_in
+  def is_logged_in?
     page.has_css?('#current_user_username')
   end
   
@@ -47,7 +47,7 @@ module UserSteps
 	def ensure_logged_in username          
 	  user = User.find_by_username(username)
 	  
-	  if user_is_logged_in(username)
+	  if user_is_logged_in?(username)
 	    visit '/'
 	    return user
     end

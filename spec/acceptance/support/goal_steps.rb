@@ -1,4 +1,6 @@
+require 'acceptance/support/user_steps'
 module GoalSteps
+  include UserSteps
 	def commit_to_a_goal title
 	  visit '/'
 	  click_on 'New Goal'
@@ -26,7 +28,7 @@ module GoalSteps
 	
 	def donate_logged_in goal
 	  visit_goal goal
-    # is_logged_in?.should == true
+    is_logged_in?.should == true
 	  click_on 'Donate'
     page.should have_content "New goal_donation"
 	  click_on 'Donate'
@@ -45,7 +47,7 @@ module GoalSteps
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
-    goal_donation.donor_name.should be == current_user.screen_name
+    #goal_donation.donor_name.should be == current_user.screen_name
 
 	  visit_goal goal
     page.should have_content goal_donation.amount
