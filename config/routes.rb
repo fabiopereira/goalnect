@@ -16,7 +16,7 @@ Goalnect::Application.routes.draw do
   
   match '/goal_donations/new/:goal_id' => 'goal_donations#new'
   match '/goal_donations/create/:goal_id' => 'goal_donations#create'
-  match '/goal_donations/confirm' => 'goal_donations#confirm'
+  match '/goal_donation_payment_notifications/confirm' => 'goal_donation_payment_notifications#confirm'
   match '/goal_donations/show/:id' => 'goal_donations#show'
   
   post '/pagseguro_developer' => "goalnect_pagseguro_developer#create"

@@ -1,7 +1,7 @@
 development: &development
   developer: true
   base: "http://localhost:3000"
-  return_to: "/goal_donations/confirm"
+  return_to: "/goal_donation_payment_notifications/confirm"
   email: user@example.com
 
 test:

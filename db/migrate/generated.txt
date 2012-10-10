@@ -1,6 +1,5 @@
 
-rails generate model Country name:string
-
+rails g model Country name:string
 rails g migration add_dob_and_country_to_user dob:date country_id: integer
 
 rails g migration add_email_confirmation_to_user confirmation_token:string, confirmed_at:datetime, confirmation_sent_at:datetime
@@ -41,9 +40,11 @@ rails g bootstrap:themed GoalSupport
 
 
 rails g scaffold GoalDonation message:text, goal_id:integer, user_id:integer, amount:decimal
-rails g scaffold GoalDonationPaymentNotification goal_donation_id:integer, price_cents:integer, 
+ 
+rails g model GoalDonationPaymentNotification goal_donation_id:integer transaction_id:string price:decimal fees:decimal donor_name:string donor_email:string status:string payment_method:string processed_at:datetime currency:string payment_channel:string
 
 
 
+rails g migration add_current_status_to_goal_donation current_status:string
 
 
