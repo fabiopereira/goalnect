@@ -14,5 +14,6 @@ alias gdm='git diff | mate'
 alias gsci='git show --pretty="format:" --name-only'
 alias gclean="git clean -f -d"
 alias gh="cat ~/.bash_profile | grep 'alias g'"
+# alias gr="git rm $(git ls-files --deleted)"
 
 alias bi="bundle install"

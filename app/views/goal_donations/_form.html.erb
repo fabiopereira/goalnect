@@ -1,13 +1,14 @@
-<%= form_for @goal_donation, :url => '/goal_donations/create/'+@goal_id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @goal_donation, :url => goal_donations_create_url do |f| %>
   	<%= render 'layouts/model_error_messages', :target => @goal_donation %>
 
+<%= f.hidden_field :goal_id%>
 
 <% if user_signed_in? %>
-<%= current_user.screen_name %>
+  <%= current_user.screen_name %>
 <% else %>
- <%= t "donation.anonymous_login_message" %> <%= link_to('Login', new_user_session_path)  %>
- <%= f.label :donor_name %><br />
- <%= f.text_field :donor_name %>
+  <%= t "donation.anonymous_login_message" %> <%= link_to('Login', new_user_session_path)  %>
+  <%= f.label :donor_name %><br />
+  <%= f.text_field :donor_name %>
 <% end %>
 
   <div class="field">

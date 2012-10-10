@@ -5,7 +5,7 @@ class GoalDonationsController < ApplicationController
   # GET /goal_donations/new.json
   def new
     @goal_donation = GoalDonation.new
-    @goal_id = params[:goal_id]
+    @goal_donation.goal_id = params[:goal_id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @goal_donation }
@@ -15,7 +15,6 @@ class GoalDonationsController < ApplicationController
   # POST /goal_donations
   # POST /goal_donations.json
   def create
-    params[:goal_donation][:goal_id] = params[:goal_id]
     if current_user
       params[:goal_donation][:user_id] = current_user.id
       params[:goal_donation][:donor_name] = current_user.screen_name

@@ -13,7 +13,9 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     # Danni told her friend Leo about Goalnect and asked Leo to help her
     leo = ensure_logged_in 'leo'
-    support_believing danni, dannis_goal
+    support_believing dannis_goal
+    donate_logged_in dannis_goal
+    
   end
 
 end

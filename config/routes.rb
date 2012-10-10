@@ -15,7 +15,9 @@ Goalnect::Application.routes.draw do
   match '/search/:q' => 'achiever#search'
   
   match '/goal_donations/new/:goal_id' => 'goal_donations#new'
-  match '/goal_donations/create/:goal_id' => 'goal_donations#create'
+  match '/goal_donations/create' => 'goal_donations#create', :as => :goal_donations_create
+
+  
   match '/goal_donation_payment_notifications/confirm' => 'goal_donation_payment_notifications#confirm'
   match '/goal_donations/show/:id' => 'goal_donations#show'
   
@@ -38,6 +40,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals' => 'goals#index'
   match '/:user_username/goals/new' => 'goals#new'
   match '/:user_username/goals/create' => 'goals#create'
+  
   match '/:user_username/goals/show/:goal_id' => 'goals#show'
   match '/:user_username/goals/add_comment/:goal_id' => 'goals#add_comment'
   match '/:user_username/goals/add_support/:goal_id' => 'goals#add_support'
