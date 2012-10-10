@@ -45,7 +45,7 @@ module GoalSteps
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
-    # goal_donation.donor_name.should be == current_user.screen_name
+    goal_donation.donor_name.should be == current_user.screen_name
 
 	  visit_goal goal
     page.should have_content goal_donation.amount
