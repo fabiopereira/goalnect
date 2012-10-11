@@ -1,3 +1,8 @@
+Devise inside controller
+before_filter :authenticate_user!, :only => [:destroy]
+before_filter :filter-name, :except => [:action1, :action2]
+
+
 Registro br e heroku
 http://i.ndigo.com.br/2012/04/registro-br-e-heroku-configurando-dns/
 
