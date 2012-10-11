@@ -34,7 +34,7 @@ module GoalSteps
     username= find_username
     current_user = find_current_user username
 	  click_on 'Donate'
-    page.should have_content "New goal_donation"
+    page.should have_content "New donation"
 	  click_on 'Donate'
     page.should have_content "2 errors below"
     page.should have_content "Amount can't be blank"
@@ -70,7 +70,7 @@ module GoalSteps
 	  click_on goal.achiever.screen_name
 	  click_on goal.title
 	  click_on 'Donate' 
-	  page.should have_content "New goal_donation"
+	  page.should have_content "New donation"
 	  click_on 'Donate'
     page.should have_content "3 errors below"
     page.should have_content "Donor name can't be blank"
