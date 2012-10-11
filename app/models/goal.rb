@@ -22,4 +22,8 @@ class Goal < ActiveRecord::Base
     GoalComment.find_all_by_goal_id(self.id)
   end
   
+  def find_most_recent_donations_by_goal_id 
+    GoalDonation.find_most_recent_donations_by_goal_id self.id
+  end
+  
 end

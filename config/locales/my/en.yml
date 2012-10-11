@@ -18,5 +18,7 @@ en:
     teaser: "http://vimeo.com/46359215"
     
   donation:
+    donate: "Donate"
+    new_donation_title: "New donation"
     anonymous_login_message: "You are donating anonymously"
   
