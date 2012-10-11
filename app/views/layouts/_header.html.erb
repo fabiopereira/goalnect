@@ -14,13 +14,13 @@
 				<li><a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png", width: "25") %></a></li>
 				<li><a href="mailto:team@goalnect.com" target="blank"><%= image_tag("goalnect-mailto-48x48.png", width: "25") %></a></li>
 				<% Togg.le(:feature_login) do %>
-				<% if user_signed_in? %>
 				<li>
 				<form action="/search">
 				  <input id="q" name="q" type="text" placeholder="<%= t 'search_friends' %>"/>
 				  <input type="submit" value="Search"/>                
 				</form>
 				</li>
+				<% if user_signed_in? %>
 				 <input type="hidden" id="current_user_test" value="<%=current_user.username %>"/>
 				  <li>
 				  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        

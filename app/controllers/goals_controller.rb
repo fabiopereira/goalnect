@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show, :support_info]
   include GoalsHelper
   # GET /:user_username/goals
   # GET /:user_username/goals.json
@@ -95,7 +95,10 @@ class GoalsController < ApplicationController
     @support = Hash.new
     @support[:support_true_count]  = GoalSupport.where(:goal_id=>params[:goal_id]).where(:i_support=>true).count;
     @support[:support_false_count] = GoalSupport.where(:goal_id=>params[:goal_id]).where(:i_support=>false).count;
-    goal_supports = GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);
+    goal_supports = nil
+    if current_user
+      goal_supports = GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);
+    end  
     if goal_supports.nil? || goal_supports.empty?
       @support[:has_given_support] = false;
     else

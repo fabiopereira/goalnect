@@ -1,5 +1,7 @@
+<% if current_user %>
 <% if current_user.id == @achiever.id  %>
 <%= link_to 'New Goal', new_goal_path(@achiever.username) %>
 <%else%>
 <%= link_to 'Dare this friend', new_goal_path(@achiever.username) %>
 <%end%>
+<% end %>
