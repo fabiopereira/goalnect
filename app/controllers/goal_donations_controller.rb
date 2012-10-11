@@ -25,6 +25,7 @@ class GoalDonationsController < ApplicationController
         format.html { redirect_to "/goal_donations/show/"+@goal_donation.id.to_s, notice: 'Goal donation was successfully created.' }
         format.json { render json: @goal_donation, status: :created, location: @goal_donation }
       else
+        logger.error "Error donating #{@goal_donation.errors}"
         format.html { render action: "new" }
         format.json { render json: @goal_donation.errors, status: :unprocessable_entity }
       end

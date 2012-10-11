@@ -73,6 +73,12 @@ git commit -m "vendor compiled assets"
 git push origin master
 rake staging deploy
 # heroku run rake assets:precompile --app goalnect-staging
+                                                         
+Install Logentries
+heroku addons:add logentries:tryit --app goalnect-staging
+heroku addons:add logentries:tryit --app goalnect
+view docs
+heroku addons:docs logentries:tryit
 
 @deprecated git push staging master
 @deprecated heroku run rake db:migrate --app staging-goalnect
