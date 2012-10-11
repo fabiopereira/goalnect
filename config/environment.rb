@@ -8,6 +8,6 @@ Goalnect::Application.initialize!
 
 Date::DATE_FORMATS.merge!(:default => "%d/%m/%Y")
 
-if Rails.env.staging?
+unless Rails.env.development?
 	Rails.logger = Le.new(ENV["letoken"])
 end

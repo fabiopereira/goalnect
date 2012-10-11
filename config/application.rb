@@ -10,10 +10,10 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie" 
 
 # add these line for log4r
-require 'log4r'
-require 'log4r/yamlconfigurator'
-require 'log4r/outputter/datefileoutputter'
-include Log4r
+# require 'log4r'
+# require 'log4r/yamlconfigurator'
+# require 'log4r/outputter/datefileoutputter'
+# include Log4r
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

@@ -28,7 +28,7 @@ class GoalDonationsController < ApplicationController
         logger.error "using logger Error donating #{@goal_donation.errors}"
         puts "using puts Error donating #{@goal_donation.errors}"
         Rails.logger.error "using Rails.logger.error Error donating #{@goal_donation.errors}"
-        Rails.logger.critical "using Rails.logger.critical Error donating #{@goal_donation.errors}"
+        # Rails.logger.critical "using Rails.logger.critical Error donating #{@goal_donation.errors}"
         format.html { render action: "new" }
         format.json { render json: @goal_donation.errors, status: :unprocessable_entity }
       end
