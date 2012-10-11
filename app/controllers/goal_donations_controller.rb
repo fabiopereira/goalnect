@@ -25,9 +25,9 @@ class GoalDonationsController < ApplicationController
         format.html { redirect_to "/goal_donations/show/"+@goal_donation.id.to_s, notice: 'Goal donation was successfully created.' }
         format.json { render json: @goal_donation, status: :created, location: @goal_donation }
       else
-        puts "using puts goal_donation_create_error #{@goal_donation.errors}"
-        Rails.logger.error "using Rails.logger.error goal_donation_create_error #{@goal_donation.errors}"        
-        Rails.logger.info "using Rails.logger.info goal_donation_create_error #{@goal_donation.errors}"        
+        puts "using puts goal_donation_create_error_2 #{@goal_donation.errors}"
+        Rails.logger.error "using Rails.logger.error goal_donation_create_error_2 #{@goal_donation.errors}"        
+        Rails.logger.info "using Rails.logger.info goal_donation_create_error_2 #{@goal_donation.errors}"        
         format.html { render action: "new" }
         format.json { render json: @goal_donation.errors, status: :unprocessable_entity }
       end
