@@ -25,7 +25,7 @@ class GoalDonationsController < ApplicationController
         format.html { redirect_to "/goal_donations/show/"+@goal_donation.id.to_s, notice: 'Goal donation was successfully created.' }
         format.json { render json: @goal_donation, status: :created, location: @goal_donation }
       else
-        logger.error "using logger Error donating #{@goal_donation.errors}"
+        logger.error "using logger.error Error donating #{@goal_donation.errors}"
         puts "using puts Error donating #{@goal_donation.errors}"
         Rails.logger.error "using Rails.logger.error Error donating #{@goal_donation.errors}"
         # Rails.logger.critical "using Rails.logger.critical Error donating #{@goal_donation.errors}"
