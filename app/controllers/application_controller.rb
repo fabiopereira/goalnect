@@ -1,7 +1,14 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery
+  before_filter :set_user_return_to
   before_filter :set_locale
   skip_before_filter :verify_authenticity_token
+  
+  def set_user_return_to
+    if params["user_return_to"] && params["user_return_to"].start_with?("/")
+      session['user_return_to'] = params["user_return_to"]
+    end
+  end
 
   # http://guides.rubyonrails.org/i18n.html
   def set_locale
