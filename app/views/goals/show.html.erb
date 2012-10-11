@@ -3,9 +3,10 @@
 <div class="span7">
 	<div class="jq-tabs">
 		<ul>
-			<li><a href="#tabs-1">Description</a></li>
-			<li><a href="#tabs-2">Journey</a></li>
-			<li><a href="#tabs-3">Comments</a></li>
+			<li><a href="#tabs-1"><%= t "description"%></a></li>
+			<li><a href="#tabs-2"><%= t "journey"%></a></li>
+			<li><a href="#tabs-3"><%= t "comments"%></a></li>
+			<li><a href="#tabs-4"><%= t "donations"%></a></li>
 		</ul>
 		<div id="tabs-1">
 			<pre><%=raw @goal.description %></pre>
@@ -34,9 +35,31 @@
 			<div id="fb-root"></div>
 			<fb:comments href="/<%=@goal.achiever.username + '/goals/show/' + @goal.id.to_s %>"></fb:comments>
 		</div>
+		<div id="tabs-4">
+			<table class="table table-striped table-condensed">
+			  <thead>
+			    <tr>
+			 	  <th><%= t "activerecord.attributes.goal_donation.donor_name" %></th>
+			      <th><%= t "activerecord.attributes.goal_donation.amount" %></th>
+			      <th>Status</th>
+				  <th><%= t "activerecord.attributes.goal_donation.message" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			      <% @goal.goal_donations.each do |goal_donation| %>
+			      <tr>
+			        <td><%= goal_donation.donor_name%></td>
+			        <td><%= goal_donation.amount %></td>
+					<td><%= goal_donation.displayed_status %></td>
+					<td><%= goal_donation.message %></td>
+			      </tr>
+			    <% end %>		
+			  </tbody>
+			</table>
+		</div>
 	</div>
 	<div class="form-actions">
-		<%= link_to t('.back', :default => t("helpers.links.back")), '/'+@goal.achiever.username, :class => 'btn' %>
+		<%= link_to t('back'), '/'+@goal.achiever.username, :class => 'btn' %>
 	</div>
 </div>
 <div class="span4">
@@ -73,7 +96,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		      <% @goal.goal_donations.each do |goal_donation| %>
+		      <% @goal.find_most_recent_donations_by_goal_id.each do |goal_donation| %>
 		      <tr>
 		        <td><%= goal_donation.donor_name%></td>
 		        <td><%= goal_donation.amount %></td>
@@ -82,7 +105,7 @@
 		    <% end %>		
 		  </tbody>
 		</table>
-		<a href="/goal_donations/new/<%=@goal.id.to_s%>" class="btn btn-primary" style="color:white">Donate</a>
+		<a href="/goal_donations/new/<%=@goal.id.to_s%>" class="btn btn-primary" style="color:white"><%= t "donation.donate" %></a>
 		
 	</div>
 

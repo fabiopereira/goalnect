@@ -7,5 +7,8 @@ class GoalDonation < ActiveRecord::Base
   def displayed_status
     current_status ? current_status : 'waiting_notification'
   end
-   
+  
+  def self.find_most_recent_donations_by_goal_id goal_id
+    GoalDonation.where("goal_id = ?", goal_id).order('id DESC').limit(5)
+  end
 end

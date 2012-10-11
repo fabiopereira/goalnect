@@ -31,14 +31,23 @@ pt:
         country: "País"
       goal_donation:
         donor_name: "Nome"
+        message: "Mensagem"
+        amount: "Valor"
         
   donation:
+      donate: "Doar"
+      new_donation_title: "Nova doação"
       anonymous_login_message: "Você está fazendo uma doação anônima"
         
   search_friends: "Buscar"
   edit: "Editar"
   cancel: "Cancelar"
   change: "Mudar"
+  back: "Voltar"
+  description: "Descrição"
+  journey: "Jornada"
+  comments: "Comentários"
+  donations: "Doações"
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1"
     
