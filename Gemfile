@@ -15,7 +15,8 @@ group :development, :test do
   gem 'email_spec'  
   # gem "database_cleaner", ">= 0.7.2"
 end
-
+     
+gem 'le'
 gem 'awesome_print'
 gem 'togg'
 gem 'log4r'

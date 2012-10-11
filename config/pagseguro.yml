@@ -2,13 +2,14 @@ development: &development
   developer: true
   base: "http://localhost:3000"
   return_to: "/goal_donation_payment_notifications/confirm"
-  email: user@example.com
+  email: fabio@goalnect.com
 
 test:
   <<: *development
 
 staging:
   <<: *development
+  base: "http://goalnect-staging.herokuapp.com"
 
 demo:
   <<: *development
