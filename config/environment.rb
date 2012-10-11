@@ -7,7 +7,3 @@ Goalnect::Application.initialize!
 #ENV['RAILS_ENV'] ||= 'production'
 
 Date::DATE_FORMATS.merge!(:default => "%d/%m/%Y")
-
-# unless Rails.env.development?
-  # Rails.logger = Le.new(ENV["letoken"])
-# end
