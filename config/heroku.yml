@@ -20,6 +20,11 @@ production:
     RAILS_ENV: "production"
     GMAIL_USERNAME: "team@goalnect.com"
     GMAIL_PASSWORD: "helpmygoal1234"
+    AWS_ACCESS_KEY_ID: 'AKIAJCALZQ2E4DOAZ4KA'
+    AWS_SECRET_ACCESS_KEY: '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'
+    AWS_S3_BUCKET: 'goalnect'
+    FACEBOOK_APP_ID: '336745306400449'
+    FACEBOOK_SECRET_KEY: '091732de83c8e3649e9c3a8f8f08f034'
 
 staging:
   app: goalnect-staging
@@ -27,9 +32,15 @@ staging:
   config: &default
     BUNDLE_WITHOUT: "development:test"
     RAILS_ENV: "staging"
+    RACK_ENV: "staging"
     GOOGLE_ANALYTICS: "UA-33640820-2" 
     GMAIL_USERNAME: "team@goalnect.com"
     GMAIL_PASSWORD: "helpmygoal1234"
+    AWS_ACCESS_KEY_ID: 'AKIAJCALZQ2E4DOAZ4KA'
+    AWS_SECRET_ACCESS_KEY: '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'
+    AWS_S3_BUCKET: 'goalnectstaging'
+    FACEBOOK_APP_ID: '476994358998838'
+    FACEBOOK_SECRET_KEY: 'e53f9abc426980dbef7900b5b2c3a89e'
   addons:
     - pgbackups:auto-week
     - memcache:5mb
@@ -39,3 +50,4 @@ staging:
 demo: 
   app: goalnect-demo
   config: *default
+  

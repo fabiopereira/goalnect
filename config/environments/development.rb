@@ -39,7 +39,6 @@ Goalnect::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJCALZQ2E4DOAZ4KA'
-  ENV['AWS_SECRET_ACCESS_KEY'] = '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'
-  ENV['AWS_S3_BUCKET'] = 'goalnect-staging'
+  ENV['FACEBOOK_APP_ID'] = '457960647556335'
+  ENV['FACEBOOK_SECRET_KEY'] = 'be4c079576a4317f5a622ff33f60b9ae'
 end

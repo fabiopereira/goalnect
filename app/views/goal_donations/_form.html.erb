@@ -3,10 +3,14 @@
 
 <%= f.hidden_field :goal_id%>
 
+<% unless user_signed_in? %>
+  <%= t "donation.anonymous_login_message" %> 
+  <%= link_to('Login', sign_in_and_redirect_to_current)  %>
+<% end %>
+
 <% if user_signed_in? %>
   <%= current_user.screen_name %>
 <% else %>
-  <%= t "donation.anonymous_login_message" %> <%= link_to('Login', new_user_session_path)  %>
   <%= f.label :donor_name %><br />
   <%= f.text_field :donor_name %>
 <% end %>

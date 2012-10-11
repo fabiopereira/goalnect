@@ -40,4 +40,7 @@ Goalnect::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  ENV['FACEBOOK_APP_ID'] = '457960647556335'
+  ENV['FACEBOOK_SECRET_KEY'] = 'be4c079576a4317f5a622ff33f60b9ae'
 end
