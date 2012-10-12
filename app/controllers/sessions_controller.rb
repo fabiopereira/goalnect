@@ -9,4 +9,10 @@ class SessionsController < Devise::SessionsController
   def failure
     return render:json => {:success => false, :errors => ["Login failed."]}
   end
+  
+  def destroy
+    super
+    session[:fb_token] = nil
+  end
+    
 end

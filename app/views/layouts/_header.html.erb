@@ -23,7 +23,11 @@
 				<% if user_signed_in? %>
 				 <input type="hidden" id="current_user_test" value="<%=current_user.username %>"/>
 				  <li>
-				  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+					<% if session[:fb_token].nil? %>
+					   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+					<% else %>
+					   <%= link_to "Sign out", facebook_logout_path %>
+					<% end %>      
 				  </li>
 				<% else %>
 				  <li>

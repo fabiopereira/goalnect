@@ -1,14 +1,7 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery
-  before_filter :set_user_return_to
   before_filter :set_locale
   skip_before_filter :verify_authenticity_token
-  
-  def set_user_return_to
-    if params["user_return_to"] && params["user_return_to"].start_with?("/")
-      session['user_return_to'] = params["user_return_to"]
-    end
-  end
 
   # http://guides.rubyonrails.org/i18n.html
   def set_locale
@@ -19,7 +12,7 @@ class ApplicationController < ActionController::Base
         set_locale_from_accept_language_http_header,
         set_locale_default
       ].find { |locale| locale != nil } 
-      Rails.logger.debug "Setting locale to #{I18n.locale}"
+      logger.debug "Setting locale to #{I18n.locale}"
   end  
 
   def set_locale_default
@@ -46,8 +39,8 @@ class ApplicationController < ActionController::Base
   def set_locale_from_accept_language_http_header
     accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
     locale_from_accept_language = accept_language ? accept_language.scan(/^[a-z]{2}/).first : nil
-    Rails.logger.debug "locale accept_language #{accept_language}"
-    Rails.logger.debug "locale_from_accept_language #{accept_language} is #{locale_from_accept_language}"
+    logger.debug "locale accept_language #{accept_language}"
+    logger.debug "locale_from_accept_language #{accept_language} is #{locale_from_accept_language}"
     locale_from_accept_language
   end
   

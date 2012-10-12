@@ -10,7 +10,19 @@ Goalnect::Application.routes.draw do
   get "achiever/view"
   Togg.le(:feature_login) do
     devise_for :users
+    
+    match '/auth/:provider/callback' => 'authentications#create'
+    match '/auth/facebook/logout' => 'authentications#facebook_logout', :as => :facebook_logout
+    
+    authenticated :user do
+      root to: 'achiever#view'
+    end
+    
+    devise_scope :user do 
+      match '/auth/facebook/logout_callback' => 'devise/sessions#destroy', :as => :facebook_logout_callback
+    end 
   end
+  
   match '/search' => 'achiever#search'
   match '/search/:q' => 'achiever#search'
   
@@ -26,12 +38,6 @@ Goalnect::Application.routes.draw do
   match '/achiever/edit' => 'achiever#edit'
   match '/achiever/edit_profile_photo' => 'achiever#edit_profile_photo'
   match '/achiever/update' => 'achiever#update'
-  
-  match '/auth/:provider/callback' => 'authentications#create'
-  
-  authenticated :user do
-    root to: 'achiever#view'
-  end
 
   root to: 'home#index'
 
