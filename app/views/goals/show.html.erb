@@ -1,5 +1,6 @@
 <%- model_class = @goal.class -%>
 <h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= l @goal.due_on %></h4>
+<div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450"></div>
 <div class="span7">
 	<div class="jq-tabs">
 		<ul>
@@ -32,8 +33,7 @@
 			    </div>
 		</div>
 		<div id="tabs-3">
-			<div id="fb-root"></div>
-			<fb:comments href="/<%=@goal.achiever.username + '/goals/show/' + @goal.id.to_s %>"></fb:comments>
+			<fb:comments href="<%= current_url %>"></fb:comments>
 		</div>
 		<div id="tabs-4">
 			<table class="table table-striped table-condensed">
