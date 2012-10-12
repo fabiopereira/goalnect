@@ -14,27 +14,26 @@
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :email, :class => 'text_field' %>
+      <%= f.email_field :email, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :phone, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :phone, :class => 'text_field' %><br/>
-	  <i>incluir codigo do pais</i>
+	  <i><%= t "charities.including_country_code"%></i>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :description, :class => 'text_area', :rows => 5 %><br/>
-	  <i>flfklgjlf</i>
+	  <i><%= t "charities.charity_description"%></i>
     </div>
   </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                charities_path, :class => 'btn' %>
+    
   </div>
 <% end %>

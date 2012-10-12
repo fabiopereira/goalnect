@@ -16,6 +16,7 @@ pt:
     models:
       user: "Usuário"
       goal_donation: "Doação"
+      charity: "Instituição de Caridade"
     attributes:
       user:
         email: "Email"      
@@ -33,7 +34,11 @@ pt:
         donor_name: "Nome"
         message: "Mensagem"
         amount: "Valor"
-        
+      charity:
+        charity_name: Nome da Instituição
+        contact_name: Nome do Contato
+        phone: Telefone
+        description: descrição
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"
@@ -43,8 +48,8 @@ pt:
       looking_for_partners: "Goalnect está procurando por instituições de caridade corretas e justas para receber suas doações arrecadadas, por favor cadastre-se "
       embrace_this_idea: " e abrace esta idéia"
       charity_registered: "Seu cadastro foi efetuado com sucesso! Goalnect agradece por seu interesse, e entrará em contato em breve"
-
-
+      including_country_code: "Incluir o código do país"
+      charity_description: "Um pequeno resumo sobre a instituição, ações, causas..."
   search_friends: "Buscar"
   edit: "Editar"
   cancel: "Cancelar"

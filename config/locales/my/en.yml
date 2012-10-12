@@ -25,5 +25,8 @@ en:
   charities:
     looking_for_partners: "Goalnect is looking for charities to receive donations, please register "
     charity_registered: "Charity was successfully created."
+    embrace_this_idea: " and embrace this idea!"
+    including_country_code: "Including country code"
+    charity_description: "small briefing about the charity"
   
   here: "here"
