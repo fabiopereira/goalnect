@@ -1,29 +1,26 @@
-<%= form_for(@goal_support) do |f| %>
-  <% if @goal_support.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@goal_support.errors.count, "error") %> prohibited this goal_support from being saved:</h2>
-
-      <ul>
-      <% @goal_support.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @goal_support, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :i_support, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :i_support, :class => 'check_box' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :goal_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :goal_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :user_id, :class => 'number_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :i_support %><br />
-    <%= f.check_box :i_support %>
-  </div>
-  <div class="field">
-    <%= f.label :goal_id %><br />
-    <%= f.number_field :goal_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                goal_supports_path, :class => 'btn' %>
   </div>
 <% end %>

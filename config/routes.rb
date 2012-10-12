@@ -1,12 +1,21 @@
 Goalnect::Application.routes.draw do
 
+  devise_for :admins
+  resources :charities
   #resources :goal_donations
-
   resources :goal_supports
-
   resources :goal_comments
   resources :goal
 
+
+#admin routes
+ # devise_scope :admin do 
+#    get '/admins/sign_in' => 'devise/sessions#new', :as => :new_admin_session
+#    post '/admins/sign_in' => 'devise/sessions#create', :as => :admin_session
+#    delete '/admins/sign_out' => 'devise/sessions#destroy', :as => :destroy_admin_session
+#  end
+                          
+  
   get "achiever/view"
   Togg.le(:feature_login) do
     devise_for :users

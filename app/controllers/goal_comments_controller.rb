@@ -1,4 +1,5 @@
 class GoalCommentsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /goal_comments
   # GET /goal_comments.json
   def index

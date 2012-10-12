@@ -20,6 +20,11 @@
 				  <input type="submit" value="Search"/>                
 				</form>
 				</li>
+				<% if admin_signed_in? %>
+				    <li>
+						<%= link_to "Logout Admin", destroy_admin_session_path, :method => :delete %>
+					</li>
+				<% end %>
 				<% if user_signed_in? %>
 				 <input type="hidden" id="current_user_test" value="<%=current_user.username %>"/>
 				  <li>

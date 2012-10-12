@@ -1,6 +1,6 @@
-<h1>Editing goal_support</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @goal_support %> |
-<%= link_to 'Back', goal_supports_path %>
+<%- model_class = GoalSupport -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                   :default => "Edit #{model_class.model_name.human}") %></h1>
+</div>
+<%= render :partial => 'form' %>

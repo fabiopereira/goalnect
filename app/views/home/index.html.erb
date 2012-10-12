@@ -4,6 +4,14 @@
     $("a[rel^='prettyPhoto']").prettyPhoto({show_title: false, social_tools:false});
   });
 </script>
+
+<div class="flash">
+	<div class="message alert">
+	  <p>
+		<%= t "charities.looking_for_partners" %> <%= link_to t("here"), new_charity_path %><%= t "charities.embrace_this_idea"%>
+	  </p>
+	</div>
+</div>
 <div class="span8">
 <%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %> 
 <hr>

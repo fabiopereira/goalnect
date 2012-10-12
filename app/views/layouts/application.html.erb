@@ -35,19 +35,18 @@
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 		<section id="main">
-			
-			<div class="flash">
-				<% flash.each do |type, message| -%>
-				<div class="message <%= type %>">
-					<p>
-						<%= message %>
-					</p>
-				</div>
-				<% end -%>
-			</div>
+		
 			
 			<div id="container" class="container">
-
+				<div class="flash">
+					<% flash.each do |type, message| -%>
+					<div class="message <%= type %>">
+						<p>
+							<%= message %>
+						</p>
+					</div>
+					<% end -%>
+				</div>
 				
 				<%= yield %>
 				

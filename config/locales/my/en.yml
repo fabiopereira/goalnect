@@ -21,4 +21,9 @@ en:
     donate: "Donate"
     new_donation_title: "New donation"
     anonymous_login_message: "You are donating anonymously"
+
+  charities:
+    looking_for_partners: "Goalnect is looking for charities to receive donations, please register "
+    charity_registered: "Charity was successfully created."
   
+  here: "here"

@@ -37,8 +37,14 @@ pt:
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"
-      anonymous_login_message: "Você está fazendo uma doação anônima"
-        
+      anonymous_login_message: "Você está fazendo uma doação anônima"       
+  
+  charities:
+      looking_for_partners: "Goalnect está procurando por instituições de caridade corretas e justas para receber suas doações arrecadadas, por favor cadastre-se "
+      embrace_this_idea: " e abrace esta idéia"
+      charity_registered: "Seu cadastro foi efetuado com sucesso! Goalnect agradece por seu interesse, e entrará em contato em breve"
+
+
   search_friends: "Buscar"
   edit: "Editar"
   cancel: "Cancelar"
@@ -48,6 +54,7 @@ pt:
   journey: "Jornada"
   comments: "Comentários"
   donations: "Doações"
+  here: "aqui"
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1"
     
