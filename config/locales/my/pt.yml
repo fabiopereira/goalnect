@@ -50,6 +50,8 @@ pt:
       charity_registered: "Seu cadastro foi efetuado com sucesso! Goalnect agradece por seu interesse, e entrará em contato em breve"
       including_country_code: "Incluir o código do país"
       charity_description: "Um pequeno resumo sobre a instituição, ações, causas..."
+      onestep: "Só mais um passo..."
+      emailpreference: "Preencha os seus dados ou se preferir, fale conosco por email team@goalnect.com"
   search_friends: "Buscar"
   edit: "Editar"
   cancel: "Cancelar"
@@ -62,4 +64,8 @@ pt:
   here: "aqui"
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1"
+  how:
+    itworks: "Como funciona"      
+  send: "Enviar"
+    
     

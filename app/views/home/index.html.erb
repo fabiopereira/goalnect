@@ -5,20 +5,37 @@
   });
 </script>
 
-<div class="flash">
+<!-- <div class="flash">
 	<div class="message alert">
 	  <p>
 		<%= t "charities.looking_for_partners" %> <%= link_to t("here"), new_charity_path %><%= t "charities.embrace_this_idea"%>
 	  </p>
 	</div>
-</div>
-<div class="span8">
-<%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %> 
-<hr>
-<div id="headlineSubtitle">
-	<p><%= t "headline.home.subtitle1" %></p>
-	<p><%= t "headline.home.subtitle2" %></p>
-</div>
+</div> -->
+
+
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+    $('.flexslider').flexslider();
+  });
+</script>
+
+
+<div class="span8">    
+	<div class="flexslider">
+	  <ul class="slides">
+	    <li>
+		<%= link_to image_tag("slider-home-charity-pt.png", class: "flowImage"), new_charity_path %>
+	    </li>
+	    <li>
+	      <%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %> 
+	    </li>
+	  </ul>
+	</div>    
+	<div id="headlineSubtitle">
+		<p><%= t "headline.home.subtitle1" %></p>
+		<p><%= t "headline.home.subtitle2" %></p>
+	</div>
 </div>
 
 <div class="span3">

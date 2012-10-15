@@ -28,5 +28,11 @@ en:
     embrace_this_idea: " and embrace this idea!"
     including_country_code: "Including country code"
     charity_description: "small briefing about the charity"
+    onestep: "Only one step..."
+    emailpreference: "Fill your details or if you prefer, send us an email team@goalnect.com"
   
   here: "here"
+  how:
+    itworks: "How it works"
+  send: "Send"
+  

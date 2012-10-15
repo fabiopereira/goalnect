@@ -17,6 +17,7 @@
 //= require_tree .
 //= require bootstrap-wysihtml5-all
 //= require jquery.prettyPhoto
+//= require flexslider 
 
 (function($) {
 $.fn.serializeFormJSON = function() {

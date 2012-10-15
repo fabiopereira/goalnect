@@ -12,6 +12,7 @@
  *= require_tree .
  *= require bootstrap-wysihtml5
  *= require prettyPhoto
+ *= require flexslider.css
  */
 /* universal */
 
