@@ -32,7 +32,7 @@ en:
     emailpreference: "Fill your details or if you prefer, send us an email team@goalnect.com"
   
   here: "here"
-  how:
-    itworks: "How it works"
   send: "Send"
+  static:
+    howitworks: "How it works"
   

@@ -56,6 +56,8 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
   
+  match 'static/:action' => 'static#:action'
+  
 #root :to => "home#index"
 
 #get "home/index"

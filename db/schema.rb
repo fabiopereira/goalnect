@@ -115,8 +115,8 @@ ActiveRecord::Schema.define(:version => 20121012044038) do
   add_index "goals", ["owner_id"], :name => "index_goals_on_owner_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -125,10 +125,10 @@ ActiveRecord::Schema.define(:version => 20121012044038) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.string   "username",               :default => "",    :null => false
-    t.string   "screen_name",            :default => "",    :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "username",               :default => "", :null => false
+    t.string   "screen_name",            :default => "", :null => false
     t.date     "dob"
     t.string   "country_id"
     t.string   "integer"
@@ -138,7 +138,6 @@ ActiveRecord::Schema.define(:version => 20121012044038) do
     t.string   "unconfirmed_email"
     t.string   "image"
     t.text     "about_me"
-    t.boolean  "admin",                  :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

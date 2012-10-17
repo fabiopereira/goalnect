@@ -25,10 +25,10 @@
 	<div class="flexslider">
 	  <ul class="slides">
 	    <li>
-		<%= link_to image_tag("slider-home-charity-pt.png", class: "flowImage"), new_charity_path %>
+		<%= link_to image_tag("slider-home-charity-#{I18n.locale}.png", class: "flowImage"), new_charity_path %>
 	    </li>
 	    <li>
-	      <%= image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage") %> 
+		  <%= link_to image_tag("flow.newVersion-smaller-#{I18n.locale}.png", class: "flowImage"), "/static/how-it-works-#{I18n.locale}" %>
 	    </li>
 	  </ul>
 	</div>    

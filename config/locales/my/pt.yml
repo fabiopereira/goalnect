@@ -63,9 +63,7 @@ pt:
   donations: "Doações"
   here: "aqui"
   vimeo:
-    teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1"
-  how:
-    itworks: "Como funciona"      
+    teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1&yt:cc=on"
   send: "Enviar"
-    
-    
+  static:
+    howitworks: "Como funciona"
