@@ -8,8 +8,9 @@ test:
   <<: *development
 
 staging:
-  <<: *development
-  base: "http://goalnect-staging.herokuapp.com"
+  authenticity_token: 06AFDC23913D4942A20527527249ACC0
+  email: camilahayashi@gmail.com
+  return_to: "http://goalnect-staging.herokuapp.com/goal_donation_payment_notifications/confirm"
 
 demo:
   <<: *development
