@@ -3,6 +3,12 @@ http://jquerytools.org/documentation/scrollable/autoscroll.html
 http://www.appliedjquery.com/articles/jquery_automated_twitter_scroll_widget
 
 
+Google Colors
+Blue: #0266C8
+Red: #F90101
+Yellow: #F2B50F
+Green: #00933B
+
 comercial@pagseguro.com.br
 
 Advogados da lista
