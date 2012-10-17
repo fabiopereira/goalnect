@@ -35,4 +35,5 @@ en:
   send: "Send"
   static:
     howitworks: "How it works"
-  
+  email:
+    team: "team@goalnect.com"  

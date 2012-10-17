@@ -15,7 +15,7 @@
 		        </li>
 				<li><a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png", width: "25") %></a></li>
 				<li><a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png", width: "25") %></a></li>
-				<li><a href="mailto:team@goalnect.com" target="blank"><%= image_tag("goalnect-mailto-48x48.png", width: "25") %></a></li>
+				<li><a href="mailto:<%= t "email.team" %>" target="blank"><%= image_tag("goalnect-mailto-48x48.png", width: "25") %></a></li>
 				<% if admin_signed_in? %>
 				    <li>
 						<%= link_to "Logout Admin", destroy_admin_session_path, :method => :delete %>

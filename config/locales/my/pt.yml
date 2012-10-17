@@ -51,7 +51,7 @@ pt:
       including_country_code: "Incluir o código do país"
       charity_description: "Um pequeno resumo sobre a instituição, ações, causas..."
       onestep: "Só mais um passo..."
-      emailpreference: "Preencha os seus dados ou se preferir, fale conosco por email team@goalnect.com"
+      emailpreference: "Preencha os seus dados ou se preferir, fale conosco por email contato@goalnect.com"
   search_friends: "Buscar"
   edit: "Editar"
   cancel: "Cancelar"
@@ -67,3 +67,5 @@ pt:
   send: "Enviar"
   static:
     howitworks: "Como funciona"
+  email:
+    team: "contato@goalnect.com"
