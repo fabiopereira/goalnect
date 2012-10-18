@@ -15,6 +15,15 @@ brew install jenkins
 # sudo find /usr/local/Cellar/jenkins -name jenkins-cli.jar
 # 
 # java -jar /Users/fpereira/.jenkins/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080/ help
-# I manually installed Git Plugin and Github plugin
+# ##############################
+# Install Jenkins Plugins 
+# Git Plugin 
+# Github plugin
+# Ruby metrics plugin
+# Rake plugin
+# Html Publisher
+# ##############################
 
 
+see this
+https://github.com/fabn/rails-jenkins-template

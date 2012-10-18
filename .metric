@@ -1,0 +1,6 @@
+# used to generate metrics, see metric_fu documentation
+MetricFu::Configuration.run do |config|
+  config.metrics = [:churn, :flog, :flay, :reek, :roodi, :hotspots, :rails_best_practices]
+  config.metrics << :saikuro unless RUBY_VERSION == '1.9.2'
+  config.graphs = [:flog, :flay, :reek, :roodi, :rails_best_practices]
+end

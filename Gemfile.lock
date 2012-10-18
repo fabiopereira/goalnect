@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Saikuro (1.1.0)
     actionmailer (3.2.3)
       actionpack (= 3.2.3)
       mail (~> 2.4.4)
@@ -60,6 +61,18 @@ GEM
       timers (>= 1.0.0)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
+    chronic (0.3.0)
+    churn (0.0.24)
+      chronic (>= 0.2.3)
+      hirb
+      json_pure
+      main
+      ruby_parser (~> 2.3)
+      sexp_processor (~> 3.0)
+    ci_reporter (1.7.3)
+      builder (>= 2.1.2)
+    code_analyzer (0.2.0)
+      sexp_processor
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -67,6 +80,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    colored (1.2)
     commonjs (0.2.6)
     connection_pool (0.9.2)
     daemons (1.1.9)
@@ -94,7 +108,13 @@ GEM
     faraday (0.8.4)
       multipart-post (~> 1.1)
     ffi (1.1.5)
+    flay (1.4.3)
+      ruby_parser (~> 2.0)
+      sexp_processor (~> 3.0)
     flexslider (2.0.1)
+    flog (2.5.3)
+      ruby_parser (~> 2.0)
+      sexp_processor (~> 3.0)
     fog (1.6.0)
       builder
       excon (~> 0.14)
@@ -123,6 +143,7 @@ GEM
       heroku-api (>= 0.1.2)
       rake
     hike (1.2.1)
+    hirb (0.7.0)
     httpauth (0.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -131,6 +152,7 @@ GEM
       thor (~> 0.14)
     jruby-pageant (1.1.1)
     json (1.7.5)
+    json_pure (1.7.5)
     jwt (0.1.5)
       multi_json (>= 1.0)
     kaminari (0.14.1)
@@ -163,6 +185,22 @@ GEM
       skinny
       sqlite3 (~> 1.3)
       thin
+    main (4.7.1)
+    metric_fu (2.1.1)
+      Saikuro (>= 1.1.0)
+      activesupport (>= 2.0.0)
+      chronic (~> 0.3.0)
+      churn (>= 0.0.7)
+      flay (>= 1.2.1)
+      flog (>= 2.3.0)
+      rails_best_practices (>= 0.6.4)
+      rcov (>= 0.8.3.3)
+      reek (>= 1.2.6)
+      roodi (>= 2.1.0)
+      syntax
+    metrical (0.1.0)
+      metric_fu (~> 2.1.1)
+      rcov (~> 0.9)
     mime-types (1.19)
     multi_json (1.3.6)
     multipart-post (1.1.5)
@@ -190,6 +228,7 @@ GEM
     pagseguro (0.1.13)
     pg (0.14.1)
     polyglot (0.3.3)
+    progressbar (0.11.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -207,6 +246,14 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
+    rails_best_practices (1.11.1)
+      activesupport
+      awesome_print
+      code_analyzer
+      colored
+      erubis
+      i18n
+      progressbar
     railties (3.2.3)
       actionpack (= 3.2.3)
       activesupport (= 3.2.3)
@@ -215,14 +262,24 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
+    rcov (0.9.11)
     rdoc (3.12)
       json (~> 1.4)
     redis (3.0.1)
     redis-namespace (1.2.1)
       redis (~> 3.0.0)
+    reek (1.2.12)
+      ripper_ruby_parser (~> 0.0.7)
+      ruby2ruby (~> 1.2.5)
+      ruby_parser (~> 2.0)
+      sexp_processor (~> 3.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ripper_ruby_parser (0.0.8)
+      sexp_processor (~> 3.0)
     rmagick (2.13.1)
+    roodi (2.1.0)
+      ruby_parser
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -237,6 +294,11 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.11.0)
     ruby-hmac (0.4.0)
+    ruby2ruby (1.2.5)
+      ruby_parser (~> 2.0)
+      sexp_processor (~> 3.0)
+    ruby_parser (2.3.1)
+      sexp_processor (~> 3.0)
     rubyzip (0.9.9)
     sass (3.2.1)
     sass-rails (3.2.5)
@@ -248,6 +310,7 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
+    sexp_processor (3.2.0)
     sidekiq (2.3.3)
       celluloid (~> 0.12.0)
       connection_pool (~> 0.9.2)
@@ -271,6 +334,7 @@ GEM
     steak (2.0.0)
       capybara (>= 1.0.0)
       rspec-rails (>= 2.5.0)
+    syntax (1.0.0)
     systemu (2.5.2)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
@@ -314,6 +378,7 @@ DEPENDENCIES
   capybara-webkit
   carrierwave
   carrierwave_direct
+  ci_reporter
   coffee-rails (~> 3.2.1)
   devise (= 2.1.0)
   email_spec
@@ -328,6 +393,7 @@ DEPENDENCIES
   le
   log4r
   mailcatcher
+  metrical
   oauth2
   omniauth
   omniauth-facebook
