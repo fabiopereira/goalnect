@@ -25,7 +25,8 @@
 	
 	<% end %>
 </div>
-                                               
+
+<% if @user.image? %>                                               
 <div id="cropping-image">
 	<%= form_for @user, :url => '/achiever/crop', :html => { :class => 'form-horizontal'} do |f| %>    
 	
@@ -42,5 +43,6 @@
 	
 	<% end %>
 </div>
+<% end %>
 
 
