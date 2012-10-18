@@ -38,15 +38,19 @@ class GoalnectPagSeguroNotification
   def validate
     Goalog.debug "NOTIFICATION RECEIVED FROM PagSeguro: POST"
     Goalog.debug "YAML #{YAML::dump(@notification)}"
+    
     if !@notification.valid?
       raise "Invalid notification notification.valid? == false #{YAML::dump(@notification)}" 
     end
+    
     if @notification.products.nil? || @notification.products.length == 0
       raise "Received notification without products #{YAML::dump(@notification)}"
     end
+    
     if @notification.products.length > 1
       Goalog.critical "Received notification with #{@notification.products.length} products #{YAML::dump(@notification)}"
     end
+    
     @goal_donation = GoalDonation.find(@notification.order_id)
     if @goal_donation.nil?
       raise "Could not find GoalDonation for notification.order_id #{@notification.order_id}  #{YAML::dump(@notification)}"
