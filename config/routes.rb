@@ -43,6 +43,7 @@ Goalnect::Application.routes.draw do
   match '/achiever/edit' => 'achiever#edit'
   match '/achiever/edit_profile_photo' => 'achiever#edit_profile_photo'
   match '/achiever/update' => 'achiever#update'
+  match '/achiever/crop' => 'achiever#crop'
 
   root to: 'home#index'
 
