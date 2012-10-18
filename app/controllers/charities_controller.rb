@@ -1,5 +1,5 @@
 class CharitiesController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:new, :create]
+  before_filter :authenticate_admin_user!, :except => [:new, :create]
   # GET /charities
   # GET /charities.json
   def index

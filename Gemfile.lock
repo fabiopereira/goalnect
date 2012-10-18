@@ -49,7 +49,7 @@ GEM
     arel (3.0.2)
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
-    bootstrap-wysihtml5-rails (0.3.1.7)
+    bootstrap-wysihtml5-rails (0.3.1.1)
       railties (>= 3.0)
     bourbon (2.1.1)
       sass (>= 3.1)
