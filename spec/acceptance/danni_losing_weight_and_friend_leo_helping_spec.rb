@@ -10,7 +10,7 @@ feature 'Danni losing weight and friend leo helping', %q{
     #Danni wants to lose weight and will sign up on Goalnect
     danni = ensure_logged_in 'danni'
     
-    click_on 'asdfasdf'   
+    click_on 'xxxxxxxx'   
     
     dannis_goal = commit_to_a_goal 'Lose 35kg'
     
