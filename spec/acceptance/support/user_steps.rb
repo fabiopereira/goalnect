@@ -22,7 +22,7 @@ module UserSteps
   
   def login_user user
     visit '/'   
-    click_on 'Sign in'   
+    click_on 'Login'
     fill_in 'user_email', :with => user.email
     fill_in 'user_password', :with => PASSWORD
     click_on 'Sign in'   
