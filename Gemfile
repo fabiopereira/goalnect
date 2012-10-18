@@ -31,7 +31,8 @@ gem 'google-analytics-rails'
 gem 'sprockets-image_compressor'  
 gem 'active_hash'      
 gem 'bootstrap-wysihtml5-rails'
-
+gem 'activeadmin'
+gem 'meta_search',    '>= 1.1.0.pre'
 
 # Image Upload
 gem 'carrierwave'

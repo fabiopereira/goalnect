@@ -1,6 +1,8 @@
 Goalnect::Application.routes.draw do
 
   
+  ActiveAdmin.routes(self)
+
   resources :charities
   #resources :goal_donations
   resources :goal_supports
@@ -9,7 +11,7 @@ Goalnect::Application.routes.draw do
 
 
 #admin routes
-  devise_for :admins,  :skip => [ :registrations ]                        
+  #devise_for :admins,  :skip => [ :registrations ]                        
   get "achiever/view"
   Togg.le(:feature_login) do
     devise_for :users
