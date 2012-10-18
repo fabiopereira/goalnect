@@ -6,7 +6,7 @@ end
 
 
 # Suggested by https://github.com/fabn/rails-jenkins-template
-gem 'ci_reporter'
+gem 'ci_reporter', :git => 'git://github.com/nicksieger/ci_reporter.git'
 gem 'metrical'
 
 group :development, :test do
