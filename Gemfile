@@ -4,6 +4,11 @@ group :production, :staging, :demo do
   gem 'pg'
 end
 
+
+# Suggested by https://github.com/fabn/rails-jenkins-template
+gem 'ci_reporter'
+gem 'metrical'
+
 group :development, :test do
   gem 'mailcatcher'
   gem 'heroku_san'

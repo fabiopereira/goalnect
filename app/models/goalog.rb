@@ -21,4 +21,9 @@ class Goalog
     Rails.logger.info "[goalog:exception] #{e.backtrace.join("\n")}"
   end
   
+  def self.critical_exception m, e
+    critical m
+    exception e
+  end
+  
 end

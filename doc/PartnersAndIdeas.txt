@@ -2,7 +2,6 @@ scroll javascript
 http://jquerytools.org/documentation/scrollable/autoscroll.html
 http://www.appliedjquery.com/articles/jquery_automated_twitter_scroll_widget
 
-
 Google Colors
 Blue: #0266C8
 Red: #F90101

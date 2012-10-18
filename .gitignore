@@ -18,4 +18,4 @@
 # Ignore all images uploaded locally.
 /public/uploads
 
-
+/spec/reports
