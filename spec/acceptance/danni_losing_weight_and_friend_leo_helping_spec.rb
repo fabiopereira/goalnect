@@ -9,6 +9,9 @@ feature 'Danni losing weight and friend leo helping', %q{
   scenario 'Danni and her 12 months journey losing 35kg with friend Leo' do  
     #Danni wants to lose weight and will sign up on Goalnect
     danni = ensure_logged_in 'danni'
+    
+    click_on 'xxx'   
+    
     dannis_goal = commit_to_a_goal 'Lose 35kg'
     
     # Danni told her friend Leo about Goalnect and asked Leo to help her
