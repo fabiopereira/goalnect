@@ -25,10 +25,6 @@ class GoalDonationsController < ApplicationController
         format.html { redirect_to "/goal_donations/show/"+@goal_donation.id.to_s, notice: 'Goal donation was successfully created.' }
         format.json { render json: @goal_donation, status: :created, location: @goal_donation }
       else
-        puts "using puts goal_donation_create_error_3 #{@goal_donation.errors}"
-        Goalog.error "using Goalog.error goal_donation_create_error_3 #{@goal_donation.errors}"        
-        Goalog.info "using Goalog.info goal_donation_create_error_3 #{@goal_donation.errors}"        
-        Goalog.critical "using Goalog.critical goal_donation_create_error_3 #{@goal_donation.errors}"        
         format.html { render action: "new" }
         format.json { render json: @goal_donation.errors, status: :unprocessable_entity }
       end
