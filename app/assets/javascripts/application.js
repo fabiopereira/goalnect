@@ -14,10 +14,11 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require jquery.Jcrop
 //= require bootstrap-wysihtml5-all
 //= require jquery.prettyPhoto
 //= require flexslider 
+//= require_tree .
 
 (function($) {
 $.fn.serializeFormJSON = function() {

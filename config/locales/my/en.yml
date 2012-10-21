@@ -30,6 +30,8 @@ en:
     charity_description: "small briefing about the charity"
     onestep: "Only one step..."
     emailpreference: "Fill your details or if you prefer, send us an email team@goalnect.com"
+  achiever:
+    croptitle: "Crop your image if you want"
   
   here: "here"
   send: "Send"

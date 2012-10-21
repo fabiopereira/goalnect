@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/nicksieger/ci_reporter.git
+  revision: f159b5322c25637c4ff4f7243c1c8308a3d07e7e
+  specs:
+    ci_reporter (1.7.3)
+      builder (>= 2.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -86,8 +93,6 @@ GEM
       main
       ruby_parser (~> 2.3)
       sexp_processor (~> 3.0)
-    ci_reporter (1.7.3)
-      builder (>= 2.1.2)
     code_analyzer (0.2.0)
       sexp_processor
     coffee-rails (3.2.2)
@@ -413,7 +418,7 @@ DEPENDENCIES
   capybara-webkit
   carrierwave
   carrierwave_direct
-  ci_reporter
+  ci_reporter!
   coffee-rails (~> 3.2.1)
   devise (= 2.1.0)
   email_spec

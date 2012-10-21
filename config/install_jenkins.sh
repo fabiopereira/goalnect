@@ -27,3 +27,5 @@ brew install jenkins
 
 see this
 https://github.com/fabn/rails-jenkins-template
+
+cd /Users/fpereira/.jenkins/jobs

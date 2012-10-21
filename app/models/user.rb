@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :screen_name, :dob, :country_id, :unconfirmed_email, :about_me, :admin
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   
   belongs_to_active_hash :country  
   has_many :authentications, :dependent => :delete_all
@@ -16,10 +17,15 @@ class User < ActiveRecord::Base
   # CarrierWave Image Uploads
   attr_accessible :image
   mount_uploader :image, ImageUploader
+  after_update :crop_image  
   
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^(?!_)(?:[a-z0-9]_?)*[a-z](?:_?[a-z0-9])*(?<!_)$/i
+  
+  def crop_image
+    image.recreate_versions! if crop_x.present?
+  end  
   
   def apply_omniauth(auth)
     # In previous omniauth, 'user_info' was used in place of 'raw_info'
