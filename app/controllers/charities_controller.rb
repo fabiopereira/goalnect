@@ -10,11 +10,6 @@ class CharitiesController < ApplicationController
       format.json { render json: @charities }
     end
   end
-  
-  def authenticate_admin!(opts={})
-    opts[:scope] = :admin
-    warden.authenticate!(opts) if !devise_controller? || opts.delete(:force)
-  end
 
   # GET /charities/1
   # GET /charities/1.json
@@ -47,7 +42,8 @@ class CharitiesController < ApplicationController
   # POST /charities.json
   def create
     @charity = Charity.new(params[:charity])
-
+    nickname = remover_acentos(@charity.charity_name)
+    @charity.nickname = nickname.delete('^a-zA-Z0-9')
     respond_to do |format|
       if @charity.save
         format.html { redirect_to root_url, notice: I18n.t('charities.charity_registered')}

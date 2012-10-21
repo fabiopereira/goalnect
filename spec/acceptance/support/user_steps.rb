@@ -21,13 +21,17 @@ module UserSteps
   end
   
   def login_user user
+    login_user_password user.email, PASSWORD 
+  end   
+  
+  def login_user_password email, password
     visit '/'   
-    click_on 'Sign in'   
-    fill_in 'user_email', :with => user.email
-    fill_in 'user_password', :with => PASSWORD
+    click_on 'Login'   
+    fill_in 'user_email', :with => email
+    fill_in 'user_password', :with => password
     click_on 'Sign in'   
     page.should have_content 'ABOUT ME'       
-  end          
+  end    
   
   def sign_up username
     user = FactoryGirl.build(:any_user, :username => username)   

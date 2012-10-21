@@ -10,7 +10,10 @@
 			<li><a href="#tabs-4"><%= t "donations"%></a></li>
 		</ul>
 		<div id="tabs-1">
-			<pre><%=raw @goal.description %></pre>
+			<%= t "raising_money_to"%> <b><%= @goal.charity.charity_name%></b>, <%= t "my_target_amount_is"%> <b><%= @goal.target_amount%></b>
+			<div class="well" style="background:white">
+			<%=raw @goal.description %>	
+			</div>
 		</div>
 		<div id="tabs-2">
 				<% if current_user_is_achiever?(@goal.achiever) %>

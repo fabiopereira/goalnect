@@ -1,7 +1,7 @@
 <%= form_for @goal, :url => '/'+@achiever_username+'/goals/create', :html => { :class => 'form-horizontal' } do |f| %>    
 
-	<%= render 'layouts/model_error_messages', :target => @goal %>
-    <div class="control-group">
+  <%= render 'layouts/model_error_messages', :target => @goal %>
+  <div class="control-group">
 	<%= f.label :title, :class => 'control-label' %>
 	<div class="controls">
       <%= f.text_field :title %>
@@ -25,6 +25,19 @@
     </div>
   </div>
 
+ <div class="control-group">
+    <%= f.label :charity_id, :class => 'control-label' %>
+    <div class="controls">
+     <%= collection_select(:goal, :charity_id, Charity.find_all_by_active(true), :id, :charity_name, {:prompt => 'Select Charity'}) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+	<%= f.label :target_amount, :class => 'control-label' %>
+	<div class="controls">
+      <%= f.text_field :target_amount %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

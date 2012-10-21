@@ -3,7 +3,7 @@ require 'acceptance/support/donation_payment_notification'
 
 module GoalSteps
   include UserSteps, DonationPaymentNotificationSteps
-	def commit_to_a_goal title
+	def commit_to_a_goal title, charity
 	  visit '/'
 	  click_on 'New Goal'
 	  fill_in 'goal_title', :with => title                                  
@@ -11,6 +11,8 @@ module GoalSteps
 	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
     # fill_in 'goal_description', :with => description
     # fill_in 'goal_due_on', :with => 2.months.from_now
+    page.select charity.charity_name, :from => 'goal_charity_id'
+    fill_in 'goal_target_amount', :with => 100
 	  click_on 'Create Goal'
 	  page.should have_content 'Goal was successfully created'
 	  Goal.find_by_title title

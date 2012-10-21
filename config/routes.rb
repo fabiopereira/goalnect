@@ -45,6 +45,10 @@ Goalnect::Application.routes.draw do
   match '/achiever/update' => 'achiever#update'
 
   root to: 'home#index'
+  
+  match 'static/:action' => 'static#:action'
+  match '/faq' => "static#faq"
+
 
   match '/:user_username' => 'achiever#view'
   
@@ -57,8 +61,6 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/add_support/:goal_id' => 'goals#add_support'
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
-  
-  match 'static/:action' => 'static#:action'
   
 #root :to => "home#index"
 

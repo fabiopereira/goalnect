@@ -8,8 +8,34 @@ feature 'Danni losing weight and friend leo helping', %q{
   
   scenario 'Danni and her 12 months journey losing 35kg with friend Leo' do  
     #Danni wants to lose weight and will sign up on Goalnect
+    #charity = ensure_charity_active_exists 
+    
+    nickname = 'charitytest'
+    
+    
+    
+    visit '/charities/new'
+    fill_in 'charity_charity_name', :with => nickname
+    fill_in 'charity_contact_name', :with => 'contact'
+    fill_in 'charity_email', :with => 'contact@test.com'
+    fill_in 'charity_phone', :with => '2222222'
+    click_on 'Send'
+    
+
+    charity = Charity.find_by_nickname(nickname) 
+    charity.active = true
+    # begin
+      # Charity.transaction do
+        charity.save!
+        Charity.connection.execute("COMMIT") 
+    #   end
+    # rescue ActiveRecord::RecordInvalid => invalid
+    #   # do whatever you wish to warn the user, or log something
+    # end
+    
+    
     danni = ensure_logged_in 'danni'
-    dannis_goal = commit_to_a_goal 'Lose 35kg'
+    dannis_goal = commit_to_a_goal 'Lose 35kg', charity
     
     # Danni told her friend Leo about Goalnect and asked Leo to help her
     leo = ensure_logged_in 'leo'

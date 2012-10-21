@@ -45,7 +45,12 @@ rails g model GoalDonationPaymentNotification goal_donation_id:integer transacti
 
 
 
-rails g migration add_current_status_to_goal_donation current_status:string
+rails g migration add_charity_and_targe_amount_to_goal charity_id:integer target_amount:decimal
+
+rails g migration add_fields_to_charity active:bool logo:string cnpj:string
+
+rails g migration add_nickname_to_charity nickname:string
+
 rails g migration add_donor_name_to_goal_donation donor_name:string
 
 
