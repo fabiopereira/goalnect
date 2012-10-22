@@ -49,7 +49,8 @@ Goalnect::Application.routes.draw do
   
   match 'static/:action' => 'static#:action'
   match '/faq' => "static#faq"
-
+  match '/s/:static_content' => 'static#static_content'
+  
 
   match '/:user_username' => 'achiever#view'
   
