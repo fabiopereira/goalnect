@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121018213756) do
+ActiveRecord::Schema.define(:version => 20121022012623) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(:version => 20121018213756) do
     t.datetime "updated_at",       :null => false
   end
 
+  create_table "goal_donation_point_transactions", :force => true do |t|
+    t.integer  "goal_donation_id"
+    t.integer  "goal_id"
+    t.integer  "user_id"
+    t.integer  "point_amount"
+    t.boolean  "active"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "goal_donations", :force => true do |t|
     t.text     "message"
     t.integer  "goal_id"
@@ -90,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20121018213756) do
     t.datetime "updated_at",     :null => false
     t.string   "current_status"
     t.string   "donor_name"
+    t.boolean  "processed"
   end
 
   create_table "goal_supports", :force => true do |t|
@@ -133,8 +144,6 @@ ActiveRecord::Schema.define(:version => 20121018213756) do
     t.string   "username",               :default => "", :null => false
     t.string   "screen_name",            :default => "", :null => false
     t.date     "dob"
-    t.string   "country_id"
-    t.string   "integer"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -142,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20121018213756) do
     t.string   "image"
     t.text     "about_me"
     t.boolean  "admin"
+    t.integer  "country_id",             :default => 1
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

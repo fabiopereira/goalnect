@@ -1,6 +1,6 @@
 class GoalDonation < ActiveRecord::Base
   MIN_AMOUNT = 10
-  attr_accessible :amount, :goal_id, :message, :user_id, :current_status, :donor_name
+  attr_accessible :amount, :goal_id, :message, :user_id, :current_status, :donor_name, :processed
   
   validates_presence_of :goal_id, :amount, :donor_name
   validates :amount, :numericality => { :greater_than_or_equal_to => MIN_AMOUNT }

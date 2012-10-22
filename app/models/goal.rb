@@ -1,7 +1,7 @@
 class Goal < ActiveRecord::Base        
   extend ActiveHash::Associations::ActiveRecordExtensions
   
-  attr_accessible :description, :due_on, :owner, :title, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount
+  attr_accessible :description, :due_on, :owner, :title, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id
   
   belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
   belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_id'
