@@ -2,8 +2,8 @@ class GoalDonationPaymentNotificationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
              
   def handle_notification notification
-    begin
-      goalnect_pagseguro_notification = GoalnectPagSeguroNotification.new(notification)
+    begin                                           
+      goalnect_pagseguro_notification = GoalnectPagseguroNotification.new(notification)
       goalnect_pagseguro_notification.save_goal_donation_payment_notification
     rescue Exception => e
       Goalog.critical_exception "Error processing PagSeguro Notification #{YAML::dump(@notification)}", e
