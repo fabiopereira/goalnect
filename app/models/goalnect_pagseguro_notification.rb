@@ -1,4 +1,4 @@
-class GoalnectPagSeguroNotification
+class GoalnectPagseguroNotification
   def initialize(notification)
     @notification = notification
     validate
