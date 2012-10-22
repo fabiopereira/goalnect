@@ -1,5 +1,4 @@
-class User < ActiveRecord::Base        
-  extend ActiveHash::Associations::ActiveRecordExtensions
+class User < ActiveRecord::Base
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -11,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :screen_name, :dob, :country_id, :unconfirmed_email, :about_me, :admin
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   
-  belongs_to_active_hash :country  
+  #belongs_to_active_hash :country  
   has_many :authentications, :dependent => :delete_all
   
   # CarrierWave Image Uploads
@@ -53,6 +52,10 @@ class User < ActiveRecord::Base
   
   def full_url
     "/#{self.username}"
+  end
+
+  def country
+    Country.find self.country_id
   end
 
 end
