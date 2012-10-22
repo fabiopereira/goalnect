@@ -1,23 +1,26 @@
 class GoalDonationObserver < ActiveRecord::Observer
-  
-  PAYMENT_STATUS_COMPLETED = 'completed'
-  PAYMENT_STATUS_APPROVED = 'approved'
+
+  PAYMENT_STATUS_COMPLETED = :completed
+  PAYMENT_STATUS_APPROVED = :approved
   
   
   def after_save(goal_donation)
+    Goalog.debug "GoalDonationObserver called!!! => #{YAML::dump(goal_donation)}"
     if should_process_points? goal_donation
       create_point_transaction_achiever goal_donation
       create_point_transation_donor goal_donation
+      goal_donation.processed = true
+      goal_donation.save
     end
   end
   
   def create_point_transaction_achiever goal_donation
-     create_point_transaction goal_donation goal_donation.goal.achiever_id
+     create_point_transaction goal_donation, goal_donation.goal.achiever_id
   end
    
   def create_point_transation_donor goal_donation
     if goal_donation.user_id
-      create_point_transaction goal_donation goal_donation.user_id
+      create_point_transaction goal_donation, goal_donation.user_id
     end
   end
    
@@ -40,7 +43,8 @@ class GoalDonationObserver < ActiveRecord::Observer
    end
   
   def should_process_points? goal_donation
-    !goal_donation.processed && (goal_donation.current_status == PAYMENT_STATUS_COMPLETED || goal_donation.current_status == PAYMENT_STATUS_APPROVED)
+    not_processsed = !goal_donation.processed 
+    not_processsed && (goal_donation.current_status == PAYMENT_STATUS_COMPLETED || goal_donation.current_status == PAYMENT_STATUS_APPROVED)
   end
   
 end
