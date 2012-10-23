@@ -1,10 +1,10 @@
 <h1>Achievers</h1>
 <h3>Result from your search '<%= params[:q] %>'</h3>
 <% @achievers.each do |achiever| %>
-<div>            
+<div id="search-result">            
 	<a href="<%= achiever.full_url %>">
 	<%= user_image(achiever, :thumb) %>
-	<%= achiever.screen_name %>
+	<span><%= achiever.screen_name %></span>
 	</a>
 </div>
 <% end %>
