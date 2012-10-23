@@ -4,4 +4,8 @@ class Charity < ActiveRecord::Base
   validates_presence_of :charity_name, :contact_name, :email, :phone
   
   validates_uniqueness_of :nickname
+  
+  def to_s
+    charity_name
+  end
 end

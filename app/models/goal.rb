@@ -1,5 +1,5 @@
 class Goal < ActiveRecord::Base        
-  extend ActiveHash::Associations::ActiveRecordExtensions
+  #extend ActiveHash::Associations::ActiveRecordExtensions
   
   attr_accessible :description, :due_on, :owner, :title, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id
   
@@ -7,7 +7,7 @@ class Goal < ActiveRecord::Base
   belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_id'
   belongs_to :charity, :class_name => 'Charity', :foreign_key => 'charity_id'
 
-  belongs_to_active_hash :goalStage 
+  #belongs_to_active_hash :goalStage 
   has_many :goal_donations
 
   validates_presence_of :description, :due_on, :owner, :title, :charity_id, :target_amount
@@ -26,6 +26,10 @@ class Goal < ActiveRecord::Base
   
   def find_most_recent_donations_by_goal_id 
     GoalDonation.find_most_recent_donations_by_goal_id self.id
+  end         
+  
+  def goalStage
+      GoalStage.find(self.goal_stage_id)
   end
   
 end
