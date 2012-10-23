@@ -3,8 +3,4 @@ class GoalDonationPointTransaction < ActiveRecord::Base
   
   belongs_to :user, :goal
                                   
-  def self.find_by_username(username)
-    find(:all, :conditions => ['user.username = ?', username])
-  end
-  
 end

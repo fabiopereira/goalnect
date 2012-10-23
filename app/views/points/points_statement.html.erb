@@ -1,0 +1,14 @@
+<h1>Points</h1>
+
+<table>
+  <tr>
+    <th>Goal</th>
+  </tr>
+
+<% @point_transaction.each do |point_transactions| %>
+  <tr>
+    <td><%= point_transaction.goal.description %></td>
+  </tr>
+<% end %>
+</table>
+
