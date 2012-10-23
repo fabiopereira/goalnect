@@ -9,5 +9,5 @@
 		<p class="points-summary"><b>Points Summary:</b></p>
 		<p class="points-summary">Active Points.......<%=achiever.points_summary(true)%>pts</p>
 		<p class="points-summary">Locked Points.....<%=achiever.points_summary(false)%>pts</p>
-		<%= link_to 'statement', "/#{@achiever.username}/points_statement" %>
+		<%= link_to 'statement', "/#{achiever.username}/points_statement" %>
 </div>
