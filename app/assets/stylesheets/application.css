@@ -48,3 +48,7 @@ color: navy;
 	font-family: helvetica;
 	color: navy;
 }
+.jq-tabs {border: none}
+.jq-tabs .ui-widget { border:none;  padding:0px; margin:0px; }
+ .jq-tabs .ui-widget-header { border:none; padding:0px; margin:0px; }
+ .jq-tabs .ui-widget-content { border:none; padding:0px; margin:0px; }

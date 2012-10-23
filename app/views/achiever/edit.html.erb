@@ -7,8 +7,6 @@
 	
 </script>
 
-<div class="row well">
-	<b>Change profile photo</b>
 	<%= form_for @user, :url => '/achiever/update', :html => { :class => 'form-horizontal', :multipart => true } do |f| %>    
 
 		<%= render 'layouts/model_error_messages', :target => @user %>
@@ -34,6 +32,12 @@
 	    </div>
 	  </div>
 
+	 <div class="control-group">
+	    <%= f.label :country, :class => 'control-label'  %>
+	    <div class="controls">
+	     <%= collection_select(:user, :country_id, Country.all, :id, :name) %>
+	    </div>
+	  </div>
 
 
 	  <div class="form-actions">
@@ -41,4 +45,3 @@
 		<%= link_to t('cancel'), '/'+@user.username, :class => 'btn' %>
 	  </div>
 	<% end %>
-</div>
