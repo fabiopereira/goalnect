@@ -38,21 +38,18 @@
 		
 			
 			<div id="container" class="container">
-				<div class="flash">
-					<% flash.each do |type, message| -%>
-					<div class="message <%= type %>">
-						<p>
-							<%= message %>
-						</p>
+				<div class="span12 well" style="margin-left:0;background: white;">
+					<div class="flash span11">
+						<% flash.each do |type, message| -%>
+						<div class="message <%= type %>">
+							<p>
+								<%= message %>
+							</p>
+						</div>
+						<% end -%>
 					</div>
-					<% end -%>
+					<%= yield %>
 				</div>
-				
-				<%= yield %>
-				
-
-
-				
 			</div>
 			<br/>
 		</section>
