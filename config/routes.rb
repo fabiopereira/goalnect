@@ -1,6 +1,4 @@
 Goalnect::Application.routes.draw do
-
-  
   ActiveAdmin.routes(self)
 
   resources :charities
@@ -53,7 +51,8 @@ Goalnect::Application.routes.draw do
   
 
   match '/:user_username' => 'achiever#view'
-  
+
+  match '/:user_username/points' => 'points#index'
   match '/:user_username/goals' => 'goals#index'
   match '/:user_username/goals/new' => 'goals#new'
   match '/:user_username/goals/create' => 'goals#create'
