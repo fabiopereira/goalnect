@@ -17,6 +17,7 @@
  */
 /* universal */
 
+
 #main {
 	margin-top: 60px;
 }
@@ -37,3 +38,13 @@ font-family: helvetica;
 color: navy;
 }
 
+.action-text{
+	font-size: 14px;
+	font-family: helvetica;
+}
+
+.points-summary{
+	font-size: 14px;
+	font-family: helvetica;
+	color: navy;
+}

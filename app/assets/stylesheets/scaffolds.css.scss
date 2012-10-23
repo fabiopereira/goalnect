@@ -1,6 +1,8 @@
+
 body {
-  background-color: #fff;
-  color: #333;
+  background: url('blueprint_background.jpg');
+  //background: url('apple_ios_linen_texture.jpg');
+  //background: url('technical_drawing_paper_texture.jpg');
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -62,4 +64,13 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+.subtitle_green{
+	color: #17AE8F;
+}
+.subtitle_red{
+	color: #D0255B;
+}
+.subtitle_yellow{
+	color: #E6C520;
 }

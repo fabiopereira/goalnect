@@ -57,5 +57,14 @@ class User < ActiveRecord::Base
   def country
     Country.find self.country_id
   end
+  
+  def find_5_most_recent_updates
+    GoalComment.find(:all, :limit => 5, :conditions => ["user_id = ?", self.id], :order=> 'created_at desc')
+  end
+  
+  def points_summary active_flag
+    GoalDonationPointTransaction.sum(:point_amount, :conditions => ['user_id >= ? and active = ?', self.id, active_flag])
+  end
+  
 
 end
