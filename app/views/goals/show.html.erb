@@ -1,21 +1,22 @@
 <%- model_class = @goal.class -%>
-<h4><%= @goal.achiever.screen_name %> commits to <%= @goal.title%> by <%= l @goal.due_on %></h4>
-<div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450"></div>
-<div class="span7">
-	<div class="jq-tabs">
-		<ul>
-			<li><a href="#tabs-1"><%= t "description"%></a></li>
-			<li><a href="#tabs-2"><%= t "journey"%></a></li>
-			<li><a href="#tabs-3"><%= t "comments"%></a></li>
-			<li><a href="#tabs-4"><%= t "donations"%></a></li>
-		</ul>
-		<div id="tabs-1">
+
+<%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
+<div class="span6">
+	<h4>Goal: <%= @goal.title%>  (<%= l @goal.due_on %>)</h4> 
+	<ul id="goalTabs" class="nav nav-tabs">
+		<li class="active"><a href="#goal-description" data-toggle="tab">Descirption</a></li>
+	    <li><a href="#goal-journey-tab" data-toggle="tab">Profile</a></li>
+	    <li><a href="#goal-comments-tab" data-toggle="tab">Profile</a></li>
+	    <li><a href="#goal-donations-tab" data-toggle="tab">Profile</a></li>
+	 </ul>
+	 <div id="goalTabsContent" class="tab-content">
+		 <div class="tab-pane fade in active" id="goal-description-tab">
 			<%= t "raising_money_to"%> <b><%= @goal.charity.charity_name%></b>, <%= t "my_target_amount_is"%> <b><%= @goal.target_amount%></b>
 			<div class="well" style="background:white">
 			<%=raw @goal.description %>	
 			</div>
-		</div>
-		<div id="tabs-2">
+		 </div>
+		 <div class="tab-pane fade" id="goal-journey-tab">
 				<% if current_user_is_achiever?(@goal.achiever) %>
 				<%= form_for @goal_comment, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_comment/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
 					<%= render 'layouts/model_error_messages', :target => @goal_comment %>
@@ -34,11 +35,8 @@
 					<span class="small_i_font">(<%= comment.created_at %>)</span>
 					<% end %>
 			    </div>
-		</div>
-		<div id="tabs-3">
-			<fb:comments href="<%= current_url %>"></fb:comments>
-		</div>
-		<div id="tabs-4">
+		 </div>
+		 <div class="tab-pane fade" id="goal-donations-tab">
 			<table class="table table-striped table-condensed">
 			  <thead>
 			    <tr>
@@ -59,14 +57,18 @@
 			    <% end %>		
 			  </tbody>
 			</table>
-		</div>
+		 </div>
+		<div class="tab-pane fade" id="goal-comments-tab">
+			<fb:comments href="<%= current_url %>"></fb:comments>
+		 </div>
 	</div>
+    <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450"></div>
 	<div class="form-actions">
 		<%= link_to t('back'), '/'+@goal.achiever.username, :class => 'btn' %>
 	</div>
 </div>
-<div class="span4">
-	<div class="span3 row well" style="background:white">
+<div class="span3">
+	<div class="span2 row well" style="background:white">
 		Status: <%= @goal.goalStage.name%> <span class="small_i_font"> (<%= l @goal.goal_stage_changed_at, :format => :short %>)</span>
 		<% if current_user_is_achiever?(@goal.achiever) %>
 			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
@@ -75,7 +77,7 @@
 			<% end %>
 		<% end %>
 	</div>
-	<div class="span3 row well">
+	<div class="span2 row well">
 		<div id="support_form_div_id">
 			<% if current_user %>
 			<%= form_for @goal_support, :format => :json, :remote => true,  :url => '/'+@goal.achiever.username+'/goals/add_support/'+@goal.id.to_s+'.json', :html => { :'data-type' => 'json' } do |f| %>
@@ -89,7 +91,7 @@
 		<div id="support_info_msg">
 		</div>
 	</div>
-	<div class="span3 row well" style="background:white">
+	<div class="span2 row well" style="background:white">
 		<table class="table table-striped table-condensed">
 		  <thead>
 		    <tr>
