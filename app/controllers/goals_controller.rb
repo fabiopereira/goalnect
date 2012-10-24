@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/1.json
   def show
     @goal = Goal.find(params[:goal_id])
-    @goal_comment = GoalComment.new
+    @goal_feedback = GoalFeedback.new
     @goal_support = GoalSupport.new
     respond_to do |format|
       format.html # show.html.erb
@@ -62,21 +62,19 @@ class GoalsController < ApplicationController
     end
   end
   
-  def add_comment
-    params[:goal_comment][:goal_id] = params[:goal_id]
-    params[:goal_comment][:user_id] = current_user.id
-    
+  def add_feedback
+    params[:goal_feedback][:goal_id] = params[:goal_id]
+    params[:goal_feedback][:user_id] = current_user.id
     goal = Goal.find_by_id(params[:goal_id])
     if goal.achiever.id == current_user.id
-      @goal_comment = GoalComment.new(params[:goal_comment])
-      @goal_comment.save
+      @goal_feedback = GoalFeedback.new(params[:goal_feedback])
+      @goal_feedback.save
       respond_to do |format| 
-          format.json { render json: @goal_comment.to_json(
+          format.json { render json: @goal_feedback.to_json(
                 :include => {:user => {:only => :screen_name}}
-              ), status: :created, location: @goal_comment }
+              ), status: :created, location: @goal_feedback }
         end
-    end
-     
+    end  
   end
   
   def add_support

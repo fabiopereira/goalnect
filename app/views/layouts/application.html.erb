@@ -34,11 +34,9 @@
 		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
-		<section id="main">
-		
-			
-			<div id="container" class="container">
-				<div class="span12 well" style="margin-left:0;background: white;">
+		<section id="main">	
+		  <div id="container" class="container">
+			<div class="span12 well" style="margin-left:0;background: white;">
 					<div class="flash span11">
 						<% flash.each do |type, message| -%>
 						<div class="message <%= type %>">
@@ -50,14 +48,19 @@
 					</div>
 					<%= yield %>
 				</div>
-			</div>
-			<br/>
+		   </div>
+		   <br/>
 		</section>
-			<footer class ="footer">
+		<section class ="footer">
+			<div class="footer-start">
+			</div>
+			
+			<div class="footer-end">
 				<center>
 						Goalnect
 				</center>
-			</footer>
+			</div>
+		</section>
 		</div>
 		
 	</body>

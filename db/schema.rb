@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024155313) do
+ActiveRecord::Schema.define(:version => 20121024181321) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,14 +57,6 @@ ActiveRecord::Schema.define(:version => 20121024155313) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "goal_comments", :force => true do |t|
-    t.text     "message"
-    t.integer  "goal_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "goal_donation_payment_notifications", :force => true do |t|
     t.integer  "goal_donation_id"
     t.string   "transaction_id"
@@ -101,6 +93,15 @@ ActiveRecord::Schema.define(:version => 20121024155313) do
     t.string   "donor_name"
     t.boolean  "processed"
     t.integer  "amount"
+  end
+
+  create_table "goal_feedbacks", :force => true do |t|
+    t.text     "message"
+    t.integer  "goal_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "goal_stage_id"
   end
 
   create_table "goal_supports", :force => true do |t|

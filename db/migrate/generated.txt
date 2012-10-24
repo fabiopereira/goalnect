@@ -60,6 +60,8 @@ rails g migration add_donor_name_to_goal_donation donor_name:string
 
 rails g migration add_processed_to_goal_donation processed:bool
 
+rails g migration rename_goal_comment_and_add_goal_stage
+
 
 
 

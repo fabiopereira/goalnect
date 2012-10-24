@@ -20,8 +20,8 @@ class Goal < ActiveRecord::Base
     find(:all, :conditions => ['achiever_id = :u and goal_stage_id != :abandoned and  goal_stage_id != :not_accepted', {:u => user.id, :abandoned => GoalStage::ABANDONED.id, :not_accepted => GoalStage::NOT_ACCEPTED.id}])
   end
   
-  def find_comments
-    GoalComment.find_all_by_goal_id(self.id)
+  def find_feedback
+    GoalFeedback.find_all_by_goal_id(self.id)
   end
   
   def find_most_recent_donations_by_goal_id 

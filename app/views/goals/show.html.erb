@@ -17,10 +17,11 @@
 			<%=raw @goal.description %>	
 			</div>
 		 </div>
-		 <div class="tab-pane fade" id="goal-journey-tab">
+		 <div class="tab-pane fade" id="goal-journey-tab">	
 				<% if current_user_is_achiever?(@goal.achiever) %>
-				<%= form_for @goal_comment, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_comment/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
-					<%= render 'layouts/model_error_messages', :target => @goal_comment %>
+				<%= form_for @goal_feedback, :format => :json, :url => '/'+@goal.achiever.username+'/goals/add_feedback/'+@goal.id.to_s+'.json',:remote => true, :html => {:'data-type' => 'json' } do |f| %>    
+				<%= render 'layouts/model_error_messages', :target => @goal_feedback %>
+				Change to: <%= collection_select(:goal_feedback, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
 				  <div class="field">
 				    <%= f.label :feedback %><br />
 				    <%= f.text_area :message, :rows => 10 %>
@@ -28,12 +29,12 @@
 				  </div>
 				<% end %>
 				<% end %>
-				<div id="comments_div">
-					<% comments = @goal.find_comments() %>	
-					    <% comments.each do |comment| %>
+				<div id="feedbacks_div">
+					<% feedbacks = @goal.find_feedback() %>	
+					    <% feedbacks.each do |feedback| %>
+					<%= feedback.message%>
+					<span class="small_i_font">(<%= feedback.created_at %>)</span>
 					<hr style="color: #717171; height: 1px;">
-					<%= comment.message%>
-					<span class="small_i_font">(<%= comment.created_at %>)</span>
 					<% end %>
 			    </div>
 		 </div>
@@ -71,12 +72,6 @@
 <div class="span3">
 	<div class="span2 row well" style="background:white">
 		Status: <%= @goal.goalStage.name%> <span class="small_i_font"> (<%= l @goal.goal_stage_changed_at, :format => :short %>)</span>
-		<% if current_user_is_achiever?(@goal.achiever) %>
-			<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/change_stage/'+@goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
-			Change to: <%= collection_select(:goal, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
-		 	<%= f.submit nil, :class => 'btn btn-primary' %>
-			<% end %>
-		<% end %>
 	</div>
 	<div class="span2 row well">
 		<div id="support_form_div_id">
@@ -131,9 +126,9 @@
 			} 
 		
 		
-			$('#new_goal_comment').on('ajax:success',function(event, data, status, xhr){
-		    	$("#comments_div").append("<hr style='color: #717171; height: 1px;'>" + data.message + "<span class='small_i_font'>(" + data.created_at + ")</span>");
-				$("#goal_comment_message").val('');
+			$('#new_goal_feedback').on('ajax:success',function(event, data, status, xhr){
+		    	$("#feedbacks_div").append("<hr style='color: #717171; height: 1px;'>" + data.message + "<span class='small_i_font'>(" + data.created_at + ")</span>");
+				$("#goal_feedback_message").val('');
 			});
 			
 			$('#new_goal_support').on('ajax:success',function(event, data, status, xhr){

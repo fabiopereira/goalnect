@@ -27,7 +27,15 @@
 	font-style:italic;
 }
 
-.footer {
+.footer-start {
+clear: both;
+text-align: center;
+background-color: #f2f2f2;
+height: 300px;
+}
+
+.footer-end {
+  height: 45px;
   background-color:#9B9595;
   color:white;
 }
