@@ -7,4 +7,9 @@ describe User do
     user.full_url.should be == "/camilahayashi"
   end
 
+  it 'should create a valid user' do
+    FactoryGirl.create(:any_user)
+    FactoryGirl.create(:any_user)
+  end
+
 end

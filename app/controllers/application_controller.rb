@@ -87,7 +87,6 @@ class ApplicationController < ActionController::Base
     texto = texto.gsub(/(Á|À|Ã|Â|Ä)/, 'A').gsub(/(É|È|Ê|Ë)/, 'E').gsub(/(Í|Ì|Î|Ï)/, 'I').gsub(/(Ó|Ò|Õ|Ô|Ö)/, 'O').gsub(/(Ú|Ù|Û|Ü)/, 'U')
     texto = texto.gsub(/ñ/, 'n').gsub(/Ñ/, 'N')
     texto = texto.gsub(/ç/, 'c').gsub(/Ç/, 'C')
-    puts texto
     texto
   end
   

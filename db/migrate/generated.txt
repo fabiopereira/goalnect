@@ -18,6 +18,8 @@ rails g migration add_is_challenge_to_goal is_challenge:boolean
 
 rails g migration add_about_me_to_user about_me:text
 
+rails g migration change_goal_donation_amount_from_decimal_to_integer
+
 
 ### GENERATE NEW MODEL/CONTROLLER/MIGRATION and ADD BOOTSTRAP THEME
 rails g scaffold Event title:string description:text date:date image:string registration_fee:decimal moderated:boolean team:boolean min_participants_team:integer max_participants_team:integer total_participants:integer min_age:integer max_age:integer registrations_until:date
