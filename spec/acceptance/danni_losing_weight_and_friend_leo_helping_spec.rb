@@ -21,8 +21,6 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     # Danni should have received 2 point transactions 
     danni = ensure_logged_in 'danni'
-    
-    
   end
 
 end

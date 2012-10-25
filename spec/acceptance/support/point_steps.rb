@@ -1,6 +1,6 @@
 module PointSteps
-  def 
-    
+  def xxx_xxx
+    true
   end
 end
 
