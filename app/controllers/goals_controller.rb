@@ -17,14 +17,19 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/1.json
   def show
     @goal = Goal.find(params[:goal_id])
-    @goal_comment = GoalComment.new
-    @goal_support = GoalSupport.new
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @goal }
-    end
+    @goal_feedback = GoalFeedback.new
+    display_show_page
   end
 
+  def display_show_page
+     @tab = params[:tab]
+     @goal_support = GoalSupport.new
+     respond_to do |format|
+      format.html {render 'show.html.erb'}
+      format.json { render json: @goal }
+     end
+  end
+  
   # GET /:user_username/goals/new
   # GET /:user_username/goals/new.json
   def new
@@ -62,22 +67,36 @@ class GoalsController < ApplicationController
     end
   end
   
-  def add_comment
-    params[:goal_comment][:goal_id] = params[:goal_id]
-    params[:goal_comment][:user_id] = current_user.id
-    
-    goal = Goal.find_by_id(params[:goal_id])
-    if goal.achiever.id == current_user.id
-      @goal_comment = GoalComment.new(params[:goal_comment])
-      @goal_comment.save
-      respond_to do |format| 
-          format.json { render json: @goal_comment.to_json(
-                :include => {:user => {:only => :screen_name}}
-              ), status: :created, location: @goal_comment }
-        end
+  def add_feedback
+    params[:goal_feedback][:goal_id] = params[:goal_id]
+    params[:goal_feedback][:user_id] = current_user.id
+    @goal = Goal.find_by_id(params[:goal_id])
+    @tab = "goal-journey-tab"
+    feedback_validation
+    @goal_feedback = GoalFeedback.new(params[:goal_feedback])
+    if @goal_feedback.save
+      update_goal_status @goal_feedback, @goal
     end
-     
+    display_show_page
   end
+  
+  def feedback_validation
+     if GoalStage::DONE == @goal.goalStage
+        raise 'This goal is done, you cannot change it status or add new feedbacks'
+      end
+      if @goal.achiever.id != current_user.id
+        raise 'You are not the achiever of this goal, you cannot add feedbacks'
+      end
+  end
+  
+  def update_goal_status goal_feedback, goal
+    if GoalStage::DONE != goal.goalStage && goal_feedback.goal_stage_id != goal.goal_stage_id
+      goal.goal_stage_id = goal_feedback.goal_stage_id
+      goal.goal_stage_changed_at = goal_feedback.created_at
+      goal.save
+    end
+  end
+  
   
   def add_support
       goal_supports =  GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);

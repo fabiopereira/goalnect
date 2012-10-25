@@ -2,9 +2,7 @@ Goalnect::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :charities
-  #resources :goal_donations
   resources :goal_supports
-  resources :goal_comments
   resources :goal
 
 
@@ -65,7 +63,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/create' => 'goals#create'
   
   match '/:user_username/goals/show/:goal_id' => 'goals#show'
-  match '/:user_username/goals/add_comment/:goal_id' => 'goals#add_comment'
+  match '/:user_username/goals/add_feedback/:goal_id' => 'goals#add_feedback'
   match '/:user_username/goals/add_support/:goal_id' => 'goals#add_support'
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'

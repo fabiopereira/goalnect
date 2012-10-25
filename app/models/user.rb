@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   end
   
   def find_5_most_recent_updates
-    GoalComment.find(:all, :limit => 5, :conditions => ["user_id = ?", self.id], :order=> 'created_at desc')
+    GoalFeedback.find(:all, :limit => 5, :conditions => ["user_id = ?", self.id], :order=> 'created_at desc')
   end
   
   def points_summary active_flag
