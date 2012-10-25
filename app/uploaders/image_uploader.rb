@@ -40,7 +40,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   # def scale(width, height)
   #   # do something
-  # end
+  # end           
+  
+  process :resize_to_limit => [600, 600]
 
   # Create different versions of your uploaded files:
   version :thumbmini do
@@ -52,10 +54,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     resize_to_fill(180, 180)
   end
 
-  version :large do
-    resize_to_limit(600, 600)
-  end          
-  
   def crop
       if model.crop_x.present?
         resize_to_limit(600, 600)

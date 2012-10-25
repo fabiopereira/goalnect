@@ -30,7 +30,7 @@
 <div id="cropping-image">
 	<%= form_for @user, :url => '/achiever/crop', :html => { :class => 'form-horizontal'} do |f| %>    
 	
-	<%= image_tag @user.image_url(:large), id: "cropbox" %>
+	<%= image_tag @user.image_url, id: "cropbox" %>
 	
    	  <% %w[x y w h].each do |attribute| %>
 	    <%= f.hidden_field "crop_#{attribute}" %>
