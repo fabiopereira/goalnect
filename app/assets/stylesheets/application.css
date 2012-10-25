@@ -27,11 +27,10 @@
 	font-style:italic;
 }
 
-.footer-start {
+.footer {
 clear: both;
 text-align: left;
 background-color: #f2f2f2;
-height: 300px;
 }
 
 .footer-end {
@@ -39,6 +38,7 @@ height: 300px;
   background-color:#9B9595;
   text-align: center;
   color:white;
+  bottom: 0;
 }
 
 .link-footer {
