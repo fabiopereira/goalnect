@@ -47,13 +47,17 @@ pt:
     croptitle: "Selecione a área que quer que apareça desta imagem"
   
   charities:
-      looking_for_partners: "Goalnect está procurando por instituições de caridade corretas e justas para receber suas doações arrecadadas, por favor cadastre-se "
+      looking_for_partners: "Goalnect está procurando por instituições de caridade corretas e justas para receber suas doações arrecadadas, por favor cadastre-se ou entre em contato conosco."
       embrace_this_idea: " e abrace esta idéia"
       charity_registered: "Seu cadastro foi efetuado com sucesso! Goalnect agradece por seu interesse, e entrará em contato em breve"
       including_country_code: "Incluir o código do país"
       charity_description: "Um pequeno resumo sobre a instituição, ações, causas..."
       onestep: "Só mais um passo..."
       emailpreference: "Preencha os seus dados ou se preferir, fale conosco por email contato@goalnect.com"
+      if_you_are_a_charity: "Se você é uma ONG"
+      to_suggest_a_charity: "Quer sugerir uma ONG"
+      charity: "ONGs"
+      
   search_friends: "Buscar"
   edit: "Editar"
   cancel: "Cancelar"
@@ -69,5 +73,11 @@ pt:
   send: "Enviar"
   static:
     howitworks: "Como funciona"
+    terms: "Termos de Uso"
   email:
     team: "contato@goalnect.com"
+  footer:
+    information: "Informações Úteis"
+    find_us: "Onde Estamos"
+    contact: "Fale Conosco"
+    or_call: "Ou ligue"

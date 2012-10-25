@@ -29,7 +29,7 @@
 
 .footer-start {
 clear: both;
-text-align: center;
+text-align: left;
 background-color: #f2f2f2;
 height: 300px;
 }
@@ -37,7 +37,22 @@ height: 300px;
 .footer-end {
   height: 45px;
   background-color:#9B9595;
+  text-align: center;
   color:white;
+}
+
+.link-footer {
+font-size: 20px;
+font-weight: lighter;
+text-decoration: none;
+color: #666;
+}
+
+.title-footer {
+font-size: 20px;
+font-weight: lighter;
+text-decoration: none;
+color: navy;
 }
 
 #headlineSubtitle p {

@@ -30,6 +30,8 @@ en:
     charity_description: "small briefing about the charity"
     onestep: "Only one step..."
     emailpreference: "Fill your details or if you prefer, send us an email team@goalnect.com"
+    if_you_are_a_charity: "If you are a charity"
+    to_suggest_a_charity: "To suggest a charity"
   achiever:
     croptitle: "Crop your image if you want"
   
@@ -39,3 +41,8 @@ en:
     howitworks: "How it works"
   email:
     team: "team@goalnect.com"  
+  footer:
+    information: "Informations"
+    find_us: "Find us"
+    contact: "Contact"
+    or_call: "Or call"

@@ -48,18 +48,50 @@
 					</div>
 					<%= yield %>
 				</div>
+				<div class="footer span12 well" style="margin-left:0;">
+					<div class="footer-start">
+						<table class="span12">
+							<tr>
+								<td width="33%">
+								  <p class="title-footer"><%=t "footer.information" %></p><br/>
+								</td>
+								<td  width="33%">
+								  <p class="title-footer"><%=t "footer.find_us" %></p><br/>
+								</td>
+								<td  width="33%">
+								  <p class="title-footer"><%=t "footer.contact" %></p><br/>
+								</td>
+							<tr>
+							<tr>
+								<td><p class="link-footer"><%= link_to t("static.howitworks"), "/s/faq" %></p><br/></td>
+								<td><p class="link-footer"><a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png", width: "25") %> Facebook</a></p><br/></td>
+								<td><p class="link-footer"><%= link_to t("charities.if_you_are_a_charity"), new_charity_path %></p><br/></td>
+							</tr>
+							<tr>
+								<td><p class="link-footer"><%= link_to t("static.faq"), "/s/faq" %></p><br/></td>
+								<td><p class="link-footer"><a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png", width: "25") %> Twitter</a></p><br/></td>
+								<td><p class="link-footer"><%= link_to t("charities.to_suggest_a_charity"), new_charity_path %></p><br/></td>
+							</tr>
+							<tr>
+								<td><p class="link-footer"><%= link_to t("static.terms"), "/s/terms" %></p><br/></td>
+								<td><p class="link-footer"><a href="mailto:<%= t "email.team" %>" target="blank"><%= image_tag("goalnect-mailto-48x48.png", width: "25") %> Email</a></p><br/></td>
+								<td><p class="link-footer"><%= t"footer.or_call" %> +55 11 3280-7400</p><br/></td>
+							</tr>
+							<tr>
+								<td><p class="link-footer"><a href="mailto:<%= t "email.team" %>" target="blank"><%=t "footer.contact" %></a></p><br/></td>
+							</tr>
+							<tr>
+								<td><p class="link-footer"><%= link_to t("charities.charity"), new_charity_path %></p><br/></td>
+							</tr>
+						</table>	
+						</div>
+					<div class="footer-end">
+						<center>
+								Goalnect 
+						</center>
+					</div>
+				</div>
 		   </div>
-		   <br/>
-		</section>
-		<section class ="footer">
-			<div class="footer-start">
-			</div>
-			
-			<div class="footer-end">
-				<center>
-						Goalnect
-				</center>
-			</div>
 		</section>
 		</div>
 		
