@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
   end
   
   def points_summary active_flag
-    GoalDonationPointTransaction.sum(:point_amount, :conditions => ['user_id >= ? and active = ?', self.id, active_flag])
+    GoalDonationPointTransaction.sum(:point_amount, :conditions => ['user_id = ? and active = ?', self.id, active_flag])
   end
   
 

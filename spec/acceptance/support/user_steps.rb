@@ -71,6 +71,10 @@ module UserSteps
 	  user
 	end
 	
+	def visit_user_profile_by_username username
+	  visit "/#{username}"
+	end
+	
 	def find_current_user username
 	  User.find_by_username(username)
 	end

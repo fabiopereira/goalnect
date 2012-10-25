@@ -61,8 +61,9 @@ module GoalSteps
     
 	  goal_donation = GoalDonation.find_by_message(message)
 	  
-	 donation_payment_notification goal, goal_donation
-    
+	  donation_payment_notification goal, goal_donation
+
+    GoalDonation.find_by_message(message)
 	end
 	
 	def donate_anonymously goal
