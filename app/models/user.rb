@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   # CarrierWave Image Uploads
   attr_accessible :image
   mount_uploader :image, ImageUploader
+  
   after_update :crop_image  
   
   validates_presence_of :username

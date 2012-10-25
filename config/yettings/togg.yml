@@ -1,6 +1,7 @@
 defaults: &defaults
-  feature_login: true
-  feature_payment: true
+  feature_authentication: true
+  feature_payment: true        
+  feature_sign_in: false
 
 development: 
   <<: *defaults
@@ -16,6 +17,5 @@ demo:
 
 production:
   <<: *defaults
-  feature_login: false
-  
-  
+  feature_authentication: false 
+  feature_sign_in: true

@@ -7,9 +7,16 @@ Goalnect::Application.routes.draw do
 
 
 #admin routes
-  #devise_for :admins,  :skip => [ :registrations ]                        
+  # devise_for :users,  :skip => [ :registrations ]                        
   get "achiever/view"
-  Togg.le(:feature_login) do
+  
+  Togg.le(:feature_sign_in) do
+    devise_for :users,  :skip => [ :registrations ]                        
+    # match '/users/sign_in(.:format)' => 'devise/sessions#new'
+    # post '/users/sign_in(.:format)' => 'devise/sessions#create', :as => :user_session
+  end
+                      
+  Togg.le(:feature_authentication) do
     devise_for :users
     
     match '/auth/:provider/callback' => 'authentications#create'

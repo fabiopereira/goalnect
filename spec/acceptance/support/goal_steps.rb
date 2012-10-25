@@ -97,7 +97,7 @@ module GoalSteps
     
    donation_payment_notification goal, goal_donation
     
-    
+   GoalDonation.find_by_message(message)
 	end
 	
 	

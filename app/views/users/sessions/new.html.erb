@@ -18,7 +18,8 @@
 
   <div><%= f.submit t("devise.sessions.sign_in") %></div>
 <% end %>
+<% Togg.le(:feature_authentication) do %>
+  <%= render :partial => "devise/shared/links" %>
+  <%= link_to 'Login with Facebook', '/auth/facebook/' %>
+<% end %>
 
-<%= render :partial => "devise/shared/links" %>
-
-<%= link_to 'Login with Facebook', '/auth/facebook/' %>
