@@ -1,7 +1,10 @@
+<div class="row">
 <% if current_user %>
 <% if current_user.id == @achiever.id  %>
-<%= link_to 'New Goal', new_goal_path(@achiever.username) %>
+<a href="<%=new_goal_path(@achiever.username)%>" class="button button-g" title="New Goal"><span class="icon icon202"></span>&nbsp;&nbsp;&nbsp;New Goal</a>
 <%else%>
 <%= link_to 'Dare this friend', new_goal_path(@achiever.username) %>
 <%end%>
 <% end %>
+<a href="<%=goals_path(@achiever.username)%>" class="button button-g" title="Listar Goal"><span class="icon icon201"></span>&nbsp;&nbsp;&nbsp;Listar Goals</a>
+</div>

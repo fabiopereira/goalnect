@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
   
   def is_current_user_charity_admin?
     charity_id = params[:id]
-    puts  'CHAriTY ID =======> ' + charity_id
     current_user.charity_id && current_user.charity_id.to_s == charity_id
   end
 
