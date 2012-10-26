@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024181321) do
+ActiveRecord::Schema.define(:version => 20121025181016) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20121024181321) do
     t.string   "logo"
     t.string   "cnpj"
     t.string   "nickname"
+    t.string   "image"
+    t.string   "website"
   end
 
   create_table "countries", :force => true do |t|
@@ -152,7 +154,8 @@ ActiveRecord::Schema.define(:version => 20121024181321) do
     t.string   "image"
     t.text     "about_me"
     t.boolean  "admin"
-    t.integer  "country_id",             :default => 1
+    t.integer  "country_id",             :default => 2
+    t.integer  "charity_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

@@ -24,14 +24,9 @@ class AchieverController < ApplicationController
   end
   
   def crop
-    @user = current_user
-    @user.crop_x = params[:user][:crop_x]
-    @user.crop_y = params[:user][:crop_y]
-    @user.crop_h = params[:user][:crop_h]
-    @user.crop_w = params[:user][:crop_w]
-    @user.save    
+    crop_image current_user    
     respond_to do |format|
-      format.html { render action: "edit_profile_photo"  }
+      format.html { redirect_to root_path  }
     end
   end
     

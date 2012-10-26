@@ -38,7 +38,8 @@ pt:
         charity_name: Nome da Instituição
         contact_name: Nome do Contato
         phone: Telefone
-        description: descrição
+        description: Descrição
+        nickname: Apelido
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"

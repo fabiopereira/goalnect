@@ -12,6 +12,19 @@ class ApplicationController < ActionController::Base
       redirect_to root_path 
     end
   end
+  
+  def charity_admin_user!
+    unless current_user && (current_user.admin? || is_current_user_charity_admin?)
+      flash[:alert] = "This area is restricted to charity administrators only."
+      redirect_to root_path 
+    end
+  end
+  
+  def is_current_user_charity_admin?
+    charity_id = params[:id]
+    puts  'CHAriTY ID =======> ' + charity_id
+    current_user.charity_id && current_user.charity_id.to_s == charity_id
+  end
 
   def current_admin_user
     return nil if user_signed_in? && !current_user.admin?
@@ -22,6 +35,17 @@ class ApplicationController < ActionController::Base
     if params["user_return_to"] && params["user_return_to"].start_with?("/")
       session['user_return_to'] = params["user_return_to"]
     end
+  end
+  
+  def crop_image model
+    model_name = model.class.name.downcase
+    Goalog.info model_name
+    Goalog.info "params #{params}"
+    model.crop_x = params[model_name][:crop_x]
+    model.crop_y = params[model_name][:crop_y]
+    model.crop_h = params[model_name][:crop_h]
+    model.crop_w = params[model_name][:crop_w]
+    model.crop_image  
   end
 
   # http://guides.rubyonrails.org/i18n.html
