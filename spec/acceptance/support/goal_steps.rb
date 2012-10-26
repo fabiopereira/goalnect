@@ -3,6 +3,28 @@ require 'acceptance/support/donation_payment_notification'
 
 module GoalSteps
   include UserSteps, DonationPaymentNotificationSteps
+
+	def visit_goal goal
+	  user = goal.achiever
+	  visit "/#{user.username}/goals/show/#{goal.id}"
+	end
+	
+  def finish_goal goal
+    ensure_logged_in goal.achiever.username
+    visit_goal goal
+    click_on 'Journey'
+    page.select "done", :from => "goal_feedback_goal_stage_id"
+
+    # Should validate that message is mandatory when changing goal stage    
+    click_on "Send"
+    page.should have_content "Message can't be blank"
+    
+    fill_in "goal_feedback_message", :with => "I made it, yay"
+    click_on "Send"
+    
+    page.should_not have_css("#goal_feedback_goal_stage_id")
+  end
+  
 	def commit_to_a_goal title, charity
 	  visit '/'
 	  click_on 'New Goal'
@@ -16,11 +38,6 @@ module GoalSteps
 	  click_on 'Create Goal'
 	  page.should have_content 'Goal was successfully created'
 	  Goal.find_by_title title
-	end
-	
-	def visit_goal goal
-	  user = goal.achiever
-	  visit "/#{user.username}/goals/show/#{goal.id}"
 	end
 	
 	def support_believing goal

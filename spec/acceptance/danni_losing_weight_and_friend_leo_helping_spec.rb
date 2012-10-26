@@ -11,6 +11,7 @@ feature 'Danni losing weight and friend leo helping', %q{
     charity = ensure_charity_active_exists 'charitytest'
     
     danni = ensure_logged_in 'danni'
+    Capybara::Screenshot.screen_shot_and_save_page
     dannis_goal = commit_to_a_goal 'Lose 35kg', charity
     
     ensure_user_has_points_active 'danni', 0
@@ -24,14 +25,19 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     # Danni should have received 2 point transactions 
     total_points_locked = donation_leo.amount + donation_anonymous.amount
-    ensure_user_has_points_active 'danni', 0
-    ensure_user_has_points_locked 'danni', total_points_locked
+    ensure_user_has_points_active danni.username, 0
+    ensure_user_has_points_locked danni.username, total_points_locked
     
     # Leo should have received points related to her donation only, and they're locked 
-    ensure_user_has_points_active 'leo', 0
-    ensure_user_has_points_locked 'leo', donation_leo.amount
+    ensure_user_has_points_active leo.username, 0
+    ensure_user_has_points_locked leo.username, donation_leo.amount
     
     #Once Danni finishes her goal, all points are unlocked
+    finish_goal dannis_goal   
+    ensure_user_has_points_active danni.username, total_points_locked
+    ensure_user_has_points_locked danni.username, 0
+    ensure_user_has_points_active leo.username, donation_leo.amount
+    ensure_user_has_points_locked leo.username, 0
   end
 
 end

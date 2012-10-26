@@ -10,7 +10,7 @@ require 'email_spec'
 require 'rails/test_help'
         
 require 'capybara/rspec'
-# Capybara::Screenshot.screen_shot_and_save_page
+Capybara::Screenshot.autosave_on_failure = true
 
 # Capybara.javascript_driver = :webkit
 Capybara.default_driver = :selenium
