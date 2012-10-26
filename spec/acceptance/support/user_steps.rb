@@ -45,6 +45,7 @@ module UserSteps
     fill_in 'user_screen_name', :with => user.screen_name
     fill_in 'user_username', :with => user.username 
     fill_in 'dob', :with => user.dob.strftime("%d/%m/%Y")
+    page.select Country::AUSTRALIA.name, :from => 'user_country_id'
     click_on 'Sign up'   
     user = User.find_by_username(user.username)
     # visit "/users/confirmation?confirmation_token=#{user.confirmation_token}" 
@@ -69,6 +70,10 @@ module UserSteps
 	  end
 	  
 	  user
+	end
+	
+	def visit_user_profile_by_username username
+	  visit "/#{username}"
 	end
 	
 	def find_current_user username
