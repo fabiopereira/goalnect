@@ -1,10 +1,11 @@
 class CharitiesController < ApplicationController
-  before_filter :authenticate_admin_user!, :except => [:new, :create]
+  before_filter :authenticate_admin_user!, :only => [:destroy]
+  before_filter :charity_admin_user!, :only => [:edit, :update, :change_logo, :crop]
+  
   # GET /charities
   # GET /charities.json
   def index
     @charities = Charity.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @charities }
@@ -14,12 +15,20 @@ class CharitiesController < ApplicationController
   # GET /charities/1
   # GET /charities/1.json
   def show
-    @charity = Charity.find(params[:id])
-
+    nickname_or_id = params[:id]
+    if is_number? nickname_or_id
+      @charity = Charity.find(nickname_or_id)
+    else
+      @charity = Charity.find(:first, :conditions => [ "lower(nickname) = ?", nickname_or_id.downcase ])
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @charity }
     end
+  end
+  
+  def is_number? s
+    s.match(/^\d+$/) == nil ? false : true 
   end
 
   # GET /charities/new
@@ -38,6 +47,10 @@ class CharitiesController < ApplicationController
     @charity = Charity.find(params[:id])
   end
 
+  def change_logo
+    edit
+  end
+  
   # POST /charities
   # POST /charities.json
   def create
@@ -80,6 +93,14 @@ class CharitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to charities_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def crop
+    @charity = Charity.find(params[:id])
+    crop_image @charity    
+    respond_to do |format|
+      format.html { redirect_to @charity }
     end
   end
 end

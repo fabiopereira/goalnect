@@ -7,7 +7,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
-# require "rails/test_unit/railtie" 
+# require "rails/test_unit/railtie"
 
 # add these line for log4r
 # require 'log4r'

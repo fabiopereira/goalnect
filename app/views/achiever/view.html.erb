@@ -1,5 +1,7 @@
 <%= render 'achiever/achiever_profile', :achiever => @achiever %>
-				<div class="span8 row well" style="border-color:#17AE8F">
+
+				<div class="span8">
+				<div class="row well" style="border-color:#17AE8F">
 					<p class="subtitle_green"><b>ABOUT ME:</b></p>
 					<% if @achiever.about_me.blank? %>
 						Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
@@ -7,7 +9,7 @@
 					<%= @achiever.about_me %>
 					<% end %>
 				</div>
-				<div class="span8 row well" style="background: white;border-color:#D0255B">
+				<div class="row well" style="background: white;border-color:#D0255B">
 					<p class="subtitle_red"><b>GOALS:</b>
 					<% my_goals = @achiever.find_active_goals() %>
 					<% is_my_home = my_goals.empty? && current_user_is_achiever?(@achiever) %>
@@ -48,7 +50,7 @@
 				    <% end %>	
 					
 				</div>
-				<div class="span8 row well" style="background: white;border-color:#E6C520">
+				<div class="row well" style="background: white;border-color:#E6C520">
 					<p class="subtitle_yellow"><b>THE JOURNEY:</b> </p>
 					
 						<% journeys = @achiever.find_5_most_recent_updates() %>	
@@ -60,7 +62,7 @@
 						<% end %>
 				
 				</div>
-	
+	</div>
 	
 	<!--
 	<div class="span2 well">

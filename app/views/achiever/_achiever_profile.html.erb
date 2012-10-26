@@ -1,11 +1,18 @@
-<div class="span2 well" style="border-color:navy">
+<div class="span2 well achiever_profile" style="border-color:navy">
 	<%= user_image achiever, :thumb %><br/>
 	<h4><%= achiever.screen_name %></h4>
-	<hr/>
-		<p class="action-text"><%= link_to t('change_photo'), '/achiever/edit_profile_photo' if current_user_is_achiever?(achiever) %></p>
-	<hr/>
-	<p class="action-text"><%= link_to t('edit_profile'), '/achiever/edit' if current_user_is_achiever?(achiever)  %></p>
-	<hr/>
+		<hr/>
+	<% if current_user_is_achiever?(achiever) %>
+		<p class="action-text"><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
+		<hr/>
+		<p class="action-text"><%= link_to t('edit_profile'), '/achiever/edit'  %></p>
+		<hr/>
+		<% if current_user.charity_id%>
+		<% charity_url = '/charities/private_show/'+current_user.charity.id.to_s %>
+		<p class="action-text"><%= link_to current_user.charity.charity_name, charity_url %></p>
+		<hr/>
+		<% end %>
+	<% end %>
 		<p class="points-summary"><b>Points Summary:</b></p>
 		<p class="points-summary">Active Points.......<%=achiever.points_summary(true)%>pts</p>
 		<p class="points-summary">Locked Points.....<%=achiever.points_summary(false)%>pts</p>
