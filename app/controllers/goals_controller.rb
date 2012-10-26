@@ -76,6 +76,7 @@ class GoalsController < ApplicationController
     @goal_feedback = GoalFeedback.new(params[:goal_feedback])
     if @goal_feedback.save
       update_goal_status @goal_feedback, @goal
+      @goal_feedback = GoalFeedback.new
     end
     display_show_page
   end

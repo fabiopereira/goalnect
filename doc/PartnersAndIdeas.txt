@@ -11,6 +11,8 @@ Green: #00933B
 Google like buttons and icons
 http://code.shrapp.nl/google-plus-ui-buttons/demo.html
 
+http://railscasts.com/episodes/381-jquery-file-upload?autoplay=true
+
 comercial@pagseguro.com.br
 
 Advogados da lista

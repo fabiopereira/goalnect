@@ -37,15 +37,16 @@
 		<section id="main">	
 		  <div id="container" class="container">
 			<div class="span12 well" style="margin-left:0;background: white;">
-				<div class="flash span11">
-					<% flash.each do |type, message| -%>
-					<div class="message <%= type %>">
-						<p>
-							<%= message %>
-						</p>
-					</div>
-					<% end -%>
-				</div>
+				<div class="flash span11">          
+					<% flash.each do |name, msg| %>
+					  <% if msg.is_a?(String) %>
+					    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+					      <a class="close" data-dismiss="alert">&#215;</a>
+					      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+					    </div>
+					  <% end %>
+					<% end %>				
+				 </div>				
 				<%= yield %>
 			</div>
 			<%= render 'layouts/footer' %>
