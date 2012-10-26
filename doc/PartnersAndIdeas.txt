@@ -8,6 +8,9 @@ Red: #F90101
 Yellow: #F2B50F
 Green: #00933B
 
+Google like buttons and icons
+http://code.shrapp.nl/google-plus-ui-buttons/demo.html
+
 comercial@pagseguro.com.br
 
 Advogados da lista

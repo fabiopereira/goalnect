@@ -25,10 +25,7 @@
 				
 				<% Togg.le(:feature_authentication) do %>
 				<li>
-				<form action="/search">
-				  <input id="q" name="q" type="text" placeholder="<%= t 'search_friends' %>"/>
-				  <input type="submit" value="Search"/>                
-				</form>
+					<%= render 'search/search_form' %>
 				</li>
 				<% if user_signed_in? %>
 				 <input type="hidden" id="current_user_test" value="<%=current_user.username %>"/>
