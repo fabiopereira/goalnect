@@ -10,12 +10,17 @@
 					<% end %>
 				</div>
 				<div class="row well" style="background: white;border-color:#D0255B">
-					<p class="subtitle_red"><b>GOALS:</b>
+						<span class=" subtitle_red">
+							<b>GOALS:</b>
+						</span>
+						<span style="float:right">
+								<%= render 'goals/new_goal_url' %>
+						</span>
+					
+				
+					</p>
 					<% my_goals = @achiever.find_active_goals() %>
 					<% is_my_home = my_goals.empty? && current_user_is_achiever?(@achiever) %>
-					<%= render 'goals/new_goal_url' %>
-					</p>
-					
 					<%if is_my_home %>
 						Your next step is to <%= link_to 'commit to a goal', new_goal_path(@achiever.username) %>
 					<%else%>
@@ -25,6 +30,7 @@
 					    <tr>
 					 	  <th>Title</th>
 					      <th>Status</th>
+						  <th></th>
 					    </tr>
 					  </thead>
 					  <tbody>
@@ -41,6 +47,14 @@
 							<% else %>
 						    	<%= goal.goalStage.name %>
 							<% end %>
+							</td>
+							<td align="right">
+							  <span class="tiptip" style="float:right">
+								  <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title="I believe"><span class="icon icon101"></span></a>
+							   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title="Serously?!?"><span class="icon icon100"></span></a>
+								  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title="Donate"><span class="icon icon51"></span></a>
+							  	  <a href="<%=show_goal_path(goal.achiever.username, goal.id)%>" class="button button-b" title="View Goal"><span class="icon icon198"></span></a>
+							  </span>
 							</td>
 					      </tr>
 					    <% end %>

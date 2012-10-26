@@ -68,6 +68,8 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/show/:goal_id' => 'goals#show'
   match '/:user_username/goals/add_feedback/:goal_id' => 'goals#add_feedback'
   match '/:user_username/goals/add_support/:goal_id' => 'goals#add_support'
+  match '/:user_username/goals/i_support/:goal_id' => 'goals#i_support'
+  match '/:user_username/goals/i_dont_support/:goal_id' => 'goals#i_dont_support'
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
   
