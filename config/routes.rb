@@ -31,8 +31,8 @@ Goalnect::Application.routes.draw do
     end 
   end
   
-  match '/search' => 'achiever#search'
-  match '/search/:q' => 'achiever#search'
+  match '/search' => 'search#search'
+  match '/search/:q' => 'search#search'
   
   match '/goal_donations/new/:goal_id' => 'goal_donations#new'
   match '/goal_donations/create' => 'goal_donations#create', :as => :goal_donations_create

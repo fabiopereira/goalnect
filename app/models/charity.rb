@@ -14,4 +14,13 @@ class Charity < ActiveRecord::Base
   def to_s
     charity_name
   end
+  
+  def self.search(q)
+    find(:all, :conditions => ['charity_name LIKE :q OR description LIKE :q', {:q => "%#{q}%"}])
+  end
+  
+  def full_url
+    "/#{self.nickname}"
+  end
+  
 end
