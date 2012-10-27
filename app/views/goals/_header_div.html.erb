@@ -18,7 +18,9 @@
 			%>
 			<%= t"believes" %>: <%= goal.how_many_believe %><%= ' (incluindo você)' if current_user_support.present? and current_user_support.i_support %>
 			, duvidam: <%=goal.how_many_dont_believe %><%= ' (incluindo você)' if current_user_support.present? and !current_user_support.i_support %>
-		    </span>
+			<br/>
+				Goal Status: <%=goal.goalStage.translated_name%>
+		    </div>
 		</td></tr>	
 	</table>
 

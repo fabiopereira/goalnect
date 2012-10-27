@@ -29,7 +29,7 @@ $(function() {
 				<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage != GoalStage::DONE%>
 				<%= form_for @goal_feedback,  :url => '/'+@goal.achiever.username+'/goals/add_feedback/'+@goal.id.to_s+'?tab=goal-journey' do |f| %>    
 				<%= render 'layouts/model_error_messages', :target => @goal_feedback %>
-				Change to: <%= collection_select(:goal_feedback, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :name) %>
+				<%=t"what_is_your_goal_status"%>: <%= collection_select(:goal_feedback, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :translated_name) %>
 				  <div class="field">
 				    <%= f.label :feedback %><br />
 				    <%= f.text_area :message, :rows => 10 %>

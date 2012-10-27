@@ -58,6 +58,14 @@ pt:
       if_you_are_a_charity: "Se você é uma ONG"
       to_suggest_a_charity: "Quer sugerir uma ONG"
       charity: "ONGs"
+
+  goal_stage:
+      not_accepted: "Não aceito"
+      just_started: "Acabei de começar"
+      half_way_there: "No meio do caminho"
+      almost_there: "Quase lá"
+      done: "Consegui"
+      abandoned: "Desisti"
       
   search_friends: "Buscar"
   edit: "Editar"
