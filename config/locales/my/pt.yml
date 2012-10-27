@@ -87,3 +87,4 @@ pt:
   errors:
     search:
       length: Sua busca deve conter no mínimo %{min} letras
+
