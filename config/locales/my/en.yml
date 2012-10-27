@@ -46,3 +46,8 @@ en:
     find_us: "Find us"
     contact: "Contact"
     or_call: "Or call"
+    
+  errors:
+    search:
+      length: You search must contain at least %{min} letters    
+      
