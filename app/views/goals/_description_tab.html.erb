@@ -2,8 +2,7 @@
 	<%=raw goal.description %>	
 	<br/><br/>
 	<hr/>
-	<br/>
-	<span style="float:left"><%= charity_image(@goal.charity, :thumb)%></span>
+	<%= charity_image_align(@goal.charity, :thumb, 'left')%>
 	<b><%= @goal.charity.charity_name%></b><br/>
-	<%= @goal.charity.description%>
+	<%= @goal.charity.description%><br>
 	<hr/>

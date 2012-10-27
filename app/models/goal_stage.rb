@@ -2,10 +2,10 @@ class GoalStage < ActiveHash::Base
   include ActiveHash::Enum
   self.data = [
     {:id => 1, :name => "pending"},
-    {:id => 2, :name => "not accepted"},
-    {:id => 3, :name => "just started"},
-    {:id => 4, :name => "half way there"},
-    {:id => 5, :name => "almost there"},
+    {:id => 2, :name => "not_accepted"},
+    {:id => 3, :name => "just_started"},
+    {:id => 4, :name => "half_way_there"},
+    {:id => 5, :name => "almost_there"},
     {:id => 6, :name => "done"},
     {:id => 7, :name => "abandoned"}
   ]
@@ -18,4 +18,10 @@ class GoalStage < ActiveHash::Base
       GoalStage::DONE, 
       GoalStage::ABANDONED]
   end
+  
+  def translated_name
+      I18n.t(name, :scope => 'goal_stage')
+  end
+  
+  
 end

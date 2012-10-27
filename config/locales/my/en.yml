@@ -34,9 +34,17 @@ en:
     to_suggest_a_charity: "To suggest a charity"
   achiever:
     croptitle: "Crop your image if you want"
-  
+  goal_stage:
+    not_accepted: "Not accepted"
+    just_started: "Just started"
+    half_way_there: "Half way there"
+    almost_there: "Almost there"
+    done: "Done"
+    abandoned: "Abandoned" 
+ 
   here: "here"
   send: "Send"
+
   static:
     howitworks: "How it works"
   email:
