@@ -19,8 +19,4 @@ class Charity < ActiveRecord::Base
     find(:all, :conditions => ['LOWER(charity_name) LIKE :q OR LOWER(description) LIKE :q', {:q => "%#{q.downcase}%"}])
   end
   
-  def full_url
-    "/#{self.nickname}"
-  end
-  
 end
