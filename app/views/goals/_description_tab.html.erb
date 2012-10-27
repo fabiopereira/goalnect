@@ -1,0 +1,9 @@
+	should achieve goal by <b><%= l goal.due_on %></b>
+	<%=raw goal.description %>	
+	<br/><br/>
+	<hr/>
+	<br/>
+	<span style="float:left"><%= charity_image(@goal.charity, :thumb)%></span>
+	<b><%= @goal.charity.charity_name%></b><br/>
+	<%= @goal.charity.description%>
+	<hr/>

@@ -13,6 +13,7 @@ module GoalSteps
     ensure_logged_in goal.achiever.username
     visit_goal goal
     click_on 'Journey'
+    sleep 2
     page.select "done", :from => "goal_feedback_goal_stage_id"
 
     # Should validate that message is mandatory when changing goal stage    
@@ -43,8 +44,8 @@ module GoalSteps
 	def support_believing goal
 	  visit_goal goal
 	  page.should have_content goal.title
-	  click_on 'I Believe'
-	  page.should have_content 'believes: 1'
+	  click_on 'i_believe_button'
+	  page.should have_content 'Believes: 1'
 	end
 	
 	def donate_logged_in goal
@@ -52,9 +53,9 @@ module GoalSteps
     is_logged_in?.should == true
     username= find_username
     current_user = find_current_user username
-	  click_on 'Donate'
+	  click_on 'donate_button'
     page.should have_content "New donation"
-	  click_on 'Donate'
+	  click_on 'donate_button'
     page.should have_content "2 errors below"
     page.should have_content "Amount can't be blank"
     page.should have_content "Amount is not a number"
@@ -62,7 +63,7 @@ module GoalSteps
     amount = rand(10..1000)
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
-	  click_on 'Donate'
+	  click_on 'donate_button'
     page.should have_content "Goal donation was successfully created"
 	  click_on 'PagSeguro'
     page.should have_content "Donation received, waiting for pagseguro to confirm"
@@ -74,7 +75,8 @@ module GoalSteps
     visit_goal goal
     page.should have_content goal_donation.amount
     page.should have_content goal_donation.donor_name
-    page.should have_content 'waiting_notification'
+    # represents waiting_for_notification status
+    page.should have_css("span.icon110")
     
 	  goal_donation = GoalDonation.find_by_message(message)
 	  
@@ -89,9 +91,9 @@ module GoalSteps
 	  click_on 'Search'
 	  click_on goal.achiever.screen_name
 	  click_on goal.title
-	  click_on 'Donate' 
+	  click_on 'donate_button' 
 	  page.should have_content "New donation"
-	  click_on 'Donate'
+	  click_on 'donate_button'
     page.should have_content "3 errors below"
     page.should have_content "Donor name can't be blank"
 	  donor_name = "Anonymous #{rand(1..1000)}"
@@ -100,7 +102,7 @@ module GoalSteps
     fill_in 'goal_donation_donor_name' , :with => donor_name
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
-	  click_on 'Donate'
+	  click_on 'donate_button'
     page.should have_content "Goal donation was successfully created"
 	  click_on 'PagSeguro'
     page.should have_content "Donation received, waiting for pagseguro to confirm"

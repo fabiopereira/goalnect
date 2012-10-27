@@ -9,6 +9,7 @@ class Goal < ActiveRecord::Base
 
   #belongs_to_active_hash :goalStage 
   has_many :goal_donations
+  has_many :goal_supports
 
   validates_presence_of :description, :due_on, :owner, :title, :charity_id, :target_amount
 
@@ -32,4 +33,21 @@ class Goal < ActiveRecord::Base
       GoalStage.find(self.goal_stage_id)
   end
   
+  def support_for current_user
+    goal_supports.detect { |s| s.user_id == current_user.id} if current_user
+  end
+  
+  def how_many_believe
+    goal_supports.select { |x| x.i_support }.length
+  end
+  
+  def how_many_dont_believe
+    goal_supports.select { |x| !x.i_support }.length
+  end
+  
+  def raised_so_far
+    total = 0
+    goal_donations.each{ |d| total = total + d.amount if  d.displayed_status == 'completed' || d.displayed_status == 'approved'}
+    total
+  end
 end

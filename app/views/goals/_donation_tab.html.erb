@@ -1,0 +1,31 @@
+<table class="table table-striped table-condensed tiptip"style="border-spacing: 0px;">
+  <thead>
+    <tr>
+	  <th width="15px"></th>
+ 	  <th><%= t "activerecord.attributes.goal_donation.donor_name" %></th>
+      <th><%= t "activerecord.attributes.goal_donation.amount" %></th>
+	  <th><%= t "activerecord.attributes.goal_donation.message" %></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @goal.goal_donations.each do |goal_donation| %>
+      <tr>
+		<td>
+		<% status = goal_donation.displayed_status %>
+		<% if  status == 'completed' || status == 'approved' %>
+			<a class="button icon-image" title="Aguardando confirmacao do pagseguro"><span class="icon icon44"></span></a>	
+		<% end %>
+		<% if status == 'pending' || status == 'verifying' || status ==  'waiting_notification' %>
+			<a class="button icon-image" title="Aguardando confirmacao do pagseguro"><span class="icon icon110"></span></a>	
+		<% end %>
+		<% if status == 'canceled' || status == 'refunded' %>
+			<a class="button icon-image" title="Aguardando confirmacao do pagseguro"><span class="icon icon56"></span></a>	
+		<% end %>
+		</td>
+	    <td><%= goal_donation.donor_name%></td>
+        <td><%= goal_donation.amount %></td>
+		<td><%= goal_donation.message %></td>
+      </tr>
+    <% end %>		
+  </tbody>
+</table>

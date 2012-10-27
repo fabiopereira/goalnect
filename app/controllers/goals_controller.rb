@@ -135,48 +135,28 @@ class GoalsController < ApplicationController
   
   def i_support
     create_support true
-    show
   end
   
   def i_dont_support
     create_support false
-    show
-  end
-  
-  def add_support_json
-      create_support params[:goal_support][:i_support]
-      support_info
   end
   
   def create_support support_flag
-    @goal_support =  GoalSupport.find(:first, :conditions => ["goal_id = ? and user_id = ?", params[:goal_id], current_user.id])
-    if @goal_support.nil?
-      @goal_support = GoalSupport.new
-    end
-    @goal_support.goal_id = params[:goal_id]
-    @goal_support.user_id = current_user.id
-    @goal_support.i_support = support_flag
-    @goal_support.save
-  end
-
-  def support_info
-    @support = Hash.new
-    @support[:support_true_count]  = GoalSupport.where(:goal_id=>params[:goal_id]).where(:i_support=>true).count;
-    @support[:support_false_count] = GoalSupport.where(:goal_id=>params[:goal_id]).where(:i_support=>false).count;
-    goal_supports = nil
     if current_user
-      goal_supports = GoalSupport.where(:user_id=>current_user.id).where(:goal_id=>params[:goal_id]);
-    end  
-    if goal_supports.nil? || goal_supports.empty?
-      @support[:has_given_support] = false;
-    else
-      @support[:has_given_support] = true;
-      @support[:support_value] = goal_supports.first.i_support
+      @goal_support =  GoalSupport.find(:first, :conditions => ["goal_id = ? and user_id = ?", params[:goal_id], current_user.id])
+      if @goal_support.nil?
+        @goal_support = GoalSupport.new
+      end
+      @goal_support.goal_id = params[:goal_id]
+      @goal_support.user_id = current_user.id
+      @goal_support.i_support = support_flag
+      @goal_support.save
     end
     respond_to do |format|
-      format.json { render json: @support}  
+       format.html { redirect_to show_goal_path(params[:user_username], params[:goal_id])}
     end
   end
+
 
   # DELETE /:user_username/goals/1
   # DELETE /:user_username/goals/1.json
