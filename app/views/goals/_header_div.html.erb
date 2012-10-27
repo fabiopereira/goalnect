@@ -1,0 +1,35 @@
+
+<div class="row well" style="margin-left:0px">
+<h4>Goal: <%= goal.title%></h4> 
+<hr/>
+<span class="tiptip" style="float:left">
+	<table>
+		<tr><td>
+		  <% if current_user %>
+		  <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title="I believe" id="i_believe_button"><span class="icon icon101"></span>Possível</a>
+	   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title="Serously?!?" id="i_dont_believe_button"><span class="icon icon100"></span>Dúvido</a>
+		  <% end %>
+		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title="Donate" id="donate_button"><span class="icon icon51"></span>&nbsp;&nbsp;Doar Agora</a>	
+		</td></tr>
+		<tr><td>
+			<div class="support-info">
+			<%
+				current_user_support = goal.support_for(current_user)
+			%>
+			<%= t"believes" %>: <%= goal.how_many_believe %><%= ' (incluindo você)' if current_user_support.present? and current_user_support.i_support %>
+			, duvidam: <%=goal.how_many_dont_believe %><%= ' (incluindo você)' if current_user_support.present? and !current_user_support.i_support %>
+		    </span>
+		</td></tr>	
+	</table>
+
+</span>
+
+<span style="float:right">
+	<span style="float:left"><%= charity_image(goal.charity, :thumbmini)%></span>
+	
+   <span style="float:right;margin-left:5px">	
+		<p align="right"> Quero Arrecadar: <b><%= goal.target_amount%></b></p>
+		<p align="right">Já Arrecadei: <b><%= goal.raised_so_far%></b></p>
+	</span>
+</span>
+</div>

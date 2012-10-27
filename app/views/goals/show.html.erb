@@ -13,9 +13,8 @@ $(function() {
 });
 </script>
 <%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
-<div class="span6">
-	<h4>Goal: <%= @goal.title%></h4> 
-	<hr/>
+<div class="span8">
+	<%= render 'goals/header_div', :goal => @goal %>
 	<ul id="goalTabs" class="nav nav-tabs">
 		<li id="goal-description-tab-link" class="active"><a href="#goal-description-tab" data-toggle="tab"><%= t "description"%></a></li>
 	    <li id="goal-journey-tab-link"><a href="#goal-journey-tab" data-toggle="tab"><%= t "journey"%></a></li>
@@ -24,10 +23,7 @@ $(function() {
 	 </ul>
 	 <div id="goalTabsContent" class="tab-content">
 		 <div class="tab-pane fade in active" id="goal-description-tab">
-			<%= t "raising_money_to"%> <b><%= @goal.charity.charity_name%></b>, <%= t "my_target_amount_is"%> <b><%= @goal.target_amount%></b>, should achieve goal by <b><%= l @goal.due_on %></b>
-			<div class="well" style="background:white">
-			<%=raw @goal.description %>	
-			</div>
+			<%= render 'description_tab', :goal => @goal %>
 		 </div>
 		 <div class="tab-pane fade" id="goal-journey-tab">	
 				<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage != GoalStage::DONE%>
@@ -54,100 +50,12 @@ $(function() {
 			<fb:comments href="<%= current_url %>"></fb:comments>
 		 </div>
 		 <div class="tab-pane fade" id="goal-donations-tab">
-			<table class="table table-striped table-condensed">
-			  <thead>
-			    <tr>
-			 	  <th><%= t "activerecord.attributes.goal_donation.donor_name" %></th>
-			      <th><%= t "activerecord.attributes.goal_donation.amount" %></th>
-			      <th>Status</th>
-				  <th><%= t "activerecord.attributes.goal_donation.message" %></th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			      <% @goal.goal_donations.each do |goal_donation| %>
-			      <tr>
-			        <td><%= goal_donation.donor_name%></td>
-			        <td><%= goal_donation.amount %></td>
-					<td><%= goal_donation.displayed_status %></td>
-					<td><%= goal_donation.message %></td>
-			      </tr>
-			    <% end %>		
-			  </tbody>
-			</table>
+			<%= render 'donation_tab'%>
 		 </div>
 	</div>
+	
     <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450"></div>
 	<div class="form-actions">
 		<%= link_to t('back'), '/'+@goal.achiever.username, :class => 'btn' %>
 	</div>
 </div>
-<div class="span3">
-	<div class="span2 row well" style="background:white">
-		Status: <%= @goal.goalStage.name%> <span class="small_i_font"> (<%= l @goal.goal_stage_changed_at, :format => :short %>)</span>
-	</div>
-	<div class="span2 row well">
-		<div id="support_form_div_id">
-			<% if current_user %>
-			<%= form_for @goal_support, :format => :json, :remote => true,  :url => '/'+@goal.achiever.username+'/goals/add_support/'+@goal.id.to_s+'.json', :html => { :'data-type' => 'json' } do |f| %>
-			   <%= render 'layouts/model_error_messages', :target => @goal_support %>
-			   <%= f.check_box :i_support, :class => 'check_box', :style => 'display:none' %>
-			 <%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "I Believe", :onclick => "$('#goal_support_i_support').prop('checked', true);"%>
-			<%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => "Srsly?!?", :onclick => "$('#goal_support_i_support').prop('checked', false);"%>
-			<% end %>
-			<% end %>
-		</div>
-		<div id="support_info_msg">
-		</div>
-	</div>
-	<div class="span2 row well" style="background:white">
-		<table class="table table-striped table-condensed">
-		  <thead>
-		    <tr>
-		 	  <th>Name</th>
-		      <th>Value</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		      <% @goal.find_most_recent_donations_by_goal_id.each do |goal_donation| %>
-		      <tr>
-		        <td><%= goal_donation.donor_name%></td>
-		        <td><%= goal_donation.amount %></td>
-		      </tr>
-		    <% end %>		
-		  </tbody>
-		</table>
-		<a href="/goal_donations/new/<%=@goal.id.to_s%>" class="btn btn-primary" style="color:white"><%= t "donation.donate" %></a>
-		
-	</div>
-
-	
-		<script>
-			$().ready(function() {
-				$.getJSON(
-					"<%= '/'+@goal.achiever.username+'/goals/support_info/'+@goal.id.to_s+'.json' %>",
-					renderSupportSection
-				);
-			})
-			
-			function renderSupportSection (data){
-				$("#support_form_div_id").hide();
-				if (!data.has_given_support){
-					$("#support_form_div_id").show();
-				}
-				$("#support_info_msg").html("your support: " + data.support_value + " - believes: " + data.support_true_count + " - Srsly: " + data.support_false_count);
-			} 
-		
-		
-			$('#new_goal_feedback').on('ajax:success',function(event, data, status, xhr){
-		    	$("#feedbacks_div").append("<hr style='color: #717171; height: 1px;'>" + data.message + "<span class='small_i_font'>(" + data.created_at + ")</span>");
-				$("#goal_feedback_message").val('');
-			});
-			
-			$('#new_goal_support').on('ajax:success',function(event, data, status, xhr){
-			   renderSupportSection(data);
-			});
-		</script>
-
-</div>
-
-
