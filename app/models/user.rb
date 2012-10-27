@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   end
   
   def self.search(q)
-    find(:all, :conditions => ['username LIKE :q OR screen_name LIKE :q OR email LIKE :q', {:q => "%#{q}%"}])
+    find(:all, :conditions => ['LOWER(username) LIKE :q OR LOWER(screen_name) LIKE :q OR LOWER(email) LIKE :q', {:q => "%#{q.downcase}%"}])
   end
   
   def find_my_goals

@@ -1,5 +1,5 @@
 class AchieverController < ApplicationController
-  before_filter :authenticate_user!, :except => [:view, :search] 
+  before_filter :authenticate_user!, :except => [:view] 
   
   def view
     user_username = params[:user_username]
@@ -8,11 +8,6 @@ class AchieverController < ApplicationController
     end
 
     @achiever = User.find_by_username(user_username)
-  end
-  
-  def search
-    q = params[:q]
-    @achievers = User.search(q)
   end
   
   def edit
@@ -34,7 +29,7 @@ class AchieverController < ApplicationController
       @user = current_user
       respond_to do |format|
         if  @user.update_attributes(params[:user])
-          if params[:user][:image].present?
+          if params[:user] && params[:user][:image].present?
             format.html { render action: "edit_profile_photo"  }
           else
             format.html { redirect_to root_path}

@@ -1,10 +1,13 @@
-	<% if target.errors.any? %>
-  	<div id="error_explanation">
-    <h2>I'm sorry, please correct the'<%= pluralize(target.errors.count, "error") %> below:</h2>
-    <ul>
-    <% target.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<% if target.errors.any? %>
+
+    <div class="alert alert-error">
+	  <a class="close" data-dismiss="alert">&#215;</a>
+	  <ul>
+	  <h4>I'm sorry, please correct the <%= pluralize(target.errors.count, "error") %> below:</h4>
+	  <% target.errors.full_messages.each do |error_message| %>
+	      <%= content_tag :li, error_message, :id => "flash_#{error_message}" %>
+	  <% end %>				
+	  </ul>
+    </div>
+
 <% end %>

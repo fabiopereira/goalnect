@@ -91,3 +91,7 @@ pt:
     find_us: "Onde Estamos"
     contact: "Fale Conosco"
     or_call: "Ou ligue"
+    
+  errors:
+    search:
+      length: Sua busca deve conter no mínimo %{min} letras

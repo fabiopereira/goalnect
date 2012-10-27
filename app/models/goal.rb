@@ -33,6 +33,10 @@ class Goal < ActiveRecord::Base
       GoalStage.find(self.goal_stage_id)
   end
   
+  def self.search(q)
+    find(:all, :conditions => ['LOWER(description) LIKE :q OR LOWER(title) LIKE :q', {:q => "%#{q.downcase}%"}])
+  end
+  
   def support_for current_user
     goal_supports.detect { |s| s.user_id == current_user.id} if current_user
   end
@@ -50,4 +54,5 @@ class Goal < ActiveRecord::Base
     goal_donations.each{ |d| total = total + d.amount if  d.displayed_status == 'completed' || d.displayed_status == 'approved'}
     total
   end
+  
 end

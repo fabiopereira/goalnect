@@ -1,8 +1,10 @@
-<h1>Achievers</h1>
 <h3>Result from your search</h3>
 <div>
 	<%= render 'search/search_form' %>
 </div>
+
+<div>
+<h3>Goals and Achievers</h3>
 <% @achievers.each do |achiever| %>
 <div id="search-result">
 	<a href="<%= achiever.full_url %>">
@@ -15,3 +17,21 @@
 	</a>
 </div>
 <% end %>
+</div>
+
+
+<div>
+<h3>Charities</h3>
+<% @charities.each do |charity| %>
+<div id="search-result">
+	<a href="<%= charity_path(charity) %>">
+	  <div>
+		<%= charity_image charity, :thumb %>
+	  </div>
+	  <div>
+	    <span><%= charity.charity_name %> <br/>(<%= charity.nickname %>)</span>
+	  </div>
+	</a>
+</div>
+<% end %>
+</div>
