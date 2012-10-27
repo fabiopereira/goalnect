@@ -1,0 +1,37 @@
+<h3>Result from your search</h3>
+<div>
+	<%= render 'search/search_form' %>
+</div>
+
+<div class="span5">
+<h3>Goals and Achievers</h3>
+<% @achievers.each do |achiever| %>
+<div id="search-result">
+	<a href="<%= achiever.full_url %>">
+	  <div>
+	    <%= user_image(achiever, :thumb) %>
+	  </div>
+	  <div>
+	    <span><%= achiever.screen_name %> <br/>(<%= achiever.username %>)</span>
+	  </div>
+	</a>
+</div>
+<% end %>
+</div>
+
+
+<div class="span5">
+<h3>Charities</h3>
+<% @charities.each do |charity| %>
+<div id="search-result">
+	<a href="<%= charity.full_url %>">
+	  <div>
+	    <%= image_tag charity.image_url(:thumb) if charity.image? %>
+	  </div>
+	  <div>
+	    <span><%= charity.charity_name %> <br/>(<%= charity.nickname %>)</span>
+	  </div>
+	</a>
+</div>
+<% end %>
+</div>
