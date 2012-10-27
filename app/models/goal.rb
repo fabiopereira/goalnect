@@ -32,4 +32,8 @@ class Goal < ActiveRecord::Base
       GoalStage.find(self.goal_stage_id)
   end
   
+  def self.search(q)
+    find(:all, :conditions => ['LOWER(description) LIKE :q OR LOWER(title) LIKE :q', {:q => "%#{q.downcase}%"}])
+  end
+  
 end
