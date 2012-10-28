@@ -1,0 +1,23 @@
+	<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage != GoalStage::DONE%>
+	<%= form_for @goal_feedback,  :url => '/'+@goal.achiever.username+'/goals/add_feedback/'+@goal.id.to_s+'?tab=goal-journey' do |f| %>    
+	<%= render 'layouts/model_error_messages', :target => @goal_feedback %>
+	   <div class="field">
+	     <%=t"my_goal_status_message"%><br/>
+  	     <%= collection_select(:goal_feedback, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :translated_name) %>
+  	  </div>
+	  <div class="field">
+	    <%=t"goal_update_field"%><br />
+	    <%= f.text_area :message, :rows => 3 %><br/>
+	  </div>
+	 <%= f.submit nil, :class => 'btn btn-primary', :value => t("send"), :disable_with => "Saving..." %>
+	<% end %>
+	<% end %>
+	<hr>
+	<div id="feedbacks_div">
+		<% feedbacks = @goal.find_feedback() %>	
+		    <% feedbacks.each do |feedback| %>
+		<p class="support-info"><b><%= feedback.created_at %> - <%=t"goal_status_message"%> <%= feedback.goal_stage.translated_name%></b></p>
+		<p><%= feedback.message%></p>
+		<hr>
+		<% end %>
+    </div>
