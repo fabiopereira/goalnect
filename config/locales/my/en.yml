@@ -35,15 +35,21 @@ en:
   achiever:
     croptitle: "Crop your image if you want"
   goal_stage:
-    not_accepted: "Not accepted"
-    just_started: "Just started"
-    half_way_there: "Half way there"
-    almost_there: "Almost there"
-    done: "Done"
-    abandoned: "Abandoned" 
+    not_accepted: "not accepted"
+    just_started: "just started"
+    half_way_there: "half way there"
+    almost_there: "almost there"
+    done: "done"
+    abandoned: "abandoned" 
  
   here: "here"
   send: "Send"
+  including_you: "(including you)"
+  no_way_button: "No Way"
+  possible_button: "Possible"
+  my_goal_status_message: "My goal is"
+  goal_update_field: "Because..."
+  goal_status_message: "This goal is"
 
   static:
     howitworks: "How it works"

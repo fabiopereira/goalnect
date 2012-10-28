@@ -26,25 +26,7 @@ $(function() {
 			<%= render 'description_tab', :goal => @goal %>
 		 </div>
 		 <div class="tab-pane fade" id="goal-journey-tab">	
-				<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage != GoalStage::DONE%>
-				<%= form_for @goal_feedback,  :url => '/'+@goal.achiever.username+'/goals/add_feedback/'+@goal.id.to_s+'?tab=goal-journey' do |f| %>    
-				<%= render 'layouts/model_error_messages', :target => @goal_feedback %>
-				<%=t"what_is_your_goal_status"%>: <%= collection_select(:goal_feedback, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :translated_name) %>
-				  <div class="field">
-				    <%= f.label :feedback %><br />
-				    <%= f.text_area :message, :rows => 10 %>
-				    <%= f.submit nil, :class => 'btn btn-primary', :value => 'Send', :disable_with => 'Saving...' %>
-				  </div>
-				<% end %>
-				<% end %>
-				<div id="feedbacks_div">
-					<% feedbacks = @goal.find_feedback() %>	
-					    <% feedbacks.each do |feedback| %>
-					<%= feedback.message%>
-					<span class="small_i_font">(<%= feedback.created_at %>)</span>
-					<hr style="color: #717171; height: 1px;">
-					<% end %>
-			    </div>
+			<%= render 'feedback_tab', :goal => @goal %>
 		 </div>
 		<div class="tab-pane fade" id="goal-comments-tab">
 			<fb:comments href="<%= current_url %>"></fb:comments>

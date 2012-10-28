@@ -18,6 +18,7 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.find(params[:goal_id])
     @goal_feedback = GoalFeedback.new
+    @goal_feedback.goal_stage_id = @goal.goal_stage_id
     display_show_page
   end
 

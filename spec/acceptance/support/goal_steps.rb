@@ -45,7 +45,7 @@ module GoalSteps
 	  visit_goal goal
 	  page.should have_content goal.title
 	  click_on 'i_believe_button'
-	  page.should have_content 'Believes: 1'
+	  page.should have_content 'Possible: 1'
 	end
 	
 	def donate_logged_in goal

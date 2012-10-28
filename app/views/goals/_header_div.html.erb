@@ -6,20 +6,19 @@
 	<table>
 		<tr><td>
 		  <% if current_user %>
-		  <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title="I believe" id="i_believe_button"><span class="icon icon101"></span>Possível</a>
-	   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title="Serously?!?" id="i_dont_believe_button"><span class="icon icon100"></span>Dúvido</a>
+		  <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title='<%= t("possible_button")%>' id="i_believe_button"><span class="icon icon101"></span><%= t "possible_button"%></a>
+	   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title='<%= t("no_way_button") %>' id="i_dont_believe_button"><span class="icon icon100"></span><%= t "no_way_button"%></a>
 		  <% end %>
-		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title="Donate" id="donate_button"><span class="icon icon51"></span>&nbsp;&nbsp;Doar Agora</a>	
+		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title="Donate" id="donate_button"><span class="icon icon51"></span>&nbsp;&nbsp;<%=t("donate_now")%></a>	
 		</td></tr>
 		<tr><td>
 			<div class="support-info">
 			<%
 				current_user_support = goal.support_for(current_user)
 			%>
-			<%= t"believes" %>: <%= goal.how_many_believe %><%= ' (incluindo você)' if current_user_support.present? and current_user_support.i_support %>
-			, duvidam: <%=goal.how_many_dont_believe %><%= ' (incluindo você)' if current_user_support.present? and !current_user_support.i_support %>
+			<%= t"possible" %>: <%= goal.how_many_believe %> <%= t('including_you') if current_user_support.present? and current_user_support.i_support %>, <%= t('no_way') %>: <%=goal.how_many_dont_believe %><%= t('including_you') if current_user_support.present? and !current_user_support.i_support %>
 			<br/>
-				Goal Status: <%=goal.goalStage.translated_name%>
+				<%=t"my_goal_status_message"%> <%=goal.goalStage.translated_name%>
 		    </div>
 		</td></tr>	
 	</table>
@@ -30,8 +29,8 @@
 	<span style="float:left"><%= charity_image(goal.charity, :thumbmini)%></span>
 	
    <span style="float:right;margin-left:5px">	
-		<p style="font-size:18px;text-align:center">Já Arrecadei: <b>R$ <%= goal.raised_so_far%></b></p>
-		<p style="text-align:center">Minha meta é <b> R$ <%= goal.target_amount%></b></p>
+		<p style="font-size:18px;text-align:center"><%= t("raised_so_far")%>: <b>R$ <%= goal.raised_so_far%></b></p>
+		<p style="text-align:center"><%= t("my_target")%>: <b> R$ <%= goal.target_amount%></b></p>
 	</span>
 </span>
 </div>
