@@ -3,7 +3,7 @@
     <div class="alert alert-error">
 	  <a class="close" data-dismiss="alert">&#215;</a>
 	  <ul>
-	  <% target.errors.full_messages.each do |error_message| %>
+	  <% target.errors.each do |attr, error_message| %>
 	      <%= content_tag :li, error_message, :id => "flash_#{error_message}" %>
 	  <% end %>				
 	  </ul>
