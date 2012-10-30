@@ -43,7 +43,11 @@ class UserImageUrl
 end
 
 def user_image(user, image_type)
-   image_tag UserImageUrl.new(user, image_type).user_image_url
+   image_tag(user_image_url(user, image_type))
+end
+
+def user_image_url(user, image_type)
+   UserImageUrl.new(user, image_type).user_image_url
 end
 
 end

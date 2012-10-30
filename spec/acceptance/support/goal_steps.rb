@@ -56,7 +56,6 @@ module GoalSteps
 	  click_on 'donate_button'
     page.should have_content "New donation"
 	  click_on 'donate_button'
-    page.should have_content "2 errors below"
     page.should have_content "Amount can't be blank"
     page.should have_content "Amount is not a number"
     message = "Message #{rand(1..1000)}"
@@ -94,7 +93,6 @@ module GoalSteps
 	  click_on 'donate_button' 
 	  page.should have_content "New donation"
 	  click_on 'donate_button'
-    page.should have_content "3 errors below"
     page.should have_content "Donor name can't be blank"
 	  donor_name = "Anonymous #{rand(1..1000)}"
     amount = rand(10..1000)

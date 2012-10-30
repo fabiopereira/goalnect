@@ -3,6 +3,7 @@
 <h4>Goal: <%= goal.title%></h4> 
 <hr/>
 <span class="tiptip" style="float:left">
+	
 	<table>
 		<tr><td>
 		  <% if current_user %>
@@ -29,8 +30,12 @@
 	<span style="float:left"><%= charity_image(goal.charity, :thumbmini)%></span>
 	
    <span style="float:right;margin-left:5px">	
-		<p style="font-size:18px;text-align:center"><%= t("raised_so_far")%>: <b>R$ <%= goal.raised_so_far%></b></p>
+		<p style="font-size:18px;text-align:center"><%= t("raised_so_far")%>: <b>R$ <%= goal.raised_so_far%> </b></p>
 		<p style="text-align:center"><%= t("my_target")%>: <b> R$ <%= goal.target_amount%></b></p>
+		<div class="progress progress-striped">
+		  <div class="bar bar-success" style="width: <%= goal.raised_so_far_percentage%>%;"></div>  
+		</div>
+		<%= goal.raised_so_far_percentage%>%
 	</span>
 </span>
 </div>

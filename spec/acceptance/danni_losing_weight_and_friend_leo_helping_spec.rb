@@ -11,7 +11,6 @@ feature 'Danni losing weight and friend leo helping', %q{
     charity = ensure_charity_active_exists 'charitytest'
     
     danni = ensure_logged_in 'danni'
-    Capybara::Screenshot.screen_shot_and_save_page
     dannis_goal = commit_to_a_goal 'Lose 35kg', charity
     
     ensure_user_has_points_active 'danni', 0

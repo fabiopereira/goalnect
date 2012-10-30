@@ -50,9 +50,13 @@ class Goal < ActiveRecord::Base
   end
   
   def raised_so_far
-    total = 0
+    total = 0          
     goal_donations.each{ |d| total = total + d.amount if  d.displayed_status == 'completed' || d.displayed_status == 'approved'}
     total
+  end
+  
+  def raised_so_far_percentage
+    (raised_so_far / target_amount) * 100
   end
   
 end
