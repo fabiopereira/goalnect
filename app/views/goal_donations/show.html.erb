@@ -20,4 +20,4 @@
   <%= @goal_donation.amount %>
 </p>
 
-<%= pagseguro_form @order, :submit => "PagSeguro" %>
+<%= pagseguro_form @order, :submit => "PagSeguro", :email => @goal_donation.goal.charity.pagseguro_email %>

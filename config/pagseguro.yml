@@ -2,6 +2,7 @@ development: &development
   developer: true
   base: "http://localhost:3000"
   return_to: "/goal_donation_payment_notifications/confirm"
+  authenticity_token: DEVELOPMENTDEVELOPMENTDEVELOPMEN
   email: fabio@goalnect.com
 
 test:

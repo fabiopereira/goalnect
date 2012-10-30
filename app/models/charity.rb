@@ -1,6 +1,7 @@
 class Charity < ActiveRecord::Base
   
   attr_accessible :charity_name, :contact_name, :description, :email, :phone, :logo, :active, :cnpj, :nickname, :website
+  attr_accessible :pagseguro_authenticity_token, :pagseguro_email
   
   # CarrierWave Image Uploads
   attr_accessible :image
