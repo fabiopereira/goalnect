@@ -12,7 +12,8 @@ class GoalDonationPaymentNotificationsController < ApplicationController
   
   def confirm
     if request.post?
-      pagseguro_notification do |notification|
+      token = PagSeguro.config["authenticity_token"]
+      pagseguro_notification(token) do |notification|
         handle_notification notification
       end
       render :nothing => true
