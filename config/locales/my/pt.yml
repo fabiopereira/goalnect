@@ -17,6 +17,7 @@ pt:
       user: "Usuário"
       goal_donation: "Doação"
       charity: "Instituição de Caridade"
+      goal: "Goal"
     attributes:
       user:
         email: "Email"      
@@ -40,6 +41,14 @@ pt:
         phone: Telefone
         description: Descrição
         nickname: Apelido
+      goal:
+        description: "Descrição"
+        due_on: "Prazo" 
+        owner: "Criador" 
+        title: "Titulo"
+        achiever: "Goalnectador" 
+        charity: "ONG"
+        target_amount: "Meta"
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"
@@ -89,6 +98,12 @@ pt:
   my_goal_status_message: "Meu goal está"
   goal_update_field: "Porque..."
   goal_status_message: "O goal está"
+  change_photo: "Trocar Foto"
+  edit_profile: "Editar Perfil"
+  points_summary: "Pontuação"
+  active_points: "Disponível.."
+  locked_points: "Indisponível"
+  statement: "Extrato"
   here: "aqui"
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1&yt:cc=on"
