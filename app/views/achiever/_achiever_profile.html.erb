@@ -13,8 +13,8 @@
 		<hr/>
 		<% end %>
 	<% end %>
-		<p class="points-summary"><b>Points Summary:</b></p>
-		<p class="points-summary">Active Points.....<span id="total-points-true"><%=achiever.points_summary(true)%></span>pts</p>
-		<p class="points-summary">Locked Points.....<span id="total-points-false"><%=achiever.points_summary(false)%></span>pts</p>
-		<%= link_to 'statement', "/#{achiever.username}/points_statement" %>
+		<p class="points-summary"><b><%= t("points_summary")%>:</b></p>
+		<p class="points-summary"><%= t("active_points")%>.....<span id="total-points-true"><%=achiever.points_summary(true)%></span>pts</p>
+		<p class="points-summary"><%= t("locked_points")%>.....<span id="total-points-false"><%=achiever.points_summary(false)%></span>pts</p>
+		<%= link_to t("statement"), "/#{achiever.username}/points_statement" %>
 </div>

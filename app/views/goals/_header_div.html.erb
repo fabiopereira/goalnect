@@ -1,5 +1,5 @@
 
-<div class="row well" style="margin-left:0px">
+<div class="row well" style="margin-left:0px;margin-bottom:0px">
 <h4>Goal: <%= goal.title%></h4> 
 <hr/>
 <span class="tiptip" style="float:left">
@@ -33,4 +33,7 @@
 		<p style="text-align:center"><%= t("my_target")%>: <b> R$ <%= goal.target_amount%></b></p>
 	</span>
 </span>
+</div>
+<div class="row well"  style="margin-left:-20px;margin-bottom:0px;border:0;background:white">
+<div class="fb-like" data-href="<%= current_url %>" data-send="true" data-show-faces="false"></div>
 </div>
