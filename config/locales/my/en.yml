@@ -10,6 +10,9 @@ en:
       didnt_receive_unlock: "Didn't receive unlock instructions?"
 
   search_friends: "Search friends"
+  search:
+    result_title: "Result from your search"
+    goals_achievers_title: "Goals and Achievers"
   headline:
     home:
       subtitle1: "Goalnect is your new crowdfunding platform where you can achieve your goals with your friends, raise money for charity, win points and prizes"
@@ -50,6 +53,7 @@ en:
   my_goal_status_message: "My goal is"
   goal_update_field: "Because..."
   goal_status_message: "This goal is"
+  blank_about_me: Hi, my name is %{name} and I am a GOAL ACHIEVER!!!
 
   static:
     howitworks: "How it works"

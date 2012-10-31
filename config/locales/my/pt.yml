@@ -67,18 +67,21 @@ pt:
       if_you_are_a_charity: "Se você é uma ONG"
       to_suggest_a_charity: "Quer sugerir uma ONG"
       charity: "ONGs"
-
+      
   goal_stage:
-      pending: "aguardando aceitação"
-      not_accepted: "rejeitado"
-      just_started: "começando agora (0% - 24%)"
-      on_its_way: "caminhando (25% - 49%)"
-      half_way_there: "no meio do caminho (50% - 74%)"
-      almost_there: "quase concluído (75% - 99%)"
-      done: "concluído (100%)"
-      abandoned: "abandonado"
+    pending: "aguardando aceitação"
+    not_accepted: "rejeitado"
+    just_started: "começando agora (0% - 24%)"
+    on_its_way: "caminhando (25% - 49%)"
+    half_way_there: "no meio do caminho (50% - 74%)"
+    almost_there: "quase concluído (75% - 99%)"
+    done: "concluído (100%)"
+    abandoned: "abandonado"
       
   search_friends: "Buscar"
+  search:
+    result_title: "Resultados da sua busca"
+    goals_achievers_title: "Goalnectadores e Goals"
   edit: "Editar"
   cancel: "Cancelar"
   change: "Mudar"
@@ -118,6 +121,7 @@ pt:
     find_us: "Onde Estamos"
     contact: "Fale Conosco"
     or_call: "Ou ligue"
+  blank_about_me: Oi, meu nome é %{name} e eu estou aqui pra conseguir meus GOALS!!!
     
   errors:
     search:

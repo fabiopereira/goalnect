@@ -4,7 +4,7 @@
 				<div class="row well" style="border-color:#17AE8F">
 					<p class="subtitle_green"><b>ABOUT ME:</b></p>
 					<% if @achiever.about_me.blank? %>
-						Hi, my name is <%= @achiever.screen_name %> and I'm a GOAL ACHIEVER!!!
+						<%= t 'blank_about_me', :name => @achiever.screen_name %>
 					<% else %>
 					<%= @achiever.about_me %>
 					<% end %>
