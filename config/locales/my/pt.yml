@@ -104,6 +104,7 @@ pt:
   active_points: "Disponível.."
   locked_points: "Indisponível"
   statement: "Extrato"
+  charity_updates: "Prestação de contas"
   here: "aqui"
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1&yt:cc=on"

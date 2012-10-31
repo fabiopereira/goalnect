@@ -1,6 +1,6 @@
 class CharitiesController < ApplicationController
-  before_filter :authenticate_admin_user!, :only => [:destroy]
-  before_filter :charity_admin_user!, :only => [:edit, :update, :change_logo, :crop]
+  before_filter :authenticate_admin_user!, :only => [:index, :destroy]
+  before_filter :charity_admin_user!, :only => [:show, :edit, :update, :change_logo, :crop]
   
   # GET /charities
   # GET /charities.json
