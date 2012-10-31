@@ -2,21 +2,26 @@
 <div class="page-header">
   <h1><%= @charity.charity_name %></h1>
 </div>
-<%= image_tag @charity.image_url(:thumb) if @charity.image? %><br/>
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:charity_name) %>:</strong></dt>
-  <dd><%= @charity.charity_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:nickname) %>:</strong></dt>
-  <dd><%= @charity.nickname %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_name) %>:</strong></dt>
-  <dd><%= @charity.contact_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @charity.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @charity.phone %></dd>
-   <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
-  <dd><%= @charity.website %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @charity.description %></dd>
-</dl>
+
+<div class="span2">
+	<p style="text-align:center" >
+		<%= charity_image(@charity, :thumb)%>
+	</p>
+	<p style="text-align:center">
+	  <b>
+	    <%= @charity.website %>
+	  </b>
+	</p>
+
+</div>
+<div class="span9">
+<p>
+    <%= @charity.description %>
+</p>
+</div>
+
+<div class="span11 page-header">
+  <h4><%= t("charity_updates") %></h4>
+</div>
+
 

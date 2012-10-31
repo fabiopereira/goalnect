@@ -63,6 +63,11 @@ en:
   names:
     yes: Yes
     no: No
+  about_me_title: "ABOUT ME"
+  your_next_step_message: "Your next step is to"
+  commit_to_a_goal_message: "commit to a goal"
+  title: "Title"
+  journey_title: "JOURNEY"
 
   static:
     howitworks: "How it works"

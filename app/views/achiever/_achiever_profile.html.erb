@@ -1,7 +1,9 @@
 <div class="span2 well achiever_profile" style="border-color:navy">
-	<%= user_image achiever, :thumb %><br/>
-	<h4><%= achiever.screen_name %></h4>
-		<hr/>
+	<a href="<%= achiever.full_url %>" >
+        <%= user_image achiever, :thumb %><br/>
+		<h4><%= achiever.screen_name %></h4>
+    </a>
+	<hr/>
 	<% if current_user_is_achiever?(achiever) %>
 		<p class="action-text"><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
 		<hr/>

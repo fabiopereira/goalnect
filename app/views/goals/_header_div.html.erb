@@ -10,7 +10,7 @@
 		  <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title='<%= t("possible_button")%>' id="i_believe_button"><span class="icon icon101"></span><%= t "possible_button"%></a>
 	   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title='<%= t("no_way_button") %>' id="i_dont_believe_button"><span class="icon icon100"></span><%= t "no_way_button"%></a>
 		  <% end %>
-		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title="Donate" id="donate_button"><span class="icon icon51"></span>&nbsp;&nbsp;<%=t("donate_now")%></a>	
+		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title='<%=t("donate_now")%>' id="donate_button"><span class="icon icon51"></span>&nbsp;&nbsp;<%=t("donate_now")%></a>	
 		</td></tr>
 		<tr><td>
 			<div class="support-info">
@@ -33,9 +33,9 @@
 		<p style="font-size:18px;text-align:center"><%= t("raised_so_far")%>: <b>R$ <%= goal.raised_so_far%> </b></p>
 		<p style="text-align:center"><%= t("my_target")%>: <b> R$ <%= goal.target_amount%></b></p>
 		<div class="progress progress-striped">
-		  <div class="bar bar-success" style="width: <%= goal.raised_so_far_percentage%>%;"></div>  
+		  <div class="bar bar-success" style="width: <%= goal.raised_so_far_percentage%>%;"><%= goal.raised_so_far_percentage%>%</div>  
 		</div>
-		<%= goal.raised_so_far_percentage%>%
+		
 	</span>
 </span>
 </div>

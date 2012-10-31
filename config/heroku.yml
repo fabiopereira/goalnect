@@ -18,6 +18,7 @@ production:
     BUNDLE_WITHOUT: "development:test"
     GOOGLE_ANALYTICS: "UA-33640820-1" 
     RAILS_ENV: "production"
+    RACK_ENV: "production"
     GMAIL_USERNAME: "team@goalnect.com"
     GMAIL_PASSWORD: "helpmygoal1234"
     AWS_ACCESS_KEY_ID: 'AKIAJCALZQ2E4DOAZ4KA'
