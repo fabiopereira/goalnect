@@ -28,4 +28,8 @@ module ApplicationHelper
     end
   end  
   
+  def bool_to_yn b
+    b ? I18n.t("names.yes") : I18n.t("names.no")
+  end
+  
 end

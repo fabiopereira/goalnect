@@ -55,6 +55,15 @@ en:
   goal_status_message: "This goal is"
   blank_about_me: Hi, my name is %{name} and I am a GOAL ACHIEVER!!!
 
+  point_statement:
+    donated_by: Donated by
+    to_goal: Ro Goal
+    amount: Amount
+    available: Available
+  names:
+    yes: Yes
+    no: No
+
   static:
     howitworks: "How it works"
   email:

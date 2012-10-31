@@ -122,7 +122,14 @@ pt:
     contact: "Fale Conosco"
     or_call: "Ou ligue"
   blank_about_me: Oi, meu nome é %{name} e eu estou aqui pra conseguir meus GOALS!!!
-    
+  point_statement:
+    donated_by: Doado por
+    to_goal: Para o Goal
+    amount: Quantidade
+    available: Liberados?
+  names:
+    yes: Sim
+    no: Não
   errors:
     search:
       length: Sua busca deve conter no mínimo %{min} letras
