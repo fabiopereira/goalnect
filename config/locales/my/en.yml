@@ -50,6 +50,13 @@ en:
   my_goal_status_message: "My goal is"
   goal_update_field: "Because..."
   goal_status_message: "This goal is"
+  about_me_my_name_is: "Hi, my name is"
+  about_me_default_message: "and I'm a GOAL ACHIEVER!!!"
+  about_me_title: "ABOUT ME"
+  your_next_step_message: "Your next step is to"
+  commit_to_a_goal_message: "commit to a goal"
+  title: "Title"
+  journey_title: "JOURNEY"
 
   static:
     howitworks: "How it works"
