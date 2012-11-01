@@ -9,6 +9,8 @@ en:
       didnt_receive_confirmation: "Didn't receive confirmation instructions?"
       didnt_receive_unlock: "Didn't receive unlock instructions?"
 
+  label:
+    search: Search
   search_friends: "Search friends"
   search:
     result_title: "Result from your search"

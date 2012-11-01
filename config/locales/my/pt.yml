@@ -77,7 +77,9 @@ pt:
     almost_there: "quase concluído (75% - 99%)"
     done: "concluído (100%)"
     abandoned: "abandonado"
-      
+        
+  label:
+    search: Buscar
   search_friends: "Buscar"
   search:
     result_title: "Resultados da sua busca"
