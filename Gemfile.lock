@@ -44,6 +44,8 @@ GEM
       activesupport (= 3.2.3)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activeresource (3.2.3)
       activemodel (= 3.2.3)
       activesupport (= 3.2.3)
@@ -412,6 +414,7 @@ PLATFORMS
 DEPENDENCIES
   active_hash
   activeadmin
+  activerecord-postgresql-adapter
   awesome_print
   bootstrap-wysihtml5-rails
   capybara-screenshot

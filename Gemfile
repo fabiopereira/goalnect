@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'pg'
+gem 'activerecord-postgresql-adapter'
 
 
 # Suggested by https://github.com/fabn/rails-jenkins-template
