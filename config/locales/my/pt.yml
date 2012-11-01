@@ -140,7 +140,7 @@ pt:
     amount: Quantidade
     available: Liberados?
   names:
-    yes: Sim
+    yes: "Sim
     no: Não
   errors:
     search:
