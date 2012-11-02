@@ -1,0 +1,24 @@
+<div class="span11">
+<div class="page-header">
+<h1><%= t "donations"%></h1>
+</div>
+
+<ul id="donatiosTabs" class="nav nav-tabs">
+	
+	<li id="previous-donations-tab-link" class="active"><a href="#previous-donations-tab" data-toggle="tab"><%= t "previous_month"%></a></li>
+	
+    <li id="current-donations-tab-link"><a href="#current-donations-tab" data-toggle="tab"><%= t "current_month"%></a></li>
+
+ </ul>
+ <div id="donatiosTabsContent" class="tab-content">
+	 <div class="tab-pane fade in active" id="previous-donations-tab">
+		<%= render 'charities/donations_table', :donations_summary => @previous_donations_summary %>
+			<p><%= link_to "Previous month donations transactions (PDF)", previous_month_donations_pdf_path(@charity.id), :target => 'blank' %></p>
+	 </div>
+	 <div class="tab-pane fade" id="current-donations-tab">	
+		<%= render 'charities/donations_table', :donations_summary => @current_donations_summary %>
+		<p><%= link_to "Current Donations Transactions (PDF)", current_month_donations_pdf_path(@charity.id), :target => 'blank'  %></p>
+		
+	 </div>
+</div>
+</div>

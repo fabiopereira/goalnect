@@ -1,6 +1,12 @@
 <%- model_class = Charity -%>
 <div class="page-header">
-  <h1><%= @charity.charity_name %></h1>
+	<h1><%= @charity.charity_name %></h1>
+	<span style="float:right">
+		<div class="row well">
+			<p class="support-info">Raised so far: </p>
+			<center><b><%=number_to_currency(@total_raised)%></b></center>
+		</div>
+	 </span>
 </div>
 
 <div class="span2">
@@ -12,16 +18,69 @@
 	    <%= @charity.website %>
 	  </b>
 	</p>
-
 </div>
 <div class="span9">
 <p>
     <%= @charity.description %>
 </p>
 </div>
-
-<div class="span11 page-header">
-  <h4><%= t("charity_updates") %></h4>
+<div class="span11">
+	<div class="page-header">
+  		<h4><%= t("charity_page.last_3_charity_updates") %><p class="support-info">(<%= t("charity_page.update_info") %>)
+	</p></h4>
+	</div>
+	<% if @last_3_updates && !@last_3_updates.empty?%>
+		<% @last_3_updates.each do |update| %>
+		<span style="float:right"><%= link_to 'Edit', edit_charity_update_path(@update) %> |
+		</span>
+		
+		<%=raw update.message%>
+		
+		<% end %>
+	<% else %>
+		<%= t "charity_page.no_charity_updates_message"%>
+	<% end %>
+	
+</div>
+<div class="span11">
+	<div class="page-header">
+  		<h4><%= t("charity_page.last_10_donations") %></h4>
+	</div>
+	<% if @recent_donations && !@recent_donations.empty?%>
+	<table class="table table-striped table-condensed tiptip"style="border-spacing: 0px;">
+	  <thead>
+	    <tr>
+		  <th width="15px"></th>
+		  <th>Goal</th>
+	 	  <th><%= t "charity_page.donor" %></th>
+	      <th><%= t "activerecord.attributes.goal_donation.amount" %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <% @recent_donations.each do |goal_donation| %>
+	      <tr>
+			<td>
+			<% status = goal_donation.displayed_status %>
+			<% if  status == 'completed' || status == 'approved' %>
+				<a class="button icon-image" title="Aguardando confirmacao do pagseguro"><span class="icon icon44"></span></a>	
+			<% end %>
+			<% if status == 'pending' || status == 'verifying' || status ==  'waiting_notification' %>
+				<a class="button icon-image" title="Aguardando confirmacao do pagseguro"><span class="icon icon110"></span></a>	
+			<% end %>
+			<% if status == 'canceled' || status == 'refunded' %>
+				<a class="button icon-image" title="Aguardando confirmacao do pagseguro"><span class="icon icon56"></span></a>	
+			<% end %>
+			</td>
+			<td><%= goal_donation.goal.title %></td>
+		    <td><%= goal_donation.donor_name%></td>
+	        <td><%= number_to_currency(goal_donation.amount) %></td>	
+	      </tr>
+	    <% end %>		
+	  </tbody>
+	</table>
+	<%else%>
+		<%=t "charity_page.no_donations_message"%>
+	<%end%>
 </div>
 
 

@@ -13,11 +13,19 @@ class Charity < ActiveRecord::Base
   validates_uniqueness_of :nickname
   
   def to_s
-    charity_name
+    "#{id} - #{charity_name}"
   end
   
   def self.search(q)
     find(:all, :conditions => ['LOWER(charity_name) LIKE :q OR LOWER(description) LIKE :q', {:q => "%#{q.downcase}%"}])
   end
   
+  def find_most_recent_donations
+    GoalDonation.find_most_recent_donations_by_charity_id self.id
+  end
+  
+  def find_total_raised_amount
+    GoalDonation.find_total_raised_amount_by_charity_id self.id
+  end
+   
 end

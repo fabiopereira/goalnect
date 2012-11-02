@@ -68,5 +68,8 @@ rails g migration rename_goal_comment_and_add_goal_stage
 rails g migration add_charity_id_to_user_and_add_logo_charity donor_name:string
 
 
+rails g migration add_goalnect_fee_and_pagseguro_fee_to_goal_donation goalnect_fee:decimal pagseguro_fee:decimal
 
+rails g migration add_charity_id_to_goal_donation charity_id:integer
 
+rails g scaffold CharityUpdate charity_id:integer message:text -c=scaffold_controller
