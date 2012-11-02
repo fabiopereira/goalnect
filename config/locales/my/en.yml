@@ -2,7 +2,9 @@ en:
   devise:
     sessions:
       sign_in: 'Sign in'
+      sign_in_subtitle: 'If you are a Goalnect user'
       sign_up: 'Sign up'
+      sign_up_subtitle: 'If you want to be part of Goalnect'
     links:
       forgot_your_password: 'Forgot your password?'
       sign_up: 'Sign up'
