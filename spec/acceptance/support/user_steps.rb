@@ -27,9 +27,11 @@ module UserSteps
   def login_user_password email, password
     visit '/'   
     click_on 'Login'   
-    fill_in 'user_email', :with => email
-    fill_in 'user_password', :with => password
-    click_on 'Sign in'   
+    within("#sign_in_section") do
+      fill_in 'user_email', :with => email
+      fill_in 'user_password', :with => password
+      click_on 'Sign in'   
+    end
     page.should have_content 'ABOUT ME'       
   end    
   
@@ -39,14 +41,16 @@ module UserSteps
     click_on 'Login'
     click_on 'Sign up'
     page.should have_content 'Sign up' 
-    fill_in 'user_email', :with => user.email
-    fill_in 'user_password', :with => '123456'
-    fill_in 'user_password_confirmation', :with => '123456'
-    fill_in 'user_screen_name', :with => user.screen_name
-    fill_in 'user_username', :with => user.username 
-    fill_in 'dob', :with => user.dob.strftime("%d/%m/%Y")
-    page.select Country::AUSTRALIA.name, :from => 'user_country_id'
-    click_on 'Sign up'   
+    within("#sign_up_section") do
+      fill_in 'user_email', :with => user.email
+      fill_in 'user_password', :with => '123456'
+      fill_in 'user_password_confirmation', :with => '123456'
+      fill_in 'user_screen_name', :with => user.screen_name
+      fill_in 'user_username', :with => user.username 
+      fill_in 'dob', :with => user.dob.strftime("%d/%m/%Y")
+      page.select Country::AUSTRALIA.name, :from => 'user_country_id'
+      click_on 'Sign up'   
+    end
     user = User.find_by_username(user.username)
     # visit "/users/confirmation?confirmation_token=#{user.confirmation_token}" 
     page.should have_content 'ABOUT ME'       
