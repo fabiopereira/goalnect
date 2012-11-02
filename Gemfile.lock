@@ -8,6 +8,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    Ascii85 (1.0.2)
     Saikuro (1.1.0)
     actionmailer (3.2.3)
       actionpack (= 3.2.3)
@@ -157,6 +158,7 @@ GEM
     google-analytics-rails (0.0.3)
     haml (3.1.7)
     has_scope (0.5.1)
+    hashery (2.0.1)
     hashie (1.2.0)
     heroku (2.32.14)
       heroku-api (~> 0.3.5)
@@ -263,10 +265,17 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.0.7)
     pagseguro (0.1.13)
+    pdf-reader (1.2.0)
+      Ascii85 (~> 1.0.0)
+      hashery (~> 2.0)
+      ruby-rc4
     pg (0.14.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
     progressbar (0.11.0)
     rack (1.4.1)
     rack-cache (1.2)
@@ -335,6 +344,7 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.11.0)
     ruby-hmac (0.4.0)
+    ruby-rc4 (0.1.5)
     ruby2ruby (1.2.5)
       ruby_parser (~> 2.0)
       sexp_processor (~> 3.0)
@@ -391,6 +401,7 @@ GEM
     treetop (1.4.11)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.0.3)
     twitter-bootstrap-rails (2.1.4)
       actionpack (>= 3.1)
       less-rails (~> 2.2.3)
@@ -443,6 +454,7 @@ DEPENDENCIES
   omniauth-facebook
   pagseguro
   pg
+  prawn
   rails (= 3.2.3)
   rmagick
   sass-rails (~> 3.2.3)

@@ -16,4 +16,16 @@ module CharitiesHelper
      image_url = charity_has_image ? charity.image_url(image_type) : "charity-nopic-#{image_type}.jpg"
   end
   
+  def charity_donations_path(charity_id)
+    "charities/#{charity_id}/donations"
+  end
+  
+  def current_month_donations_pdf_path(charity_id)
+    "/charities/#{charity_id}/current_month_donations_pdf.pdf"
+  end
+  
+  def previous_month_donations_pdf_path(charity_id)
+    "/charities/#{charity_id}/previous_month_donations_pdf.pdf"
+  end
+  
 end

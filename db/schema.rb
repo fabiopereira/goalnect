@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030185653) do
+ActiveRecord::Schema.define(:version => 20121101224959) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20121030185653) do
     t.string   "website"
     t.string   "pagseguro_authenticity_token"
     t.string   "pagseguro_email"
+  end
+
+  create_table "charity_updates", :force => true do |t|
+    t.integer  "charity_id"
+    t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "countries", :force => true do |t|
@@ -97,6 +104,9 @@ ActiveRecord::Schema.define(:version => 20121030185653) do
     t.string   "donor_name"
     t.boolean  "processed"
     t.integer  "amount"
+    t.decimal  "goalnect_fee"
+    t.decimal  "pagseguro_fee"
+    t.integer  "charity_id"
   end
 
   create_table "goal_feedbacks", :force => true do |t|
@@ -156,7 +166,7 @@ ActiveRecord::Schema.define(:version => 20121030185653) do
     t.string   "image"
     t.text     "about_me"
     t.boolean  "admin"
-    t.integer  "country_id",             :default => 1
+    t.integer  "country_id",             :default => 2
     t.integer  "charity_id"
   end
 

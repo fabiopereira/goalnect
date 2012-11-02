@@ -1,6 +1,8 @@
 class GoalDonationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
+  GOALNECT_FEE_PERCENTAGE = 0.075
+  
   # GET /goal_donations/new
   # GET /goal_donations/new.json
   def new
@@ -19,7 +21,10 @@ class GoalDonationsController < ApplicationController
       params[:goal_donation][:user_id] = current_user.id
       params[:goal_donation][:donor_name] = current_user.screen_name
     end
+    goal = Goal.find(params[:goal_donation][:goal_id])
+    params[:goal_donation][:charity_id] = goal.charity_id
     @goal_donation = GoalDonation.new(params[:goal_donation])
+    apply_goalnect_fee @goal_donation
     respond_to do |format|
       if @goal_donation.save
         format.html { redirect_to "/goal_donations/show/"+@goal_donation.id.to_s, notice: 'Goal donation was successfully created.' }
@@ -28,6 +33,12 @@ class GoalDonationsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @goal_donation.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def apply_goalnect_fee goal_donation
+    if goal_donation.amount
+      goal_donation.goalnect_fee = goal_donation.amount * GOALNECT_FEE_PERCENTAGE
     end
   end
   

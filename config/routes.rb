@@ -1,4 +1,6 @@
 Goalnect::Application.routes.draw do
+  resources :charity_updates
+
   ActiveAdmin.routes(self)
 
   resources :charities
@@ -50,7 +52,10 @@ Goalnect::Application.routes.draw do
   
   match '/charities/:id/change_logo' => 'charities#change_logo'
   match '/charities/crop/:id' => 'charities#crop'
-
+  match '/charities/:id/donations' => 'charities#donations'
+  match '/charities/:id/previous_month_donations_pdf' => 'charities#previous_month_donations_pdf'
+  match '/charities/:id/current_month_donations_pdf' => 'charities#current_month_donations_pdf'
+  
   root to: 'home#index'
   
   match 'static/:action' => 'static#:action'

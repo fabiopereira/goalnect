@@ -14,14 +14,36 @@ class ApplicationController < ActionController::Base
   end
   
   def charity_admin_user!
-    unless current_user && (current_user.admin? || is_current_user_charity_admin?)
+    unless current_user && (current_user.admin? || is_current_user_charity_admin?(params[:id]))
       flash[:alert] = "This area is restricted to charity administrators only."
       redirect_to root_path 
     end
   end
   
-  def is_current_user_charity_admin?
-    charity_id = params[:id]
+  def charity_updates_admin_user!
+     unless current_user && (current_user.admin? || is_current_user_charity_update_admin?)
+        flash[:alert] = "This area is restricted to charity administrators only."
+        redirect_to root_path 
+      end
+  end
+  
+  def is_current_user_charity_update_admin?
+    if (params[:charity_id] || params[:id])
+      charity_id = params[:charity_id] ? params[:charity_id] : CharityUpdate.find(params[:id]).charity_id.to_s 
+      is_current_user_charity_admin? charity_id
+    else
+      false
+    end
+  end
+  
+  def a_charity_administrator_user! 
+    unless current_user && (current_user.admin? || current_user.charity_id)
+       flash[:alert] = "This area is restricted to charity administrators only."
+       redirect_to root_path 
+     end
+  end
+  
+  def is_current_user_charity_admin? charity_id
     current_user.charity_id && current_user.charity_id.to_s == charity_id
   end
 
