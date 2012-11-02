@@ -3,8 +3,10 @@
 	<h1><%= @charity.charity_name %></h1>
 	<span style="float:right">
 		<div class="row well">
-			<p class="support-info">Raised so far: </p>
-			<center><b><%=number_to_currency(@total_raised)%></b></center>
+			<center>
+				<p>Raised so far: </p>
+				<h3><%=number_to_currency(@total_raised)%></h3>
+			</center>
 		</div>
 	 </span>
 </div>
@@ -25,8 +27,8 @@
 </p>
 </div>
 <div class="span11">
-	<div class="page-header">
-  		<h4><%= t("charity_page.last_3_charity_updates") %><p class="support-info">(<%= t("charity_page.update_info") %>)
+	<div class="page-header" style="padding-top:30px">
+  		<h4 style="text-align:right"><%= t("charity_page.last_3_charity_updates") %><p class="support-info" style="font-weight:normal">(<%= t("charity_page.update_info") %>)
 	</p></h4>
 	</div>
 	<% if @last_3_updates && !@last_3_updates.empty?%>
@@ -43,8 +45,8 @@
 	
 </div>
 <div class="span11">
-	<div class="page-header">
-  		<h4><%= t("charity_page.last_10_donations") %></h4>
+	<div class="page-header" style="padding-top:30px">
+  		<h4 style="text-align:right"><%= t("charity_page.last_10_donations") %></h4>
 	</div>
 	<% if @recent_donations && !@recent_donations.empty?%>
 	<table class="table table-striped table-condensed tiptip"style="border-spacing: 0px;">

@@ -37,7 +37,9 @@ class GoalDonationsController < ApplicationController
   end
   
   def apply_goalnect_fee goal_donation
-    goal_donation.goalnect_fee = goal_donation.amount * GOALNECT_FEE_PERCENTAGE
+    if goal_donation.amount
+      goal_donation.goalnect_fee = goal_donation.amount * GOALNECT_FEE_PERCENTAGE
+    end
   end
   
   def show
