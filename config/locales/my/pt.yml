@@ -121,6 +121,9 @@ pt:
   here: "aqui"
   edit: "Editar"
   destroy: "Deletar"
+  donation_approved: "Doação Aprovada"
+  waiting_payment_confirmation: "Aguardando Confirmação"
+  donation_canceled: "Doação Cancelada"
   charity_page:
     donations_list: "Lista de Doações"
     total_raised_amount: "Total Arrecadado"

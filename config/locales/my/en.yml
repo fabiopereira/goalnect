@@ -55,6 +55,10 @@ en:
   goal_status_message: "This goal is"
   blank_about_me: "Hi, my name is %{name} and I am a GOAL ACHIEVER!!!"
   donation_date: "Date"
+  donation_approved: "Donation Approved"
+  waiting_payment_confirmation: "Waiting Confirmation"
+  donation_canceled: "Donation Canceled"
+  
   charity_page:
     donations_list: "Donations List"
     total_raised_amount: "Total Raised Amount"
