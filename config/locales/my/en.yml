@@ -69,7 +69,9 @@ en:
     last_3_charity_updates: "Last 3 Updates"
     update_info: "news, projects, campaigns.."
     no_charity_updates_message: "There are no updates for this charity."
-
+    new_charity_update: "New Update"
+    list_all_donations: "List All Donations"
+    
   point_statement:
     donated_by: Donated by
     to_goal: Ro Goal

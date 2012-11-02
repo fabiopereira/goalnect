@@ -16,8 +16,12 @@ module CharitiesHelper
      image_url = charity_has_image ? charity.image_url(image_type) : "charity-nopic-#{image_type}.jpg"
   end
   
+  def charity_path(charity_id)
+    "/charities/#{charity_id}"
+  end
+  
   def charity_donations_path(charity_id)
-    "charities/#{charity_id}/donations"
+    "/charities/#{charity_id}/donations"
   end
   
   def current_month_donations_pdf_path(charity_id)
@@ -26,6 +30,10 @@ module CharitiesHelper
   
   def previous_month_donations_pdf_path(charity_id)
     "/charities/#{charity_id}/previous_month_donations_pdf.pdf"
+  end
+  
+  def is_current_user_charity_admin?(charity_id)
+    current_user && current_user.charity_id && current_user.charity_id.to_s == charity_id.to_s
   end
   
 end

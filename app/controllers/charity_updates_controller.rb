@@ -5,7 +5,7 @@ class CharityUpdatesController < ApplicationController
   # GET /charity_updates
   # GET /charity_updates.json
   def index
-    @charity_updates = CharityUpdate.all
+    @charity_updates = CharityUpdate.find(:all,:limit => 10)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -10,8 +10,7 @@
 		<p class="action-text"><%= link_to t('edit_profile'), '/achiever/edit'  %></p>
 		<hr/>
 		<% if current_user.charity_id%>
-		<% charity_url = '/charities/private_show/'+current_user.charity.id.to_s %>
-		<p class="action-text"><%= link_to current_user.charity.charity_name, charity_url %></p>
+		<p class="action-text"><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
 		<hr/>
 		<% end %>
 	<% end %>
