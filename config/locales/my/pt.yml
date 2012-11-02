@@ -2,7 +2,9 @@ pt:
   devise:
     sessions:
       sign_in: 'Efeturar login'
+      sign_in_subtitle: 'Se já for um usuário do Goalnect'
       sign_up: 'Cadastre-se'
+      sign_up_subtitle: 'Se ainda não for um usuário do Goalnect'
     links:
       forgot_your_password: 'Esqueceu sua senha?'
       sign_up: 'Cadastrar-se'
