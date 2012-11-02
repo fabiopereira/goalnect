@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-group :production, :staging, :demo do
-  gem 'pg'
-end
+gem 'pg'
+gem 'activerecord-postgresql-adapter'
 
 
 # Suggested by https://github.com/fabn/rails-jenkins-template
