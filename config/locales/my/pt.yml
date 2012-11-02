@@ -123,6 +123,11 @@ pt:
   dare_this_friend: "Desafie este amigo"
   list_goals: "Listar Goals"
   here: "aqui"
+  edit: "Editar"
+  destroy: "Deletar"
+  donation_approved: "Doação Aprovada"
+  waiting_payment_confirmation: "Aguardando Confirmação"
+  donation_canceled: "Doação Cancelada"
   charity_page:
     donations_list: "Lista de Doações"
     total_raised_amount: "Total Arrecadado"
@@ -137,6 +142,8 @@ pt:
     last_3_charity_updates: "Últimas 3 Atualizações"
     update_info: "prestação de contas, campanhas, projetos, notícias..."
     no_charity_updates_message: "Não existem atualizações para esta ONG"
+    new_charity_update: "Nova Atualização"
+    list_all_donations: "Listar Todas Doações"
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1&yt:cc=on"
   send: "Enviar"

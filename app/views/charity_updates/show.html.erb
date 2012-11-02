@@ -1,15 +1,7 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Charity:</b>
-  <%= @charity_update.charity_id %>
-</p>
 
-<p>
-  <b>Message:</b>
-  <%= @charity_update.message %>
-</p>
+<p><%=raw @charity_update.message%></p>
 
 
 <%= link_to 'Edit', edit_charity_update_path(@charity_update) %> |
-<%= link_to 'Back', charity_updates_path %>
+<%= link_to 'Back', charity_path(@charity_update.charity_id) %>

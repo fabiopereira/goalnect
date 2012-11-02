@@ -11,7 +11,7 @@ class CharityDonationsPdf < Prawn::Document
   
   def goalnect_logo
     repeat(:all) do
-      image("#{Rails.root}/public/assets/pdf_images/goalnect.logo.png", :position => :right, :width => 150) 
+      image("#{Rails.root}/app#{@view.asset_path('images/goalnect.logo.png')}", :position => :right, :width => 150)
     end
   end
   

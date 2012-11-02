@@ -57,6 +57,10 @@ en:
   goal_status_message: "This goal is"
   blank_about_me: "Hi, my name is %{name} and I am a GOAL ACHIEVER!!!"
   donation_date: "Date"
+  donation_approved: "Donation Approved"
+  waiting_payment_confirmation: "Waiting Confirmation"
+  donation_canceled: "Donation Canceled"
+  
   charity_page:
     donations_list: "Donations List"
     total_raised_amount: "Total Raised Amount"
@@ -71,7 +75,9 @@ en:
     last_3_charity_updates: "Last 3 Updates"
     update_info: "news, projects, campaigns.."
     no_charity_updates_message: "There are no updates for this charity."
-
+    new_charity_update: "New Update"
+    list_all_donations: "List All Donations"
+    
   point_statement:
     donated_by: Donated by
     to_goal: Ro Goal
