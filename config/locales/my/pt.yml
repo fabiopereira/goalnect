@@ -3,6 +3,8 @@ pt:
     sessions:
       sign_in: 'Efeturar login'
       sign_in_subtitle: 'Se já for um usuário do Goalnect'
+      facebook_sign_in: 'Ou entre com seu Facebook'
+      facebook_sign_in_subtitle: 'A forma mais fácil de entrar'
       sign_up: 'Cadastre-se'
       sign_up_subtitle: 'Se ainda não for um usuário do Goalnect'
     links:

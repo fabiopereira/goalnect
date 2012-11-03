@@ -3,6 +3,8 @@ en:
     sessions:
       sign_in: 'Sign in'
       sign_in_subtitle: 'If you are a Goalnect user'
+      facebook_sign_in: 'Or login with Facebook'
+      facebook_sign_in_subtitle: 'The easiest way to login'
       sign_up: 'Sign up'
       sign_up_subtitle: 'If you want to be part of Goalnect'
     links:
