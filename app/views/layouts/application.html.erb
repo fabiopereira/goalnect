@@ -6,8 +6,10 @@
 		<%= stylesheet_link_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css"%>
 		<%= csrf_meta_tag %>
 		<%= javascript_include_tag "application" %>
-		<script src="http://connect.facebook.net/en_US/all.js#xfbml=1">
-		</script>
+		<% Togg.le(:feature_fb_social) do %>
+		  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1">
+		  </script>
+		<% end %>
 		<script>
 		$(function() {
 				$( ".jq-tabs" ).tabs();

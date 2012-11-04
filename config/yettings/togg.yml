@@ -2,12 +2,14 @@ defaults: &defaults
   feature_authentication: true
   feature_payment: true        
   feature_sign_in: false
+  feature_fb_social: true
 
 development: 
   <<: *defaults
   
 test:
   <<: *defaults
+  feature_fb_social: false
 
 staging:
   <<: *defaults
