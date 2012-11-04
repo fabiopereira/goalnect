@@ -9,6 +9,10 @@ class GoalDonationStage < ActiveHash::Base
     {:id => 4, :name => "canceled"},
     {:id => 5, :name => "refunded"}
   ]
-  enum_accessor :name
+  enum_accessor :name              
+  
+  def translated_name
+      I18n.t(name, :scope => 'goal_donation_stage')
+  end
   
 end

@@ -1,10 +1,1 @@
-<% stage = goal_donation.current_stage %>
-<% if  stage == GoalDonationStage::APPROVED %>
-	<a class="button icon-image" title='<%=t("donation_approved")%>'><span class="icon icon44"></span></a>	
-<% end %>
-<% if stage == GoalDonationStage::PENDING || stage == GoalDonationStage::VERIFYING || stage == GoalDonationStage::WAITING_NOTIFICATION %>
-	<a class="button icon-image" title='<%=t("waiting_payment_confirmation")%>'><span class="icon icon110"></span></a>	
-<% end %>
-<% if stage == GoalDonationStage::CANCELED || stage == GoalDonationStage::REFUNDED %>
-	<a class="button icon-image" title='<%=t("donation_canceled")%>'><span class="icon icon56"></span></a>	
-<% end %>
+<a class="button icon-image" title='<%=goal_donation.current_stage.translated_name%>'><span class="icon <%= goal_donation_stage_icon goal_donation.current_stage %>"></span></a>

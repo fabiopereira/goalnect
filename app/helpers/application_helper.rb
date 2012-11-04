@@ -30,6 +30,19 @@ module ApplicationHelper
   
   def bool_to_yn b
     b ? I18n.t("names.yes") : I18n.t("names.no")
+  end  
+  
+  GOAL_DONATION_STAGE_ICON = {
+    GoalDonationStage::APPROVED               => "icon44",
+    GoalDonationStage::PENDING                => "icon110",
+    GoalDonationStage::VERIFYING              => "icon110",
+    GoalDonationStage::WAITING_NOTIFICATION   => "icon110",
+    GoalDonationStage::CANCELED               => "icon56",
+    GoalDonationStage::REFUNDED               => "icon56"
+  }
+  
+  def goal_donation_stage_icon stage
+    GOAL_DONATION_STAGE_ICON[stage]
   end
   
 end

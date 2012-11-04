@@ -129,9 +129,21 @@ pt:
   here: "aqui"
   edit: "Editar"
   destroy: "Deletar"
+
+  goal_donation_stage:
+    waiting_notification: Aguardando Confirmação
+    approved: Aprovada
+    pending: Pendente
+    verifying: Pendente (Verificando)
+    canceled: Cancelada
+    refunded: Reembolsada
+    
+  
   donation_approved: "Doação Aprovada"
   waiting_payment_confirmation: "Aguardando Confirmação"
   donation_canceled: "Doação Cancelada"
+  
+  
   charity_page:
     donations_list: "Lista de Doações"
     total_raised_amount: "Total Arrecadado"
