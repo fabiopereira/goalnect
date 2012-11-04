@@ -1,7 +1,5 @@
 class GoalDonationObserver < ActiveRecord::Observer
 
-  TO_BE_PROCESSED_STATUSES = [:completed, :approved]
-  
   def after_save(goal_donation)
     Goalog.debug "GoalDonationObserver called!!! => #{YAML::dump(goal_donation)}"
     if should_process_points? goal_donation
@@ -42,7 +40,7 @@ class GoalDonationObserver < ActiveRecord::Observer
   
   def should_process_points? goal_donation
     not_processsed = !goal_donation.processed 
-    not_processsed && TO_BE_PROCESSED_STATUSES.include?(goal_donation.current_status)
+    not_processsed && goal_donation.current_stage == GoalDonationStage::APPROVED
   end
   
 end

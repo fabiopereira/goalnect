@@ -1,4 +1,14 @@
 class GoalnectPagseguroNotification
+  
+  STATUS_TO_STAGE = {
+    :completed  => GoalDonationStage::APPROVED, 
+    :pending    => GoalDonationStage::PENDING,
+    :approved   => GoalDonationStage::APPROVED,
+    :verifying  => GoalDonationStage::VERIFYING,
+    :canceled   => GoalDonationStage::CANCELED,
+    :refunded   => GoalDonationStage::REFUNDED
+  }
+  
   def initialize(notification)
     @notification = notification
     validate
@@ -11,7 +21,7 @@ class GoalnectPagseguroNotification
   def save_goal_donation_payment_notification
     @donation_payment = map_donation_payment
     if @donation_payment.save
-      @goal_donation.current_status = @donation_payment.status
+      @goal_donation.current_stage_id = @donation_payment.stage_id
       @goal_donation.save
     else
       raise "Could not save PagSeguro notification due to errors #{@donation_payment.errors.inspect}"
@@ -30,7 +40,7 @@ class GoalnectPagseguroNotification
     donation_payment.payment_method = @notification.payment_method
     donation_payment.price = product[:price]
     donation_payment.processed_at = @notification.processed_at
-    donation_payment.status = @notification.status
+    donation_payment.stage_id = STATUS_TO_STAGE[@notification.status].id
     donation_payment.transaction_id = @notification.transaction_id
     donation_payment
   end

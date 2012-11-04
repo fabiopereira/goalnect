@@ -80,16 +80,7 @@
 	      <% @recent_donations.each do |goal_donation| %>
 	      <tr>
 			<td>
-			<% status = goal_donation.displayed_status %>
-			<% if  status == 'completed' || status == 'approved' %>
-				<a class="button icon-image" title='<%=t("donation_approved")%>'><span class="icon icon44"></span></a>	
-			<% end %>
-			<% if status == 'pending' || status == 'verifying' || status ==  'waiting_notification' %>
-				<a class="button icon-image" title='<%=t("waiting_payment_confirmation")%>'><span class="icon icon110"></span></a>	
-			<% end %>
-			<% if status == 'canceled' || status == 'refunded' %>
-				<a class="button icon-image" title='<%=t("donation_canceled")%>'><span class="icon icon56"></span></a>	
-			<% end %>
+			   <%= render 'goal_donations/stage_icon', :goal_donation => goal_donation%>	
 			</td>
 			<td><%= goal_donation.goal.title %></td>
 		    <td><%= goal_donation.donor_name%></td>

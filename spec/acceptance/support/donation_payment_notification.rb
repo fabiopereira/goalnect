@@ -5,7 +5,7 @@ module DonationPaymentNotificationSteps
   	  ENV["ID"] = goal_donation.id.to_s
   	  PagSeguro::Rake.run
       goal_donation = GoalDonation.find_by_message(goal_donation.message)
-      goal_donation.current_status.should be == 'completed'
+      goal_donation.current_stage.should be == GoalDonationStage::APPROVED
 
       visit_goal goal
       page.should have_content goal_donation.amount

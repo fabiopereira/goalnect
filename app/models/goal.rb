@@ -51,7 +51,7 @@ class Goal < ActiveRecord::Base
   
   def raised_so_far
     total = 0          
-    goal_donations.each{ |d| total = total + d.amount if  d.displayed_status == 'completed' || d.displayed_status == 'approved'}
+    goal_donations.each{ |d| total = total + d.amount if  d.current_stage == GoalDonationStage::APPROVED}
     total
   end
   

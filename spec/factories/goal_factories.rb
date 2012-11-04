@@ -35,6 +35,7 @@ FactoryGirl.define do
     message "xpto"
     user {|gd| FactoryGirl.create(:any_user) }
     donor_name {|gd| gd.user.screen_name} 
+    current_stage_id GoalDonationStage::APPROVED.id
   end
-end 
+end
 

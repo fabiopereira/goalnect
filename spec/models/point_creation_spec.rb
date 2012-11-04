@@ -3,9 +3,9 @@ require 'spec_helper'
 describe "how points are created" do
   
   it 'should create a point transaction when completing a goal donation' do
-    goal_donation = FactoryGirl.create(:goal_donation)
+    goal_donation = FactoryGirl.create(:goal_donation, current_stage_id: GoalDonationStage::WAITING_NOTIFICATION.id)
     point_transactions_for(goal_donation).should be_empty
-    goal_donation.current_status = :completed
+    goal_donation.current_stage_id = GoalDonationStage::APPROVED.id
     goal_donation.save
                                                                          
     point_transactions = point_transactions_for(goal_donation)
@@ -26,7 +26,7 @@ describe "how points are created" do
     goal_donation.processed.should be_true
 
     # Should only create transaction once    
-    goal_donation.current_status = :approved
+    goal_donation.current_stage_id = GoalDonationStage::APPROVED.id
     goal_donation.save
     point_transactions_for(goal_donation).should have(2).items
   end

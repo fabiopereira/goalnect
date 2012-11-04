@@ -11,7 +11,7 @@ rails g migration  drop_country_table
 rails g migration  drop_goal_and_goal_option_table
 
 rails g migration  create_goals_and_goal_users
-
+                                     
 rails g migration  drop_goal_table
 
 rails g migration add_is_challenge_to_goal is_challenge:boolean

@@ -8,6 +8,7 @@ class GoalDonationsController < ApplicationController
   def new
     @goal_donation = GoalDonation.new
     @goal_donation.goal_id = params[:goal_id]
+    @goal_donation.current_stage_id = GoalDonationStage::WAITING_NOTIFICATION.id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @goal_donation }
@@ -24,6 +25,7 @@ class GoalDonationsController < ApplicationController
     goal = Goal.find(params[:goal_donation][:goal_id])
     params[:goal_donation][:charity_id] = goal.charity_id
     @goal_donation = GoalDonation.new(params[:goal_donation])
+    @goal_donation.current_stage_id = GoalDonationStage::WAITING_NOTIFICATION.id
     apply_goalnect_fee @goal_donation
     respond_to do |format|
       if @goal_donation.save

@@ -111,7 +111,7 @@ module GoalSteps
     goal_donation.donor_name.should be == donor_name
     goal_donation.message.should be == message
     goal_donation.user_id.should be_nil
-    goal_donation.displayed_status.should be == 'waiting_notification'
+    goal_donation.current_stage.should be == GoalDonationStage::WAITING_NOTIFICATION
     
    donation_payment_notification goal, goal_donation
     
