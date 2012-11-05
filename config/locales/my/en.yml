@@ -45,13 +45,15 @@ en:
   achiever:
     croptitle: "Crop your image if you want"
   goal_stage:
+    pending: "waiting achiever to accept the dare"
     not_accepted: "not accepted"
     just_started: "just started"
+    on_its_way: "going somewhere"
     half_way_there: "half way there"
     almost_there: "almost there"
     done: "done"
-    abandoned: "abandoned" 
- 
+    abandoned: "abandoned"
+      
   here: "here"
   send: "Send"
   including_you: "(including you)"
