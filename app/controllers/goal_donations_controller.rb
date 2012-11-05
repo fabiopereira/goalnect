@@ -47,7 +47,7 @@ class GoalDonationsController < ApplicationController
   def show
     @goal_donation = GoalDonation.find(params[:id])
     @order = PagSeguro::Order.new(@goal_donation.id)
-    @order.add :id => @goal_donation.id, :price => @goal_donation.amount, :description => "donation"
+    @order.add :id => @goal_donation.id, :price => @goal_donation.decimal_amount, :description => "donation"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @goal_donation }

@@ -10,6 +10,10 @@ class GoalDonation < ActiveRecord::Base
   validates_presence_of :goal_id, :amount, :donor_name, :current_stage_id
   validates :amount, :numericality => { :greater_than_or_equal_to => MIN_AMOUNT }
   
+  def decimal_amount
+    amount.to_f
+  end
+  
   def current_stage
     raise "self.current_stage_id should never be nil" unless self.current_stage_id
     GoalDonationStage.find self.current_stage_id
