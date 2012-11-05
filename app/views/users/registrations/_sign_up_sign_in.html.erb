@@ -51,8 +51,8 @@
     <div><%= f.label :screen_name %><br />
   <%= f.text_field :screen_name %></div>
   
-    <div>www.goalnect.com.au/<br />
-  <%= f.text_field :username %></div>
+    <div><%= f.label :username %><br />
+  <%= t "url.site" %>/<%= f.text_field :username %></div>
 
   <div class="control-group">
     <%= f.label :dob, :class => 'control-label' %>

@@ -1,4 +1,6 @@
 en:
+  url:
+    site: www.goalnect.com
   devise:
     sessions:
       sign_in: 'Sign in'

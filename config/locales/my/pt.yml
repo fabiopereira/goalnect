@@ -1,4 +1,6 @@
 pt:
+  url:
+    site: www.goalnect.com.br
   devise:
     sessions:
       sign_in: 'Efeturar login'
