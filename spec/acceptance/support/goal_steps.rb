@@ -63,9 +63,9 @@ module GoalSteps
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
 	  click_on 'donate_button'
-    page.should have_content "Goal donation was successfully created"
-	  click_on 'PagSeguro'
-    page.should have_content "Donation received, waiting for pagseguro to confirm"
+    page.should have_content "Donation Confirmation"
+    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
+	  page.should have_content "Donation received, waiting for pagseguro to confirm"
     
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
@@ -101,10 +101,11 @@ module GoalSteps
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
 	  click_on 'donate_button'
-    page.should have_content "Goal donation was successfully created"
-	  click_on 'PagSeguro'
-    page.should have_content "Donation received, waiting for pagseguro to confirm"
-    
+    page.should have_content "Donation Confirmation"
+    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
+  	page.should have_content "Donation received, waiting for pagseguro to confirm"
+  
+  
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
