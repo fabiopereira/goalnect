@@ -5,8 +5,6 @@ class CharityDonations
       self.from = options[:from]
       self.to = options[:to]
       self.charity = Charity.find(options[:charity_id])
-      puts 'charity!!!! -> ' + charity.to_s
-      puts 'from to => ' + from.to_s + "   " + to.to_s
       self.donations = GoalDonation.find_all_between_dates_by_charity charity.id, from, to
       calculate_summary
    end

@@ -1,23 +1,12 @@
-<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%=t "donation.confirmation_page" %></h1>
+</div>
 
 <p>
-  <b>Message:</b>
-  <%= @goal_donation.message %>
+<%=raw t("donation.you_are_donating_to_confirmation", :amount => @goal_donation.amount,  :charity_name => @goal_donation.goal.charity.charity_name, :achiever => @goal_donation.goal.achiever.screen_name, :goal => @goal_donation.goal.title) %>
 </p>
 
-<p>
-  <b>Goal:</b>
-  <%= @goal_donation.goal_id %>
-</p>
+<p><%=t"donation.confirm_message"%></p>
 
-<p>
-  <b>User:</b>
-  <%= @goal_donation.user_id %>
-</p>
-
-<p>
-  <b>Amount:</b>
-  <%= @goal_donation.amount %>
-</p>
-
-<%= pagseguro_form @order, :submit => "PagSeguro", :email => @goal_donation.goal.charity.pagseguro_email %>
+<%= pagseguro_form @order, :submit => "", :email => @goal_donation.goal.charity.pagseguro_email %>
