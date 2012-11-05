@@ -11,7 +11,9 @@ rails g migration  drop_country_table
 rails g migration  drop_goal_and_goal_option_table
 
 rails g migration  create_goals_and_goal_users
-                                     
+                                     
+
+
 rails g migration  drop_goal_table
 
 rails g migration add_is_challenge_to_goal is_challenge:boolean
@@ -73,3 +75,5 @@ rails g migration add_goalnect_fee_and_pagseguro_fee_to_goal_donation goalnect_f
 rails g migration add_charity_id_to_goal_donation charity_id:integer
 
 rails g scaffold CharityUpdate charity_id:integer message:text -c=scaffold_controller
+
+rails g migration fill_not_nullable_columns_with_default_values
