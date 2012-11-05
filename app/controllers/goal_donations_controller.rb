@@ -24,8 +24,8 @@ class GoalDonationsController < ApplicationController
       params[:goal_donation][:user_id] = current_user.id
       params[:goal_donation][:donor_name] = current_user.screen_name
     end
-    goal = Goal.find(params[:goal_donation][:goal_id])
-    params[:goal_donation][:charity_id] = goal.charity_id
+    @goal = Goal.find(params[:goal_donation][:goal_id])
+    params[:goal_donation][:charity_id] = @goal.charity_id
     @goal_donation = GoalDonation.new(params[:goal_donation])
     @goal_donation.current_stage_id = GoalDonationStage::WAITING_NOTIFICATION.id
     apply_goalnect_fee @goal_donation
