@@ -6,8 +6,10 @@ class GoalDonationsController < ApplicationController
   # GET /goal_donations/new
   # GET /goal_donations/new.json
   def new
+    @goal = Goal.find(params[:goal_id])
     @goal_donation = GoalDonation.new
     @goal_donation.goal_id = params[:goal_id]
+    
     @goal_donation.current_stage_id = GoalDonationStage::WAITING_NOTIFICATION.id
     respond_to do |format|
       format.html # new.html.erb
@@ -29,7 +31,7 @@ class GoalDonationsController < ApplicationController
     apply_goalnect_fee @goal_donation
     respond_to do |format|
       if @goal_donation.save
-        format.html { redirect_to "/goal_donations/show/"+@goal_donation.id.to_s, notice: 'Goal donation was successfully created.' }
+        format.html { redirect_to "/goal_donations/show/"+@goal_donation.id.to_s }
         format.json { render json: @goal_donation, status: :created, location: @goal_donation }
       else
         format.html { render action: "new" }
@@ -68,6 +70,7 @@ class GoalDonationsController < ApplicationController
   # GET /goal_donations/1/edit
   def edit
     @goal_donation = GoalDonation.find(params[:id])
+    @goal = Goal.find(@goal_donation.goal_id)
   end
 
 

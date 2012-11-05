@@ -4,6 +4,7 @@ class FillNotNullableColumnsWithDefaultValues < ActiveRecord::Migration
     GoalDonationPaymentNotification.update_all("stage_id = 1", "stage_id is null")
     Goal.update_all("charity_id = 1", "charity_id is null")
     Goal.update_all("goal_stage_id = 3", "goal_stage_id is null")
+    Goal.update_all("target_amount = 100", "target_amount is null")
     GoalFeedback.update_all("goal_stage_id = 3", "goal_stage_id is null")
   end
   

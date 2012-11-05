@@ -31,6 +31,10 @@ en:
     donate: "Donate"
     new_donation_title: "New donation"
     anonymous_login_message: "You are donating anonymously"
+    you_are_donating_to: "You are donating to <b>%{charity_name}</b> in name of <b>%{achiever}</b> (goal: <b>%{goal}</b>)"
+    you_are_donating_to_confirmation: "You are donating $<b>%{amount}</b> to <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
+    confirm_message: "Please confirm and donate clicking on 'Doar com PagSeguro'"
+    confirmation_page: "Donation Confirmation"
 
   charities:
     looking_for_partners: "Goalnect is looking for charities to receive donations, please register "
