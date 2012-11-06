@@ -61,13 +61,7 @@
     </div>
   </div>
 
- <div class="control-group">
-    <%= f.label :country %>
-    <div class="controls">
-     <%= collection_select(:user, :country_id, Country.all, :id, :name) %>
-    </div>
-  </div>
-
+  <%= f.hidden_field :country_id, :value => Country.current_from_locale.id %>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
