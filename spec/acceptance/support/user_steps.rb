@@ -47,7 +47,6 @@ module UserSteps
       fill_in 'user_password_confirmation', :with => '123456'
       fill_in 'user_screen_name', :with => user.screen_name
       fill_in 'user_username', :with => user.username 
-      fill_in 'dob', :with => user.dob.strftime("%d/%m/%Y")
       click_on 'Sign up'   
     end
     user = User.find_by_username(user.username)
