@@ -64,7 +64,8 @@ pt:
       you_are_donating_to: "Você está doando para <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
       you_are_donating_to_confirmation: "Você está doando $<b>%{amount}</b> para <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
       confirm_message: "Para confirmar e efetuar a doação clique em 'Doar com PagSeguro'"
-      confirmation_page: "Confirmação da Doação"
+      confirmation_page: "Só mais um passo para confirmar a sua doação"
+      received_and_waiting: "Doação efetuada, estamos aguardando a confirmação do pagamento."
   achiever:
     croptitle: "Selecione a área que quer que apareça desta imagem"
   

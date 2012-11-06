@@ -6,6 +6,7 @@ class GoalDonation < ActiveRecord::Base
   
   belongs_to :goal, :class_name => 'Goal', :foreign_key => 'goal_id'
   belongs_to :user
+  belongs_to :charity
   
   validates_presence_of :goal_id, :amount, :donor_name, :current_stage_id
   validates :amount, :numericality => { :greater_than_or_equal_to => MIN_AMOUNT }

@@ -15,7 +15,7 @@ class GoalDonationPaymentNotificationsController < ApplicationController
     if @goal_donation.nil?
       Goalog.critical "Could not find GoalDonation for params[:Referencia] #{params[:Referencia]} #{params}"
     end
-    @goal_donation.goal.charity.pagseguro_authenticity_token
+    @goal_donation.charity.pagseguro_authenticity_token
   end
   
   def confirm
@@ -27,7 +27,7 @@ class GoalDonationPaymentNotificationsController < ApplicationController
     else
       Goalog.debug "REDIRECT FROM PagSeguro: GET"
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Donation received, waiting for pagseguro to confirm.' }
+        format.html { redirect_to root_path, notice: t("donation.received_and_waiting") }
       end
     end
     

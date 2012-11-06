@@ -73,22 +73,4 @@ class GoalDonationsController < ApplicationController
     @goal = Goal.find(@goal_donation.goal_id)
   end
 
-
-  # PUT /goal_donations/1
-  # PUT /goal_donations/1.json
-  def update
-    @goal_donation = GoalDonation.find(params[:id])
-
-    respond_to do |format|
-      if @goal_donation.update_attributes(params[:goal_donation])
-        format.html { redirect_to @goal_donation, notice: 'Goal donation was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @goal_donation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  
 end
