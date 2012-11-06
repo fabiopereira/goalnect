@@ -59,11 +59,16 @@ class GoalnectPagseguroNotification
     
     if @notification.products.length > 1
       Goalog.critical "Received notification with #{@notification.products.length} products #{YAML::dump(@notification)}"
-    end
+    end 
     
     @goal_donation = GoalDonation.find(@notification.order_id)
     if @goal_donation.nil?
       raise "Could not find GoalDonation for notification.order_id #{@notification.order_id}  #{YAML::dump(@notification)}"
+    end
+    
+    product = @notification.products.first
+    if @goal_donation.amount != product[:price].to_i
+      raise "Wrong donation notification price recieved for donation #{YAML::dump(@goal_donation)} #{@notification.order_id}  #{YAML::dump(@notification)}"
     end
   end
   
