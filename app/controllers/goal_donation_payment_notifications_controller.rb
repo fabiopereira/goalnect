@@ -19,20 +19,25 @@ class GoalDonationPaymentNotificationsController < ApplicationController
   end
   
   def confirm
+    print_params
     if request.post?
         pagseguro_notification(get_token) do |notification|
           handle_notification notification
-        end                    
-        
+        end                     
         render :nothing => true
     else
       Goalog.debug "REDIRECT FROM PagSeguro: GET"
       respond_to do |format|
         format.html { redirect_to root_path, notice: 'Donation received, waiting for pagseguro to confirm.' }
       end
+    end  
+  end
+  
+  def print_params
+     Goalog.critical "Params values"
+    params.each_pair do |k,v|
+      Goalog.critical "#{k} => #{v}"
     end
-    
-    
   end
   
 end
