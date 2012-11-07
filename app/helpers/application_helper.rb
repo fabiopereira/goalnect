@@ -45,4 +45,14 @@ module ApplicationHelper
     GOAL_DONATION_STAGE_ICON[stage]
   end
   
+  def active_goal_template_options
+    active_options = GoalTemplate.all_active.map{ |gt|
+      [gt.title] + [gt.id]
+    }
+    options_for_select(
+      [[t("goal_template.select_option")]] + 
+      active_options
+    )
+  end
+  
 end

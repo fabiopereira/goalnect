@@ -16,6 +16,9 @@ pt:
       didnt_receive_unlock: "Não recebeu instruções para desbloqueio?"
   facebook:
     login_title: Login com seu Facebook
+  goal_template:
+    select_option: Escolha o seu Goal
+    label_commit: COMECE AGORA!
   headline:
     home:
       subtitle1: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"

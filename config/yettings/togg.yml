@@ -3,6 +3,7 @@ defaults: &defaults
   feature_payment: true        
   feature_sign_in: false
   feature_fb_social: true
+  feature_goal_template: true
 
 development: 
   <<: *defaults
@@ -21,3 +22,4 @@ production:
   <<: *defaults
   feature_authentication: false 
   feature_sign_in: true
+  feature_goal_template: false
