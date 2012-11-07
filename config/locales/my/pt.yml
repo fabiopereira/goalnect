@@ -20,6 +20,7 @@ pt:
     select_option: Escolha o seu Goal
     label_commit: COMECE AGORA!
     congratulations_almost_there: "Parabéns, você está a um passo de mudar a sua vida pra melhor!"
+    yours: "Ou...Você escolhe o seu"
   headline:
     home:
       subtitle1: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
@@ -97,6 +98,7 @@ pt:
         
   label:
     search: Buscar
+    commit_to_a_goal: "Eu quero ajudar uma ONG porque eu vou"
   search_friends: "Buscar"
   search:
     result_title: "Resultados da sua busca"

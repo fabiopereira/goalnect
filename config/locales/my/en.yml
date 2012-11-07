@@ -20,8 +20,10 @@ en:
     select_option: Choose your Goal
     label_commit: START NOW!
     congratulations_almost_there: "Congratulations just one more step and you'll start changing your life"
+    yours: "Or...You choose yours"
   label:
     search: Search
+    commit_to_a_goal: "commit to a goal"
   search_friends: "Search friends"
   search:
     result_title: "Result from your search"

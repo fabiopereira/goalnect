@@ -79,4 +79,4 @@ rails g scaffold CharityUpdate charity_id:integer message:text -c=scaffold_contr
 rails g migration fill_not_nullable_columns_with_default_values
 
 rails g model GoalTemplate title:string description:text  active:boolean
-
+rails g migration add_locale_to_goal_template locale:string

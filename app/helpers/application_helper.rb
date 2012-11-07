@@ -51,7 +51,8 @@ module ApplicationHelper
     }
     options_for_select(
       [[t("goal_template.select_option")]] + 
-      active_options
+      active_options +
+      [[t("goal_template.yours"), :goal_template_yours]] 
     )
   end
   
