@@ -56,7 +56,11 @@ Goalnect::Application.routes.draw do
   match '/charities/:id/previous_month_donations_pdf' => 'charities#previous_month_donations_pdf'
   match '/charities/:id/current_month_donations_pdf' => 'charities#current_month_donations_pdf'
   
-  root to: 'home#index'
+  root to: 'home#index'    
+  
+  Togg.le(:feature_goal_template) do
+    match '/goal_template/i_commit' => 'goal_templates#i_commit'
+  end
   
   match 'static/:action' => 'static#:action'
   match '/faq' => "static#faq"

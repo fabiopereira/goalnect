@@ -19,6 +19,7 @@ en:
   goal_template:
     select_option: Choose your Goal
     label_commit: START NOW!
+    congratulations_almost_there: "Congratulations just one more step and you'll start changing your life"
   label:
     search: Search
   search_friends: "Search friends"
