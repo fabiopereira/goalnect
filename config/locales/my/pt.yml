@@ -64,7 +64,8 @@ pt:
         title_selected: "Titulo"
         achiever: "Goalnectador" 
         charity: "ONG"
-        target_amount: "Meta"
+        charity_id: "ONG"
+        target_amount: "Quantia mínima que deseja arrecadar"
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"
