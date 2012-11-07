@@ -29,7 +29,7 @@ module GoalSteps
 	def commit_to_a_goal title, charity
 	  visit '/'
 	  click_on 'New Goal'
-	  fill_in 'goal_title', :with => title                                  
+	  fill_in 'goal_title_selected', :with => title                                  
 	  description = "Description for goal #{title}"
 	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
     # fill_in 'goal_description', :with => description
