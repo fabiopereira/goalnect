@@ -20,3 +20,6 @@ production:
   authenticity_token: 9CA8D46AF0C6177CB4C23D76CAF5E4B0
   email: user@example.com
   return_to: "http://exemplo.com.br/pedido/efetuado"
+
+
+  # https://ws.pagseguro.uol.com.br/v2/transactions?initialDate=2012-11-01T00:00&finalDate=2012-11-07T00:00&page=1&maxPageResults=100&email=camilahayashi@gmail.com&token=06AFDC23913D4942A20527527249ACC0

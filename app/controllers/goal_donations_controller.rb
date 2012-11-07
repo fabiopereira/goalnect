@@ -90,5 +90,25 @@ class GoalDonationsController < ApplicationController
     end
   end
 
+  def populate_pagseguro_fee
+    # if PagSeguro.developer?
+      # What to do here?!?!
+    # else
+      goal_donations = GoalDonation.find(:conditions => ['created_at between ? and ?', params[:initial_date], params[:final_date]])
+      options = Hash.new
+      options[:initial_date] = 10.days.ago
+      options[:final_date] = Date.today
+      options[:page_number] = options[:page_number] ? options[:page_number] : 1
+      options[:email] = 'camilahayashi@gmail.com'
+      options[:token] = '06AFDC23913D4942A20527527249ACC0'
+      transactionResult = PagseguroConsult.transaction_history options
+      puts "CONSULTA PAGSEGURO => #{transactionResult.transactionSearchResult.transactions.transaction[0].feeAmount}"
+      
+      transactionResult.transactionSearchResult.transactions.each_pair do |k,v|
+        puts "#{k} => #{v}"
+      end
+      
+    # end
+  end
   
 end
