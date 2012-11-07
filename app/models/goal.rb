@@ -20,8 +20,8 @@ class Goal < ActiveRecord::Base
   end
   
   def title_selected=(title_selected)
-    if (title.present?)
-      self.title = title_selected
+    self.title = title_selected
+    if (title_selected.present?)
       goal_template = GoalTemplate.find_by_title(title_selected)
       if goal_template
         self.goal_template_id = goal_template.id
