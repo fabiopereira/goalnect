@@ -73,41 +73,12 @@ class GoalDonationsController < ApplicationController
     @goal = Goal.find(@goal_donation.goal_id)
   end
 
-
-  # PUT /goal_donations/1
-  # PUT /goal_donations/1.json
-  def update
-    @goal_donation = GoalDonation.find(params[:id])
-
-    respond_to do |format|
-      if @goal_donation.update_attributes(params[:goal_donation])
-        format.html { redirect_to @goal_donation, notice: 'Goal donation was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @goal_donation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def populate_pagseguro_fee
+ def populate_pagseguro_fee
     # if PagSeguro.developer?
       # What to do here?!?!
     # else
-      goal_donations = GoalDonation.find(:conditions => ['created_at between ? and ?', params[:initial_date], params[:final_date]])
-      options = Hash.new
-      options[:initial_date] = 10.days.ago
-      options[:final_date] = Date.today
-      options[:page_number] = options[:page_number] ? options[:page_number] : 1
-      options[:email] = 'camilahayashi@gmail.com'
-      options[:token] = '06AFDC23913D4942A20527527249ACC0'
-      transactionResult = PagseguroConsult.transaction_history options
-      puts "CONSULTA PAGSEGURO => #{transactionResult.transactionSearchResult.transactions.transaction[0].feeAmount}"
-      
-      transactionResult.transactionSearchResult.transactions.each_pair do |k,v|
-        puts "#{k} => #{v}"
-      end
-      
+      PagseguroFee.populate_pagseguro_fees params
+      render :nothing => true
     # end
   end
   

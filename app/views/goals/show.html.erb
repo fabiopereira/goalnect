@@ -35,8 +35,9 @@ $(function() {
 			<%= render 'donation_tab'%>
 		 </div>
 	</div>
-	
-    <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450" data-show-faces="false"></div>
+	<% Togg.le(:feature_fb_social) do %>
+       <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450" data-show-faces="false"></div>
+    <% end %>
 	<div class="form-actions">
 		<%= link_to t('back'), '/'+@goal.achiever.username, :class => 'btn' %>
 	</div>

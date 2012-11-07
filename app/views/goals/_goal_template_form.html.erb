@@ -1,0 +1,12 @@
+<% Togg.le(:feature_goal_template) do %>
+  <form action="/goal_template/i_commit">
+	
+    <div>
+	   <span><%= t("label.commit_to_a_goal") %></span>
+       <%= select_tag(:goal_template, active_goal_template_options) %>
+    </div>
+    <div>
+    </div>
+    <input type="submit" value="<%= t 'goal_template.label_commit' %>"/>
+  </form>
+<% end %>

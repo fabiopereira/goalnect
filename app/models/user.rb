@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   include CropImage
    
-  #belongs_to_active_hash :country  
   has_many :authentications, :dependent => :delete_all
   
   belongs_to :charity

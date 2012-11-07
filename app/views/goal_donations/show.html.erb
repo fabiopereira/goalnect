@@ -1,12 +1,18 @@
-
 <div class="page-header">
   <h1><%=t "donation.confirmation_page" %></h1>
 </div>
 
 <p>
-<%=raw t("donation.you_are_donating_to_confirmation", :amount => @goal_donation.amount,  :charity_name => @goal_donation.goal.charity.charity_name, :achiever => @goal_donation.goal.achiever.screen_name, :goal => @goal_donation.goal.title) %>
+<%=raw t("donation.you_are_donating_to_confirmation", :amount => @goal_donation.amount,  :charity_name => @goal_donation.charity.charity_name, :achiever => @goal_donation.goal.achiever.screen_name, :goal => @goal_donation.goal.title) %>
 </p>
 
-<p><%=t"donation.confirm_message"%></p>
 
-<%= pagseguro_form @order, :submit => "", :email => @goal_donation.goal.charity.pagseguro_email %>
+<% if @goal_donation.current_stage == GoalDonationStage::WAITING_NOTIFICATION %>
+  <p><%=t"donation.confirm_message"%></p>
+  <%= pagseguro_form @order, :submit => "", :email => @goal_donation.charity.pagseguro_email %>
+<% else %>   
+  <p>
+     <%= render 'goal_donations/stage_icon', :goal_donation => @goal_donation%> 
+     <span><%= @goal_donation.current_stage.translated_name %></span>
+  </p>
+<% end %>
