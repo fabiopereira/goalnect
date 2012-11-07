@@ -80,6 +80,8 @@ en:
   donation_approved: "Donation Approved"
   waiting_payment_confirmation: "Waiting Confirmation"
   donation_canceled: "Donation Canceled"
+  accept_challenge: "accept challenge"
+  reject: "reject"
   
   charity_page:
     donations_list: "Donations List"

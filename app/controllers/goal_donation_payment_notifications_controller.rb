@@ -29,9 +29,7 @@ class GoalDonationPaymentNotificationsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to root_path, notice: t("donation.received_and_waiting") }
       end
-    end
-    
-    
+    end  
   end
   
 end

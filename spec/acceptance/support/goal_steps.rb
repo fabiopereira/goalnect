@@ -20,7 +20,7 @@ module GoalSteps
     click_on "Send"
     page.should have_content "Message can't be blank"
     
-    fill_in "goal_feedback_message", :with => "I made it, yay"
+    page.execute_script %Q{ $('#goal_feedback_message').data("wysihtml5").editor.setValue('I made it, yay') }
     click_on "Send"
     
     page.should_not have_css("#goal_feedback_goal_stage_id")

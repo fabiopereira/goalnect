@@ -73,4 +73,13 @@ class GoalDonationsController < ApplicationController
     @goal = Goal.find(@goal_donation.goal_id)
   end
 
+ def populate_pagseguro_fee
+    # if PagSeguro.developer?
+      # What to do here?!?!
+    # else
+      PagseguroFee.populate_pagseguro_fees params
+      render :nothing => true
+    # end
+  end
+  
 end
