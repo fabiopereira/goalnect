@@ -31,11 +31,20 @@ class GoalsController < ApplicationController
      end
   end
   
+  def fill_goal_with_template_if_exists
+    if params[:goal_template] && params[:goal_template] != :goal_template_yours.to_s
+      goal_template = GoalTemplate.find(params[:goal_template])
+      @goal.title_selected = goal_template.title
+    end
+  end
+  
   # GET /:user_username/goals/new
   # GET /:user_username/goals/new.json
   def new
     @achiever_username = params[:user_username]
     @goal = Goal.new
+    flash[:notice] = t('goal_template.congratulations_almost_there') 
+    fill_goal_with_template_if_exists
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @goal}

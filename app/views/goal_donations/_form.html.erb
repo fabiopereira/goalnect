@@ -8,8 +8,12 @@
   <%= link_to('Login', sign_in_and_redirect_to_current)  %>
 <% end %>
 
+<p>
+<%=raw t("donation.you_are_donating_to", :charity_name => @goal.charity.charity_name, :achiever => @goal.achiever.screen_name, :goal => @goal.title) %>
+</p>
+
 <% if user_signed_in? %>
-  <%= current_user.screen_name %>
+  <p><%= t "activerecord.attributes.goal_donation.donor_name" %>: <b><%= current_user.screen_name %><b></p>
 <% else %>
   <%= f.label :donor_name %><br />
   <%= f.text_field :donor_name %>

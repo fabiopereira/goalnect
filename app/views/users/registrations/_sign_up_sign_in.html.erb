@@ -51,27 +51,13 @@
     <div><%= f.label :screen_name %><br />
   <%= f.text_field :screen_name %></div>
   
-    <div>www.goalnect.com.au/<br />
-  <%= f.text_field :username %></div>
+    <div><%= f.label :username %><br />
+  <%= t "url.site" %>/<%= f.text_field :username %></div>
 
-  <div class="control-group">
-    <%= f.label :dob, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :dob, :class => 'date_select', :id => 'dob' %>
-    </div>
-  </div>
+  <%= f.hidden_field :country_id, :value => Country.current_from_locale.id %>
 
- <div class="control-group">
-    <%= f.label :country %>
-    <div class="controls">
-     <%= collection_select(:user, :country_id, Country.all, :id, :name) %>
-    </div>
-  </div>
-
-
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit t("devise.sessions.sign_up") %></div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
 </div>
 

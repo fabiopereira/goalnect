@@ -23,6 +23,9 @@
 </div>
 
 <div class="span3">
+	<%= render 'goals/goal_template_form' %>
+</div>
+<div class="span3">
 	<%= image_tag("comingsoon-#{I18n.locale}.png") %>
 	<%= image_tag("headline-#{I18n.locale}.png") %><br/>
 </div>
@@ -31,7 +34,10 @@
 	<a href="<%= t "vimeo.teaser" %>" rel="prettyPhoto" title=""><%= image_tag("video-thumb.png", class: "flowImage") %></a>
 	<br/>
 	<br/>
-	<div class="fb-like-box" data-href="http://www.facebook.com/goalnect" data-width="270" data-show-faces="true" data-border-color="navy" data-stream="false" data-header="true"></div>
+	<% Togg.le(:feature_fb_social) do %>
+	   <div class="fb-like-box" data-href="http://www.facebook.com/goalnect" data-width="270" data-show-faces="true" data-border-color="navy" data-stream="false" data-header="true">
+	<% end %>
+	</div>
  </center>
 </div>
 

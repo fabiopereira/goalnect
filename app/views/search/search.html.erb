@@ -24,7 +24,7 @@
 <h3><%= t 'activerecord.models.charity' %></h3>
 <% @charities.each do |charity| %>
 <div id="search-result">
-	<a href="<%= charity_path(charity) %>">
+	<a href="<%= charity_path(charity.id) %>">
 	  <div>
 		<%= charity_image charity, :thumb %>
 	  </div>

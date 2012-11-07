@@ -20,7 +20,7 @@ module GoalSteps
     click_on "Send"
     page.should have_content "Message can't be blank"
     
-    fill_in "goal_feedback_message", :with => "I made it, yay"
+    page.execute_script %Q{ $('#goal_feedback_message').data("wysihtml5").editor.setValue('I made it, yay') }
     click_on "Send"
     
     page.should_not have_css("#goal_feedback_goal_stage_id")
@@ -29,7 +29,7 @@ module GoalSteps
 	def commit_to_a_goal title, charity
 	  visit '/'
 	  click_on 'New Goal'
-	  fill_in 'goal_title', :with => title                                  
+	  fill_in 'goal_title_selected', :with => title                                  
 	  description = "Description for goal #{title}"
 	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
     # fill_in 'goal_description', :with => description
@@ -63,9 +63,9 @@ module GoalSteps
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
 	  click_on 'donate_button'
-    page.should have_content "Goal donation was successfully created"
-	  click_on 'PagSeguro'
-    page.should have_content "Donation received, waiting for pagseguro to confirm"
+    page.should have_content "Donation Confirmation"
+    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
+	  page.should have_content "Donation received, waiting for pagseguro to confirm"
     
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
@@ -101,10 +101,11 @@ module GoalSteps
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
 	  click_on 'donate_button'
-    page.should have_content "Goal donation was successfully created"
-	  click_on 'PagSeguro'
-    page.should have_content "Donation received, waiting for pagseguro to confirm"
-    
+    page.should have_content "Donation Confirmation"
+    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
+  	page.should have_content "Donation received, waiting for pagseguro to confirm"
+  
+  
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount

@@ -1,4 +1,6 @@
 en:
+  url:
+    site: www.goalnect.com
   devise:
     sessions:
       sign_in: 'Sign in'
@@ -14,8 +16,14 @@ en:
       didnt_receive_unlock: "Didn't receive unlock instructions?"
   facebook:
     login_title: Login with Facebook
+  goal_template:
+    select_option: Choose your Goal
+    label_commit: START NOW!
+    congratulations_almost_there: "Congratulations just one more step and you'll start changing your life"
+    yours: "Or...You choose yours"
   label:
     search: Search
+    commit_to_a_goal: "commit to a goal"
   search_friends: "Search friends"
   search:
     result_title: "Result from your search"
@@ -24,6 +32,8 @@ en:
     home:
       subtitle1: "Goalnect is your new crowdfunding platform where you can achieve your goals with your friends, raise money for charity, win points and prizes"
       subtitle2: "It is the first 'gamefied' crowdfunding platform ever created"
+    goal:
+      title: New Goal
   vimeo:
     teaser: "http://vimeo.com/46359215"
     
@@ -31,6 +41,11 @@ en:
     donate: "Donate"
     new_donation_title: "New donation"
     anonymous_login_message: "You are donating anonymously"
+    you_are_donating_to: "You are donating to <b>%{charity_name}</b> in name of <b>%{achiever}</b> (goal: <b>%{goal}</b>)"
+    you_are_donating_to_confirmation: "You are donating $<b>%{amount}</b> to <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
+    confirm_message: "Please confirm and donate clicking on 'Doar com PagSeguro'"
+    confirmation_page: "Donation Confirmation"
+    received_and_waiting: "Donation received, waiting for pagseguro to confirm."
 
   charities:
     looking_for_partners: "Goalnect is looking for charities to receive donations, please register "
@@ -67,6 +82,8 @@ en:
   donation_approved: "Donation Approved"
   waiting_payment_confirmation: "Waiting Confirmation"
   donation_canceled: "Donation Canceled"
+  accept_challenge: "accept challenge"
+  reject: "reject"
   
   charity_page:
     donations_list: "Donations List"

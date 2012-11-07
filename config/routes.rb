@@ -56,7 +56,11 @@ Goalnect::Application.routes.draw do
   match '/charities/:id/previous_month_donations_pdf' => 'charities#previous_month_donations_pdf'
   match '/charities/:id/current_month_donations_pdf' => 'charities#current_month_donations_pdf'
   
-  root to: 'home#index'
+  root to: 'home#index'    
+  
+  Togg.le(:feature_goal_template) do
+    match '/goal_template/i_commit' => 'goal_templates#i_commit'
+  end
   
   match 'static/:action' => 'static#:action'
   match '/faq' => "static#faq"
@@ -77,6 +81,8 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/i_dont_support/:goal_id' => 'goals#i_dont_support'
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
+  match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
+
   
 #root :to => "home#index"
 
