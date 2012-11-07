@@ -20,7 +20,7 @@ pt:
     select_option: Escolha o seu Goal
     label_commit: COMECE AGORA!
     congratulations_almost_there: "Parabéns, você está a um passo de mudar a sua vida pra melhor!"
-    yours: "Ou...Você escolhe o seu"
+    yours: "Ou, comece agora escohendo o seu"
   headline:
     home:
       subtitle1: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
@@ -59,6 +59,7 @@ pt:
         due_on: "Prazo" 
         owner: "Criador" 
         title: "Titulo"
+        title_selected: "Titulo"
         achiever: "Goalnectador" 
         charity: "ONG"
         target_amount: "Meta"

@@ -11,6 +11,18 @@ describe Goal do
     
     goal.raised_so_far.should be == 50
   end
+  
+  it 'should find a goal template when creating a goal with the same title' do
+    goal_template = FactoryGirl.create(:goal_template)
+    goal = FactoryGirl.create(:goal)
+    
+    goal.goal_template.should be_nil
+    goal.title_selected = goal_template.title
+    
+    goal.goal_template.should be == goal_template
+    goal.title.should be == goal_template.title
+    goal.title.should be == goal.title_selected
+  end
 
   it 'should create a valid user' do
     FactoryGirl.create(:any_user)
@@ -20,5 +32,5 @@ describe Goal do
   def donate_to goal, stage, amount
     FactoryGirl.create(:goal_donation, goal: goal, current_stage_id: stage.id, amount: amount)
   end
-
+  
 end

@@ -39,3 +39,12 @@ FactoryGirl.define do
   end
 end
 
+FactoryGirl.define do
+  factory :goal_template, class: GoalTemplate do
+    sequence(:title) {|n| "Goal Template #{n}" }    
+    description {|g| "My Goal is to complete #{g.title}, blah blah" }
+    locale Country::AUSTRALIA.locale
+    active true
+  end
+end
+

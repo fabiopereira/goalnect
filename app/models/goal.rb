@@ -1,18 +1,36 @@
 class Goal < ActiveRecord::Base        
   #extend ActiveHash::Associations::ActiveRecordExtensions
   
-  attr_accessible :description, :due_on, :owner, :title, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id
+  attr_accessible :description, :due_on, :owner, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
   
   belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
   belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_id'
-  belongs_to :charity, :class_name => 'Charity', :foreign_key => 'charity_id'
+  belongs_to :charity
+  belongs_to :goal_template
 
   #belongs_to_active_hash :goalStage 
   has_many :goal_donations
   has_many :goal_supports
 
   validates_presence_of :description, :due_on, :owner, :title, :charity_id, :target_amount
-
+  
+  attr_accessible :title
+  def title_selected
+    self.title
+  end
+  
+  def title_selected=(title_selected)
+    if (title.present?)
+      self.title = title_selected
+      goal_template = GoalTemplate.find_by_title(title_selected)
+      if goal_template
+        self.goal_template_id = goal_template.id
+        self.title = goal_template.title
+        self.description = goal_template.description
+      end
+    end
+  end
+  
   def self.find_goals_dared_by(user)
     find(:all, :conditions => ['achiever_id != :u and owner_id = :u', {:u => user.id}])
   end

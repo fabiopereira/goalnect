@@ -49,10 +49,10 @@ module ApplicationHelper
     active_options = GoalTemplate.all_active.map{ |gt|
       [gt.title] + [gt.id]
     }
-    options_for_select(
+    options_for_select (
       [[t("goal_template.select_option")]] + 
       active_options +
-      [[t("goal_template.yours"), :goal_template_yours]] 
+      [[t("goal_template.yours"), :goal_template_yours]]
     )
   end
   
