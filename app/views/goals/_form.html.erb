@@ -3,9 +3,9 @@
   <%= render 'layouts/model_error_messages', :target => @goal %>
 
   <div class="control-group">
-	<%= f.label :title_selected, :class => 'control-label', data: {autocomplete_source: GoalTemplate.all_active.order(:title).map(&:title)} %>
+	<%= f.label :title_selected, :class => 'control-label' %>
 	<div class="controls">
-      <%= f.text_field :title_selected %>
+      <%= f.text_field :title_selected, data: {autocomplete_source: GoalTemplate.all_active.order(:title).map(&:title)} %>
     </div>
   </div>
 
