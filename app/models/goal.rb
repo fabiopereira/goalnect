@@ -14,7 +14,7 @@ class Goal < ActiveRecord::Base
 
   validates_presence_of :description, :due_on, :owner, :title, :charity_id, :target_amount
   
-  attr_accessible :title
+  attr_accessible :title, :title_selected
   def title_selected
     self.title
   end
