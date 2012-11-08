@@ -66,6 +66,10 @@ Goalnect::Application.routes.draw do
   match '/faq' => "static#faq"
   match '/s/:static_content' => 'static#static_content'
   
+  match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
+  
+  #test_only
+  match '/sample_pagseguro_file/:reference_id' => 'static#sample_pagseguro_file'
 
   match '/:user_username' => 'achiever#view'
 
@@ -81,7 +85,8 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/i_dont_support/:goal_id' => 'goals#i_dont_support'
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
-  match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
+  
+  
 
   
 #root :to => "home#index"
