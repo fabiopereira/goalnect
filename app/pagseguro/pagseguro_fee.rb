@@ -6,9 +6,16 @@ class PagseguroFee
       options[:token] = token_email[:token]
       options[:email] = token_email[:email]
       options[:page_number] = 1
-      update_pagseguro_fee options
+      process_pagseguro_fee options
     end
- end
+  end
+ 
+  def self.process_pagseguro_fee options
+    result = PagseguroConsultApi.pagseguro_fee_list options
+    if result
+      update_pagseguro_fee result, options
+    end
+  end
   
   def self.retrieve_token_emails
     token_emails = []
@@ -22,28 +29,16 @@ class PagseguroFee
     token_emails
   end
 
-  def self.update_pagseguro_fee options
-    result = PagseguroConsultApi.transaction_history options
-    if result == 'Unauthorized'
-      Goalog.critical "Pagseguro - Unauthorized access for #{options[:email]}"
-      return
+  def self.update_pagseguro_fee result, options
+    fee_list = result[:fee_list]
+    fee_list.each do |fee|
+      GoalDonation.update_all(['pagseguro_fee = ?', fee[:fee_amount]], ['id = ?', fee[:reference_id]])
     end
-    
-    if !result.transactionSearchResult || result.transactionSearchResult.resultsInThisPage.to_i == 0
-      Goalog.debug "There is no transaction for this period (#{options[:email]} - #{options[:initial_date]} - #{options[:final_date]})"
-      return
-    end 
-    
-    transactions = result.transactionSearchResult.transactions.transaction
-    transactions.each do |transaction|
-      GoalDonation.update_all(['pagseguro_fee = ?', transaction.feeAmount.to_f], ['id = ?', transaction.reference.to_i])
-    end
-    total_pages = result.transactionSearchResult.totalPages
-    current_page = result.transactionSearchResult.currentPage
-    if total_pages != current_page
-      options[:page_number] = current_page.to_i + 1
-      update_pagseguro_fee options
+    if result[:total_pages] != result[:current_page]
+      options[:page_number] = result[:current_page] + 1
+      process_pagseguro_fee options
     end
   end
+  
   
 end
