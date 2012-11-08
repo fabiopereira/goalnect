@@ -27,13 +27,32 @@ module UserSteps
   def login_user_password email, password
     visit '/'   
     click_on 'Login'   
+    login_user_password_already_in_login_page email, password
+    page.should have_content 'ABOUT ME'       
+  end    
+  
+  def ensure_username_exists username
+    user = User.find_by_username(username)
+    unless user
+      user = FactoryGirl.create(:any_user, username: username)
+    end
+    user
+  end
+
+  def login_user_password_already_in_login_page email, password
     within("#sign_in_section") do
       fill_in 'user_email', :with => email
       fill_in 'user_password', :with => password
       click_on 'Sign in'   
     end
-    page.should have_content 'ABOUT ME'       
-  end    
+  end  
+  
+  
+  
+  def user_should_be_prompted_for_sign_in_or_sign_up
+    page.find('#sign_up_section').should_not be_nil
+    page.find('#sign_in_section').should_not be_nil
+  end
   
   def sign_up username
     user = FactoryGirl.build(:any_user, :username => username)   
@@ -55,6 +74,10 @@ module UserSteps
     user = User.find_by_username(user.username)
   end
   
+	def ensure_logged_out
+	  logout_current_user          
+	end
+	
 	def ensure_logged_in username          
 	  user = find_current_user username
 	  

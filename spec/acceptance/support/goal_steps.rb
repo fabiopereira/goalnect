@@ -15,7 +15,7 @@ module GoalSteps
     click_on 'Journey'
     sleep 2
     page.select "done", :from => "goal_feedback_goal_stage_id"
-
+    
     # Should validate that message is mandatory when changing goal stage    
     click_on "Send"
     page.should have_content "Message can't be blank"
@@ -29,16 +29,30 @@ module GoalSteps
 	def commit_to_a_goal title, charity
 	  visit '/'
 	  click_on 'New Goal'
-	  fill_in 'goal_title_selected', :with => title                                  
-	  description = "Description for goal #{title}"
-	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
+	  fill_in 'goal_title_selected', :with => title
+	  select_description "Description for goal #{title}"
     # fill_in 'goal_description', :with => description
     # fill_in 'goal_due_on', :with => 2.months.from_now
-    page.select charity.charity_name, :from => 'goal_charity_id'
+    commit_to_charity_and_target_amount charity
+	  Goal.find_by_title title
+	end
+	
+	def select_description description
+	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
+	  description
+	end
+	
+	def commit_to_charity_and_target_amount charity
+	  page.select charity.charity_name, :from => 'goal_charity_id'
     fill_in 'goal_target_amount', :with => 100
 	  click_on 'Create Goal'
 	  page.should have_content 'Goal was successfully created'
-	  Goal.find_by_title title
+	end
+	
+	def commit_to_a_goal_template charity, goal_template
+	  description = select_description "Description for goal #{goal_template.title} for charity #{charity.id}"
+	  commit_to_charity_and_target_amount charity
+	  Goal.find_by_title_and_description goal_template.title, description
 	end
 	
 	def support_believing goal

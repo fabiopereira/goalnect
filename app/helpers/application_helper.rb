@@ -29,7 +29,7 @@ module ApplicationHelper
   end
   
   def active_goal_template_options
-    active_options = GoalTemplate.all_active.map{ |gt|
+    active_options = GoalTemplate.all_active_current_locale.map{ |gt|
       [gt.title] + [gt.id]
     }
     options_for_select (
