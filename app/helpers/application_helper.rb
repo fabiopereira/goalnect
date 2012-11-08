@@ -11,23 +11,6 @@ module ApplicationHelper
     end
   end
   
-
-  # app/helpers/application_helper.rb
-  def twitterized_type(type)
-    case type
-      when :alert
-        "alert-block"
-      when :error
-        "alert-error"
-      when :notice
-        "alert-info"
-      when :success
-        "alert-success"
-      else
-        type.to_s
-    end
-  end  
-  
   def bool_to_yn b
     b ? I18n.t("names.yes") : I18n.t("names.no")
   end  
@@ -46,13 +29,13 @@ module ApplicationHelper
   end
   
   def active_goal_template_options
-    active_options = GoalTemplate.all_active.map{ |gt|
+    active_options = GoalTemplate.all_active_current_locale.map{ |gt|
       [gt.title] + [gt.id]
     }
-    options_for_select(
+    options_for_select (
       [[t("goal_template.select_option")]] + 
       active_options +
-      [[t("goal_template.yours"), :goal_template_yours]] 
+      [[t("goal_template.yours"), :goal_template_yours]]
     )
   end
   

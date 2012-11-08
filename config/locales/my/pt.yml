@@ -20,11 +20,13 @@ pt:
     select_option: Escolha o seu Goal
     label_commit: COMECE AGORA!
     congratulations_almost_there: "Parabéns, você está a um passo de mudar a sua vida pra melhor!"
-    yours: "Ou...Você escolhe o seu"
+    yours: "Ou, comece agora escohendo o seu"
   headline:
     home:
       subtitle1: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
       subtitle2: "É uma idéia trazida da Inglaterra e da Austrália especialmente para todos os brasileiros"
+    goal:
+      title: Você está a um passo de criar a sua página para o seu Goal
   activerecord:
     models:
       user: "Usuário"
@@ -59,9 +61,11 @@ pt:
         due_on: "Prazo" 
         owner: "Criador" 
         title: "Titulo"
+        title_selected: "Titulo"
         achiever: "Goalnectador" 
         charity: "ONG"
-        target_amount: "Meta"
+        charity_id: "ONG"
+        target_amount: "Quantia mínima que deseja arrecadar"
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"
