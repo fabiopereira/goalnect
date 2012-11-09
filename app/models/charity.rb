@@ -5,9 +5,8 @@ class Charity < ActiveRecord::Base
   
   # CarrierWave Image Uploads
   attr_accessible :image
-  mount_uploader :image, ImageUploader
-  include CropImage
-  
+  mount_uploader :image, CharityImageUploader
+
   validates_presence_of :charity_name, :contact_name, :email, :phone, :nickname
   
   validates_uniqueness_of :nickname
@@ -26,6 +25,10 @@ class Charity < ActiveRecord::Base
   
   def find_total_raised_amount
     GoalDonation.find_total_raised_amount_by_charity_id self.id
+  end
+  
+  def display_crop_image_view
+    false
   end
    
 end

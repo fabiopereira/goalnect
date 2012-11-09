@@ -6,5 +6,9 @@ module CropImage
     image.recreate_versions! if crop_x.present?
   end  
   
+  def display_crop_image_view
+    true
+  end
+  
   
 end
