@@ -5,7 +5,7 @@ class CreateRedemptionPointTransactions < ActiveRecord::Migration
       t.integer :point_amount
       t.decimal :money_amount, :scale => 2
       t.string  :cpf
-      t.processed :boolean
+      t.boolean :processed
 
       t.timestamps
     end
