@@ -26,7 +26,7 @@
 	<% end %>
 </div>
 
-<% if model.image? %>                                               
+<% if model.image? && model.display_crop_image_view %>                                               
 <div id="cropping-image">
 	<%= form_for model, :url => crop_url, :html => { :class => 'form-horizontal'} do |f| %>    
 	
