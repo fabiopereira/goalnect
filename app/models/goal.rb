@@ -1,5 +1,6 @@
 class Goal < ActiveRecord::Base        
   #extend ActiveHash::Associations::ActiveRecordExtensions
+  MIN_TARGET_AMOUNT = 50
   
   attr_accessible :description, :due_on, :owner, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
   
@@ -13,10 +14,18 @@ class Goal < ActiveRecord::Base
   has_many :goal_supports
 
   validates_presence_of :description, :due_on, :owner, :title, :charity_id, :target_amount
+  validate :not_past_date
+  validates :target_amount, :numericality => { :greater_than_or_equal_to => MIN_TARGET_AMOUNT }
   
   attr_accessible :title, :title_selected
   def title_selected
     self.title
+  end
+  
+  def not_past_date
+    if self.due_on.past? 
+      errors.add(:due_on, I18n.t("cannot_be_in_the_past"))
+    end
   end
   
   def title_selected=(title_selected)

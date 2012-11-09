@@ -39,7 +39,6 @@ module CharitySteps
   def visit_all_donations_page_verify_summaries gross_amount, pagseguro_fee, goalnect_fee, net_amount
     
     click_on "List All Donations"
-    click_on "Current Month"
     find("#donations_amount").should have_content("0.0")
     find("#total_pagseguro_fee").should have_content("0.0")
     find("#total_goalnect_fee").should have_content("0.0")
