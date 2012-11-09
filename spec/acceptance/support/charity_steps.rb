@@ -40,11 +40,18 @@ module CharitySteps
     
     click_on "List All Donations"
     click_on "Current Month"
+    find("#donations_amount").should have_content("0.0")
+    find("#total_pagseguro_fee").should have_content("0.0")
+    find("#total_goalnect_fee").should have_content("0.0")
+    find("#net_donations_amount").should have_content("0.0")
+    page.should have_content "Previous month donations transactions (PDF)"
     
+    click_on "Current Month"
     find("#donations_amount").should have_content(gross_amount)
     find("#total_pagseguro_fee").should have_content(pagseguro_fee)
     find("#total_goalnect_fee").should have_content(goalnect_fee)
     find("#net_donations_amount").should have_content(net_amount)
+    page.should have_content "Current Donations Transactions (PDF)"
     
   end
   
