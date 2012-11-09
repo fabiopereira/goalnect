@@ -1,4 +1,6 @@
 Goalnect::Application.routes.draw do
+  get "redemption_point_transaction/create"
+
   resources :charity_updates
 
   ActiveAdmin.routes(self)

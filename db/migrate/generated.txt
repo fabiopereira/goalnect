@@ -80,6 +80,12 @@ rails g scaffold CharityUpdate charity_id:integer message:text -c=scaffold_contr
 rails g migration fill_not_nullable_columns_with_default_values
 
 rails g model GoalTemplate title:string description:text  active:boolean
+
+
+rails g model RedemptionPointTransaction user_id:integer point_amount:integer money_amount:decimal cpf:string
+rails g controller RedemptionPointTransaction create
+rails g migration add_redemption_point_transaction_id_to_redemption_point_transaction redemption_point_transaction_id:integer
+
 rails g migration add_locale_to_goal_template locale:string
 
 rails g migration add_goal_template_id_to_goal goal_template_id:integer
