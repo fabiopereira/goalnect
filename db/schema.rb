@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109143345) do
+ActiveRecord::Schema.define(:version => 20121109195222) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -90,8 +90,9 @@ ActiveRecord::Schema.define(:version => 20121109143345) do
     t.integer  "user_id"
     t.integer  "point_amount"
     t.boolean  "active"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "redemption_point_transaction_id"
   end
 
   create_table "goal_donations", :force => true do |t|
@@ -159,9 +160,8 @@ ActiveRecord::Schema.define(:version => 20121109143345) do
     t.decimal  "money_amount"
     t.string   "cpf"
     t.boolean  "processed"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.integer  "redemption_point_transaction_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

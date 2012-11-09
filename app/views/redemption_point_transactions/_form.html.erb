@@ -1,0 +1,17 @@
+<%= form_for(@redemption_point_transaction) do |f| %>
+  <% if @redemption_point_transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@redemption_point_transaction.errors.count, "error") %> prohibited this redemption_point_transaction from being saved:</h2>
+
+      <ul>
+      <% @redemption_point_transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

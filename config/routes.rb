@@ -6,6 +6,7 @@ Goalnect::Application.routes.draw do
   resources :charities
   resources :goal_supports
   resources :goal
+  resources :redemption_point_transactions
 
 #admin routes
   # devise_for :users,  :skip => [ :registrations ]                        
