@@ -87,14 +87,17 @@ module GoalSteps
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
 	  click_on 'donate_button'
-    page.should have_content "Donation Confirmation"
-    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
-	  page.should have_content "Donation received, waiting for pagseguro to confirm"
-    
-    #assert that goal_donation was created successfully
+	  
+	  #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
     goal_donation.donor_name.should be == current_user.screen_name
+    
+    page.should have_content "Donation Confirmation"
+    verify_donation_values goal, goal_donation
+    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
+	  page.should have_content "Donation received, waiting for pagseguro to confirm"
+    
     visit_goal goal
     page.should have_content goal_donation.amount
     page.should have_content goal_donation.donor_name
@@ -107,6 +110,26 @@ module GoalSteps
 
     GoalDonation.find_by_message(message)
 	end
+	
+	def verify_donation_values goal, goal_donation
+
+	 check_element_value "email_cobranca", goal.charity.pagseguro_email
+	 check_element_value "moeda", "BRL"
+	 check_element_value "ref_transacao", goal_donation.id.to_s
+	 check_element_value "item_quant_1", 1.to_s
+	 check_element_value "item_id_1", goal.charity.id.to_s
+	 check_element_value "item_descr_1", "Donation to #{goal.charity.charity_name}"
+	 amount_in_cents = goal_donation.amount * 100
+	 check_element_value "item_valor_1", amount_in_cents.to_s
+	 
+	 
+	end
+	
+	def check_element_value id, expected_value
+	  find(:xpath, "//input[@id='#{id}']").value.should have_content expected_value
+  end
+	
+	
 	
 	def donate_anonymously goal, amount_donated
 	  logout_current_user

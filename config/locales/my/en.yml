@@ -85,6 +85,7 @@ en:
   accept_challenge: "accept challenge"
   reject: "reject"
   cannot_be_in_the_past: "cannot be in the past."
+  donation_to: "Donation to"
   
   charity_page:
     donations_list: "Donations List"

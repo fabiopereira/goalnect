@@ -10,6 +10,7 @@ module CharitySteps
     click_on 'Send'
     charity = Charity.find_by_nickname(nickname) 
     charity.active = true
+    charity.pagseguro_email = 'pagseguro@charity.com.br'
     charity.save!
     charity
   end
