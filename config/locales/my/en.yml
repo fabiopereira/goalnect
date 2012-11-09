@@ -101,6 +101,7 @@ en:
     no_charity_updates_message: "There are no updates for this charity."
     new_charity_update: "New Update"
     list_all_donations: "List All Donations"
+    raised_so_far: Raised so far 
     
   point_statement:
     donated_by: Donated by

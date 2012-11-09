@@ -62,7 +62,7 @@ module GoalSteps
 	  page.should have_content 'Possible: 1'
 	end
 	
-	def donate_logged_in goal
+	def donate_logged_in goal, amount_donated
 	  visit_goal goal
     is_logged_in?.should == true
     username= find_username
@@ -73,7 +73,7 @@ module GoalSteps
     page.should have_content "Amount can't be blank"
     page.should have_content "Amount is not a number"
     message = "Message #{rand(1..1000)}"
-    amount = rand(10..1000)
+    amount = amount_donated ?  amount_donated : rand(10..1000)
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
 	  click_on 'donate_button'
@@ -98,7 +98,7 @@ module GoalSteps
     GoalDonation.find_by_message(message)
 	end
 	
-	def donate_anonymously goal
+	def donate_anonymously goal, amount_donated
 	  logout_current_user
 	  fill_in 'q', :with => goal.achiever.username
 	  click_on 'Search'
@@ -109,7 +109,7 @@ module GoalSteps
 	  click_on 'donate_button'
     page.should have_content "Donor name can't be blank"
 	  donor_name = "Anonymous #{rand(1..1000)}"
-    amount = rand(10..1000)
+    amount = amount_donated ?  amount_donated : rand(10..1000)
     message = "message bla! #{rand(1..1000)}"
     fill_in 'goal_donation_donor_name' , :with => donor_name
 	  fill_in 'goal_donation_message', :with => message

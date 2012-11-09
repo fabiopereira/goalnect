@@ -13,6 +13,7 @@ rails g migration  drop_goal_and_goal_option_table
 rails g migration  create_goals_and_goal_users
                                      
 
+rails g migration  change_column_goalnect_fee_to_have_scale_two
 
 rails g migration  drop_goal_table
 
