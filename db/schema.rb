@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108234430) do
+ActiveRecord::Schema.define(:version => 20121109143345) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -152,6 +152,17 @@ ActiveRecord::Schema.define(:version => 20121108234430) do
 
   add_index "goals", ["achiever_id"], :name => "index_goals_on_achiever_id"
   add_index "goals", ["owner_id"], :name => "index_goals_on_owner_id"
+
+  create_table "redemption_point_transactions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "point_amount"
+    t.decimal  "money_amount"
+    t.string   "cpf"
+    t.boolean  "processed"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "redemption_point_transaction_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
