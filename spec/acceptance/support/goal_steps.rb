@@ -43,9 +43,19 @@ module GoalSteps
 	end
 	
 	def commit_to_charity_and_target_amount charity
-	  page.select charity.charity_name, :from => 'goal_charity_id'
-    fill_in 'goal_target_amount', :with => 100
 	  click_on 'Create Goal'
+	  page.should have_content "Charity can't be blank"
+    page.should have_content "Target amount can't be blank"
+    page.should have_content "Target amount is not a number"
+    
+	  page.select charity.charity_name, :from => 'goal_charity_id'
+    fill_in 'goal_target_amount', :with => 5
+	  click_on 'Create Goal'
+	  
+	  page.should have_content "Target amount must be greater than or equal to 50"
+	  fill_in 'goal_target_amount', :with => 100
+	  click_on 'Create Goal'
+	  
 	  page.should have_content 'Goal was successfully created'
 	end
 	
