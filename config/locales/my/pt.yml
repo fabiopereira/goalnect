@@ -147,6 +147,7 @@ pt:
   edit: "Editar"
   destroy: "Deletar"
   cannot_be_in_the_past: "não pode ser no passado."
+  donation_to: "Doação para"
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação
