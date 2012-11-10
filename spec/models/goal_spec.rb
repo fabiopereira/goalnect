@@ -30,7 +30,11 @@ describe Goal do
   end
   
   def donate_to goal, stage, amount
-    FactoryGirl.create(:goal_donation, goal: goal, current_stage_id: stage.id, amount: amount)
+    FactoryGirl.create(:goal_donation, 
+        goal: goal, 
+        current_stage_id: stage.id, 
+        amount: amount
+    )
   end
   
 end

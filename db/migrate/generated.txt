@@ -91,6 +91,7 @@ rails g migration drop_redemption_point_transaction_id_to_redemption_point_trans
 
 
 rails g migration add_redemption_point_transaction_id_to_goal_donation_point_transaction redemption_point_transaction_id:integer
+rails g migration add_cpf_user cpf:string
 
 
 rails g migration add__to_goal_template locale:string

@@ -27,7 +27,7 @@ class RedemptionPointTransactionsController < ApplicationController
   # GET /redemption_point_transactions/new.json
   def new
     @redemption_point_transaction = RedemptionPointTransaction.new
-    @redemption_point_transaction.for_user current_user
+    @redemption_point_transaction.user = current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,7 +38,7 @@ class RedemptionPointTransactionsController < ApplicationController
   # POST /redemption_point_transactions.json
   def create
     @redemption_point_transaction = RedemptionPointTransaction.new(params[:redemption_point_transaction])
-    @redemption_point_transaction.for_user current_user
+    @redemption_point_transaction.user = current_user
 
     respond_to do |format|
       if @redemption_point_transaction.save
@@ -49,31 +49,4 @@ class RedemptionPointTransactionsController < ApplicationController
     end
   end
 
-  # PUT /redemption_point_transactions/1
-  # PUT /redemption_point_transactions/1.json
-  def update
-    @redemption_point_transaction = RedemptionPointTransaction.find(params[:id])
-
-    respond_to do |format|
-      if @redemption_point_transaction.update_attributes(params[:redemption_point_transaction])
-        format.html { redirect_to @redemption_point_transaction, notice: 'Redemption point transaction was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @redemption_point_transaction.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /redemption_point_transactions/1
-  # DELETE /redemption_point_transactions/1.json
-  def destroy
-    @redemption_point_transaction = RedemptionPointTransaction.find(params[:id])
-    @redemption_point_transaction.destroy
-
-    respond_to do |format|
-      format.html { redirect_to redemption_point_transactions_url }
-      format.json { head :no_content }
-    end
-  end
 end
