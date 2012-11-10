@@ -8,7 +8,7 @@ class VantagensOrder
   def initialize(redemption_points_transactions)
     @redemption_orders = redemption_points_transactions
     @total_amount = calculate_total_amount
-    @date = format_datetime Time.now
+    @date = Time.now
   end
    
   def calculate_total_amount
@@ -16,7 +16,7 @@ class VantagensOrder
     @redemption_orders.each do |redemption_order|
       total = total + redemption_order.money_amount
     end
-    format_value total
+    total
   end
    
   def to_xml(options={})
@@ -25,8 +25,8 @@ class VantagensOrder
     xml.Vantagens { 
       xml.Pedidos do
         xml.qtdeTotalPedidos  @redemption_orders.size 
-        xml.valorTotalBonificacaoPedidos @total_amount
-        xml.dataSolicitacao @date
+        xml.valorTotalBonificacaoPedidos format_value @total_amount
+        xml.dataSolicitacao format_datetime @date
         @redemption_orders.each do |redemption_order|
           xml.Pedido do
             xml.idParceiro PARTNER_ID
@@ -47,6 +47,10 @@ class VantagensOrder
   def format_value value
     value_s = "%.2f" % value
     value_s.sub(".", ",")
+  end
+  
+  def redemption_orders
+     @redemption_orders
   end
 
 end
