@@ -10,7 +10,8 @@ class RedemptionPointTransaction < ActiveRecord::Base
   def user=(user)
     self.user_id = user.id
     self.point_amount = user.points_summary true
-    
+    self.money_amount = self.point_amount
+    self.cpf = user.cpf
     # goal_donation_transactions_to_be_redeemed = GoalDonationPointTransaction.find(:all, 
     #   :conditions => ["user_id = ? AND active = ? AND redemption_point_transaction_id is null", 
     #                    user_id, true])

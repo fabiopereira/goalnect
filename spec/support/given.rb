@@ -6,6 +6,10 @@ class Given
     redemption
   end
   
+  def self.a_valid_cpf
+    "12312312354"
+  end
+  
   def self.a factory_symbol
     FactoryGirl.create(factory_symbol)
   end
