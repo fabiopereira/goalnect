@@ -1,3 +1,5 @@
+require 'net/ftp'
+
 class VantagensFileGenerator
   
   def self.xml
@@ -38,5 +40,12 @@ class VantagensFileGenerator
     vantagens_file
   end
  
+  def upload file_name, file
+    ftp = Net::FTP.new('remote-ftp-server')
+    ftp.login(user = "***", passwd = "***")
+    ftp.storbinary(file_name, StringIO.new(file.read), Net::FTP::DEFAULT_BLOCKSIZE)
+    ftp.passive = true
+    ftp.quit()
+  end
   
 end

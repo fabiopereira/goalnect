@@ -9,8 +9,12 @@
 		<% Togg.le(:feature_fb_social) do %>
 		  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1">
 		  </script>
+		  <!--twitter -->
+		  <script>
+		     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+		  </script>
 		<% end %>
-		<script>
+		 <script>
 		$(function() {
 				$( ".jq-tabs" ).tabs();
 				$('.text_area').wysihtml5({"html": true});
@@ -28,7 +32,6 @@
 		<%= render 'layouts/header' %>
 		</header>
 	</head>
-	
 	<body>
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
