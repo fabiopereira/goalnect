@@ -24,6 +24,9 @@ en:
   label:
     search: Search
     commit_to_a_goal: "commit to a goal"
+    redeem: Redeem %{points} points
+  redemption:
+      no_points_to_redeem: You have no points to be redeemed
   search_friends: "Search friends"
   search:
     result_title: "Result from your search"

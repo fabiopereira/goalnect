@@ -64,4 +64,8 @@ class User < ActiveRecord::Base
     GoalDonationPointTransaction.sum(:point_amount, :conditions => ['user_id = ? and active = ?', self.id, active_flag])
   end
 
+  def points_to_redeem
+    points_summary true
+  end
+
 end

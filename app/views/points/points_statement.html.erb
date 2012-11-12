@@ -1,5 +1,12 @@
 <h1>Points</h1>
 
+<div>
+	<% if current_user.points_to_redeem > 0 %>
+	  <a href="<%=new_redemption_point_transaction_path%>" class="button button-g" title="<%= t('label.redeem', :points => current_user.points_to_redeem) %>"><span class="icon icon41"></span>&nbsp;&nbsp;&nbsp;<%= t('label.redeem', :points => current_user.points_to_redeem)%></a>
+	<% else %>
+	  <%= t "redemption.no_points_to_redeem" %>
+	<% end %>
+</div>
 <table class="table table-striped table-condensed">
   <thead>
   <tr>

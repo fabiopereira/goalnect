@@ -103,6 +103,10 @@ pt:
   label:
     search: Buscar
     commit_to_a_goal: "Eu quero ajudar uma ONG porque eu vou"
+    redeem: Resgate %{points} pontos
+    
+  redemption:
+      no_points_to_redeem: Você não possui nenhum ponto disponível para resgate
   search_friends: "Buscar"
   search:
     result_title: "Resultados da sua busca"
