@@ -48,6 +48,7 @@ rails g scaffold GoalDonation message:text, goal_donation_id:integer, user_id:in
  
 rails g model GoalDonationPaymentNotification goal_donation_id:integer transaction_id:string price:decimal fees:decimal donor_name:string donor_email:string status:string payment_method:string processed_at:datetime currency:string payment_channel:string
 
+rails g model VantagensFile file:string file_name:string
 
 rails g model GoalDonationPointTransaction goal_donation_id:integer goal_id:integer user_id:integer point_amount:integer active:bool goal_due_date
 
@@ -80,6 +81,7 @@ rails g scaffold CharityUpdate charity_id:integer message:text -c=scaffold_contr
 rails g migration fill_not_nullable_columns_with_default_values
 
 rails g model GoalTemplate title:string description:text  active:boolean
+<<<<<<< HEAD
 
 
 rails g model RedemptionPointTransaction user_id:integer point_amount:integer money_amount:decimal cpf:string
@@ -96,6 +98,8 @@ rails g migration add_cpf_user cpf:string
 
 rails g migration add__to_goal_template locale:string
 
+=======
+>>>>>>> a67eebaf06c8dfa27958d8cfcb70249f1890fb2c
 rails g migration add_locale_to_goal_template locale:string
 
 rails g migration add_goal_template_id_to_goal goal_template_id:integer

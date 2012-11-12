@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121109195452) do
+=======
+ActiveRecord::Schema.define(:version => 20121109231632) do
+>>>>>>> a67eebaf06c8dfa27958d8cfcb70249f1890fb2c
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -196,5 +200,13 @@ ActiveRecord::Schema.define(:version => 20121109195452) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_url", :unique => true
+
+  create_table "vantagens_files", :force => true do |t|
+    t.string   "file"
+    t.string   "file_name"
+    t.datetime "sent_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

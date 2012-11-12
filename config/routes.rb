@@ -56,6 +56,10 @@ Goalnect::Application.routes.draw do
   match '/charities/:id/previous_month_donations_pdf' => 'charities#previous_month_donations_pdf'
   match '/charities/:id/current_month_donations_pdf' => 'charities#current_month_donations_pdf'
   
+  match '/vantagens_files/show_last_10' => 'vantagens_files#show_last_10'
+  match '/vantagens_files/process_file' => 'vantagens_files#process_file'
+  
+  
   root to: 'home#index'    
   
   Togg.le(:feature_goal_template) do
@@ -67,9 +71,6 @@ Goalnect::Application.routes.draw do
   match '/s/:static_content' => 'static#static_content'
   
   match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
-  
-  #test_only
-  match '/sample_pagseguro_file/:reference_id' => 'static#sample_pagseguro_file'
 
   match '/:user_username' => 'achiever#view'
 

@@ -1,0 +1,35 @@
+<% if @file %>
+<%= render 'layouts/model_error_messages', :target => @file %>
+<% end %>
+
+<div class="page-header">
+	<h1>Vatangens File Generated</h1>
+</div>
+
+<span style="float:right"><%= link_to 'Process', '/vantagens_files/process_file', :class => 'btn btn-primary' %> </span>
+
+<table class="table table-striped table-condensed tiptip"style="border-spacing: 0px;">
+  <thead>
+    <tr>
+	  <th> File </th>
+	  <th> Sent At </th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @vantagens_files.each do |vantagens_file| %>
+      <tr>
+		<td><%= link_to vantagens_file.file_name, vantagens_file.file_url, :target => 'blank' %></td>
+		<td>
+			<% if vantagens_file.sent_at %>
+		  		<%= vantagens_file.sent_at %>
+			<% else %>
+				File hasn't been sent yet.
+			<% end %>
+		</td>
+      </tr>
+    <% end %>		
+  </tbody>
+</table> 
+
+
+
