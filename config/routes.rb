@@ -1,4 +1,6 @@
 Goalnect::Application.routes.draw do
+  get "redemption_point_transaction/create"
+
   resources :charity_updates
 
   ActiveAdmin.routes(self)
@@ -56,6 +58,10 @@ Goalnect::Application.routes.draw do
   match '/charities/:id/previous_month_donations_pdf' => 'charities#previous_month_donations_pdf'
   match '/charities/:id/current_month_donations_pdf' => 'charities#current_month_donations_pdf'
   
+  match '/vantagens_files/show_last_10' => 'vantagens_files#show_last_10'
+  match '/vantagens_files/process_file' => 'vantagens_files#process_file'
+  
+  
   root to: 'home#index'    
   
   Togg.le(:feature_goal_template) do
@@ -66,6 +72,7 @@ Goalnect::Application.routes.draw do
   match '/faq' => "static#faq"
   match '/s/:static_content' => 'static#static_content'
   
+  match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
 
   match '/:user_username' => 'achiever#view'
 
@@ -81,7 +88,8 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/i_dont_support/:goal_id' => 'goals#i_dont_support'
   match '/:user_username/goals/support_info/:goal_id' => 'goals#support_info'
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
-  match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
+  
+  
 
   
 #root :to => "home#index"

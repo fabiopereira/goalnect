@@ -15,7 +15,7 @@ module GoalSteps
     click_on 'Journey'
     sleep 2
     page.select "done", :from => "goal_feedback_goal_stage_id"
-
+    
     # Should validate that message is mandatory when changing goal stage    
     click_on "Send"
     page.should have_content "Message can't be blank"
@@ -29,16 +29,40 @@ module GoalSteps
 	def commit_to_a_goal title, charity
 	  visit '/'
 	  click_on 'New Goal'
-	  fill_in 'goal_title_selected', :with => title                                  
-	  description = "Description for goal #{title}"
-	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
+	  fill_in 'goal_title_selected', :with => title
+	  select_description "Description for goal #{title}"
     # fill_in 'goal_description', :with => description
     # fill_in 'goal_due_on', :with => 2.months.from_now
-    page.select charity.charity_name, :from => 'goal_charity_id'
-    fill_in 'goal_target_amount', :with => 100
-	  click_on 'Create Goal'
-	  page.should have_content 'Goal was successfully created'
+    commit_to_charity_and_target_amount charity
 	  Goal.find_by_title title
+	end
+	
+	def select_description description
+	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
+	  description
+	end
+	
+	def commit_to_charity_and_target_amount charity
+	  click_on 'Create Goal'
+	  page.should have_content "Charity can't be blank"
+    page.should have_content "Target amount can't be blank"
+    page.should have_content "Target amount is not a number"
+    
+	  page.select charity.charity_name, :from => 'goal_charity_id'
+    fill_in 'goal_target_amount', :with => 5
+	  click_on 'Create Goal'
+	  
+	  page.should have_content "Target amount must be greater than or equal to 50"
+	  fill_in 'goal_target_amount', :with => 100
+	  click_on 'Create Goal'
+	  
+	  page.should have_content 'Goal was successfully created'
+	end
+	
+	def commit_to_a_goal_template charity, goal_template
+	  description = select_description "Description for goal #{goal_template.title} for charity #{charity.id}"
+	  commit_to_charity_and_target_amount charity
+	  Goal.find_by_title_and_description goal_template.title, description
 	end
 	
 	def support_believing goal
@@ -48,7 +72,7 @@ module GoalSteps
 	  page.should have_content 'Possible: 1'
 	end
 	
-	def donate_logged_in goal
+	def donate_logged_in goal, amount_donated
 	  visit_goal goal
     is_logged_in?.should == true
     username= find_username
@@ -59,18 +83,21 @@ module GoalSteps
     page.should have_content "Amount can't be blank"
     page.should have_content "Amount is not a number"
     message = "Message #{rand(1..1000)}"
-    amount = rand(10..1000)
+    amount = amount_donated ?  amount_donated : rand(10..1000)
 	  fill_in 'goal_donation_message', :with => message
 	  fill_in 'goal_donation_amount', :with => amount
 	  click_on 'donate_button'
-    page.should have_content "Donation Confirmation"
-    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
-	  page.should have_content "Donation received, waiting for pagseguro to confirm"
-    
-    #assert that goal_donation was created successfully
+	  
+	  #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)
     goal_donation.amount.should be == amount
     goal_donation.donor_name.should be == current_user.screen_name
+    
+    page.should have_content "Donation Confirmation"
+    verify_donation_values goal, goal_donation
+    find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
+	  page.should have_content "Donation received, waiting for pagseguro to confirm"
+    
     visit_goal goal
     page.should have_content goal_donation.amount
     page.should have_content goal_donation.donor_name
@@ -84,7 +111,27 @@ module GoalSteps
     GoalDonation.find_by_message(message)
 	end
 	
-	def donate_anonymously goal
+	def verify_donation_values goal, goal_donation
+
+	 check_element_value "email_cobranca", goal.charity.pagseguro_email
+	 check_element_value "moeda", "BRL"
+	 check_element_value "ref_transacao", goal_donation.id.to_s
+	 check_element_value "item_quant_1", 1.to_s
+	 check_element_value "item_id_1", goal.charity.id.to_s
+	 check_element_value "item_descr_1", "Donation to #{goal.charity.charity_name}"
+	 amount_in_cents = goal_donation.amount * 100
+	 check_element_value "item_valor_1", amount_in_cents.to_s
+	 
+	 
+	end
+	
+	def check_element_value id, expected_value
+	  find(:xpath, "//input[@id='#{id}']").value.should have_content expected_value
+  end
+	
+	
+	
+	def donate_anonymously goal, amount_donated
 	  logout_current_user
 	  fill_in 'q', :with => goal.achiever.username
 	  click_on 'Search'
@@ -95,7 +142,7 @@ module GoalSteps
 	  click_on 'donate_button'
     page.should have_content "Donor name can't be blank"
 	  donor_name = "Anonymous #{rand(1..1000)}"
-    amount = rand(10..1000)
+    amount = amount_donated ?  amount_donated : rand(10..1000)
     message = "message bla! #{rand(1..1000)}"
     fill_in 'goal_donation_donor_name' , :with => donor_name
 	  fill_in 'goal_donation_message', :with => message

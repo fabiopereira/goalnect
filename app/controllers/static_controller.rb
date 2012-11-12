@@ -6,6 +6,12 @@ class StaticController < ApplicationController
     end
   end
   
+  def sample_pagseguro_file
+    respond_to do |format|
+      format.xml 
+    end
+  end
+  
   def static_content
     if params[:static_content] == 'faq'
       return faq

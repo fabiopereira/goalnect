@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107150602) do
+ActiveRecord::Schema.define(:version => 20121109231632) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -98,13 +98,13 @@ ActiveRecord::Schema.define(:version => 20121107150602) do
     t.text     "message"
     t.integer  "goal_id"
     t.integer  "user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "donor_name"
     t.boolean  "processed"
     t.integer  "amount"
-    t.decimal  "goalnect_fee"
-    t.decimal  "pagseguro_fee"
+    t.decimal  "goalnect_fee",     :precision => 5, :scale => 2
+    t.decimal  "pagseguro_fee",    :precision => 5, :scale => 2
     t.integer  "charity_id"
     t.integer  "current_stage_id"
   end
@@ -153,6 +153,17 @@ ActiveRecord::Schema.define(:version => 20121107150602) do
   add_index "goals", ["achiever_id"], :name => "index_goals_on_achiever_id"
   add_index "goals", ["owner_id"], :name => "index_goals_on_owner_id"
 
+  create_table "redemption_point_transactions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "point_amount"
+    t.decimal  "money_amount"
+    t.string   "cpf"
+    t.boolean  "processed"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "redemption_point_transaction_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -176,7 +187,7 @@ ActiveRecord::Schema.define(:version => 20121107150602) do
     t.string   "image"
     t.text     "about_me"
     t.boolean  "admin"
-    t.integer  "country_id",             :default => 1
+    t.integer  "country_id",             :default => 2
     t.integer  "charity_id"
   end
 
@@ -184,5 +195,13 @@ ActiveRecord::Schema.define(:version => 20121107150602) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_url", :unique => true
+
+  create_table "vantagens_files", :force => true do |t|
+    t.string   "file"
+    t.string   "file_name"
+    t.datetime "sent_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

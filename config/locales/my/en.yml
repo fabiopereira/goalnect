@@ -84,6 +84,8 @@ en:
   donation_canceled: "Donation Canceled"
   accept_challenge: "accept challenge"
   reject: "reject"
+  cannot_be_in_the_past: "cannot be in the past."
+  donation_to: "Donation to"
   
   charity_page:
     donations_list: "Donations List"
@@ -101,6 +103,7 @@ en:
     no_charity_updates_message: "There are no updates for this charity."
     new_charity_update: "New Update"
     list_all_donations: "List All Donations"
+    raised_so_far: Raised so far 
     
   point_statement:
     donated_by: Donated by

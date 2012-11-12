@@ -37,7 +37,7 @@ class GoalDonation < ActiveRecord::Base
   end
   
   def self.sum_donation_amount_by_charity_between_dates charity_id, from, to
-    GoalDonation.sum(:amount, :conditions => ["charity_id = ? and current_stage_id = ? , and created_at between ? and ?", charity_id, GoalDonationStage::APPROVED.id, from, to])
+    GoalDonation.sum(:amount, :conditions => ["charity_id = ? and current_stage_id = ? and created_at between ? and ?", charity_id, GoalDonationStage::APPROVED.id, from, to])
   end
   
   def self.sum_pagseguro_fees_by_charity_between_dates charity_id, from, to
@@ -45,6 +45,6 @@ class GoalDonation < ActiveRecord::Base
   end
   
   def self.sum_goalnect_fees_by_charity_between_dates charity_id, from, to
-    GoalDonation.sum(:goalnect_fee, :conditions => ["charity_id = ? and current_stage_id = ?, created_at between ? and ?", charity_id, GoalDonationStage::APPROVED.id, from, to])
+    GoalDonation.sum(:goalnect_fee, :conditions => ["charity_id = ? and current_stage_id = ? and created_at between ? and ?", charity_id, GoalDonationStage::APPROVED.id, from, to])
   end
 end

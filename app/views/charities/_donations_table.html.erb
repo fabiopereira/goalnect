@@ -1,13 +1,13 @@
 
-<p>
-	<b><%=t"total_donations"%>: </b> $ <%=donations_summary.donations_amount%>
+<p id="donations_amount">
+	<b><%=t"total_donations"%>: </b> <%=number_to_currency(donations_summary.donations_amount)%>
 </p>
-<p>
-	<b><%=t"total_pagseguro_fees"%>: </b> $ <%=donations_summary.total_pagseguro_fee%>
+<p id="total_pagseguro_fee">
+	<b><%=t"total_pagseguro_fees"%>: </b> <%=number_to_currency(donations_summary.total_pagseguro_fee)%>
 </p>
-<p>
-	<b><%=t"total_goalnect_fees"%>: </b> $ <%=donations_summary.total_goalnect_fee%>
+<p id="total_goalnect_fee">
+	<b><%=t"total_goalnect_fees"%>: </b> <%=number_to_currency(donations_summary.total_goalnect_fee)%>
 </p>
-<p>
-	<b><%=t"total_net_donations"%>: </b> $ <%=donations_summary.net_donations_amount%>
+<p id="net_donations_amount">
+	<b><%=t"total_net_donations"%>: </b> <%=number_to_currency(donations_summary.net_donations_amount)%>
 </p>

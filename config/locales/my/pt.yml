@@ -146,6 +146,8 @@ pt:
   here: "aqui"
   edit: "Editar"
   destroy: "Deletar"
+  cannot_be_in_the_past: "não pode ser no passado."
+  donation_to: "Doação para"
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação
@@ -177,6 +179,7 @@ pt:
     no_charity_updates_message: "Não existem atualizações para esta ONG"
     new_charity_update: "Nova Atualização"
     list_all_donations: "Listar Todas Doações"
+    raised_so_far: "Total Arrecadado"
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1&yt:cc=on"
   send: "Enviar"

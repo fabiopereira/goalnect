@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   
   # CarrierWave Image Uploads
   attr_accessible :image
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, UserImageUploader
   include CropImage
    
   has_many :authentications, :dependent => :delete_all
