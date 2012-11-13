@@ -37,7 +37,8 @@ class RedemptionPointTransactionsController < ApplicationController
   # POST /redemption_point_transactions
   # POST /redemption_point_transactions.json
   def create
-    @redemption_point_transaction = RedemptionPointTransaction.new(params[:redemption_point_transaction])
+    @redemption_point_transaction = RedemptionPointTransaction.new
+    @redemption_point_transaction.cpf = params[:redemption_point_transaction][:cpf]
     @redemption_point_transaction.user = current_user
 
     respond_to do |format|

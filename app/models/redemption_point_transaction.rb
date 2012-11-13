@@ -1,9 +1,25 @@
 class RedemptionPointTransaction < ActiveRecord::Base
+  include ActiveModel::Validations
   attr_accessible :cpf, :money_amount, :point_amount, :user_id, :processed
   
-  validates_presence_of :cpf, :money_amount, :point_amount, :user_id
+  validates_presence_of :money_amount, :point_amount, :user_id
+  validates :point_amount, :numericality => { :greater_than => 0 }
+  validates :money_amount, :numericality => { :greater_than => 0 }
+  validates :cpf, :presence => true, :cpf => true
   
-  after_save :redeem_transactions
+  belongs_to :user
+  
+  after_save :after_save_do
+  
+  def after_save_do              
+    redeem_transactions             
+    update_user_cpf
+  end
+  
+  def update_user_cpf
+    user.cpf = self.cpf
+    user.save
+  end
 
   def user
     user_id ? User.find(user_id) : nil
@@ -14,12 +30,6 @@ class RedemptionPointTransaction < ActiveRecord::Base
     self.point_amount = user.points_summary.available_points
     self.money_amount = self.point_amount
     self.cpf = self.cpf ? self.cpf : user.cpf
-    # goal_donation_transactions_to_be_redeemed = GoalDonationPointTransaction.find(:all, 
-    #   :conditions => ["user_id = ? AND active = ? AND redemption_point_transaction_id is null", 
-    #                    user_id, true])
-    #                    
-    # goal_donation_transactions_to_be_redeemed
-    # write_attribute(:user_id, user.id)
   end         
   
   def redeem_transactions

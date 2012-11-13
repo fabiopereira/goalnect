@@ -25,6 +25,9 @@ en:
     search: Search
     commit_to_a_goal: "commit to a goal"
     redeem: Redeem %{points} points
+  points: Points
+  redemption_point_transaction:
+    id: Redemption Number
   redemption:
       no_points_to_redeem: You have no points to be redeemed
       header: You are about to redeem %{point_amount} points
@@ -124,7 +127,7 @@ en:
     
   point_statement:
     donated_by: Donated by
-    to_goal: Ro Goal
+    to_goal: To Goal
     amount: Amount
     status: Status
   point_transaction:

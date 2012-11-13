@@ -101,12 +101,14 @@ pt:
     almost_there: "quase concluído (75% - 99%)"
     done: "concluído (100%)"
     abandoned: "abandonado"
-        
+  points: Pontos        
   label:
     search: Buscar
     commit_to_a_goal: "Eu quero ajudar uma ONG porque eu vou"
     redeem: Resgate %{points} pontos
-    
+  when: Quando    
+  redemption_point_transaction:
+    id: Número do Resgate
   redemption:
       no_points_to_redeem: Você não possui nenhum ponto disponível para resgate
       header: Você está a um passo de resgatar %{point_amount} pontos
