@@ -1,6 +1,8 @@
 class GoalDonationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
+  before_filter :is_goal_active!, :only => [:new]
+  
   GOALNECT_FEE_PERCENTAGE = 0.075
   
   # GET /goal_donations/new

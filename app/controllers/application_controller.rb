@@ -27,6 +27,61 @@ class ApplicationController < ActionController::Base
       end
   end
   
+  def goal_show!
+    if !(is_current_user_achiever? || is_goal_active?)
+      flash[:alert] = "Goal is not active, this goal is restricted to goal achiever"
+      if params[:user_username]
+        redirect_to "/#{params[:user_username]}"
+      else
+        redirect_to root_path
+      end
+    end
+  end
+  
+  def is_goal_active!
+    if !is_goal_active?
+      flash[:alert] = "Goal is not active"
+       if params[:user_username] && params[:goal_id]
+          redirect_to "/#{params[:user_username]}/goals/show/#{params[:goal_id]}"
+        else
+          redirect_to root_path
+        end
+    end
+  end
+  
+  def is_current_user_achiever
+    if !is_current_user_achiever?
+      flash[:alert] = "This area is restricted to goal achiever"
+      if params[:user_username]
+        redirect_to "/#{params[:user_username]}"
+      else
+        redirect_to root_path
+      end
+    end
+  end
+  
+  def is_current_user_achiever?
+    if (params[:goal_id] || params[:id])
+      id = params[:goal_id] ? params[:goal_id] : params[:id]
+      goal = Goal.find(id)
+      if current_user && goal.achiever_id == current_user.id
+        return true
+      end
+    end
+    return false
+  end
+  
+  def is_goal_active?
+     if (params[:goal_id] || params[:id])
+       id = params[:goal_id] ? params[:goal_id] : params[:id]
+       goal = Goal.find(id)
+       if GoalStage.active_stages.include? goal.goalStage 
+         return true
+       end
+     end
+     false
+   end
+  
   def is_current_user_charity_update_admin?
     if (params[:charity_id] || params[:id])
       charity_id = params[:charity_id] ? params[:charity_id] : CharityUpdate.find(params[:id]).charity_id.to_s 

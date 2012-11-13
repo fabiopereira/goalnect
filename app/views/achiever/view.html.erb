@@ -40,11 +40,8 @@
 					        <td><%= link_to goal.title,  show_goal_path(goal.achiever.username, goal.id) %></td>
 							<td>
 							<% if current_user_is_achiever?(@achiever) && goal.goalStage.id == GoalStage::PENDING.id %>
-								<%= form_for goal, :url => '/'+goal.achiever.username+'/goals/change_stage/'+goal.id.to_s, :html => { :class => 'form-horizontal' } do |f| %>
-			            			<%= f.hidden_field :goal_stage_id %>
-									<%= f.submit nil, :disable_with => "Sending", :class => "btn btn-primary", :value => t("accept_challenge"), :onclick => "$('#goal_goal_stage_id').prop('value', 3);"%>
-									<%= f.submit nil, :disable_with => "Sending", :class => "btn", :value => t("reject"), :onclick => "$('#goal_goal_stage_id').prop('value', 2);"%>
-								<% end %>
+								<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
+								<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
 							<% else %>
 						    	<%=goal.goalStage.translated_name%>
 							<% end %>

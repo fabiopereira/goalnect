@@ -22,6 +22,15 @@ class GoalStage < ActiveHash::Base
       GoalStage::ABANDONED]
   end
   
+  def self.active_stages
+     values = [
+        GoalStage::JUST_STARTED,
+        GoalStage::ON_ITS_WAY,
+        GoalStage::HALF_WAY_THERE, 
+        GoalStage::ALMOST_THERE, 
+        GoalStage::DONE]
+  end
+  
   def translated_name
       I18n.t(name, :scope => 'goal_stage')
   end
