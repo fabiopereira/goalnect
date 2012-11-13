@@ -41,6 +41,8 @@
 </div>
 <div class="row well"  style="margin-left:-20px;margin-bottom:0px;border:0;background:white">
 	<% Togg.le(:feature_fb_social) do %>
+		<div class="g-plusone" data-size="medium"></div>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
       <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-show-faces="false"></div>
     <% end %>
 </div>

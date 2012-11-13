@@ -96,7 +96,8 @@ en:
   reject: "reject"
   cannot_be_in_the_past: "cannot be in the past."
   donation_to: "Donation to"
-  
+  check_out_this_goal: "Check out this goal" 
+      
   charity_page:
     donations_list: "Donations List"
     total_raised_amount: "Total Raised Amount"

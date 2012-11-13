@@ -155,6 +155,7 @@ pt:
   destroy: "Deletar"
   cannot_be_in_the_past: "não pode ser no passado."
   donation_to: "Doação para"
+  check_out_this_goal: "Confira este goal" 
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação
