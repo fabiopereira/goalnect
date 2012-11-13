@@ -107,6 +107,8 @@ pt:
     
   redemption:
       no_points_to_redeem: Você não possui nenhum ponto disponível para resgate
+      header: Você está a um passo de resgatar %{point_amount} pontos
+      message_vantagens: Mensagem avisando que precisa se cadastrar no vantagens
   search_friends: "Buscar"
   search:
     result_title: "Resultados da sua busca"
@@ -141,6 +143,7 @@ pt:
   points_summary: "Pontuação"
   active_points: "Disponível.."
   locked_points: "Indisponível"
+  redeemed_points: "Resgatados"
   statement: "Extrato"
   accept_challenge: "aceitar desafio"
   reject: "rejeitar"
@@ -203,6 +206,8 @@ pt:
     to_goal: Para o Goal
     amount: Quantidade
     available: Liberados?
+    redemption: Resgate
+    not_redeemed: Não resgatado
   names:
     yes: Sim
     no: Não

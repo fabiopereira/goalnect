@@ -15,7 +15,8 @@
 		<% end %>
 	<% end %>
 		<p class="points-summary"><b><%= t("points_summary")%>:</b></p>
-		<p class="points-summary"><%= t("active_points")%>.....<span id="total-points-true"><%=achiever.points_summary(true)%></span>pts</p>
-		<p class="points-summary"><%= t("locked_points")%>.....<span id="total-points-false"><%=achiever.points_summary(false)%></span>pts</p>
+		<p class="points-summary"><%= t("active_points")%>.....<span id="available_points"><%= achiever.points_summary.available_points %></span>pts</p>
+		<p class="points-summary"><%= t("locked_points")%>.....<span id="blocked_points"><%=achiever.points_summary.blocked_points %></span>pts</p>
+		<p class="points-summary"><%= t("redeemed_points")%>.....<span id="redeemed_points"><%=achiever.points_summary.redeemed_points %></span>pts</p>
 		<%= link_to t("statement"), "/#{achiever.username}/points_statement" %>
 </div>

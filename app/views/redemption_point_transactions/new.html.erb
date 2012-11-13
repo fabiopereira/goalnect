@@ -1,5 +1,5 @@
-<h1>New redemption_point_transaction</h1>
-
+<h1><%= t "redemption.header", :point_amount => @redemption_point_transaction.point_amount %></h1>
+<h3>
+   	<%= t "redemption.message_vantagens" %>
+</h3>
 <%= render 'form' %>
-
-<%= link_to 'Back', redemption_point_transactions_path %>

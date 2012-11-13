@@ -27,6 +27,8 @@ en:
     redeem: Redeem %{points} points
   redemption:
       no_points_to_redeem: You have no points to be redeemed
+      header: You are about to redeem %{point_amount} points
+      message_vantagens: Message explaining where the points are going to
   search_friends: "Search friends"
   search:
     result_title: "Result from your search"
@@ -83,6 +85,11 @@ en:
   blank_about_me: "Hi, my name is %{name} and I am a GOAL ACHIEVER!!!"
   donation_date: "Date"
   donation_approved: "Donation Approved"
+  points_summary: "Points"
+  active_points: "Available"
+  locked_points: "Locked"
+  redeemed_points: "Redeemed"
+  statement: "Statement"
   waiting_payment_confirmation: "Waiting Confirmation"
   donation_canceled: "Donation Canceled"
   accept_challenge: "accept challenge"
@@ -108,11 +115,13 @@ en:
     list_all_donations: "List All Donations"
     raised_so_far: Raised so far 
     
-  point_statement:
+  point_amountment:
     donated_by: Donated by
     to_goal: Ro Goal
     amount: Amount
     available: Available
+    redemption: Redemption
+    not_redeemed: Not redeemed
   names:
     yes: Yes
     no: No

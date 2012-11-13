@@ -14,8 +14,9 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     dannis_goal = commit_to_a_goal 'Lose 35kg', charity
     
-    ensure_user_has_points_active 'danni', 0
-    ensure_user_has_points_locked 'danni', 0
+    ensure_user_has_points_active   'danni', 0
+    ensure_user_has_points_locked   'danni', 0
+    ensure_user_has_points_redeemed 'danni', 0
     
     # Danni told her friend Leo about Goalnect and asked Leo to help her
     leo = ensure_logged_in 'leo'

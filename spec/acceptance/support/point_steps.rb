@@ -4,16 +4,20 @@ module PointSteps
   include UserSteps
   
   def ensure_user_has_points_active username, expected_points
-    ensure_user_has_points username, expected_points, true
+    ensure_user_has_points username, expected_points, "#available_points"
   end 
   
   def ensure_user_has_points_locked username, expected_points
-    ensure_user_has_points username, expected_points, false
+    ensure_user_has_points username, expected_points, "#blocked_points"
   end 
   
-  def ensure_user_has_points username, expected_points, active_boolean
+  def ensure_user_has_points_redeemed username, expected_points
+    ensure_user_has_points username, expected_points, "#redeemed_points"
+  end 
+  
+  def ensure_user_has_points username, expected_points, points_span_id
     visit_user_profile_by_username username
-    page.find("#total-points-#{active_boolean}").should have_content(expected_points)
+    page.find(points_span_id).should have_content(expected_points)
   end
   
 end

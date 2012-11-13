@@ -42,7 +42,7 @@ class RedemptionPointTransactionsController < ApplicationController
 
     respond_to do |format|
       if @redemption_point_transaction.save
-        format.html { redirect_to @redemption_point_transaction, notice: 'Redemption point transaction was successfully created.' }
+        format.html { redirect_to "#{current_user.full_url}/points_statement", notice: 'Redemption point transaction was successfully created.' }
       else
         format.html { render action: "new" }
       end

@@ -7,5 +7,9 @@ class GoalDonationPointTransaction < ActiveRecord::Base
   belongs_to :goal
   belongs_to :goal_donation
   belongs_to :redemption_point_transaction
+
+  def redeemed?
+    redemption_point_transaction_id?
+  end
   
 end

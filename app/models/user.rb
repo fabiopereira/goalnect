@@ -60,12 +60,12 @@ class User < ActiveRecord::Base
     GoalFeedback.find(:all, :limit => 5, :conditions => ["user_id = ?", self.id], :order=> 'created_at desc')
   end
   
-  def points_summary active_flag
-    GoalDonationPointTransaction.sum(:point_amount, :conditions => ['user_id = ? and active = ?', self.id, active_flag])
+  def points_summary
+    UserPointSummary.new self
   end
 
   def points_to_redeem
-    points_summary true
+    points_summary.available_points
   end
 
 end
