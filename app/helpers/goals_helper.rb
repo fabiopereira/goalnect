@@ -30,4 +30,12 @@ module GoalsHelper
   end
 
 
+  def accept_challenge_path(user_username, goal_id)
+    "/#{user_username}/goals/accept_challenge/#{goal_id}"
+  end
+  
+  def reject_challenge_path(user_username, goal_id)
+    "/#{user_username}/goals/reject_challenge/#{goal_id}"
+  end
+  
 end

@@ -1,5 +1,9 @@
 class GoalsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :support_info]
+  before_filter :is_goal_active!, :except => [:accept_challenge, :reject_challenge, :new, :create, :show]
+  before_filter :goal_show!, :only => [:show]
+  before_filter :is_current_user_achiever, :only  => [:accept_challenge, :reject_challenge, :add_feedback, :change_stage]
+  
   include GoalsHelper
   # GET /:user_username/goals
   # GET /:user_username/goals.json
@@ -106,6 +110,16 @@ class GoalsController < ApplicationController
       goal.goal_stage_changed_at = goal_feedback.created_at
       goal.save
     end
+  end
+  
+  def accept_challenge
+    params[:goal] = {:goal_stage_id => GoalStage::JUST_STARTED.id}
+    change_stage
+  end
+  
+  def reject_challenge
+    params[:goal] = {:goal_stage_id => GoalStage::NOT_ACCEPTED.id}
+    change_stage
   end
   
   def change_stage
