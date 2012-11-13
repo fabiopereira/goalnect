@@ -4,18 +4,27 @@
     <th><%= t 'point_statement.donated_by' %></th>
     <th><%= t 'point_statement.to_goal' %></th>
     <th><%= t 'point_statement.amount' %></th>
-    <th><%= t 'point_statement.available' %></th>
-    <th><%= t 'point_statement.redemption' %></th>
+    <th><%= t 'point_statement.status' %></th>
   </tr>
   </thead>
   <tbody>
 <% transactions.each do |point_transaction| %>
-  <tr>
+  <tr class="<%= point_transaction.status.to_s %>">
     <td><%= point_transaction.goal_donation.donor_name %></td>
     <td><%= point_transaction.goal.description %> (<%= point_transaction.goal.achiever.screen_name %>) </td>
     <td><%= point_transaction.point_amount %></td>
-    <td><%= point_transaction.active %></td>
-    <td><%= point_transaction.redeemed? ? point_transaction.redemption_point_transaction_id : t("point_statement.not_redeemed") %></td>
+    <td>   
+		<% case point_transaction.status %>
+        	<% when :locked %>
+              <%= t "point_transaction.status_locked" %>
+        	<% when :available %>
+              <%= t "point_transaction.status_available" %>
+        	<% when :redeemed %>
+        	  <%= t "point_transaction.status_redeemed", :redemption_point_transaction_id => point_transaction.redemption_point_transaction_id %>
+        	<% else %>
+        	  <%= point_transaction.status.to_s %>
+		<% end %>
+    </td>
   </tr>
 <% end %>
 </tbody>

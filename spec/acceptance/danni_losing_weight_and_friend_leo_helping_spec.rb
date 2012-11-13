@@ -25,9 +25,9 @@ feature 'Danni losing weight and friend leo helping', %q{
     donation_anonymous = donate_anonymously dannis_goal, 15
     
     # Danni should have received 2 point transactions 
-    total_points_locked = donation_leo.amount + donation_anonymous.amount
+    sum_of_donations = donation_leo.amount + donation_anonymous.amount
     ensure_user_has_points :available, danni.username, 0
-    ensure_user_has_points :locked, danni.username, total_points_locked
+    ensure_user_has_points :locked, danni.username, sum_of_donations
     ensure_user_has_points :redeemed, danni.username, 0
     
     # Leo should have received points related to her donation only, and they're locked 
@@ -37,10 +37,18 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     #Once Danni finishes her goal, all points are unlocked
     finish_goal dannis_goal   
-    ensure_user_has_points :available, danni.username, total_points_locked
+    ensure_user_has_points :available, danni.username, sum_of_donations
     ensure_user_has_points :locked, danni.username, 0
+    ensure_user_has_points :redeemed, danni.username, 0
     ensure_user_has_points :available, leo.username, donation_leo.amount
     ensure_user_has_points :locked, leo.username, 0
+    ensure_user_has_points :redeemed, leo.username, 0
+    
+    #Danni decides to redeem her points
+    redeem_points danni.username, sum_of_donations
+    ensure_user_has_points :available, danni.username, 0
+    ensure_user_has_points :locked, danni.username, 0
+    ensure_user_has_points :redeemed, danni.username, sum_of_donations
     
     visit_charity_page_as_admin danni.username, charity.id
     ensure_charity_has_donation_of "50"

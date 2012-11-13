@@ -9,7 +9,19 @@ class GoalDonationPointTransaction < ActiveRecord::Base
   belongs_to :redemption_point_transaction
 
   def redeemed?
-    redemption_point_transaction_id?
+    
   end
+
+  def status
+    if !active && !redemption_point_transaction_id
+      :locked
+    elsif active && !redemption_point_transaction_id
+      :available
+    elsif redemption_point_transaction_id
+      :redeemed
+    else
+      raise "Invalid status for #{YAML::dump(@self)}"
+    end
+  end  
   
 end

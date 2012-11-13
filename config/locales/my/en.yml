@@ -29,6 +29,7 @@ en:
       no_points_to_redeem: You have no points to be redeemed
       header: You are about to redeem %{point_amount} points
       message_vantagens: Message explaining where the points are going to
+      redeem_success_message: Congratulations, you have redeemed %{redeemed_points} points
   search_friends: "Search friends"
   search:
     result_title: "Result from your search"
@@ -97,6 +98,11 @@ en:
   cannot_be_in_the_past: "cannot be in the past."
   donation_to: "Donation to"
   check_out_this_goal: "Check out this goal" 
+  
+  activerecord:
+    attributes:
+      redemption_point_transaction:
+        cpf: CPF
       
   charity_page:
     donations_list: "Donations List"
@@ -116,13 +122,15 @@ en:
     list_all_donations: "List All Donations"
     raised_so_far: Raised so far 
     
-  point_amountment:
+  point_statement:
     donated_by: Donated by
     to_goal: Ro Goal
     amount: Amount
-    available: Available
-    redemption: Redemption
-    not_redeemed: Not redeemed
+    status: Status
+  point_transaction:
+    status_locked: Locked
+    status_available: Available
+    status_redeemed: Redeemed (%{redemption_point_transaction_id})
   names:
     yes: Yes
     no: No

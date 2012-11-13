@@ -46,6 +46,8 @@ pt:
         dob: "Data de nascimento"
         country_id: "País ID"
         country: "País"
+      redemption_point_transaction:
+        cpf: CPF
       goal_donation:
         donor_name: "Nome do Doador"
         message: "Mensagem"
@@ -109,6 +111,7 @@ pt:
       no_points_to_redeem: Você não possui nenhum ponto disponível para resgate
       header: Você está a um passo de resgatar %{point_amount} pontos
       message_vantagens: Mensagem avisando que precisa se cadastrar no vantagens
+      redeem_success_message: Parabéns, você transferiu %{redeemed_points} pontos com sucesso
   search_friends: "Buscar"
   search:
     result_title: "Resultados da sua busca"
@@ -206,9 +209,11 @@ pt:
     donated_by: Doado por
     to_goal: Para o Goal
     amount: Quantidade
-    available: Liberados?
-    redemption: Resgate
-    not_redeemed: Não resgatado
+    status: Status
+  point_transaction:
+    status_locked: Aguardando o Goal
+    status_available: Disponíveis para resgate
+    status_redeemed: Resgatados no resgate (%{redemption_point_transaction_id})
   names:
     yes: Sim
     no: Não
