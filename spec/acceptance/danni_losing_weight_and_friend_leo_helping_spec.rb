@@ -14,9 +14,9 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     dannis_goal = commit_to_a_goal 'Lose 35kg', charity
     
-    ensure_user_has_points_active   'danni', 0
-    ensure_user_has_points_locked   'danni', 0
-    ensure_user_has_points_redeemed 'danni', 0
+    ensure_user_has_points :available,   'danni', 0
+    ensure_user_has_points :locked,   'danni', 0
+    ensure_user_has_points :redeemed, 'danni', 0
     
     # Danni told her friend Leo about Goalnect and asked Leo to help her
     leo = ensure_logged_in 'leo'
@@ -26,19 +26,21 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     # Danni should have received 2 point transactions 
     total_points_locked = donation_leo.amount + donation_anonymous.amount
-    ensure_user_has_points_active danni.username, 0
-    ensure_user_has_points_locked danni.username, total_points_locked
+    ensure_user_has_points :available, danni.username, 0
+    ensure_user_has_points :locked, danni.username, total_points_locked
+    ensure_user_has_points :redeemed, danni.username, 0
     
     # Leo should have received points related to her donation only, and they're locked 
-    ensure_user_has_points_active leo.username, 0
-    ensure_user_has_points_locked leo.username, donation_leo.amount
+    ensure_user_has_points :available, leo.username, 0
+    ensure_user_has_points :locked, leo.username, donation_leo.amount
+    ensure_user_has_points :redeemed, leo.username, 0
     
     #Once Danni finishes her goal, all points are unlocked
     finish_goal dannis_goal   
-    ensure_user_has_points_active danni.username, total_points_locked
-    ensure_user_has_points_locked danni.username, 0
-    ensure_user_has_points_active leo.username, donation_leo.amount
-    ensure_user_has_points_locked leo.username, 0
+    ensure_user_has_points :available, danni.username, total_points_locked
+    ensure_user_has_points :locked, danni.username, 0
+    ensure_user_has_points :available, leo.username, donation_leo.amount
+    ensure_user_has_points :locked, leo.username, 0
     
     visit_charity_page_as_admin danni.username, charity.id
     ensure_charity_has_donation_of "50"
@@ -48,8 +50,6 @@ feature 'Danni losing weight and friend leo helping', %q{
     GoalDonation.update_all(['pagseguro_fee = ?', 0.40], ['charity_id = ?',charity.id])
      
     visit_all_donations_page_verify_summaries "65", "0.80", "4.88", "59.32"
-      
-  
 end
 
 
