@@ -127,6 +127,7 @@ class ApplicationController < ActionController::Base
   # http://guides.rubyonrails.org/i18n.html
   def set_locale
     I18n.locale = [
+        :en, 
         set_locale_from_param,
         set_locale_from_current_user,
         set_locale_from_domain,

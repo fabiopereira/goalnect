@@ -90,8 +90,9 @@ ActiveRecord::Schema.define(:version => 20121109231632) do
     t.integer  "user_id"
     t.integer  "point_amount"
     t.boolean  "active"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "redemption_point_transaction_id"
   end
 
   create_table "goal_donations", :force => true do |t|
@@ -159,9 +160,8 @@ ActiveRecord::Schema.define(:version => 20121109231632) do
     t.decimal  "money_amount"
     t.string   "cpf"
     t.boolean  "processed"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.integer  "redemption_point_transaction_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -187,8 +187,9 @@ ActiveRecord::Schema.define(:version => 20121109231632) do
     t.string   "image"
     t.text     "about_me"
     t.boolean  "admin"
-    t.integer  "country_id",             :default => 2
+    t.integer  "country_id",             :default => 1
     t.integer  "charity_id"
+    t.string   "cpf"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

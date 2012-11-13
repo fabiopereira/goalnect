@@ -1,4 +1,16 @@
 require 'factory_girl_rails'
+
+FactoryGirl.define do
+  factory :active_charity, class: Charity do
+    sequence(:nickname) {|n| "Charity#{n}"}
+    sequence(:charity_name) {|n| "Charity #{n}"}
+    contact_name {|c| "Contact #{c.charity_name}"}
+    sequence(:email) {|n| "charity#{n}@mycharitydomain.com"}
+    phone "2323424234"
+    active true
+  end
+end 
+
                       
 FactoryGirl.define do
   factory :any_user, class: User do
@@ -44,6 +56,16 @@ FactoryGirl.define do
     sequence(:title) {|n| "Goal Template #{n}" }
     description {|g| "My Goal is to complete #{g.title}, blah blah" }
     locale Country::AUSTRALIA.locale
+    active true
+  end
+end
+
+FactoryGirl.define do
+  factory :goal_donation_point_transaction, class: GoalDonationPointTransaction do
+    goal_donation {|t| FactoryGirl.create(:goal_donation) }
+    goal {|t| t.goal_donation.goal }
+    point_amount Random.rand(10..1000)
+    user {|t| t.goal.achiever }
     active true
   end
 end

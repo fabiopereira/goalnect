@@ -3,17 +3,22 @@ require 'acceptance/support/user_steps'
 module PointSteps
   include UserSteps
   
-  def ensure_user_has_points_active username, expected_points
-    ensure_user_has_points username, expected_points, true
-  end 
-  
-  def ensure_user_has_points_locked username, expected_points
-    ensure_user_has_points username, expected_points, false
-  end 
-  
-  def ensure_user_has_points username, expected_points, active_boolean
+  def ensure_user_has_points point_type, username, expected_points
     visit_user_profile_by_username username
-    page.find("#total-points-#{active_boolean}").should have_content(expected_points)
+    page.find("##{point_type.to_s}_points").should have_content(expected_points)
+  end
+  
+  def redeem_points username, available_points
+    ensure_logged_in username
+    visit_user_profile_by_username username
+    click_on "Statement"
+    click_on "Redeem #{available_points} points"
+    page.should have_content available_points
+    find(".submit").click
+    page.should have_content "CPF can't be blank"
+    fill_in 'redemption_point_transaction_cpf', :with => Given.a_valid_cpf
+    find(".submit").click
+    page.should have_content "Congratulations, you have redeemed #{available_points} points"
   end
   
 end

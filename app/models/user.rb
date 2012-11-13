@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  
  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -8,7 +7,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :screen_name, :dob, :country_id, :unconfirmed_email, :about_me, :admin, :charity_id, :charity
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :screen_name, :dob, :country_id, :unconfirmed_email, :about_me, :admin, :charity_id, :charity
+  attr_accessible :cpf
   
   # CarrierWave Image Uploads
   attr_accessible :image
@@ -59,8 +60,12 @@ class User < ActiveRecord::Base
     GoalFeedback.find(:all, :limit => 5, :conditions => ["user_id = ?", self.id], :order=> 'created_at desc')
   end
   
-  def points_summary active_flag
-    GoalDonationPointTransaction.sum(:point_amount, :conditions => ['user_id = ? and active = ?', self.id, active_flag])
+  def points_summary
+    UserPointSummary.new self
+  end
+
+  def points_to_redeem
+    points_summary.available_points
   end
 
 end

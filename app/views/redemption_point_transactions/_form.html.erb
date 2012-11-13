@@ -1,0 +1,17 @@
+<%= form_for(@redemption_point_transaction) do |f| %>
+  <%= render 'layouts/model_error_messages', :target => @redemption_point_transaction %>
+
+  <div class="control-group">
+	    <%= f.label :cpf, :class => 'control-label' %>
+	    <div class="controls">
+	    <%= f.text_field :cpf, :class => 'text_field' %>
+	    </div>
+  </div>
+
+  <%= render "points/goal_donation_point_transaction_table", :transactions => @redemption_point_transaction.transactions_to_be_redeemed %>
+
+  <div class="form-actions">
+    <%= f.submit t('label.redeem', :points => @redemption_point_transaction.point_amount), :class => 'submit btn btn-primary' %>
+	<%= link_to t('.cancel', :default => t("helpers.links.cancel")), '/', :class => 'btn' %>
+  </div>
+<% end %>

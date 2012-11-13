@@ -1,23 +1,11 @@
 <h1>Points</h1>
 
-<table class="table table-striped table-condensed">
-  <thead>
-  <tr>
-    <th><%= t 'point_statement.donated_by' %></th>
-    <th><%= t 'point_statement.to_goal' %></th>
-    <th><%= t 'point_statement.amount' %></th>
-    <th><%= t 'point_statement.available' %></th>
-  </tr>
-  </thead>
-  <tbody>
-<% @point_transactions.each do |point_transaction| %>
-  <tr>
-    <td><%= point_transaction.goal_donation.donor_name %></td>
-    <td><%= point_transaction.goal.description %> (<%= point_transaction.goal.achiever.screen_name %>) </td>
-    <td><%= point_transaction.point_amount %></td>
-    <td><%= bool_to_yn point_transaction.active %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
+<div>
+	<% if current_user.points_summary.available_points > 0 %>
+	  <a id="redeem_action" href="<%=new_redemption_point_transaction_path%>" class="button button-g" title="<%= t('label.redeem', :points => current_user.points_summary.available_points) %>"><span class="icon icon41"></span>&nbsp;&nbsp;&nbsp;<%= t('label.redeem', :points => current_user.points_summary.available_points)%></a>
+	<% else %>
+	  <%= t "redemption.no_points_to_redeem" %>
+	<% end %>
+</div>
 
+<%= render "points/goal_donation_point_transaction_table", :transactions => @point_transactions %>
