@@ -84,10 +84,12 @@ heroku addons:docs logentries:tryit
 @deprecated heroku run rake db:migrate --app staging-goalnect
 @deprecated heroku run rake assets:precompile --app staging-goalnect
 
+                            
 
 
 # View logs from staging
 heroku logs --app goalnect-staging
+heroku restart --app goalnect
 
 
 
