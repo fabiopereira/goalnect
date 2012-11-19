@@ -36,8 +36,11 @@ module PointSteps
     
     filename = VantagensFileGenerator.file_name
     page.should have_content filename
+    
     file = VantagensFile.find_by_file_name (filename)
     
+    redemption = RedemptionPointTransaction.find_by_cpf(cpf)
+    redemption.vantagens_file_id.should be == file.id
     
     get  "/uploads/vantagens_file/file/#{file.id}/#{filename}", :format => :xml
     page = Capybara.string response.body
