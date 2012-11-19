@@ -29,6 +29,7 @@ class VantagensOrder
         xml.dataSolicitacao format_datetime @date
         @redemption_orders.each do |redemption_order|
           xml.Pedido do
+            xml.cpf redemption_order.cpf
             xml.idParceiro PARTNER_ID
             xml.cnpj HAYPER_CNPJ
             xml.idPedido redemption_order.id

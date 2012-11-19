@@ -45,10 +45,13 @@ feature 'Danni losing weight and friend leo helping', %q{
     ensure_user_has_points :redeemed, leo.username, 0
     
     #Danni decides to redeem her points
-    redeem_points danni.username, sum_of_donations
+    cpf = redeem_points danni.username, sum_of_donations
     ensure_user_has_points :available, danni.username, 0
     ensure_user_has_points :locked, danni.username, 0
     ensure_user_has_points :redeemed, danni.username, sum_of_donations
+    
+    #Generate vantagens file
+    generate_vantagens_file cpf, sum_of_donations
     
     visit_charity_page_as_admin danni.username, charity.id
     ensure_charity_has_donation_of "50"

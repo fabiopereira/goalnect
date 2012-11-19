@@ -3,10 +3,10 @@ require 'net/ftp'
 class VantagensFileGenerator
   
   def self.xml
-   redemptions = RedemptionPointTransaction.find(:all, :conditions => ['processed = :p', {:p => false}])
+   redemptions = RedemptionPointTransaction.find(:all, :conditions => ['processed is null or processed = :p', {:p => false}])
    vantagens_order = VantagensOrder.new(redemptions)
    file = create_file vantagens_order
-   RedemptionPointTransaction.update_all(['processed = ?', true], ['id in (?)', redemptions_ids(vantagens_order)])
+   RedemptionPointTransaction.update_all(['processed = ?, vantagens_file_id = ?', true, file.id], ['id in (?)', redemptions_ids(vantagens_order)])
    file
   end
   
@@ -33,6 +33,7 @@ class VantagensFileGenerator
        file.print(vantagens_order.to_xml)
        file.flush 
        vantagens_file = VantagensFile.new({:file => file, :file_name => file_name})
+       vantagens_file.save!
     ensure
       file.close
       File.delete(file.path) 
