@@ -68,6 +68,9 @@ pt:
         charity: "ONG"
         charity_id: "ONG"
         target_amount: "Quantia mínima que deseja arrecadar"
+  
+  today: Hoje
+  timeLeftPrefix: Faltam
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"

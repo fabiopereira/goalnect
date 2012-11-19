@@ -35,10 +35,14 @@
 		<div class="progress progress-striped">
 		  <div class="bar bar-success" style="width: <%= goal.raised_so_far_percentage%>%;"><%= goal.raised_so_far_percentage%>%</div>  
 		</div>
-		
-	</span>
+    </span>
 </span>
+
+<%= render "goals/days_left", :goal => goal %>
+
 </div>
+
+
 <div class="row well"  style="margin-left:-20px;margin-bottom:0px;border:0;background:white">
 	<% Togg.le(:feature_fb_social) do %>
 		<div class="g-plusone" data-size="medium"></div>

@@ -1,3 +1,5 @@
+require 'time_diff'
+
 class Goal < ActiveRecord::Base        
   #extend ActiveHash::Associations::ActiveRecordExtensions
   MIN_TARGET_AMOUNT = 50
@@ -20,6 +22,11 @@ class Goal < ActiveRecord::Base
   attr_accessible :title, :title_selected
   def title_selected
     self.title
+  end
+
+  # https://github.com/abhidsm/time_diff
+  def time_left_diff
+    Time.diff(Time.now, due_on)
   end
   
   def not_past_date

@@ -124,7 +124,7 @@ en:
     new_charity_update: "New Update"
     list_all_donations: "List All Donations"
     raised_so_far: Raised so far 
-    
+  timeLeftPrefix: Left    
   point_statement:
     donated_by: Donated by
     to_goal: To Goal
@@ -143,6 +143,7 @@ en:
   title: "Title"
   journey_title: "JOURNEY"
 
+  today: Today
   static:
     howitworks: "How it works"
   email:
