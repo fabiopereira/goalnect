@@ -159,6 +159,7 @@ pt:
   cannot_be_in_the_past: "não pode ser no passado."
   donation_to: "Doação para"
   check_out_this_goal: "Confira este goal" 
+  report_abuse_success_message: "Este goal foi reportado, e nãao está mais disponível."
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação
@@ -191,6 +192,14 @@ pt:
     new_charity_update: "Nova Atualização"
     list_all_donations: "Listar Todas Doações"
     raised_so_far: "Total Arrecadado"
+    last_10_goals: "Últimos 10 Goals"
+    list_all_goals: "Listar Todos Goals"
+    report: "Reportar"
+    report_abuse: "Reportar"
+    confirm_report_abuse: "Você desejar reportr o goal: %{goal_title} ?"
+    no_goals_message: "Não existem goals associados com esta ONG."
+    last_7_days_goals: "Goals dos Últimos 7 Dias"
+    
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1&yt:cc=on"
   send: "Enviar"
@@ -220,4 +229,6 @@ pt:
   errors:
     search:
       length: Sua busca deve conter no mínimo %{min} letras
+    charity:
+      report_abuse_error: "Não foi possível reportar o goal"
 

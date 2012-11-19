@@ -55,7 +55,7 @@
 	<% end %>
 	
 </div>
-<div class="span11">
+<div class="span11" id="last_donations_div_id">
 	<div class="page-header" style="padding-top:30px">
   		<h4 style="text-align:right"><%= t("charity_page.last_10_donations") %></h4>
 	</div>
@@ -93,5 +93,36 @@
 		<%=t "charity_page.no_donations_message"%>
 	<%end%>
 </div>
-
-
+<% if is_current_user_charity_admin?(@charity.id) %>
+<div class="span11" id="last_goals_div_id">
+	<div class="page-header" style="padding-top:30px">
+  		<h4 style="text-align:right"><%= t("charity_page.last_10_goals") %></h4>
+	</div>
+	<div class="row" style="margin-left:0px">
+		<a href="<%=charity_show_goals_path(@charity.id)%>" class="button button-g" title='<%= t "charity_page.list_all_goals"%>'><span class="icon icon120"></span>&nbsp;&nbsp;&nbsp;<%= t "charity_page.list_all_goals"%></a>
+	</p>
+	</div>
+	<% if @goals && !@goals.empty?%>
+	<table class="table table-striped table-condensed tiptip"style="border-spacing: 0px;" id="donations_table">
+	  <thead>
+	    <tr>
+		  <th width="100px"><%= t "charity_page.report" %> ?</th>
+		  <th>Goal</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <% @goals.each do |goal| %>
+	      <tr>
+		    <td>
+		    	<a href="<%=goal_report_abuse_path(goal.achiever.username, goal.id)%>" class="button icon-image" title='<%= t "charity_page.report_abuse"%>' data-confirm='<%= t "charity_page.confirm_report_abuse", :goal_title => goal.title %>' id='report_goal_<%=goal.id%>'><span class="icon icon5"></span></a>
+		    </td>
+			<td><%= goal.title %></td>	
+	      </tr>
+	    <% end %>		
+	  </tbody>
+	</table>
+	<%else%>
+		<%=t "charity_page.no_goals_message"%>
+	<%end%>
+</div>
+<% end %>

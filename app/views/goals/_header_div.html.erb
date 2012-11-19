@@ -11,6 +11,9 @@
 	   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title='<%= t("no_way_button") %>' id="i_dont_believe_button"><span class="icon icon100"></span><%= t "no_way_button"%></a>
 		  <% end %>
 		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title='<%=t("donate_now")%>' id="donate_button"><span class="icon icon51"></span>&nbsp;&nbsp;<%=t("donate_now")%></a>	
+		<% if is_current_user_charity_admin?(goal.charity.id) %>
+		<a href="<%=goal_report_abuse_path(goal.achiever.username, goal.id)%>" class="button button-g" title='<%= t "report_abuse"%>'><span class="icon icon5"></span>&nbsp;&nbsp;&nbsp;<%= t "report_abuse"%></a>
+		<% end %>
 		</td></tr>
 		<tr><td>
 			<div class="support-info">

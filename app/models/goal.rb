@@ -14,7 +14,7 @@ class Goal < ActiveRecord::Base
   has_many :goal_supports
 
   validates_presence_of :description, :due_on, :owner, :title, :charity_id, :target_amount
-  validate :not_past_date
+  validate :not_past_date, :on => :create
   validates :target_amount, :numericality => { :greater_than_or_equal_to => MIN_TARGET_AMOUNT }
   
   attr_accessible :title, :title_selected
@@ -45,7 +45,7 @@ class Goal < ActiveRecord::Base
   end
   
   def self.find_active_goals(user)
-    find(:all, :conditions => ['achiever_id = :u and goal_stage_id != :abandoned and  goal_stage_id != :not_accepted', {:u => user.id, :abandoned => GoalStage::ABANDONED.id, :not_accepted => GoalStage::NOT_ACCEPTED.id}])
+    find(:all, :conditions => ['achiever_id = :u and goal_stage_id not in (:inactive)', {:u => user.id, :inactive => GoalStage.inactive_stages_id}])
   end
   
   def find_feedback

@@ -1,6 +1,6 @@
 class CharitiesController < ApplicationController
   before_filter :authenticate_admin_user!, :only => [:index, :destroy]
-  before_filter :charity_admin_user!, :only => [:edit, :update, :change_logo, :crop, :donations, :previous_month_donations_pdf, :current_month_donations_pdf, :donations_pdf]
+  before_filter :charity_admin_user!, :only => [:edit, :update, :change_logo, :crop, :donations, :previous_month_donations_pdf, :current_month_donations_pdf, :donations_pdf, :show_goals]
   
   # GET /charities
   # GET /charities.json
@@ -24,9 +24,21 @@ class CharitiesController < ApplicationController
     @total_raised = GoalDonation.find_total_raised_amount_by_charity_id @charity.id
     @recent_donations = GoalDonation.find_most_recent_donations_by_charity_id @charity.id
     @last_3_updates =  CharityUpdate.find(:all, :conditions => [ "charity_id = ?", @charity.id], :limit => 3, :order => "id desc")
-     respond_to do |format|
+    if (current_user.charity_id == @charity.id) 
+      @goals = Goal.find(:all, :conditions => [ "charity_id = ? and created_at > ?", @charity.id, 7.days.ago], :limit => 10, :order => "id desc")
+    end
+    respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @charity }
+    end
+  end
+  
+  def show_goals
+    charity_id = params[:charity_id]
+    @goals = Goal.find(:all, :conditions => [ "charity_id = ? and created_at > ?", charity_id, 7.days.ago], :order => "id desc")
+    respond_to do |format|
+       format.html # show.html.erb
+       format.json { render json: @goals }
     end
   end
   

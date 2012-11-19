@@ -38,4 +38,9 @@ module GoalsHelper
     "/#{user_username}/goals/reject_challenge/#{goal_id}"
   end
   
+  def goal_report_abuse_path(user_username, goal_id)
+    "/#{user_username}/goals/report_abuse/#{goal_id}"
+  end
+  
+ 
 end
