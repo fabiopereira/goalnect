@@ -49,6 +49,7 @@ gem 'sidekiq'
 
 gem "pagseguro"
 gem "faker"
+gem "brazilian-rails"
           
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

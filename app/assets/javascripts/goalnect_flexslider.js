@@ -1,0 +1,3 @@
+$(function(){
+  $('.flexslider').flexslider();
+});

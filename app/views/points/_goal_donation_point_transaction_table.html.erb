@@ -3,7 +3,8 @@
   <tr>
     <th><%= t 'point_statement.donated_by' %></th>
     <th><%= t 'point_statement.to_goal' %></th>
-    <th><%= t 'point_statement.amount' %></th>
+    <th><%= t 'when' %></th>
+    <th><%= t 'points' %></th>
     <th><%= t 'point_statement.status' %></th>
   </tr>
   </thead>
@@ -12,6 +13,7 @@
   <tr class="<%= point_transaction.status.to_s %>">
     <td><%= point_transaction.goal_donation.donor_name %></td>
     <td><%= point_transaction.goal.description %> (<%= point_transaction.goal.achiever.screen_name %>) </td>
+    <td><%= point_transaction.created_at %></td>
     <td><%= point_transaction.point_amount %></td>
     <td>   
 		<% case point_transaction.status %>
