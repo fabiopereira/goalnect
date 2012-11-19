@@ -36,4 +36,8 @@ module CharitiesHelper
     current_user && current_user.charity_id && current_user.charity_id.to_s == charity_id.to_s
   end
   
+  def charity_show_goals_path(charity_id)
+    "/charities/#{charity_id}/show_goals"
+  end
+  
 end

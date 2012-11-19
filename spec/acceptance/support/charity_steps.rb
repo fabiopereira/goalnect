@@ -20,6 +20,11 @@ module CharitySteps
     user.save!
   end
   
+  def visit_charity_page charity
+    visit "/charities/#{charity.id}"
+    page.should have_content user.charity.charity_name
+  end
+  
   def visit_charity_page_as_admin username, charity_id
     user = ensure_logged_in username
     set_user_as_charity_admin user, charity_id

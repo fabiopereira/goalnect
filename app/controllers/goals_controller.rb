@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :support_info]
+  before_filter :report_abuse!, :except => [:new, :create]
   before_filter :is_goal_active!, :except => [:accept_challenge, :reject_challenge, :new, :create, :show]
   before_filter :goal_show!, :only => [:show]
   before_filter :is_current_user_achiever, :only  => [:accept_challenge, :reject_challenge, :add_feedback, :change_stage]
@@ -120,6 +121,22 @@ class GoalsController < ApplicationController
   def reject_challenge
     params[:goal] = {:goal_stage_id => GoalStage::NOT_ACCEPTED.id}
     change_stage
+  end
+  
+  def report_abuse
+    @goal = Goal.find(params[:goal_id])
+    if current_user && current_user.charity_id && current_user.charity_id == @goal.charity_id
+      params[:goal] = {:goal_stage_id => GoalStage::REPORT_ABUSE.id}
+      if @goal.update_attributes(params[:goal])
+          flash[:notice] = t('report_abuse_success_message') 
+          @goal_feedback = GoalFeedback.new
+          display_show_page
+          return
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), alert: t("errors.charity.report_abuse_error")  }
+    end
   end
   
   def change_stage

@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   skip_before_filter :verify_authenticity_token
   
+  include CharitiesHelper
+  
   def authenticate_admin_user!
     authenticate_user! 
     unless current_user.admin?
@@ -14,7 +16,8 @@ class ApplicationController < ActionController::Base
   end
   
   def charity_admin_user!
-    unless current_user && (current_user.admin? || is_current_user_charity_admin?(params[:id]))
+    charity_id = params[:charity_id] ? params[:charity_id]  : params[:id]
+    unless current_user && (current_user.admin? || is_current_user_charity_admin?(charity_id))
       flash[:alert] = "This area is restricted to charity administrators only."
       redirect_to root_path 
     end
@@ -71,6 +74,17 @@ class ApplicationController < ActionController::Base
     return false
   end
   
+  def report_abuse!
+    if (params[:goal_id] || params[:id])
+      id = params[:goal_id] ? params[:goal_id] : params[:id]
+      goal = Goal.find(id)
+      if GoalStage::REPORT_ABUSE == goal.goalStage
+        flash[:alert] = "Goal is inactive, it has been reported by the charity"
+        redirect_to root_path
+      end
+    end
+  end
+  
   def is_goal_active?
      if (params[:goal_id] || params[:id])
        id = params[:goal_id] ? params[:goal_id] : params[:id]
@@ -96,10 +110,6 @@ class ApplicationController < ActionController::Base
        flash[:alert] = "This area is restricted to charity administrators only."
        redirect_to root_path 
      end
-  end
-  
-  def is_current_user_charity_admin? charity_id
-    current_user.charity_id && current_user.charity_id.to_s == charity_id
   end
 
   def current_admin_user

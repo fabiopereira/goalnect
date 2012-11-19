@@ -55,6 +55,8 @@ Goalnect::Application.routes.draw do
   match '/charities/:id/donations' => 'charities#donations'
   match '/charities/:id/previous_month_donations_pdf' => 'charities#previous_month_donations_pdf'
   match '/charities/:id/current_month_donations_pdf' => 'charities#current_month_donations_pdf'
+  match '/charities/:charity_id/show_goals' => 'charities#show_goals'
+  
   
   match '/vantagens_files/show_last_10' => 'vantagens_files#show_last_10'
   match '/vantagens_files/process_file' => 'vantagens_files#process_file'
@@ -88,6 +90,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/change_stage/:goal_id' => 'goals#change_stage'
   match '/:user_username/goals/accept_challenge/:goal_id' => 'goals#accept_challenge'
   match '/:user_username/goals/reject_challenge/:goal_id' => 'goals#reject_challenge'
+  match '/:user_username/goals/report_abuse/:goal_id' => 'goals#report_abuse'
   
   
 
