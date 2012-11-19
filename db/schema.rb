@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109231632) do
+ActiveRecord::Schema.define(:version => 20121119175210) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -160,8 +160,9 @@ ActiveRecord::Schema.define(:version => 20121109231632) do
     t.decimal  "money_amount"
     t.string   "cpf"
     t.boolean  "processed"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "vantagens_file_id"
   end
 
   create_table "users", :force => true do |t|

@@ -16,9 +16,36 @@ module PointSteps
     page.should have_content available_points
     find(".submit").click
     page.should have_content "CPF can't be blank"
-    fill_in 'redemption_point_transaction_cpf', :with => Given.a_valid_cpf
+    cpf =  Given.a_valid_cpf
+    fill_in 'redemption_point_transaction_cpf', :with => cpf
     find(".submit").click
     page.should have_content "Congratulations, you have redeemed #{available_points} points"
+    cpf
+  end
+  
+  def generate_vantagens_file cpf, amount
+    
+    amount_s = "%.2f" % amount
+    amount_s = amount_s.sub(".", ",")
+    
+    admin = ensure_logged_in 'admin'
+    admin.admin = true
+    admin.save!
+    visit '/vantagens_files/show_last_10'
+    find("#process_file_id").click
+    
+    filename = VantagensFileGenerator.file_name
+    page.should have_content filename
+    file = VantagensFile.find_by_file_name (filename)
+    
+    
+    get  "/uploads/vantagens_file/file/#{file.id}/#{filename}", :format => :xml
+    page = Capybara.string response.body
+    page.should have_content "123456"
+    page.should have_content "08175080000128"
+    page.should have_content cpf
+    page.should have_content amount_s
+    
   end
   
 end

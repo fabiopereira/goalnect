@@ -10,8 +10,7 @@ class VantagensFilesController < ApplicationController
   end
   
   def process_file
-    @file = VantagensFileGenerator.xml
-    @file.save
+    VantagensFileGenerator.xml
     show_last_10
   end
   

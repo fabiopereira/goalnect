@@ -25,7 +25,7 @@ class CharitiesController < ApplicationController
     @recent_donations = GoalDonation.find_most_recent_donations_by_charity_id @charity.id
     @last_3_updates =  CharityUpdate.find(:all, :conditions => [ "charity_id = ?", @charity.id], :limit => 3, :order => "id desc")
     if (current_user.charity_id == @charity.id) 
-      @goals = Goal.find(:all, :conditions => [ "charity_id = ? and created_at > ?", @charity.id, 7.days.ago], :limit => 10, :order => "id desc")
+      @goals = Goal.find(:all, :conditions => [ "charity_id = ? and created_at > ? and goal_stage_id not in (?)", @charity.id, 7.days.ago, GoalStage.inactive_stages_id], :limit => 10, :order => "id desc")
     end
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +35,7 @@ class CharitiesController < ApplicationController
   
   def show_goals
     charity_id = params[:charity_id]
-    @goals = Goal.find(:all, :conditions => [ "charity_id = ? and created_at > ?", charity_id, 7.days.ago], :order => "id desc")
+    @goals = Goal.find(:all, :conditions => [ "charity_id = ? and created_at > ? and goal_stage_id not in (?)", charity_id, 7.days.ago, GoalStage.inactive_stages_id], :order => "id desc")
     respond_to do |format|
        format.html # show.html.erb
        format.json { render json: @goals }
