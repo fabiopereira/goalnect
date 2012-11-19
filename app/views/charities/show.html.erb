@@ -99,7 +99,7 @@
   		<h4 style="text-align:right"><%= t("charity_page.last_10_goals") %></h4>
 	</div>
 	<div class="row" style="margin-left:0px">
-		<a href="<%=charity_show_goals_path(@charity.id)%>" class="button button-g" title='<%= t "charity_page.list_all_goals"%>'><span class="icon icon120"></span>&nbsp;&nbsp;&nbsp;<%= t "charity_page.list_all_goals"%></a>
+		<a href="<%=charity_show_goals_path(@charity.id)%>" class="button button-g" title='<%= t "charity_page.list_all_goals"%>' id="charity_list_all_goals_id"><span class="icon icon120"></span>&nbsp;&nbsp;&nbsp;<%= t "charity_page.list_all_goals"%></a>
 	</p>
 	</div>
 	<% if @goals && !@goals.empty?%>
