@@ -6,7 +6,7 @@ feature 'List goals for charity', %q{
   
   scenario 'Show all goal for charity' do  
     #Danni wants to lose weight and will sign up on Goalnect
-    charity = ensure_charity_active_exists 'charitytest'
+    charity = ensure_charity_active_exists 'charityListAll'
     
     danni = ensure_logged_in 'danni'
     dannis_goal1 = commit_to_a_goal 'This is a crap goal 1!', charity
