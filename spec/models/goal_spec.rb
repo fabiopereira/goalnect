@@ -30,12 +30,17 @@ describe Goal do
   end
   
   it 'should inform days left for a goal' do
-    FactoryGirl.create(:goal, due_on: 10.days.from_now).days_left.should be == 10
+    goal_in_10_days = FactoryGirl.create(:goal, due_on: 10.days.from_now)
+    goal_in_10_days.days_left.should be == 10
+    goal_in_10_days.due_today?.should be_false
+    
     todays_goal = FactoryGirl.create(:goal, due_on: Date.today)
     todays_goal.days_left.should be == 1
+    todays_goal.due_today?.should be_true
     
-    # Time.stubs(:now).returns(3.days.from_now)
-    # todays_goal.days_left.should be == 0
+    todays_goal.due_on = 3.days.ago
+    todays_goal.save
+    todays_goal.days_left.should be == 0
   end
   
   def donate_to goal, stage, amount

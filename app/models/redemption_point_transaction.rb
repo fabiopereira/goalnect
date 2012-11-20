@@ -5,7 +5,7 @@ class RedemptionPointTransaction < ActiveRecord::Base
   validates_presence_of :money_amount, :point_amount, :user_id
   validates :point_amount, :numericality => { :greater_than => 0 }
   validates :money_amount, :numericality => { :greater_than => 0 }
-  validates :cpf, :presence => true#, :cpf => true
+  validates :cpf, :presence => true, :cpf => true
   
   belongs_to :user
   

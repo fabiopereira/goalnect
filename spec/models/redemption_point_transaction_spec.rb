@@ -21,7 +21,7 @@ describe RedemptionPointTransaction do
     redemption = Given.a_redemption_for_user Given.a_user_with_points_to_redeem
     redemption.cpf = "invalidcpf"
     redemption.save.should be_false
-    redemption.errors[:cpf].should == ["is invalid"]
+    redemption.errors[:cpf].should_not be_nil
   end
 
   it 'should update users cpf when user does not have one' do
