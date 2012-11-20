@@ -11,4 +11,11 @@ class GoalTemplatesController < ApplicationController
     end
   end
   
+  def goal_template_by_title
+    @goal_template = GoalTemplate.find_by_title params[:title]
+    respond_to do |format|
+      format.json { render json: @goal_template }
+    end
+  end
+  
 end
