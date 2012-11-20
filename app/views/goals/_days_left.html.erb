@@ -1,13 +1,6 @@
 <div id="timeLeft">
-<% if goal.time_left_diff[:day] > 1 %>
-	<span id="timeLeftDaysPrefix"><%= t('timeLeftPrefix') %></span>
-	<span id="timeLeftDaysAmount"><%= goal.time_left_diff[:day] %></span>
-	<span id="timeLeftDaysSuffix"><%= t('datetime.prompts.day').downcase %>(s)</span>
-<% elsif goal.time_left_diff[:day] == 1 %>
-    <span id="timeLeftDaysPrefix"><%= t "activerecord.attributes.goal.due_on" %></span>
-    <span id="timeLeftToday"><%= t('today') %></span>
-<% else %>
-    <span id="timeLeftDaysPrefix"><%= t "activerecord.attributes.goal.due_on" %></span>
-    <span id="timeLeftPast"><%= l goal.due_on %></span>
-<% end %>
+    <% days_left_values = days_left_for_goal(goal) %>
+	<span id="timeLeftDaysPrefix"><%= days_left_values[:prefix] %></span>
+	<span id="timeLeftDaysAmount"><%= days_left_values[:amount] %></span>
+	<span id="timeLeftDaysSuffix"><%= days_left_values[:suffix] %></span>
 </div>
