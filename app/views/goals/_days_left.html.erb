@@ -1,0 +1,6 @@
+<div id="timeLeft">
+    <% days_left_values = days_left_for_goal(goal) %>
+	<span id="timeLeftDaysPrefix"><%= days_left_values[:prefix] %></span>
+	<span id="timeLeftDaysAmount"><%= days_left_values[:amount] %></span>
+	<span id="timeLeftDaysSuffix"><%= days_left_values[:suffix] %></span>
+</div>

@@ -1,3 +1,5 @@
+require 'time_diff'
+
 class Goal < ActiveRecord::Base        
   #extend ActiveHash::Associations::ActiveRecordExtensions
   MIN_TARGET_AMOUNT = 50
@@ -20,6 +22,20 @@ class Goal < ActiveRecord::Base
   attr_accessible :title, :title_selected
   def title_selected
     self.title
+  end
+
+  def due_today?
+    due_on == Date.today
+  end
+  
+  def days_left 
+    if due_today?
+      1
+    elsif due_on > Date.today
+      ((due_on.to_time - Time.now).abs/60/60/24).round
+    else
+      0
+    end
   end
   
   def not_past_date

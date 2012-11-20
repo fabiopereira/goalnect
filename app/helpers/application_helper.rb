@@ -28,6 +28,22 @@ module ApplicationHelper
     GOAL_DONATION_STAGE_ICON[stage]
   end
   
+  def days_left_for_goal goal
+    if goal.days_left > 1
+      { :prefix => t('timeLeftPrefix'),
+        :amount => goal.days_left,
+        :suffix => "#{t('datetime.prompts.day').downcase}s" }
+    elsif goal.due_today?
+      { :prefix => t("activerecord.attributes.goal.due_on"),
+        :amount => t("today"),
+        :suffix => "" }
+    else
+      { :prefix => t("activerecord.attributes.goal.due_on"),
+        :amount => l(goal.due_on),
+        :suffix => "" }
+    end
+  end
+  
   def active_goal_template_options
     active_options = GoalTemplate.all_active_current_locale.map{ |gt|
       [gt.title] + [gt.id]

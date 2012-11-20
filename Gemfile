@@ -6,7 +6,8 @@ gem 'activerecord-postgresql-adapter'
 
 # Suggested by https://github.com/fabn/rails-jenkins-template
 gem 'ci_reporter', :git => 'git://github.com/nicksieger/ci_reporter.git'
-gem 'metrical'
+gem 'metrical'    
+gem 'time_diff'
 
 group :development, :test do
   gem 'mailcatcher'
@@ -16,6 +17,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'capybara-screenshot'
   gem 'factory_girl_rails', "~> 4.0"
+  gem 'mocha', '0.10.4'
   gem 'email_spec'  
   # gem "database_cleaner", ">= 0.7.2"
 end

@@ -132,6 +132,7 @@ en:
     confirm_report_abuse: "You are about to report abuse for: %{goal_title}"
     no_goals_message: "There are no goals associated to this charity"
     last_7_days_goals: "Last 7 days Goals"
+  timeLeftPrefix: Left    
     
   point_statement:
     donated_by: Donated by
@@ -151,6 +152,7 @@ en:
   title: "Title"
   journey_title: "JOURNEY"
 
+  today: Today
   static:
     howitworks: "How it works"
   email:
