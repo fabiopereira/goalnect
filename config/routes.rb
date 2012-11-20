@@ -66,6 +66,7 @@ Goalnect::Application.routes.draw do
   
   Togg.le(:feature_goal_template) do
     match '/goal_template/i_commit' => 'goal_templates#i_commit'
+    match '/goal_template/goal_template_by_title' => 'goal_templates#goal_template_by_title'
   end
   
   match 'static/:action' => 'static#:action'

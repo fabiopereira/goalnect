@@ -38,8 +38,8 @@ class GoalsController < ApplicationController
   
   def fill_goal_with_template_if_exists
     if params[:goal_template] && params[:goal_template] != :goal_template_yours.to_s
-      goal_template = GoalTemplate.find(params[:goal_template])
-      @goal.title_selected = goal_template.title
+      @goal_template = GoalTemplate.find(params[:goal_template])
+      @goal.title_selected = @goal_template.title
     end
   end
   

@@ -51,7 +51,7 @@ class Goal < ActiveRecord::Base
       if goal_template
         self.goal_template_id = goal_template.id
         self.title = goal_template.title
-        self.description = goal_template.description
+        self.description = goal_template.description unless self.description
       end
     end
   end

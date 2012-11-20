@@ -7,9 +7,14 @@
 	<%= f.label :title_selected, :class => 'control-label' %>
 	<div class="controls">
       <%= f.text_field :title_selected, data: {autocomplete_source: GoalTemplate.all_active_current_locale.order(:title).map(&:title)} %>
+	<div id="image_goal_template">
+		<% if @goal_template && @goal_template.image %>
+			<%=image_tag(@goal_template.image_url(:thumb))%>
+		<% end %>
+    </div>
     </div>
   </div>
-
+	
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">

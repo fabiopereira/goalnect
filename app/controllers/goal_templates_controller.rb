@@ -1,5 +1,5 @@
 class GoalTemplatesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user! , :except => [:goal_template_by_title]
  
   def i_commit
     new_goal_url = "/#{current_user.username}/goals/new"
@@ -12,7 +12,7 @@ class GoalTemplatesController < ApplicationController
   end
   
   def goal_template_by_title
-    @goal_template = GoalTemplate.find_by_title params[:title]
+    @goal_template = GoalTemplate.find(:first, :conditions => ["title = ?", params[:title]])
     respond_to do |format|
       format.json { render json: @goal_template }
     end
