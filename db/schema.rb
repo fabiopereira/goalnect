@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121144541) do
+ActiveRecord::Schema.define(:version => 20121121205058) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20121121144541) do
     t.integer  "goal_template_type_id"
     t.string   "description_guide"
     t.date     "due_on"
+    t.boolean  "publish_home"
   end
 
   create_table "goals", :force => true do |t|

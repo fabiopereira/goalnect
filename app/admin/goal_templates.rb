@@ -8,7 +8,8 @@ ActiveAdmin.register GoalTemplate do
         f.input :active
         f.input :due_on
         f.input :goal_template_type_id, :as => :select, :collection =>  GoalTemplateType.all
-        f.input  :description_guide
+        f.input :description_guide
+        f.input :publish_home
       end
       f.buttons
   end

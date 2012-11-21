@@ -13,6 +13,25 @@
 		<p><%= t "headline.home.subtitle1" %></p>
 		<p><%= t "headline.home.subtitle2" %></p>
 	</div>
+	<div>
+		<% events = GoalTemplate.home_events_current_locale %>
+		
+		<% events.each do |event| %>
+		<div id="search-result">
+			  <div>
+				<%= image_tag event.image_url(:thumb) if event.image? %>
+			  </div>
+			  <div>
+			    <span>
+					<%= event.due_on %> - <%= event.title %>
+					<br/>
+					<%= link_to t("join"),  goal_template_path(event.title), :class => "btn btn-primary" %>
+				</span> 
+			  </div>
+		</div>
+		<% end %>		
+		
+	</div>
 </div>
 
 <div class="span3">

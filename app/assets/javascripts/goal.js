@@ -44,6 +44,7 @@ on_change_goal_title = function(){
 fill_goal_with_template_values = function (data) {
 		$('#goal_description').data("wysihtml5").editor.setValue(data.description);
 		$('#image_goal_template').attr("src", data.image.thumb.url);
+		$('#description_guide').html(data.description_guide);
 		if (data.due_on){
 			process_goal_due_date(data.due_on);
 		}
@@ -62,4 +63,5 @@ fill_goal_with_default_values = function () {
 	$('#goal_due_on_3i').prop('disabled', false);
 	$('#goal_due_on_2i').prop('disabled', false);
 	$('#goal_due_on_1i').prop('disabled', false);
+	$('#description_guide').html('');
 }

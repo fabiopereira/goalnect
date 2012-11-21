@@ -10,10 +10,12 @@
     </div>
 	<%= image_tag("template.padrao.png", id: "image_goal_template", :data => { :default_src => "#{asset_path('template.padrao.png')}"}) %>
   </div>
-	
+  
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
+	  <div id="description_guide">
+	  </div>
       <%= f.text_area :description, :class => 'text_area', :size => "50x10"  %>
     </div>
   </div>
