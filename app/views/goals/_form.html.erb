@@ -8,14 +8,18 @@
 	<div class="controls">
       <%= f.text_field :title_selected, data: {autocomplete_source: GoalTemplate.all_active_current_locale.order(:title).map(&:title)} %>
     </div>
-	<%= image_tag("template.padrao.png", id: "image_goal_template", :data => { :default_src => "#{asset_path('template.padrao.png')}"}) %>
+	<% image_src = @goal.goal_template ? @goal.goal_template.image_url(:thumb) : "template.padrao.png" %>
+	<%= image_tag(image_src, id: "image_goal_template", :data => { :default_src => "#{asset_path('template.padrao.png')}"}) %>
   </div>
-  
+
+  <div class="control-group">
+    <div class="controls" id="description_guide">
+    </div>
+  </div>
+
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-	  <div id="description_guide">
-	  </div>
       <%= f.text_area :description, :class => 'text_area', :size => "50x10"  %>
     </div>
   </div>

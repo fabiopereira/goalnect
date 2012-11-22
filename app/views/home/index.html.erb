@@ -25,7 +25,7 @@
 			    <span>
 					<%= event.due_on %> - <%= event.title %>
 					<br/>
-					<%= link_to t("join"),  goal_template_path(event.title), :class => "btn btn-primary" %>
+					<%= link_to t("join"),  goal_template_path(event.title), :class => "btn btn-primary", :id => "join_event_#{event.id}" %>
 				</span> 
 			  </div>
 		</div>

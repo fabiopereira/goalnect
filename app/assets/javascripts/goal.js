@@ -1,6 +1,4 @@
 $(function(){
- 
-  on_change_goal_title();
 	
   $('#goal_title_selected').autocomplete({
 	 source: $('#goal_title_selected').data('autocomplete-source'),
