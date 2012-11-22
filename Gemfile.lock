@@ -497,7 +497,6 @@ DEPENDENCIES
   flexslider
   fog
   google-analytics-rails
-  haml
   heroku_san
   jquery-rails
   kaminari
