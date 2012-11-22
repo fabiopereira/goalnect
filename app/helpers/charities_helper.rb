@@ -16,7 +16,7 @@ module CharitiesHelper
      image_url = charity_has_image ? charity.image_url(image_type) : "charity-nopic-#{image_type}.jpg"
   end
   
-  def charity_path(charity_id)
+  def charity_show_path(charity_id)
     "/charities/#{charity_id}"
   end
   
