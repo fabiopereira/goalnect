@@ -13,6 +13,7 @@
 		<p><%= t "headline.home.subtitle1" %></p>
 		<p><%= t "headline.home.subtitle2" %></p>
 	</div>
+	<% Togg.le(:feature_goal_template) do %>
 	<div>
 		<% events = GoalTemplate.home_events_current_locale %>
 		
@@ -29,9 +30,9 @@
 				</span> 
 			  </div>
 		</div>
-		<% end %>		
-		
+		<% end %>			
 	</div>
+	<% end %>
 </div>
 
 <div class="span3">
