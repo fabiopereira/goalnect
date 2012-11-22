@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(:version => 20121121205058) do
     t.string   "image"
     t.text     "about_me"
     t.boolean  "admin"
-    t.integer  "country_id",             :default => 2
+    t.integer  "country_id",             :default => 1
     t.integer  "charity_id"
     t.string   "cpf"
   end

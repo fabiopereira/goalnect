@@ -78,7 +78,7 @@ module GoalSteps
     username= find_username
     current_user = find_current_user username
 	  click_on 'donate_button'
-    page.should have_content "New donation"
+    page.should have_content "Supporting"
 	  click_on 'donate_button'
     page.should have_content "Amount can't be blank"
     page.should have_content "Amount is not a number"
@@ -138,7 +138,7 @@ module GoalSteps
 	  click_on goal.achiever.screen_name
 	  click_on goal.title
 	  click_on 'donate_button' 
-	  page.should have_content "New donation"
+	  page.should have_content "Supporting"
 	  click_on 'donate_button'
     page.should have_content "Donor name can't be blank"
 	  donor_name = "Anonymous #{rand(1..1000)}"
