@@ -1,6 +1,6 @@
 
 
-<p><%=raw @charity_update.message%></p>
+<p><%=raw_scape_xss(@charity_update.message) %></p>
 
 
 <%= link_to 'Edit', edit_charity_update_path(@charity_update) %> |
