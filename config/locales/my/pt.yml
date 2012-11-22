@@ -21,6 +21,7 @@ pt:
     label_commit: COMECE AGORA!
     congratulations_almost_there: "Parabéns, você está a um passo de mudar a sua vida pra melhor!"
     yours: "Ou, comece agora escohendo o seu"
+  currency: R$
   headline:
     home:
       subtitle1: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
@@ -51,7 +52,7 @@ pt:
       goal_donation:
         donor_name: "Nome do Doador"
         message: "Mensagem"
-        amount: "Valor"
+        amount: "Qual o valor da sua doação?"
       charity:
         charity_name: Nome da Instituição
         contact_name: Nome do Contato
@@ -75,25 +76,30 @@ pt:
       donate: "Doar"
       new_donation_title: "Nova doação"
       anonymous_login_message: "Você está fazendo uma doação anônima"      
-      you_are_donating_to: "Você está doando para <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
+      you_are_donating_to: "Você está doando para <b>%{charity_name}</b>" 
+      supporting: "Em apoio a" 
       you_are_donating_to_confirmation: "Você está doando $<b>%{amount}</b> para <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
       confirm_message: "Para confirmar e efetuar a doação clique em 'Doar com PagSeguro'"
       confirmation_page: "Só mais um passo para confirmar a sua doação"
       received_and_waiting: "Doação efetuada, estamos aguardando a confirmação do pagamento."
   achiever:
     croptitle: "Selecione a área que quer que apareça desta imagem"
+
+  placeholder:
+    goal_donation:
+      description: "Deixe uma mensagem para %{achiever_name}" 
   
   charities:
-      looking_for_partners: "Goalnect está procurando por instituições de caridade corretas e justas para receber suas doações arrecadadas, por favor cadastre-se ou entre em contato conosco."
-      embrace_this_idea: " e abrace esta idéia"
-      charity_registered: "Seu cadastro foi efetuado com sucesso! Goalnect agradece por seu interesse, e entrará em contato em breve"
-      including_country_code: "Incluir o código do país"
-      charity_description: "Um pequeno resumo sobre a instituição, ações, causas..."
-      onestep: "Só mais um passo..."
-      emailpreference: "Preencha os seus dados ou se preferir, fale conosco por email contato@goalnect.com"
-      if_you_are_a_charity: "Se você é uma ONG"
-      to_suggest_a_charity: "Quer sugerir uma ONG"
-      charity: "ONGs"
+    looking_for_partners: "Goalnect está procurando por instituições de caridade corretas e justas para receber suas doações arrecadadas, por favor cadastre-se ou entre em contato conosco."
+    embrace_this_idea: " e abrace esta idéia"
+    charity_registered: "Seu cadastro foi efetuado com sucesso! Goalnect agradece por seu interesse, e entrará em contato em breve"
+    including_country_code: "Incluir o código do país"
+    charity_description: "Um pequeno resumo sobre a instituição, ações, causas..."
+    onestep: "Só mais um passo..."
+    emailpreference: "Preencha os seus dados ou se preferir, fale conosco por email contato@goalnect.com"
+    if_you_are_a_charity: "Se você é uma ONG"
+    to_suggest_a_charity: "Quer sugerir uma ONG"
+    charity: "ONGs"
       
   goal_stage:
     pending: "aguardando aceitação (isto é um desafio)"

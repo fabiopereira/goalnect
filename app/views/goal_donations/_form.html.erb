@@ -1,35 +1,64 @@
 <%= form_for @goal_donation, :url => goal_donations_create_url do |f| %>
   	<%= render 'layouts/model_error_messages', :target => @goal_donation %>
 
-<%= f.hidden_field :goal_id%>
 
-<% unless user_signed_in? %>
-  <%= t "donation.anonymous_login_message" %> 
-  <%= link_to('Login', sign_in_and_redirect_to_current)  %>
-<% end %>
+<div class="span8">
 
-<p>
-<%=raw t("donation.you_are_donating_to", :charity_name => @goal.charity.charity_name, :achiever => @goal.achiever.screen_name, :goal => @goal.title) %>
-</p>
 
-<% if user_signed_in? %>
-  <p><%= t "activerecord.attributes.goal_donation.donor_name" %>: <b><%= current_user.screen_name %><b></p>
-<% else %>
-  <%= f.label :donor_name %><br />
-  <%= f.text_field :donor_name %>
-<% end %>
-
-  <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_area :message, :rows => 2 %>
-  </div>
   <div class="field">
     <%= f.label :amount %><br />
+	<div class="btn-group" data-toggle="buttons-radio">
+	  <% [7, 10, 20, 50, 100].each do |amount| %>
+	    <button type="button" class="goal_donation_select_amount btn btn-primary" 
+	            data-amount="<%= amount %>">
+	           <%= t "currency" %> <%= amount %>
+	    </button>
+      <% end %>
+	</div>
+	<%= t "currency" %>
     <%= f.text_field :amount %>
   </div>
+
+  <div class="field">
+    <%= f.text_area :message, :rows => 1, :placeholder => t("placeholder.goal_donation.description", :achiever_name => @goal.achiever.screen_name) %>
+  </div>
+
+	<% if user_signed_in? %>
+	  <p><%= t "activerecord.attributes.goal_donation.donor_name" %>: <b><%= current_user.screen_name %><b></p>
+	<% else %>
+	  <%= f.label :donor_name %><br />
+	  <%= f.text_field :donor_name %>
+	<% end %>
 
 <div class="form-actions">
     <%= f.submit t("donation.donate"),  :class => 'btn btn-primary', :id => 'donate_button' %>
 	<%= link_to t('back'), :back, :class => 'btn' %>
 </div>
+
+</div>
+
+<div class="span3">
+	<%= f.hidden_field :goal_id%>
+
+	<% unless user_signed_in? %>
+	  <%= t "donation.anonymous_login_message" %> 
+	  <%= link_to('Login', sign_in_and_redirect_to_current)  %>
+	<% end %>
+
+	<p>
+	<%=raw t("donation.you_are_donating_to", :charity_name => @goal.charity.charity_name) %>
+	<%= charity_image @goal.charity, :thumb %>
+	</p>
+	<p>
+		<small><%= t("donation.supporting") %>:</small>
+	</p>
+	<p id="goalTitle">
+		<%= @goal.title %>
+	</p>
+	<p>
+		<%= user_image @goal.achiever, :thumbmini %> <%= @goal.achiever.screen_name %>
+	</p>
+
+</div>
+
 <% end %>

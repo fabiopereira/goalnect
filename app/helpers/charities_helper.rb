@@ -1,8 +1,11 @@
 module CharitiesHelper
   
   def charity_image charity, image_type
-   
     image_tag(define_image_to_use(charity, image_type))
+  end
+  
+  def charity_image_link charity, image_type
+    "<a href="
   end
   
   def charity_image_align charity, image_type, align

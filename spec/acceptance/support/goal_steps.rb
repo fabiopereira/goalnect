@@ -60,7 +60,7 @@ module GoalSteps
 	end
 	
 	def commit_to_a_goal_template charity, goal_template
-	  description = select_description "Description for goal #{goal_template.title} for charity #{charity.id}"
+	  description = select_description "Description for goal template #{goal_template.title} for charity #{charity.id}"
 	  commit_to_charity_and_target_amount charity
 	  Goal.find_by_title_and_description goal_template.title, description
 	end
