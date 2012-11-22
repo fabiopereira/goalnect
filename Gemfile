@@ -70,6 +70,7 @@ group :assets do
   #gem 'execjs'
   #gem 'therubyracer', :platform => :ruby
   gem 'twitter-bootstrap-rails'
+  gem 'haml'
   
 end
 gem 'jquery-rails'
