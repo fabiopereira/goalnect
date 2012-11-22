@@ -42,5 +42,8 @@ module GoalsHelper
     "/#{user_username}/goals/report_abuse/#{goal_id}"
   end
   
- 
+  def goal_template_path(goal_template_title)
+    "/goal_template/i_commit?goal_template=#{goal_template_title}"
+  end
+  
 end

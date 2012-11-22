@@ -32,7 +32,7 @@
 </div>
 
 
-
+<% Togg.le(:feature_authentication) do %>
 <div id="sign_up_section" class="span5">
 <h2><%= t 'devise.sessions.sign_up'%></h2>
 <h5><%= t 'devise.sessions.sign_up_subtitle' %></h5>
@@ -60,4 +60,5 @@
 <% end %>
 
 </div>
+<% end %>
 

@@ -3,6 +3,10 @@ module ApplicationHelper
     '/users/sign_in?user_return_to=' + request.path
   end
   
+  def raw_scape_xss (content)
+    raw content.gsub('<script>','&lt;script&gt;').gsub('</script>','&lt;/script&gt;')
+  end
+  
   def current_url
     if Rails.env.development? or Rails.env.test?
       'http://' + request.host + ':' + request.port.to_s + request.fullpath

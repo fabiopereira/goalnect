@@ -6,6 +6,10 @@ ActiveAdmin.register GoalTemplate do
         f.input :locale
         f.input :image, :as => :file
         f.input :active
+        f.input :due_on
+        f.input :goal_template_type_id, :as => :select, :collection =>  GoalTemplateType.all
+        f.input :description_guide
+        f.input :publish_home
       end
       f.buttons
   end

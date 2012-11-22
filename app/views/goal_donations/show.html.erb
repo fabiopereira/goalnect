@@ -3,7 +3,7 @@
 </div>
 
 <p>
-<%=raw t("donation.you_are_donating_to_confirmation", :amount => @goal_donation.amount,  :charity_name => @goal_donation.charity.charity_name, :achiever => @goal_donation.goal.achiever.screen_name, :goal => @goal_donation.goal.title) %>
+<%=raw_scape_xss t("donation.you_are_donating_to_confirmation", :amount => @goal_donation.amount,  :charity_name => @goal_donation.charity.charity_name, :achiever => @goal_donation.goal.achiever.screen_name, :goal => @goal_donation.goal.title) %>
 </p>
 
 

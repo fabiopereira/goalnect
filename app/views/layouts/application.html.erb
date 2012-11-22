@@ -17,7 +17,9 @@
 		 <script>
 		$(function() {
 				$( ".jq-tabs" ).tabs();
+				//don't ever let people edit html code, they can insert javascript.
 				$('.text_area').wysihtml5({"html": true});
+				//$('.text_area').wysihtml5();
 				$(".date_select").datepicker({changeYear : true, changeMonth : true});
 			});
 			</script>

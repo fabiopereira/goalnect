@@ -47,7 +47,7 @@ class CharityUpdatesController < ApplicationController
     @charity_update.charity_id = current_user.charity_id
     respond_to do |format|
       if @charity_update.save
-        format.html { redirect_to charity_path(@charity_update.charity_id), notice: 'Charity update was successfully created.' }
+        format.html { redirect_to charity_show_path(@charity_update.charity_id), notice: 'Charity update was successfully created.' }
         format.json { render json: @charity_update, status: :created, location: @charity_update }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class CharityUpdatesController < ApplicationController
 
     respond_to do |format|
       if @charity_update.update_attributes(params[:charity_update])
-        format.html { redirect_to charity_path(@charity_update.charity_id), notice: 'Charity update was successfully updated.' }
+        format.html { redirect_to charity_show_path(@charity_update.charity_id), notice: 'Charity update was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,7 +79,7 @@ class CharityUpdatesController < ApplicationController
     @charity_update.destroy
 
     respond_to do |format|
-      format.html { redirect_to charity_path(@charity_update.charity_id), notice: 'Charity update was successfully deleted.' }
+      format.html { redirect_to charity_show_path(@charity_update.charity_id), notice: 'Charity update was successfully deleted.' }
       format.json { head :no_content }
     end
   end

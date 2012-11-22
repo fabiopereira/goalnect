@@ -3,7 +3,8 @@ require 'time_diff'
 class Goal < ActiveRecord::Base        
   #extend ActiveHash::Associations::ActiveRecordExtensions
   MIN_TARGET_AMOUNT = 50
-  
+
+  attr_accessible :title, :title_selected
   attr_accessible :description, :due_on, :owner, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
   
   belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
@@ -19,7 +20,6 @@ class Goal < ActiveRecord::Base
   validate :not_past_date, :on => :create
   validates :target_amount, :numericality => { :greater_than_or_equal_to => MIN_TARGET_AMOUNT }
   
-  attr_accessible :title, :title_selected
   def title_selected
     self.title
   end
@@ -52,6 +52,9 @@ class Goal < ActiveRecord::Base
         self.goal_template_id = goal_template.id
         self.title = goal_template.title
         self.description = goal_template.description unless self.description
+        if goal_template.due_on
+          self.due_on = goal_template.due_on
+        end
       end
     end
   end

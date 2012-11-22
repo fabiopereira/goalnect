@@ -23,7 +23,7 @@
 </div>
 <div class="span9">
 <p>
-    <%= @charity.description %>
+    <%=raw_scape_xss(@charity.description) %>
 </p>
 </div>
 <div class="span11" id="charity_updates">
@@ -45,7 +45,7 @@
 		<span style="float:right"><%= link_to t('edit'), edit_charity_update_path(update) %> | <%= link_to t('destroy'), update, confirm: 'Are you sure?', method: :delete %>
 		</span>
 		<% end %>
-		<%=raw update.message%>
+		<%=raw_scape_xss(update.message)%>
 		
 		</div>
 		<hr/>

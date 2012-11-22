@@ -18,7 +18,7 @@
   <tbody>
     <% @charities.each do |charity| %>
       <tr>
-        <td><%= link_to charity.id, charity_path(charity) %></td>
+        <td><%= link_to charity.id, charity_show_path(charity.id) %></td>
         <td><%= charity.charity_name %></td>
         <td><%= charity.description %></td>
         <td><%= charity.contact_name %></td>
@@ -29,7 +29,7 @@
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_charity_path(charity), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      charity_path(charity),
+                      charity_show_path(charity.id),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>

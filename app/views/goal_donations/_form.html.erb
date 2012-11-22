@@ -3,6 +3,14 @@
 
 
 <div class="span8">
+<% unless user_signed_in? %>
+  <%= t "donation.anonymous_login_message" %> 
+  <%= link_to('Login', sign_in_and_redirect_to_current)  %>
+<% end %>
+
+<p>
+<%=raw_scape_xss t("donation.you_are_donating_to", :charity_name => @goal.charity.charity_name, :achiever => @goal.achiever.screen_name, :goal => @goal.title) %>
+</p>
 
 
   <div class="field">

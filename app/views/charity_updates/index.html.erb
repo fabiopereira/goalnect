@@ -9,7 +9,7 @@
 <% @charity_updates.each do |charity_update| %>
   <tr>
     <td><%= charity_update.charity_id %></td>
-    <td><%=raw charity_update.message %></td>
+    <td><%=raw_scape_xss(charity_update.message) %></td>
   </tr>
 <% end %>
 </table>

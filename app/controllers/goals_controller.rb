@@ -38,7 +38,7 @@ class GoalsController < ApplicationController
   
   def fill_goal_with_template_if_exists goal
     if params[:goal_template] && params[:goal_template] != :goal_template_yours.to_s
-      goal.title = params[:goal_template]
+      goal.title_selected = params[:goal_template]
     end
   end
   

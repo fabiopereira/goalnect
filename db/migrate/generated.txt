@@ -106,4 +106,8 @@ rails g migration add_goal_template_id_to_goal goal_template_id:integer
 
 rails g migration add_vantagens_file_id_to_redemption_point_transaction vantagens_file_id:integer
 
+rails g migration add_due_on_and_description_guide_and_type_to_goal_template goal_template_type_id:integer description_guide:string due_on:date
+
+rails g migration add_publish_home_to_goal_template  publish_home:boolean
+
 
