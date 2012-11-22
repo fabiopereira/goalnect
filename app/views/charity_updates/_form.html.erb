@@ -1,7 +1,7 @@
 <%= form_for(@charity_update) do |f| %>
 <%= render 'layouts/model_error_messages', :target => @charity_update %>
   <div class="field">
-    <%= f.label :message %><br />
+    <%= f.label :message %>
     <%= f.text_area :message, :class => 'text_area' %>
   </div>
   <div class="actions">

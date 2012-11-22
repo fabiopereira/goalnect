@@ -11,7 +11,7 @@
 <%= f.hidden_field :goal_id%>
 
   <div class="field">
-    <%= f.label :amount %><br />
+    <%= f.label :amount %>
 	<div class="btn-group" data-toggle="buttons-radio">
 	  <% [7, 10, 20, 50, 100].each do |amount| %>
 	    <button type="button" class="goal_donation_select_amount btn btn-primary" 
@@ -27,15 +27,18 @@
   <div class="field">
     <%= f.text_area :message, :rows => 1, :placeholder => t("placeholder.goal_donation.description", :achiever_name => @goal.achiever.screen_name) %>
   </div>
-	<div>              
-		<%= image_tag("goal-donation-step-1-#{I18n.locale}.png") %>
-	</div>
+	<div>
 	<% if user_signed_in? %>
 	  <p><%= t "activerecord.attributes.goal_donation.donor_name" %>: <b><%= current_user.screen_name %><b></p>
 	<% else %>
-	  <%= f.label :donor_name %><br />
+	  <%= f.label :donor_name %>
 	  <%= f.text_field :donor_name %>
 	<% end %>
+	</div>
+
+	<div>              
+		<%= image_tag("goal-donation-step-1-#{I18n.locale}.png") %>
+	</div>
 
 <div class="form-actions">
     <%= f.submit t("donation.donate"),  :class => 'btn btn-primary', :id => 'donate_button' %>

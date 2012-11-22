@@ -6,7 +6,7 @@
   	     <%= collection_select(:goal_feedback, :goal_stage_id, GoalStage.possible_goal_stage_updates, :id, :translated_name) %>
   	  </div>
 	  <div class="field">
-	    <%=t"goal_update_field"%><br />
+	    <%=t"goal_update_field"%>
 	    <%= f.text_area :message, :rows => 10 , :class => 'text_area' %><br/>
 	  </div>
 	 <%= f.submit nil, :class => 'btn btn-primary', :value => t("send"), :disable_with => "Saving..." %>

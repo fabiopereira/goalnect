@@ -8,6 +8,9 @@
 <%= charity_image goal.charity, :thumb %>
 </p>
 <p>
+	<%= truncate(goal.charity.description, :length => 200, :omission =>"...") %>
+</p>
+<p>
 	<small><%= t("donation.supporting") %>:</small>
 </p>
 <p id="goalTitle">
