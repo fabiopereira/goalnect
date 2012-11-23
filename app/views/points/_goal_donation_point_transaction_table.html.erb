@@ -9,11 +9,13 @@
   </tr>
   </thead>
   <tbody>
+	
+	
 <% transactions.each do |point_transaction| %>
   <tr class="<%= point_transaction.status.to_s %>">
     <td><%= point_transaction.goal_donation.donor_name %></td>
-    <td><%= point_transaction.goal.description %> (<%= point_transaction.goal.achiever.screen_name %>) </td>
-    <td><%= point_transaction.created_at %></td>
+    <td><%= user_image point_transaction.goal.achiever, :thumbmini %> <%= point_transaction.goal.achiever.screen_name %> - <%= point_transaction.goal.title %> </td>
+    <td><%= l point_transaction.created_at %></td>
     <td><%= point_transaction.point_amount %></td>
     <td>   
 		<% case point_transaction.status %>

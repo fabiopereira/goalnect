@@ -1,4 +1,4 @@
-<h1>Points</h1>
+<h1><%= t "points" %></h1>
 
 <div>
 	<% if current_user.points_summary.available_points > 0 %>
@@ -25,7 +25,7 @@
 <% @redemption_transactions.each do |redemption_transaction| %>
   <tr>
     <td><%= redemption_transaction.id %></td>
-    <td><%= redemption_transaction.created_at %></td>
+    <td><%= l redemption_transaction.created_at %></td>
     <td><%= redemption_transaction.point_amount %></td>
     <td><%= redemption_transaction.cpf %></td>
   </tr>

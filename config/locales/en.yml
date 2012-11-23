@@ -3,3 +3,7 @@
 
 en:
   hello: 'Hello Goalnect'
+  time:
+    formats:
+      default: "%d/%m/%Y at %H:%M"
+    
