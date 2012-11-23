@@ -96,14 +96,9 @@ module GoalSteps
     page.should have_content "Donation Confirmation"
     verify_donation_values goal, goal_donation
     find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
-	  page.should have_content "Donation received, waiting for pagseguro to confirm"
     
     visit_goal goal
-    page.should have_content goal_donation.amount
-    page.should have_content goal_donation.donor_name
-    # represents waiting_for_notification status
-    page.should have_css("span.icon110")
-    
+
 	  goal_donation = GoalDonation.find_by_message(message)
 	  
 	  donation_payment_notification goal, goal_donation
@@ -150,8 +145,6 @@ module GoalSteps
 	  click_on 'donate_button'
     page.should have_content "Donation Confirmation"
     find(:xpath, '//form[@class="pagseguro"]/div/input[@type="submit"]').click
-  	page.should have_content "Donation received, waiting for pagseguro to confirm"
-  
   
     #assert that goal_donation was created successfully
     goal_donation = GoalDonation.find_by_message(message)

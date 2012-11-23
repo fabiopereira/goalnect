@@ -73,7 +73,11 @@ class Goal < ActiveRecord::Base
   
   def find_most_recent_donations_by_goal_id 
     GoalDonation.find_most_recent_donations_by_goal_id self.id
-  end         
+  end 
+  
+  def goal_donations_to_display
+    GoalDonation.find_all_to_display_by_goal_id self.id
+  end        
   
   def goalStage
       GoalStage.find(self.goal_stage_id)

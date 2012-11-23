@@ -24,6 +24,10 @@ class GoalDonation < ActiveRecord::Base
     GoalDonation.where("goal_id = ? and current_stage_id = ?", goal_id, GoalDonationStage::APPROVED.id).order('id DESC').limit(5)
   end
   
+  def self.find_all_to_display_by_goal_id goal_id
+    GoalDonation.where("goal_id = ? and current_stage_id != ?", goal_id, GoalDonationStage::WAITING_NOTIFICATION.id)
+  end
+  
   def self.find_most_recent_donations_by_charity_id charity_id
     GoalDonation.where("charity_id = ? and current_stage_id = ?", charity_id, GoalDonationStage::APPROVED.id).order('id DESC').limit(10)
   end

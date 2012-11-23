@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-      <% @goal.goal_donations.each do |goal_donation| %>
+      <% @goal.goal_donations_to_display.each do |goal_donation| %>
       <tr>
 			<td>
 			   <%= render 'goal_donations/stage_icon', :goal_donation => goal_donation%>	

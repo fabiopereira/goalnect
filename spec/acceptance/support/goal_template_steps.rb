@@ -15,7 +15,9 @@ module GoalTemplateSteps
     ensure_logged_out
     visit '/'
     
+    find(:xpath, "//select/option[@value='#{goal_template.title}']")
     page.select goal_template_title, :from => "goal_template"
+    
     find(:xpath, '//form[@class="i_commit"]//input[@type="submit"]').click
     
     user_should_be_prompted_for_sign_in_or_sign_up
