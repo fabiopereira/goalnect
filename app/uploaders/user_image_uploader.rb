@@ -2,7 +2,7 @@ class UserImageUploader < ImageUploader
   
   version :thumb do
     process :crop
-    resize_to_fill(180, 180)
+    resize_to_fill(160, 160)
   end
 
   # Create different versions of your uploaded files:
