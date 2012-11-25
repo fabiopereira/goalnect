@@ -30,6 +30,7 @@ module CharitySteps
     set_user_as_charity_admin user, charity_id
     visit '/'
     click_on user.charity.charity_name
+    sleep 10
     page.should have_content user.charity.charity_name
     
   end
@@ -45,17 +46,17 @@ module CharitySteps
   def visit_all_donations_page_verify_summaries gross_amount, pagseguro_fee, goalnect_fee, net_amount
     
     click_on "List All Donations"
-    find("#donations_amount").should have_content("0.0")
-    find("#total_pagseguro_fee").should have_content("0.0")
-    find("#total_goalnect_fee").should have_content("0.0")
-    find("#net_donations_amount").should have_content("0.0")
+    find("#previous_donations_amount").should have_content("0.0")
+    find("#previous_total_pagseguro_fee").should have_content("0.0")
+    find("#previous_total_goalnect_fee").should have_content("0.0")
+    find("#previous_net_donations_amount").should have_content("0.0")
     page.should have_content "Previous month donations transactions (PDF)"
     
     click_on "Current Month"
-    find("#donations_amount").should have_content(gross_amount)
-    find("#total_pagseguro_fee").should have_content(pagseguro_fee)
-    find("#total_goalnect_fee").should have_content(goalnect_fee)
-    find("#net_donations_amount").should have_content(net_amount)
+    find("#current_donations_amount").should have_content(gross_amount)
+    find("#current_total_pagseguro_fee").should have_content(pagseguro_fee)
+    find("#current_total_goalnect_fee").should have_content(goalnect_fee)
+    find("#current_net_donations_amount").should have_content(net_amount)
     page.should have_content "Current Donations Transactions (PDF)"
     
   end

@@ -38,13 +38,13 @@ module ApplicationHelper
         :amount => goal.days_left,
         :suffix => "#{t('datetime.prompts.day').downcase}s" }
     elsif goal.due_today?
-      { :prefix => t("activerecord.attributes.goal.due_on"),
+      { :prefix => t("goal.due_on"),
         :amount => t("today"),
         :suffix => "" }
-    else
-      { :prefix => t("activerecord.attributes.goal.due_on"),
-        :amount => l(goal.due_on),
-        :suffix => "" }
+    else # due on the past
+      { :prefix => t("goal.due_on"),
+        :amount => goal.due_on.day,
+        :suffix => goal.due_on.strftime("%b/%Y") }
     end
   end
   

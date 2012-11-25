@@ -43,23 +43,25 @@
 		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
-		
-		<section id="conteudo-cima" clear="">
-			<div class="centraliza clearfix">
-				<% flash.each do |name, msg| %>
-				  <% if msg.is_a?(String) %>
-				    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-				      <a class="close" data-dismiss="alert">&#215;</a>
-				      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-				    </div>
-				  <% end %>
-				<% end %>
+		<section id="main">	
+		  <div id="container" class="container">
+			<div class="span12 well" style="margin-left:0;background: white;">
+				<div class="flash span11">          
+					<% flash.each do |name, msg| %>
+					  <% if msg.is_a?(String) %>
+					    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+					      <a class="close" data-dismiss="alert">&#215;</a>
+					      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+					    </div>
+					  <% end %>
+					<% end %>				
+				 </div>				
 				<%= yield %>
 			</div>
-		</section>
-
 			<%= render 'layouts/footer' %>
-
+		  </div>
+		</section>
+		</div>
 		
 	</body>
 </html>

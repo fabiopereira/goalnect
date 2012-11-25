@@ -69,6 +69,8 @@ pt:
         charity: "ONG"
         charity_id: "ONG"
         target_amount: "Quantia mínima que deseja arrecadar"
+  goal:
+    due_on: "Prazo" 
   
   today: Hoje
   timeLeftPrefix: Faltam
@@ -135,13 +137,13 @@ pt:
   journey: "Jornada"
   comments: "Comentários"
   donations: "Doações"
-  possible: "Acreditam"
+  possible: "Tamo junto"
   including_you: "(incluindo você)"
-  no_way: "duvidam"
-  no_way_button: "Dúvido"
+  no_way: "Duvido"
+  no_way_button: "Duvido"
   possible_button: "Acredito"
   raised_so_far: "Já arrecadei"
-  donate_now: "Doar Agora"
+  donate_now: "APOIAR"
   view_goal: "Visualizar Goal"
   my_target: "Minha meta"
   my_goal_status_message: "Meu goal está"

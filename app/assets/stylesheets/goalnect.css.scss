@@ -1,0 +1,193 @@
+$font-text: arial, verdana, sans-serif;
+$font-title: "BentonSans-Bold";
+$azul-logo:#3e58a7;
+$azul-claro:#9cc9eb;
+$cinza-escuro:#666;
+$cinza-claro:#d9d9d9;
+
+
+#achiever_profile_img {
+  width : 160px;
+}
+
+body{
+	background:url(josecarlosimg/conteudo-bg.png) top repeat-x;
+	margin-top:78px;
+    font-family: $font-text;
+	color:$cinza-escuro;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #f2f2f2;
+    margin: 1em 0;
+    padding: 0;
+}
+
+h1{
+    font-size:3em;
+	font-family:$font-title;
+}
+
+h2{
+    font-size: 2.5em;
+    color:$azul-logo;
+	font-family:$font-title;
+	line-height: 36px;
+}
+
+h3{
+    font-size:18px;
+    font-family:$font-title;
+    color:$azul-claro;
+}
+
+h4{
+   color:$azul-claro;
+}
+
+#top-section{
+    padding:20px 0 0 0px;
+}
+
+#bottom-section{
+	border-top:2px solid #5b71b3;
+    background: #FFFFFF;
+    padding:20px 0 0 0px;
+}
+
+.box-pequeno{
+    background-color:#fff;
+    padding:10px;
+    margin-bottom:15px;
+    font-size:1.2em;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    figure{
+        margin-bottom:5px;
+    }
+	p {
+		color:$azul-logo;
+	}
+}
+
+.box-grande{
+    @extend .box-pequeno;
+    padding:15px;
+	margin-bottom:15px;
+    p{
+        margin-bottom:15px;
+		color:$cinza-escuro;
+    }
+}
+
+#infos-instituicao{
+    padding-top:10px;
+    .logo-instituicao{
+        margin-right:15px;
+        float:left;
+    }
+}
+
+
+.descricao-instituicao{
+    width:400px;
+    margin-right:10px;
+    float:left;
+ 	line-height:20px;
+    p{
+        margin-bottom:0;
+    }
+}
+
+.goal-social-plugins{
+    width:400px;
+    margin-right:10px;
+    float:left;
+ 	line-height:20px;
+    p{
+        margin-bottom:0;
+    }
+}
+
+#infos-goal{
+    .imagem-goal{
+        background:url(josecarlosimg/goal-bg.png) no-repeat;
+        width:194px;
+        height:194px;
+        padding:24px 0 0 24px;
+        float:left;
+    }
+    .descricao-goal{
+        width:481px;
+        float:left;
+    }
+}
+
+#status-goal{
+    padding-bottom:20px;
+    margin-bottom:20px;
+	div{
+		display: inline;
+		figure{
+	        float:left;
+	    }
+	    p{
+	        width:421px;
+	        margin:20px 0 0 15px;
+	        float:left;
+	    }
+	    .dias-restantes{
+	        background-position:-169px 0;
+	        width:90px;
+	        height:72px;
+	        padding-top:20px;
+	        margin-right:15px;
+	        text-align:center;
+	        float:left;
+	        span{
+	            line-height:30px;
+	        }
+	    }
+	}
+}
+
+.status-bar{
+    background:#f0f1f1 url(josecarlosimg/status-bar-bg.png);
+    width:380px;
+    height:9px;
+    margin-bottom: 15px;
+	margin-top: 9px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    .progress{
+        background:#a9c639 url(josecarlosimg/progress-bg.png);
+        height:9px;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;
+        border-radius:3px;
+    }
+}
+
+.valores{
+	width:380px;
+    font-size:22px;
+    font-family:$font-title;
+    position:relative;
+    p{
+        color:$azul-logo;
+    }
+    .porcentagem{
+        position:absolute;
+        top:0;
+        right:0;
+    }
+}
+
+
+
+
