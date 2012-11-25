@@ -68,8 +68,9 @@ module GoalSteps
 	def support_believing goal
 	  visit_goal goal
 	  page.should have_content goal.title
-	  click_on 'i_believe_button'
-	  page.should have_content 'Possible: 1'
+	  find('#i_support_true_button').click
+	  find('#i_support_count_true').should have_content '1'
+	  find('#including_you_true').should have_content 'including you'
 	end
 	
 	def donate_logged_in goal, amount_donated

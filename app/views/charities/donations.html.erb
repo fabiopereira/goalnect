@@ -12,11 +12,11 @@
  </ul>
  <div id="donatiosTabsContent" class="tab-content">
 	 <div class="tab-pane fade in active" id="previous-donations-tab">
-		<%= render 'charities/donations_table', :donations_summary => @previous_donations_summary %>
+		<%= render 'charities/donations_table', :donations_summary => @previous_donations_summary, :prefix => 'previous' %>
 			<p><%= link_to "Previous month donations transactions (PDF)", previous_month_donations_pdf_path(@charity.id), :target => 'blank' %></p>
 	 </div>
 	 <div class="tab-pane fade" id="current-donations-tab">	
-		<%= render 'charities/donations_table', :donations_summary => @current_donations_summary %>
+		<%= render 'charities/donations_table', :donations_summary => @current_donations_summary, :prefix => 'current' %>
 		<p><%= link_to "Current Donations Transactions (PDF)", current_month_donations_pdf_path(@charity.id), :target => 'blank'  %></p>
 		
 	 </div>

@@ -1,0 +1,95 @@
+@oficialFont: Arial;
+
+#main {
+	margin-top: 60px;
+}
+
+.small_i_font{
+	font-size:x-small;
+	font-style:italic;
+}
+
+.support-info{
+	font-size: 10px;
+}
+
+.footer {
+clear: both;
+text-align: left;
+background-color: #f2f2f2;
+}
+
+.footer-end {
+  height: 45px;
+  background-color:#9B9595;
+  text-align: center;
+  color:white;
+  bottom: 0;
+}
+
+.link-footer {
+font-size: 20px;
+font-weight: lighter;
+text-decoration: none;
+color: #666;
+}
+
+.title-footer {
+font-size: 20px;
+font-weight: lighter;
+text-decoration: none;
+color: navy;
+}
+
+#headlineSubtitle p {
+font-size: 17px;
+font-family: @oficialFont;
+color: navy;
+}
+
+.action-text{
+	font-size: 14px;
+	font-family: @oficialFont;
+}
+
+.points-summary{
+	font-size: 14px;
+	font-family: @oficialFont;
+	color: navy;
+}
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #FFFCB2;
+    }
+  }
+}
+
+form.pagseguro input[type=submit]{
+	background:url(pagseguro-94x52-doar-assina.gif) no-repeat;
+	width: 94px;
+	height:52px;
+	border:0;
+}
+
+
+.jq-tabs {border: none}
+.jq-tabs .ui-widget { border:none;  padding:0px; margin:0px; }
+ .jq-tabs .ui-widget-header { border:none; padding:0px; margin:0px; }
+ .jq-tabs .ui-widget-content { border:none; padding:0px; margin:0px; }

@@ -12,6 +12,10 @@ require 'rails/test_help'
 require 'capybara/rspec'
 Capybara::Screenshot.autosave_on_failure = true
 
+def logger
+  Rails.logger
+end
+
 # Capybara.javascript_driver = :webkit
 Capybara.default_driver = :selenium
 

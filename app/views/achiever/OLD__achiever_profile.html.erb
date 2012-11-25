@@ -1,0 +1,24 @@
+<div class="span2 well achiever_profile" style="border-color:navy">
+	<a href="<%= achiever.full_url %>" >
+        <%= user_image achiever, :thumb %><br/>
+		<h4><%= achiever.screen_name %></h4>
+    </a>
+	<hr/>
+	<% if current_user_is_achiever?(achiever) %>
+		<p class="action-text"><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
+		<hr/>
+		<p class="action-text"><%= link_to t('edit_profile'), '/achiever/edit'  %></p>
+		<hr/>
+		<% if current_user.charity_id%>
+		<p class="action-text"><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
+		<hr/>
+		<% end %>
+	<% end %>
+		<p class="points-summary"><b><%= t("points_summary")%>:</b></p>
+		<p class="points-summary"><%= t("active_points")%>.....
+	     <span id="available_points"><%= achiever.points_summary.available_points %></span>pts</p>
+		<p class="points-summary"><%= t("locked_points")%>.....<span id="locked_points"><%=achiever.points_summary.locked_points %></span>pts</p>
+		<p class="points-summary"><%= t("redeemed_points")%>.....
+		<span id="redeemed_points"><%=achiever.points_summary.redeemed_points %></span>pts</p>
+		<%= link_to t("statement"), "/#{achiever.username}/points_statement" %>
+</div>

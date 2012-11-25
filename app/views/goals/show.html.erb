@@ -13,31 +13,25 @@ $(function() {
 });
 </script>
 <%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
-<div class="span8">
-	<%= render 'goals/header_div', :goal => @goal %>
-	<ul id="goalTabs" class="nav nav-tabs">
-		<li id="goal-description-tab-link" class="active"><a href="#goal-description-tab" data-toggle="tab"><%= t "description"%></a></li>
-	    <li id="goal-journey-tab-link"><a href="#goal-journey-tab" data-toggle="tab"><%= t "journey"%></a></li>
-	    <li id="goal-comments-tab-link"><a href="#goal-comments-tab" data-toggle="tab"><%= t "comments"%></a></li>
-	    <li id="goal-donations-tab-link"><a href="#goal-donations-tab" data-toggle="tab"><%= t "donations"%></a></li>
-	 </ul>
-	 <div id="goalTabsContent" class="tab-content">
-		 <div class="tab-pane fade in active" id="goal-description-tab">
-			<%= render 'description_tab', :goal => @goal %>
-		 </div>
-		 <div class="tab-pane fade" id="goal-journey-tab">	
-			<%= render 'feedback_tab', :goal => @goal %>
-		 </div>
-		<div class="tab-pane fade" id="goal-comments-tab">
-			<fb:comments href="<%= current_url %>"></fb:comments>
-		 </div>
-		 <div class="tab-pane fade" id="goal-donations-tab">
-			<%= render 'donation_tab'%>
-		 </div>
-	</div>
-	<% Togg.le(:feature_fb_social) do %>
-		<div class="g-plusone" data-size="medium"></div>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
-       <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450" data-show-faces="false"></div>	
-    <% end %>
-</div>
+<%= render 'goals/header_div', :goal => @goal %>
+		<ul id="goalTabs" class="nav nav-tabs">
+		    <li id="goal-journey-tab-link"  class="active"><a href="#goal-journey-tab" data-toggle="tab"><%= t "journey"%></a></li>
+		    <li id="goal-comments-tab-link"><a href="#goal-comments-tab" data-toggle="tab"><%= t "comments"%></a></li>
+		    <li id="goal-donations-tab-link"><a href="#goal-donations-tab" data-toggle="tab"><%= t "donations"%></a></li>
+		 </ul>
+		 <div id="goalTabsContent" class="tab-content">
+			 <div class="tab-pane fade in active" id="goal-journey-tab">	
+				<%= render 'feedback_tab', :goal => @goal %>
+			 </div>
+			<div class="tab-pane fade" id="goal-comments-tab">
+				<fb:comments href="<%= current_url %>"></fb:comments>
+			 </div>
+			 <div class="tab-pane fade" id="goal-donations-tab">
+				<%= render 'donation_tab'%>
+			 </div>
+		</div>
+		<% Togg.le(:feature_fb_social) do %>
+			<div class="g-plusone" data-size="medium"></div>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
+	       <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450" data-show-faces="false"></div>	
+	    <% end %>

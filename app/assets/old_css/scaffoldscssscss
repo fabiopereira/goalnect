@@ -1,12 +1,13 @@
-
+/*
 body {
-  background: url('blueprint_background.jpg');
+	background: url('blueprint_background.jpg');
   //background: url('apple_ios_linen_texture.jpg');
   //background: url('technical_drawing_paper_texture.jpg');
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
+*/
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;

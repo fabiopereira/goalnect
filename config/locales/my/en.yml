@@ -89,6 +89,9 @@ en:
   including_you: "(including you)"
   no_way_button: "No Way"
   possible_button: "Possible"
+  possible: "Possible"
+  no_way: "No way"
+  donate_now: "DONATE"
   my_goal_status_message: "My goal is"
   goal_update_field: "Because..."
   goal_status_message: "This goal is"
@@ -99,6 +102,7 @@ en:
   active_points: "Available"
   locked_points: "Locked"
   redeemed_points: "Redeemed"
+  aaa: "aaa"
   statement: "Statement"
   waiting_payment_confirmation: "Waiting Confirmation"
   donation_canceled: "Donation Canceled"
@@ -168,6 +172,9 @@ en:
     find_us: "Find us"
     contact: "Contact"
     or_call: "Or call"
+  goal:
+    due_on: "Due on" 
+
     
   errors:
     search:

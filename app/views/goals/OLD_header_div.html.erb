@@ -1,0 +1,78 @@
+<div class="coluna2">
+	<article class="box-grande">
+		<section id="infos-goal" class="clearfix">
+			<figure class="imagem-goal">
+				<img src="imagens/apagar/goal.png" alt="">
+			</figure>
+			<section class="descricao-goal">
+				<h2 class="titulo-goal"><%= goal.title%></h2>
+				<p>goal desc.</p>
+				<div class="status-bar">
+					<div class="progress" style="width:10%;"></div>
+				</div><!-- /status-bar //-->
+				<section class="valores">
+					<p>R$ 960 / R$ 2000</p>
+					<p class="porcentagem">8%</p>
+				</section><!-- /valores //-->
+			</section><!-- /descricao-goal //-->
+		</section><!-- /infos-goal //-->
+	</article><!-- /box-grande //-->
+</div><!-- /coluna2 //-->
+
+
+<div class="row well" style="margin-left:0px;margin-bottom:0px">
+<h4>Goal: <%= goal.title%></h4> 
+<hr/>
+<span class="tiptip" style="float:left">
+	
+	<table>
+		<tr><td>
+		  <% if current_user %>
+		     <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title='<%= t("possible_button")%>' id="i_believe_button">
+			 <span class="icon icon101"></span><%= t "possible_button"%></a>
+	   	     <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title='<%= t("no_way_button") %>' id="i_dont_believe_button">
+		     <span class="icon icon100"></span><%= t "no_way_button"%></a>
+		  <% end %>
+		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title='<%=t("donate_now")%>' id="donate_button"><span class="icon icon51"></span>&nbsp;&nbsp;<%=t("donate_now")%></a>	
+		<% if is_current_user_charity_admin?(goal.charity.id) %>
+		<a href="<%=goal_report_abuse_path(goal.achiever.username, goal.id)%>" class="button button-g" title='<%= t "report_abuse"%>'><span class="icon icon5"></span>&nbsp;&nbsp;&nbsp;<%= t "report_abuse"%></a>
+		<% end %>
+		</td></tr>
+		<tr><td>
+			<div class="support-info">
+			<%
+				current_user_support = goal.support_for(current_user)
+			%>
+			<%= t"possible" %>: <%= goal.how_many_believe %> <%= t('including_you') if current_user_support.present? and current_user_support.i_support %>, <%= t('no_way') %>: <%=goal.how_many_dont_believe %><%= t('including_you') if current_user_support.present? and !current_user_support.i_support %>
+			<br/>
+				<%=t"my_goal_status_message"%> <%=goal.goalStage.translated_name%>
+		    </div>
+		</td></tr>	
+	</table>
+
+</span>
+
+<span style="float:right">
+	<span style="float:left"><%= charity_image(goal.charity, :thumbmini)%></span>
+	
+   <span style="float:right;margin-left:5px">	
+		<p style="font-size:18px;text-align:center"><%= t("raised_so_far")%>: <b>R$ <%= goal.raised_so_far%> </b></p>
+		<p style="text-align:center"><%= t("my_target")%>: <b> R$ <%= goal.target_amount%></b></p>
+		<div class="progress progress-striped">
+		  <div class="bar bar-success" style="width: <%= goal.raised_so_far_percentage%>%;"><%= goal.raised_so_far_percentage%>%</div>  
+		</div>
+    </span>
+</span>
+
+<%= render "goals/days_left", :goal => goal %>
+
+</div>
+
+
+<div class="row well"  style="margin-left:-20px;margin-bottom:0px;border:0;background:white">
+	<% Togg.le(:feature_fb_social) do %>
+		<div class="g-plusone" data-size="medium"></div>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
+      <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-show-faces="false"></div>
+    <% end %>
+</div>
