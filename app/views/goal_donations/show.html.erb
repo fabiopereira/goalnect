@@ -1,4 +1,12 @@
-<div class="span8">
+<div class="coluna1">
+<article class="box-pequeno">
+<%= render 'goal_donations/goal_donation_summary', :goal => @goal_donation.goal %>
+</article>
+</div>
+
+
+<div class="coluna2">
+<article class="box-grande">
 
 <div class="page-header">
   <h1><%=t "donation.confirmation_page" %></h1>
@@ -21,8 +29,6 @@
      <span><%= @goal_donation.current_stage.translated_name %></span>
   </p>
 <% end %>
+</article>
 </div>
 
-<div class="span3">
-<%= render 'goal_donations/goal_donation_summary', :goal => @goal_donation.goal %>
-</div>

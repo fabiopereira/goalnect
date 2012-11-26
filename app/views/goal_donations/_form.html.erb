@@ -1,8 +1,14 @@
 <%= form_for @goal_donation, :url => goal_donations_create_url do |f| %>
   	<%= render 'layouts/model_error_messages', :target => @goal_donation %>
 
+<div class="coluna1">
+	<article class="box-pequeno">
+       <%= render 'goal_donations/goal_donation_summary', :goal => @goal %>
+    </article>
+</div>
 
-<div class="span8">
+<div class="coluna2">
+	<article class="box-grande">
 <% unless user_signed_in? %>
   <%= t "donation.anonymous_login_message" %> 
   <%= link_to('Login', sign_in_and_redirect_to_current)  %>
@@ -46,9 +52,8 @@
 </div>
 
 </div>
-
-<div class="span3">
-<%= render 'goal_donations/goal_donation_summary', :goal => @goal %>
+    </article>
 </div>
+
 
 <% end %>
