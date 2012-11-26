@@ -1,22 +1,6 @@
 <div class="coluna1">
-	<article class="box-pequeno">
-		<figure>
-			<a href="<%= achiever.full_url %>" >
-		        <%= image_tag user_image_url(achiever, :thumb), :id => "achiever_profile_img" %>
-		    </a>
-		</figure>
-		<p>
-		<strong>
-			<a href="<%= achiever.full_url %>" >
-				<%= achiever.screen_name %>
-		    </a>
-		</strong>
-		</p>
-		<% if current_user_is_achiever?(achiever) %>
-			<p><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
-			<p><%= link_to t('edit_profile'), '/achiever/edit'  %></p>
-		<% end %>
-	</article><!-- /box-pequeno //-->
+	<%= render 'achiever/box', :achiever => achiever %>
+	
 	<article class="box-pequeno">
 		<h4><%= t("points_summary")%>:</h4>
 		<hr/>
