@@ -8,7 +8,7 @@
 			<section class="descricao-goal">
 				<h2 class="titulo-goal"><%= goal.title%></h2>
 				<h4 class="align_right"><%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
-				<p><%=raw_scape_xss goal.description%></p>
+				<p id="goal_description_text"><%=raw_scape_xss goal.description%></p>
 			</section><!-- /descricao-goal //-->
 		</section><!-- /infos-goal //-->
 		<section class="goal-social-plugins">
