@@ -11,6 +11,11 @@ $cinza-claro:#d9d9d9;
   width : 160px;
 }
 
+#charity_img_160px{
+	width : 160px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 body{
 	background:url(josecarlosimg/conteudo-bg.png) top repeat-x;
 	margin-top:78px;
@@ -49,7 +54,9 @@ h4{
    color:$azul-claro;
 }
 
-
+h5{
+   color:$azul-logo;
+}
 
 label{
 	font-size: 18px;
@@ -167,7 +174,7 @@ input[type="color"]:focus,
         margin-bottom:5px;
     }
 	p {
-		color:$azul-logo;
+		color:$cinza-escuro;
 	}
 }
 
@@ -181,8 +188,9 @@ input[type="color"]:focus,
     }
 }
 
+
 .align_right{
-	text-align:right
+	text-align:right;
 }
 
 #infos-goal{

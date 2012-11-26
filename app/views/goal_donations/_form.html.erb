@@ -1,3 +1,9 @@
+
+<%= render 'goal_donations/goal_donation_summary', :goal => @goal %>
+
+<div class="coluna2">
+	<article class="box-grande">
+		
 <%= form_for @goal_donation, :url => goal_donations_create_url do |f| %>
   	<%= render 'layouts/model_error_messages', :target => @goal_donation %>
 
@@ -47,8 +53,9 @@
 
 </div>
 
-<div class="span3">
-<%= render 'goal_donations/goal_donation_summary', :goal => @goal %>
+</article>
 </div>
 
 <% end %>
+
+
