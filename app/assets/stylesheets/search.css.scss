@@ -9,10 +9,17 @@
 
 #search-result {
    height: 250px;
-}
-
-#search-result {
    padding: 10px 0 0 0;
    display: inline-block;
    width: 218px;
+   margin: 0 10px 0 0;
+}
+
+#search-result {
+  .box-pequeno {
+    &:hover{
+      border: 
+    }
+  }
+  
 }
