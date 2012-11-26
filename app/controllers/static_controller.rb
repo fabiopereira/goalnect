@@ -21,4 +21,11 @@ class StaticController < ApplicationController
       format.html {render "/static/#{params[:static_content]}-#{I18n.locale}.html.erb"}
     end
   end
+  
+  def jc
+    respond_to do |format|
+      format.html {render "/static/jc/#{params[:static_content]}.html.erb"}
+    end
+  end
+  
 end

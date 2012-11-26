@@ -19,3 +19,7 @@
 /public/uploads
 
 /spec/reports
+
+# Ignore sprite icons
+/app/assets/images/iconsgoal-*.png
+
