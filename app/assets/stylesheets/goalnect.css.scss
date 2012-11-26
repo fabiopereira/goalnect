@@ -84,6 +84,29 @@ h4{
     }
 }
 
+.align_right{
+	text-align:right
+}
+
+#infos-goal{
+    .imagem-goal{
+        background:url(josecarlosimg/goal-bg.png) no-repeat;
+        width:194px;
+        height:194px;
+        padding:24px 0 0 24px;
+        float:left;
+		margin-top: -20px;
+		margin-left: -20px
+    }
+    .descricao-goal{
+        width:481px;
+        float:left;
+    }
+}
+
+.goal-social-plugins{
+}
+
 #infos-instituicao{
     padding-top:10px;
     .logo-instituicao{
@@ -103,33 +126,7 @@ h4{
     }
 }
 
-.goal-social-plugins{
-    width:400px;
-    margin-right:10px;
-    float:left;
- 	line-height:20px;
-    p{
-        margin-bottom:0;
-    }
-}
-
-#infos-goal{
-    .imagem-goal{
-        background:url(josecarlosimg/goal-bg.png) no-repeat;
-        width:194px;
-        height:194px;
-        padding:24px 0 0 24px;
-        float:left;
-    }
-    .descricao-goal{
-        width:481px;
-        float:left;
-    }
-}
-
 #status-goal{
-    padding-bottom:20px;
-    margin-bottom:20px;
 	div{
 		display: inline;
 		figure{
@@ -153,6 +150,19 @@ h4{
 	        }
 	    }
 	}
+}
+
+#days_left{
+	float:left;
+}
+
+#status_message{
+	float: left;
+	margin-top: 25px;
+}
+
+#junto_duvido_button_div{
+	float:right;
 }
 
 .status-bar{
