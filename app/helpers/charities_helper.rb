@@ -12,7 +12,7 @@ module CharitiesHelper
   
   def define_image_to_use charity, image_type
      charity_has_image = charity.image? && charity.image_url(image_type)
-     image_url = charity_has_image ? charity.image_url(image_type) : "charity-nopic-#{image_type}.jpg"
+     image_url = charity_has_image ? charity.image_url(image_type) : "charity-nopic-#{image_type}.png"
   end
   
   def charity_show_path(charity_id)

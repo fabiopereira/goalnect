@@ -7,10 +7,6 @@ $cinza-claro:#d9d9d9;
 
 .centraliza{width:960px/*829*/; margin:0 auto; position:relative;padding:20px 0 0 0px;}
 
-#achiever_profile_img {
-  width : 160px;
-}
-
 body{
 	background:url(josecarlosimg/conteudo-bg.png) top repeat-x;
 	margin-top:78px;
@@ -49,7 +45,9 @@ h4{
    color:$azul-claro;
 }
 
-
+h5{
+   color:$azul-logo;
+}
 
 label{
 	font-size: 18px;
@@ -165,9 +163,12 @@ input[type="color"]:focus,
 	overflow:hidden;
     figure{
         margin-bottom:5px;
+		img {
+			width : 160px;
+		}
     }
 	p {
-		color:$azul-logo;
+		color:$cinza-escuro;
 	}
 }
 
@@ -181,8 +182,9 @@ input[type="color"]:focus,
     }
 }
 
+
 .align_right{
-	text-align:right
+	text-align:right;
 }
 
 #infos-goal{

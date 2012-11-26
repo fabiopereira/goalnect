@@ -51,7 +51,7 @@ en:
     donate: "Donate"
     new_donation_title: "New donation"
     anonymous_login_message: "You are donating anonymously"
-    you_are_donating_to: "You are donating to <b>%{charity_name}</b>"
+    you_are_donating_to: "You are donating to"
     supporting: "Supporting"
     you_are_donating_to_confirmation: "You are donating $<b>%{amount}</b> to <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
     confirm_message: "Please confirm and donate clicking on 'Doar com PagSeguro'"

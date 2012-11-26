@@ -2,8 +2,7 @@
 	<article class="box-grande">
 		<section id="infos-goal" class="clearfix">
 			<figure class="imagem-goal">
-				<% image_src = @goal.goal_template ? @goal.goal_template.image_url(:thumb) : "template.padrao.png" %>
-				<%= image_tag(image_src, id: "image_goal_template", :data => { :default_src => "#{asset_path('template.padrao.png')}"}) %>
+				<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
 			</figure>
 			<section class="descricao-goal">
 				<h2 class="titulo-goal"><%= goal.title%></h2>
