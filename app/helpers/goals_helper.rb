@@ -1,4 +1,5 @@
 module GoalsHelper
+  
   def new_goal_path(user_username)
     "/#{user_username}/goals/new"
   end

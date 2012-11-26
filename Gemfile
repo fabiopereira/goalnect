@@ -9,6 +9,10 @@ gem 'ci_reporter', :git => 'git://github.com/nicksieger/ci_reporter.git'
 gem 'metrical'    
 gem 'time_diff'
 
+group :assets do
+  gem 'compass-rails'
+end
+
 group :development, :test do
   gem 'mailcatcher'
   gem 'heroku_san'

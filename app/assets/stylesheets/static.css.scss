@@ -1,8 +1,7 @@
-@oficialFont: helvetica;
 
 .static p, .static ol li {
   font-size: 18px;
-  font-family: @oficialFont;   
+  font-family: helvetica;   
   color: black;	
   line-height: 27px;
 }
@@ -15,7 +14,7 @@
   background: url('question-mark-goalnect-bullet.png') no-repeat;
   background-position-y: 33%;
   padding: 6px 0 13px 40px;
-  font-family: @oficialFont;
+  font-family: helvetica;
   color: navy;	
 }
 
@@ -24,12 +23,12 @@
 	background: url('question-mark-goalnect-bullet.png') no-repeat;
 	background-position-y: 33%;
 	padding: 6px 0 13px 40px;
-	font-family: @oficialFont;
+	font-family: helvetica;
 	color: navy;	
 }
 .a {
   font-size: 18px;
-  font-family: @oficialFont;
+  font-family: helvetica;
   line-height: 27px;
 }
 

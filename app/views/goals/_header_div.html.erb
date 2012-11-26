@@ -29,12 +29,12 @@
 				<div class="status-bar">
 					<% percentage_raised = goal.raised_so_far_percentage %>
 					<% percentage_truncated = percentage_raised > 100 ? 100 : percentage_raised %>
-					<div class="progress" style="width:<%=percentage_truncated %>%;"></div>
+					<div id="percentage-raised-progress" data-percentage-raised="<%=percentage_truncated %>" class="progress"></div>
 				</div><!-- /status-bar //-->
 				<section class="valores">
 					<p>R$ <%= goal.raised_so_far.to_i %> / R$ <%= goal.target_amount.to_i%></p>
 					
-					<p class="porcentagem"><%= percentage_raised.to_i %>%</p>
+					<p class="porcentagem"><span id="percentage-raised" data-percentage-raised="<%= percentage_raised.to_i %>"></span>%</p>
 				</section><!-- /valores //-->
 			</article><!-- /descricao-instituicao //-->
 			<p><a href="<%= donate_goal_path(goal.id)%>" title="<%=t("donate_now")%>" class="sprite botao-apoiar" id="donate_button"><%=t("donate_now")%></a></p>
