@@ -11,14 +11,10 @@
 				<p><%=raw_scape_xss goal.description%></p>
 			</section><!-- /descricao-goal //-->
 		</section><!-- /infos-goal //-->
-		<% Togg.le(:feature_fb_social) do %>
 		<section class="goal-social-plugins">
-					<div class="g-plusone" data-size="medium"></div>
-					<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
-			      <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-show-faces="false"></div>
+			<%= render 'layouts/social_plugins' %>
 		</section>
-	    <% end %>	
-		<hr/>	
+	    <hr/>	
 		<section id="infos-instituicao" class="clearfix">
 			<figure class="logo-instituicao">
 				<%= charity_image @goal.charity, :thumbmedium %>
