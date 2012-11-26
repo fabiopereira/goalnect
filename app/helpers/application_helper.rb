@@ -59,4 +59,8 @@ module ApplicationHelper
     )
   end
   
+  def t_attribute(model, attribute)
+    model.human_attribute_name(attribute)
+  end
+  
 end

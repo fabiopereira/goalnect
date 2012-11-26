@@ -70,7 +70,7 @@ module GoalSteps
 	  page.should have_content goal.title
 	  find('#i_support_true_button').click
 	  find('#i_support_count_true').should have_content '1'
-	  find('#including_you_true').should have_content 'including you'
+	  find('#i_support_true_button')['title'].should have_content 'including you'
 	end
 	
 	def donate_logged_in goal, amount_donated
