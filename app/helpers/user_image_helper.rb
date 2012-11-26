@@ -7,7 +7,6 @@ class UserImageUrl
     :thumbmini => "small"
   }
   
-  
   def initialize(user, image_type)
     @user = user
     @image_type = image_type

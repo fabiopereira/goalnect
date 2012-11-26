@@ -7,7 +7,7 @@
 <h3><%= goal.charity.charity_name %></h3>
 
 <figure>
-        <%= image_tag define_image_to_use(goal.charity, :thumb), :id => "charity_img_160px" %>
+        <%= img_tag goal.charity, :thumb %>
 </figure>
 
 </p>
@@ -18,12 +18,12 @@
 
 <hr/>
 <p>
-	<small><%= t("donation.supporting") %>:</small>
+	<small><%= t("donation.supporting") %> <%= goal.achiever.screen_name %>:</small>
 </p>
 <%= user_image goal.achiever, :thumbmini %>
 <%= img_tag_null_safe 'GoalTemplate', goal.goal_template, :thumbmini %>
 
-<h5><%= goal.title %></h5> (<%= goal.achiever.screen_name %>)
+<h5><%= goal.title %></h5> 
 
 
 </article>

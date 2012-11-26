@@ -1,6 +1,7 @@
 <%= render 'achiever/achiever_profile', :achiever => @achiever %>
 
-				<div class="span8">
+                 <div class="coluna2">
+                 <article class="box-grande">
 				<div class="row well" style="border-color:#17AE8F">
 					<p class="subtitle_green"><b><%=t("about_me_title")%>:</b></p>
 					<% if @achiever.about_me.blank? %>
@@ -72,7 +73,7 @@
 							<p><%= t "goal_status_message"%> <%= journey.goal_stage.translated_name%>.</p>
 							<p><%= journey.message%></p>
 						<% end %>
-				
+				</article>
 				</div>
 	</div>
 
