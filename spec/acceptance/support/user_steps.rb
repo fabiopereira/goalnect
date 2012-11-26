@@ -40,7 +40,7 @@ module UserSteps
   end
 
   def login_user_password_already_in_login_page email, password
-    within("#sign_in_section") do
+    within("#sign_in") do
       fill_in 'user_email', :with => email
       fill_in 'user_password', :with => password
       click_on 'Sign in'   
@@ -50,8 +50,8 @@ module UserSteps
   
   
   def user_should_be_prompted_for_sign_in_or_sign_up
-    page.find('#sign_up_section').should_not be_nil
-    page.find('#sign_in_section').should_not be_nil
+    page.find('#sign_up').should_not be_nil
+    page.find('#sign_in').should_not be_nil
   end
   
   def sign_up username
@@ -60,7 +60,7 @@ module UserSteps
     click_on 'Login'
     click_on 'Sign up'
     page.should have_content 'Sign up' 
-    within("#sign_up_section") do
+    within("#sign_up") do
       fill_in 'user_email', :with => user.email
       fill_in 'user_password', :with => '123456'
       fill_in 'user_password_confirmation', :with => '123456'

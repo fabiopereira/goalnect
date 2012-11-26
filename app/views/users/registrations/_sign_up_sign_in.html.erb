@@ -1,63 +1,52 @@
+<article class="box-grande">
+<div>
+<div id="sign_in">		
 <div><%= render 'layouts/model_error_messages', :target => resource %></div>
-<div id="sign_in_section" class="span5">
+
 <div>
 <h2><%= t 'devise.sessions.sign_in' %></h2>
-<h5><%= t 'devise.sessions.sign_in_subtitle' %></h5>
+<h3><%= t 'devise.sessions.sign_in_subtitle' %></h3>
 </div>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
-  <%= link_to t("devise.links.forgot_your_password"), new_password_path(resource_name) %>
-
+  <p><%= f.email_field :email, :placeholder => User.human_attribute_name('email') %></p>
+  <p><%= f.password_field :password, :placeholder => User.human_attribute_name('password') %></p>
+  <p><%= link_to t("devise.links.forgot_your_password"), new_password_path(resource_name) %>
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+   <br/><%= f.check_box :remember_me %> <%= User.human_attribute_name('remember_me') %>
   <% end -%>
+  </p>
+  <%= f.submit t("devise.sessions.sign_in") %>
 
-  <div><%= f.submit t("devise.sessions.sign_in") %></div>
-<div>
-<h2><%= t 'devise.sessions.facebook_sign_in' %></h2>
-<h5><%= t 'devise.sessions.facebook_sign_in_subtitle' %></h5>
-</div>
-
-	<% Togg.le(:feature_authentication) do %>
+  <% Togg.le(:feature_authentication) do %>
+	<div id="facebook_login">
+	<h2><%= t 'devise.sessions.facebook_sign_in' %></h2>
+	<h3><%= t 'devise.sessions.facebook_sign_in_subtitle' %></h3>
+	
 	  <%= link_to t('facebook.login_title'), '/auth/facebook/', :class => "fb-button" %>
 	<% end %>
-
-<% end %>
+	</div>
+  <% end %>
 
 </div>
 
-
-
-<div id="sign_up_section" class="span5">
+<div id="sign_up">		
 <h2><%= t 'devise.sessions.sign_up'%></h2>
-<h5><%= t 'devise.sessions.sign_up_subtitle' %></h5>
+<h3><%= t 'devise.sessions.sign_up_subtitle' %></h3>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
 
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %></div>
-  
-    <div><%= f.label :screen_name %>
-  <%= f.text_field :screen_name %></div>
-  
-    <div><%= f.label :username %>
-  <%= t "url.site" %>/<%= f.text_field :username %></div>
-
-  <%= f.hidden_field :country_id, :value => Country.current_from_locale.id %>
+  <p><%= f.email_field :email, :placeholder => User.human_attribute_name('email') %></p>
+  <p><%= f.password_field :password, :placeholder => User.human_attribute_name('password') %></p>
+  <p><%= f.password_field :password_confirmation, :placeholder => User.human_attribute_name('password_confirmation') %></p>
+  <p><%= f.text_field :screen_name, :placeholder => User.human_attribute_name('screen_name') %></p>
+  <%= t "url.site" %>/<br/>
+  <p><%= f.text_field :username, :placeholder => User.human_attribute_name('username') %></p>
+  <p><%= f.hidden_field :country_id, :value => Country.current_from_locale.id %></p>
 
   <div><%= f.submit t("devise.sessions.sign_up") %></div>
 <% end %>
-
 </div>
+</div>
+</article>
 
