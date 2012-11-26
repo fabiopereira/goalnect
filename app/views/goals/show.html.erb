@@ -12,8 +12,14 @@ $(function() {
 	<% end %>
 });
 </script>
-<%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
-<%= render 'goals/header_div', :goal => @goal %>
+<section id="top-section" clear="">
+	<div class="centraliza clearfix">
+		<%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
+		<%= render 'goals/header_div', :goal => @goal %>
+	</div>
+</section>
+<section id="bottom-section" clear="">
+	<div class="centraliza clearfix">
 		<ul id="goalTabs" class="nav nav-tabs">
 		    <li id="goal-journey-tab-link"  class="active"><a href="#goal-journey-tab" data-toggle="tab"><%= t "journey"%></a></li>
 		    <li id="goal-comments-tab-link"><a href="#goal-comments-tab" data-toggle="tab"><%= t "comments"%></a></li>
@@ -35,3 +41,5 @@ $(function() {
 			<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
 	       <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-width="450" data-show-faces="false"></div>	
 	    <% end %>
+	</div>
+</section>

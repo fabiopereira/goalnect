@@ -104,14 +104,14 @@ pt:
     charity: "ONGs"
       
   goal_stage:
-    pending: "aguardando aceitação (isto é um desafio)"
-    not_accepted: "rejeitado (desafio não aceito)"
-    just_started: "começando agora (0% - 24%)"
-    on_its_way: "caminhando (25% - 49%)"
-    half_way_there: "no meio do caminho (50% - 74%)"
-    almost_there: "quase concluído (75% - 99%)"
-    done: "concluído (100%)"
-    abandoned: "abandonado"
+    pending: "Opa...<br/>Desafio aguardando aceitação..."
+    not_accepted: "Xiiii... <br/> Desafio rejeitado"
+    just_started: "Yeah!! <br/> Comecei meu goal!"
+    on_its_way: "Yeah!! <br/> Tá caminhando..."
+    half_way_there: "Yeah!! <br/> No meio do caminho..."
+    almost_there: "Yeah!! <br/> Quase lá..."
+    done: "Yeaaaaahhhh!! <br/> Concluído"
+    abandoned: "Ah que pena! <br/> Goal Abandonado..."
   points: Pontos        
   label:
     search: Buscar

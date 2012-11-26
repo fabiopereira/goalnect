@@ -7,19 +7,18 @@
 			</figure>
 			<section class="descricao-goal">
 				<h2 class="titulo-goal"><%= goal.title%></h2>
-				<p><h4 class="subtitulo-goal"><%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
-				<%=raw_scape_xss goal.description%></p>
+				<h4 class="align_right"><%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
+				<p><%=raw_scape_xss goal.description%></p>
 			</section><!-- /descricao-goal //-->
-			<% Togg.le(:feature_fb_social) do %>
-			<section class="goal-social-plugins">
-						<div class="g-plusone" data-size="medium"></div>
-						<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
-				      <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-show-faces="false"></div>
-			</section>
-		    <% end %>
 		</section><!-- /infos-goal //-->
-		<hr/>
-		
+		<% Togg.le(:feature_fb_social) do %>
+		<section class="goal-social-plugins">
+					<div class="g-plusone" data-size="medium"></div>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=t "check_out_this_goal"%>: " data-related="goalnect" data-hashtags="goalnect">Tweet</a>
+			      <div class="fb-like" data-href="<%= current_url %>" data-send="true" data-show-faces="false"></div>
+		</section>
+	    <% end %>	
+		<hr/>	
 		<section id="infos-instituicao" class="clearfix">
 			<figure class="logo-instituicao">
 				<%= charity_image @goal.charity, :thumbmedium %>
@@ -44,44 +43,41 @@
 
 		<section id="status-goal" class="clearfix">
 			<div>
-				<span class="iconsgoal-daysleft sprite dias-restantes font12 fonte-benton azul-escuro">
+				<span class="iconsgoal-daysleft sprite dias-restantes font12 fonte-benton azul-escuro" id="days_left">
 					<%= render "goals/days_left", :goal => goal %>
 				</span>
-				<figure>
-					<%= image_tag("status-goal.jpg") %>
-				</figure>
-				<p class="font18 fonte-benton azul-escuro"><%=t"my_goal_status_message"%> <%=goal.goalStage.translated_name%></p>
+				<span class="font18 fonte-benton azul-escuro float_left" id="status_message"> <%=raw goal.goalStage.translated_name%></span>
+				<div id="junto_duvido_button_div" >
 				<ul id="opt-junto-duvido">
 					<% current_user_support = goal.support_for(current_user)	%>
 					<li>
-						<a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title="	<%= t"possible" %>" class="sprite botao-tamo-junto" id="i_support_true_button">
+						<a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title="<%= t"possible" %> <%= t('including_you') if current_user_support.present? and current_user_support.i_support %>" class="sprite botao-tamo-junto" id="i_support_true_button">
 					    <span class="qte" id="i_support_count_true">
 						<%= goal.how_many_believe %>
 						</span> 
 						<span class="titulo-botao">
-						<%= t"possible" %> 
-						<span id="including_you_true"><%= t('including_you') if current_user_support.present? and current_user_support.i_support %></span>
+						<%= t"possible" %>
 						</span>
 						</a>
 						</li>
 					    <li>
-						<a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" title="<%= t("no_way") %>" class="sprite botao-duvido" id="i_support_false_button"><span class="qte" id="i_support_count_false">
+						<a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" title="<%= t("no_way") %> <%= t('including_you') if current_user_support.present? and !current_user_support.i_support %>" class="sprite botao-duvido" id="i_support_false_button"><span class="qte" id="i_support_count_false">
 						<%=goal.how_many_dont_believe %>
 						</span>
 						<span class="titulo-botao"><%= t("no_way") %>
-					    <span id="including_you_false"><%= t('including_you') if current_user_support.present? and !current_user_support.i_support %></span>
 					    </span>
 					    </a></li>
 						
 						<% if is_current_user_charity_admin?(goal.charity.id) %>
 						<li>
-							<a href="<%=goal_report_abuse_path(goal.achiever.username, goal.id)%>" title='<%= t "report_abuse"%>' class="sprite botao-duvido">
+							<a href="<%=goal_report_abuse_path(goal.achiever.username, goal.id)%>" class="sprite botao-duvido">
 							<span class="titulo-botao"><%= t "report_abuse"%>
 						    </span>
 						    </a>
 						</li>
 						<% end %>	
 				</ul>
+				</div>
 			<div>
 		</section><!-- /status-goal //-->
 		

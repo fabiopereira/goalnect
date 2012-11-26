@@ -72,6 +72,8 @@ Goalnect::Application.routes.draw do
   match 'static/:action' => 'static#:action'
   match '/faq' => "static#faq"
   match '/s/:static_content' => 'static#static_content'
+
+  match '/jc/:static_content' => 'static#jc'
   
   match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
 
