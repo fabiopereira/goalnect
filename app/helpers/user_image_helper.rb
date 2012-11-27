@@ -49,4 +49,13 @@ def user_image_url(user, image_type)
    UserImageUrl.new(user, image_type).user_image_url
 end
 
+def user_full_image_url(user, image_type)
+   user_image_url =  UserImageUrl.new(user, image_type)
+   image_url = user_image_url.user_image_url
+   if user_image_url.no_pic_image_url == image_url
+    image_url = asset_path(image_url)
+   end
+   image_url
+end
+
 end

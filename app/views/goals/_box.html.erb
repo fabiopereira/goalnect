@@ -3,7 +3,7 @@
 	<div class="box_goal_content">
 	<figure class="imagem-goal">
 		<a href="<%= show_goal_path_by_goal goal %>" >
-			<%= random_img_tag [img_src_full("goaltemplate", goal.goal_template, :thumb), img_src_full("charity", goal.charity, :thumb)] %>
+			<%= random_img_tag [img_src_full("goaltemplate", goal.goal_template, :thumb), img_src_full("charity", goal.charity, :thumb), user_full_image_url(goal.achiever, :thumb)] %>
 	    </a>
 	</figure>
 	
@@ -19,7 +19,7 @@
 		<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
 		<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
 	<% else %>
-    	<%=goal.goalStage.translated_name%>
+    	<%=raw goal.description%>
 	<% end %>
 	</div>
 	
