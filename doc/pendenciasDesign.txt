@@ -1,12 +1,8 @@
+- Criar EuQuero Select
 - Search
   - quebrar na charity
   - hover
 
 - Retirar formatação de links 
-
-
 - Including You using tiptip
-
-
-
-
+- Centralizar goals
