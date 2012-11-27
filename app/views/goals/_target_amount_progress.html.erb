@@ -1,0 +1,13 @@
+<section class="goal-target-amount-progress">
+<div class="status-bar">
+	<% percentage_raised = goal.raised_so_far_percentage %>
+	<% percentage_truncated = percentage_raised > 100 ? 100 : percentage_raised %>
+	<div id="percentage-raised-progress-<%=goal.id%>" class="progress percentage-raised-progress" data-percentage-raised="<%=percentage_truncated %>" >
+    </div>
+</div><!-- /status-bar //-->
+<section class="valores">
+	<p>R$ <%= goal.raised_so_far.to_i %> / R$ <%= goal.target_amount.to_i%></p>
+	
+	<p class="porcentagem"><span class="percentage-raised" data-percentage-raised="<%= percentage_raised.to_i %>"></span>%</p>
+</section><!-- /valores //-->
+</section>	

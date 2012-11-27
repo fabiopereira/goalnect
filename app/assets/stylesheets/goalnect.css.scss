@@ -4,10 +4,11 @@ $azul-logo:#3e58a7;
 $azul-claro:#9cc9eb;
 $cinza-escuro:#666;
 $cinza-claro:#d9d9d9;
+$green-logo:#00933B;
 
 $box-goal-img-border-color:#e4e4e4;
+$box-goal-img-background-color:#f5f5f5;
 $box-goal-border-color:#e0edf5;
-
 
 .centraliza{width:960px/*829*/; margin:0 auto; position:relative;padding:20px 0 0 0px;}
 
@@ -151,6 +152,7 @@ input[type="color"]:focus,
 	border-top:2px solid $azul-logo;
     background: #FFFFFF;
     padding:20px 0 0 0px;
+	margin-bottom: 20px;
 }
 
 #footer-section{
@@ -198,14 +200,16 @@ input[type="color"]:focus,
 	text-align:right;
 }
 
+.imagem-goal{
+    background:url(josecarlosimg/goal-bg.png) no-repeat;
+	padding-top: 15px;
+	padding-left: 15px;
+    width:194px;
+    height:180px;
+    float:left;
+}
+
 #infos-goal{
-    .imagem-goal{
-        background:url(josecarlosimg/goal-bg.png) no-repeat;
-        width:194px;
-        height:194px;
-        padding:9px 0 0 9px;
-        float:left;
-    }
     .descricao-goal{
         width:481px;
         float:left;
@@ -306,12 +310,70 @@ input[type="color"]:focus,
     }
 }
 
-.box-goal{
-    width:190px;
-    margin-right:17px;
-    float:left;    
-	.box-pequeno{     
-		border: 1px solid $cinza-claro;
+.mygoals_header{
+	color:$azul-logo;
+	padding-bottom: 15px;
+}
+
+.my_goals{
+	margin: 0 auto;
+	.box-goal{
+	    width:215px;
+	    margin-right:17px;
+	    float:left;    
+		.box-pequeno{     
+			border: 2px solid $box-goal-border-color;
+			height: 370px;
+		}
+		.box_goal_content{
+			height: 269px;
+			overflow: hidden;
+		}
+		.status-bar {
+			width:190px;
+			margin-bottom: 5px;
+		}
+		.valores {
+			width: 190px;
+			font-size: 10px;
+		}
+		.actions {
+			position: absolute;
+			margin-top: 8px;
+			a {
+				display: block;
+				height:42px;
+				width: 42px;
+				float:left;
+			}
+			a.isupport_true{
+				@include iconsgoal-sprite(isupport_true_small);	
+				margin-right: 2px;
+				margin-left: -4px;		
+			}
+			a.isupport_false{
+				@include iconsgoal-sprite(isupport_false_small);
+			}	
+			a.donate{
+				width: 112px;
+				@include iconsgoal-sprite(donate_small);
+				margin-left: 4px;
+				span{
+					float:left;
+					margin-top: 12px;
+					margin-left: 40px;
+					font-family:$font-title;
+				    color:white;
+					font-size:14px
+				}
+			}
+		}
+		&:hover{
+			.box-pequeno{     
+				border: 2px solid $azul-logo;
+			}
+        }
 	}
 }
+
 

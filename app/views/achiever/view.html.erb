@@ -1,44 +1,22 @@
-<%= render 'achiever/achiever_profile', :achiever => @achiever %>
-
-                 <div class="coluna2">
-                 <article class="box-grande">
-				<div class="row well" style="border-color:#17AE8F">
-					<p class="subtitle_green"><b><%=t("about_me_title")%>:</b></p>
-					<% if @achiever.about_me.blank? %>
-						<%= t 'blank_about_me', :name => @achiever.screen_name %>
-					<% else %>
-					<%= @achiever.about_me %>
-					<% end %>
-				</div>
-				<div class="row well" style="background: white;border-color:#D0255B">
-						<span class=" subtitle_red">
-							<b>GOALS:</b>
-						</span>
-						<span style="float:right">
-								<%= render 'goals/new_goal_url' %>
-						</span>
-					</p>
-
-				    
-					
-				</div>
-				<div class="row well" style="background: white;border-color:#E6C520">
-					<p class="subtitle_yellow"><b><%= t "journey_title" %>:</b> </p>
-	<br/>
-						<% journeys = @achiever.find_5_most_recent_updates() %>	
-						<% journeys.each do |journey| %>
-						<p><b><%= journey.created_at %> - <%= journey.goal.title%></b></p>
-							<hr>
-							<p><%= t "goal_status_message"%> <%= journey.goal_stage.translated_name%>.</p>
-							<p><%= journey.message%></p>
-						<% end %>
-				</article>
-				</div>
+	<div class="coluna1">
+		<%= render 'achiever/box', :achiever => @achiever %>
 	</div>
-       
-                
-	<section id="bottom-section" clear="">
+	<div class="coluna2">
+		<article class="box-grande">
+				<p class="subtitle_green"><b><%=t("about_me_title")%>:</b></p>
+				<% if @achiever.about_me.blank? %>
+					<%= t 'blank_about_me', :name => @achiever.screen_name %>
+				<% else %>
+					<%= @achiever.about_me %>
+				<% end %>
+				<%= render 'goals/new_goal_url' %>
+		</article>
+	</div>
+</div>   
+	<section id="bottom-section" clear="" >
 		<div class="centraliza clearfix"> 
+			<h1 class="mygoals_header">My Goals</h1>
+			<div class="my_goals">
 			<% my_goals = @achiever.find_active_goals() %>
 			<% is_my_home = my_goals.empty? && current_user_is_achiever?(@achiever) %>
 			<%if is_my_home %>
@@ -47,12 +25,11 @@
 					<%= render 'goals/goal_template_form' %>
 				</div>
 			<%else%>
-			          
-			
-			<% my_goals.each do |goal| %>   
-			     <%= render 'goals/box', :goal => goal %>
-		    <% end %>  
-		
+				<% my_goals.each do |goal| %>   
+			     	<%= render 'goals/box', :goal => goal %>
+		    	<% end %>  
 			<% end %>
+			</div>
 		</div>
 	</section>
+<div>

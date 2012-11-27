@@ -1,7 +1,7 @@
 class GoalTemplateImageUploader < ImageUploader
   
   version :thumb do
-    resize_to_fit(170, 170)
+    resize_to_fit(160, 160)
   end
 
   # Create different versions of your uploaded files:

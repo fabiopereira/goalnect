@@ -1,17 +1,19 @@
 <div class="box-goal">
 <article class="box-pequeno">
-	<figure>
+	<div class="box_goal_content">
+	<figure class="imagem-goal">
 		<a href="<%= show_goal_path_by_goal goal %>" >
-	        <%= img_tag_null_safe "goaltemplate", goal.goal_template, :thumb %>
+			<%= random_img_tag [img_src_full("goaltemplate", goal.goal_template, :thumb), img_src_full("charity", goal.charity, :thumb)] %>
 	    </a>
 	</figure>
-	<p>
+	
+	
 	<h5>
 		<a href="<%= show_goal_path_by_goal goal %>" >
 			<%= goal.title %>
 	    </a>
-	</h5>
-	</p>     
+	</h5>     
+	
 	
 	<% if current_user_is_achiever?(@achiever) && goal.goalStage.id == GoalStage::PENDING.id %>
 		<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
@@ -19,13 +21,21 @@
 	<% else %>
     	<%=goal.goalStage.translated_name%>
 	<% end %>
+	</div>
 	
-	  <span class="tiptip" style="float:right">
-		  <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title='<%=t "possible_button" %>'><span class="icon icon101"></span></a>
-	   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title='<%=t "no_way_button" %>'><span class="icon icon100"></span></a>
-		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title='<%=t "donate_now" %>'><span class="icon icon51"></span></a>
-	  	  <a href="<%=show_goal_path(goal.achiever.username, goal.id)%>" class="button button-b" title='<%=t "view_goal" %>'><span class="icon icon198"></span></a>
-	  </span>
+	<hr/>
+
+    <%= render 'goals/target_amount_progress', :goal => goal %>
+	
+	<div class="actions clearfix">
+		<a class="isupport_true" href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title='<%=t "possible_button" %>'>
+		</a>
+		<a class="isupport_false" href="<%= i_dont_support_path(goal.achiever.username, goal.id)  %>" title='<%=t "no_way_button" %>'>
+		</a>
+		<a class="donate" href="<%= donate_goal_path(goal.id)  %>" title='<%=t "donate_now" %>'>
+			<span><%=t "donate_now" %></span>
+		</a>
+	</div>
 	
 </article><!-- /box-pequeno //-->    
 </div>
