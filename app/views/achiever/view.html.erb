@@ -10,6 +10,19 @@
 					<%= @achiever.about_me %>
 				<% end %>
 				<%= render 'goals/new_goal_url' %>
+				
+				<% if current_user && current_user.charity_id %>
+				  <p><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
+				<% end %>
+				
+				<p><h5><%= t("points_summary")%>:</h5></p>
+				<hr/>
+				<% points_summary = @achiever.points_summary %>
+				<p><%= t("active_points")%>.....<span id="available_points"><%= points_summary.available_points %></span>pts</p>
+				<p><%= t("locked_points")%>.....<span id="locked_points"><%= points_summary.locked_points %></span>pts</p>
+				<p><%= t("redeemed_points")%>.....<span id="redeemed_points"><%= points_summary.redeemed_points %></span>pts</p>
+				<hr/>
+				<p><%= link_to t("statement"), "/#{@achiever.username}/points_statement" %></p>
 		</article>
 	</div>
 </div>   
@@ -29,6 +42,7 @@
 			     	<%= render 'goals/box', :goal => goal %>
 		    	<% end %>  
 			<% end %>
+			
 			</div>
 		</div>
 	</section>
