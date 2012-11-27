@@ -5,14 +5,10 @@
 	    </a>
 	</figure>
 	<p>
-	<strong>
+	<h5>
 		<a href="<%= achiever.full_url %>" >
 			<%= achiever.screen_name %>
 	    </a>
-	</strong>
+	</h5>
 	</p>
-	<% if current_user_is_achiever?(achiever) %>
-		<p><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
-		<p><%= link_to t('edit_profile'), '/achiever/edit'  %></p>
-	<% end %>
 </article><!-- /box-pequeno //-->

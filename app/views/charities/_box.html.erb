@@ -1,0 +1,14 @@
+<article class="box-pequeno">
+	<figure>
+		<a href="<%= charity_show_path charity.id %>" >
+	        <%= img_tag charity, :thumb %>
+	    </a>
+	</figure>
+	<p>
+	<strong>
+		<a href="<%= charity_show_path charity.id %>" >
+			<%= charity.charity_name %>
+	    </a>
+	</strong>
+	</p>
+</article><!-- /box-pequeno //-->

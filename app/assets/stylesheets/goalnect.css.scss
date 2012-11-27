@@ -5,6 +5,10 @@ $azul-claro:#9cc9eb;
 $cinza-escuro:#666;
 $cinza-claro:#d9d9d9;
 
+$box-goal-img-border-color:#e4e4e4;
+$box-goal-border-color:#e0edf5;
+
+
 .centraliza{width:960px/*829*/; margin:0 auto; position:relative;padding:20px 0 0 0px;}
 
 body{
@@ -24,8 +28,9 @@ hr {
 }
 
 h1{
-    font-size:3em;
+    font-size:4em;
 	font-family:$font-title;
+    color:white;
 }
 
 h2{
@@ -46,7 +51,9 @@ h4{
 }
 
 h5{
-   color:$azul-logo;
+  color:$azul-logo;
+  font-family:$font-title;
+  font-size:18px;
 }
 
 label{
@@ -151,29 +158,33 @@ input[type="color"]:focus,
     background: $cinza-claro;
     padding:20px 0 0 0px;
 }
+           
+.box {
+  background-color:#fff;
+  padding:10px;
+  margin-bottom:15px;
+  font-size:1.2em;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  overflow:hidden;
+  p {
+	 color:$cinza-escuro;
+  }
+}
 
 .box-pequeno{
-    background-color:#fff;
-    padding:10px;
-    margin-bottom:15px;
-    font-size:1.2em;
-    -moz-border-radius:10px;
-    -webkit-border-radius:10px;
-    border-radius:10px;
-	overflow:hidden;
-    figure{
-        margin-bottom:5px;
-		img {
-			width : 160px;
-		}
-    }
-	p {
-		color:$cinza-escuro;
-	}
+  @extend .box;
+  figure{
+      margin-bottom:5px;
+  	img {
+          width : 160px;
+  	}
+  }
 }
 
 .box-grande{
-    @extend .box-pequeno;
+    @extend .box;
     padding:15px;
 	margin-bottom:15px;
     p{
@@ -295,6 +306,12 @@ input[type="color"]:focus,
     }
 }
 
-
-
+.box-goal{
+    width:190px;
+    margin-right:17px;
+    float:left;    
+	.box-pequeno{     
+		border: 1px solid $cinza-claro;
+	}
+}
 

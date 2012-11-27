@@ -1,0 +1,31 @@
+<div class="box-goal">
+<article class="box-pequeno">
+	<figure>
+		<a href="<%= show_goal_path_by_goal goal %>" >
+	        <%= img_tag_null_safe "goaltemplate", goal.goal_template, :thumb %>
+	    </a>
+	</figure>
+	<p>
+	<h5>
+		<a href="<%= show_goal_path_by_goal goal %>" >
+			<%= goal.title %>
+	    </a>
+	</h5>
+	</p>     
+	
+	<% if current_user_is_achiever?(@achiever) && goal.goalStage.id == GoalStage::PENDING.id %>
+		<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
+		<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
+	<% else %>
+    	<%=goal.goalStage.translated_name%>
+	<% end %>
+	
+	  <span class="tiptip" style="float:right">
+		  <a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" class="button button-g" title='<%=t "possible_button" %>'><span class="icon icon101"></span></a>
+	   	  <a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" class="button button-r" title='<%=t "no_way_button" %>'><span class="icon icon100"></span></a>
+		  <a href="<%= donate_goal_path(goal.id)%>" class="button button-y" title='<%=t "donate_now" %>'><span class="icon icon51"></span></a>
+	  	  <a href="<%=show_goal_path(goal.achiever.username, goal.id)%>" class="button button-b" title='<%=t "view_goal" %>'><span class="icon icon198"></span></a>
+	  </span>
+	
+</article><!-- /box-pequeno //-->    
+</div>

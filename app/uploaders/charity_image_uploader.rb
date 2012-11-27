@@ -1,7 +1,7 @@
 class CharityImageUploader < ImageUploader
   
   version :thumb do
-    resize_to_fit(180, 180)
+    resize_to_fit(160, 160)
   end
   
   version :thumbmedium do

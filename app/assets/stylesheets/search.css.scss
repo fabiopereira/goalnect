@@ -1,25 +1,7 @@
-#search-result span {
-   font-size: 16px;
+#search-result-achievers {
+  width: 933px;
 }
 
-#search-result img {
-   height: 180px;
-   width: 180px;
-}
-
-#search-result {
-   height: 250px;
-   padding: 10px 0 0 0;
-   display: inline-block;
-   width: 218px;
-   margin: 0 10px 0 0;
-}
-
-#search-result {
-  .box-pequeno {
-    &:hover{
-      border: 
-    }
-  }
-  
+#search-result-charities {
+  display: block;
 }

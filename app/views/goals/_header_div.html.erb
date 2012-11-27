@@ -16,7 +16,7 @@
 	    <hr/>	
 		<section id="infos-instituicao" class="clearfix">
 			<figure class="logo-instituicao">
-				<%= img_tag @goal.charity, :thumbmedium %>
+				<%= charity_image @goal.charity, :thumbmedium %>
 			</figure>
 			<article class="descricao-instituicao">
 				<p class="font14 fonte-benton cinza-claro">Vamos juntos, esse Goal vai apoiar a</p>
@@ -41,7 +41,7 @@
 				<span class="iconsgoal-daysleft sprite dias-restantes font12 fonte-benton azul-escuro" id="days_left">
 					<%= render "goals/days_left", :goal => goal %>
 				</span>
-				<span class="font18 fonte-benton azul-escuro float_left" id="status_message"> <%=raw goal.goalStage.translated_name%></span>
+				<h5 id="status_message"> <%=raw goal.goalStage.translated_name%></h5>
 				<div id="junto_duvido_button_div" >
 				<ul id="opt-junto-duvido">
 					<% current_user_support = goal.support_for(current_user)	%>

@@ -2,7 +2,6 @@
 	<%=raw_scape_xss(goal.description) %>	
 	<br/><br/>
 	<hr/>
-	<%= charity_image_align(@goal.charity, :thumb, 'left')%>
 	<b><%= @goal.charity.charity_name%></b><br/>
 	<%= @goal.charity.description%><br>
 	<hr/>

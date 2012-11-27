@@ -1,30 +1,27 @@
-<h3><%= t 'search.result_title' %></h3>
+<h1><%= t 'search.result_title' %></h1>
 <div>
 	<%= render 'search/search_form' %>
 </div>
 
-<div>
-<h3><%= t 'search.goals_achievers_title' %></h3>
+<div id="search-result-achievers">
+<h2><%= t 'search.goals_achievers_title' %></h2>
+<div class="search-result">
 <% @achievers.each do |achiever| %>
-<div id="search-result">
+<div class="coluna1">
 	<%= render 'achiever/box', :achiever => achiever %>
 </div>
 <% end %>
 </div>
-
-
-<div>
-<h3><%= t 'activerecord.models.charity' %></h3>
-<% @charities.each do |charity| %>
-<div id="search-result">
-	<a href="<%= charity_show_path(charity.id) %>">
-	  <div>
-		<%= charity_image charity, :thumb %>
-	  </div>
-	  <div>
-	    <span><%= charity.charity_name %> <br/>(<%= charity.nickname %>)</span>
-	  </div>
-	</a>
 </div>
+
+
+<div id="search-result-charities">
+<h2><%= t 'activerecord.models.charity' %></h2>
+<div class="search-result">
+<% @charities.each do |charity| %>
+	<div class="coluna1">
+		<%= render 'charities/box', :charity => charity %>
+	</div>
 <% end %>
+</div>
 </div>

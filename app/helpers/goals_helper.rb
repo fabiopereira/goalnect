@@ -16,6 +16,10 @@ module GoalsHelper
     "/#{user_username}/goals/show/#{goal_id}"
   end
 
+  def show_goal_path_by_goal(goal)
+    show_goal_path goal.achiever.username, goal.id
+  end
+
   def donate_goal_path(goal_id)
     "/goal_donations/new/#{goal_id}"
   end
