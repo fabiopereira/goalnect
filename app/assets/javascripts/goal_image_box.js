@@ -16,7 +16,7 @@ $(function(){
 	});
 	
 	function changeToNextImage(img_element, img_srcs){
-		current_src = $(".random_img_tag").data("current_src");
+		current_src = img_element.data("current_src");
 		current_src = current_src + 1;
 		if (current_src == img_srcs.length){
 			current_src = 0;
@@ -25,8 +25,11 @@ $(function(){
 	}
 	
 	function changeImage(img_element, img_srcs, current_src) {
-		$(".random_img_tag").data("current_src", current_src);
-		img_element.attr('src',img_srcs[current_src]);
+		img_element.fadeOut(300, function(){
+			img_element.data("current_src", current_src);
+			img_element.attr('src',img_srcs[current_src]);
+		}).fadeIn(500);
+		
 	}
 	
 	function imgSrcs(img_element){
