@@ -377,3 +377,41 @@ input[type="color"]:focus,
 }
 
 
+.descricao-charity{
+	width:700px;
+    float:left;
+	.donations-summary{
+		height:100px;
+		div{
+			width: 230px;
+			float:left;
+			margin-left: 2px;
+			p{
+				margin-top: 25px;
+				font-family:$font-title;
+				font-size:12px;
+				strong{
+					font-size: 23px;
+					color:$azul-logo;
+				}
+			}
+			figure{
+				float:left;
+			}
+		}
+	}
+}
+
+#charity-quick-links{
+	a.button{
+		width:100%;
+		border:none;
+		margin:none;
+		&:hover{
+			background: $azul-logo;
+			color: #fff;
+		}
+	}
+}
+
+
