@@ -3,19 +3,18 @@
 	<%= render 'search/search_form' %>
 </div>
 
-<div id="search-result-achievers">
-<h2><%= t 'search.goals_achievers_title' %></h2>
-<div class="search-result">
-<% @achievers.each do |achiever| %>
-<div class="coluna1">
-	<%= render 'achiever/box', :achiever => achiever %>
+<div id="search-result-achievers" class="clearfix">
+  <h2><%= t 'search.goals_achievers_title' %></h2>
+  <div class="search-result">
+  <% @achievers.each do |achiever| %>
+    <div class="coluna1">
+    	<%= render 'achiever/box', :achiever => achiever %>
+    </div>
+  <% end %>
+  </div>
 </div>
-<% end %>
-</div>
-</div>
-
-
-<div id="search-result-charities">
+ 
+<div id="search-result-charities" class="clearfix">
 <h2><%= t 'activerecord.models.charity' %></h2>
 <div class="search-result">
 <% @charities.each do |charity| %>
@@ -25,3 +24,4 @@
 <% end %>
 </div>
 </div>
+
