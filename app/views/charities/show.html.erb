@@ -25,7 +25,7 @@
 						<figure>
 							<%= image_tag 'features.atinja_suas_metas_thumbmedium.png' %>
 						</figure>
-						<p><strong>R$ <%= @charity.find_total_raised_amount%></strong> arrecadados</p>
+						<p id="raised_so_far"><strong>R$ <%= @charity.find_total_raised_amount%></strong> arrecadados</p>
 					</div>
 					<div id="how-many-people">
 						<figure>
@@ -54,14 +54,14 @@
 	<div class="centraliza clearfix"> 
 	<div class="tabs charity-tabs">
 		<ul class="clearfix">
-			<li><h2><a href="#last_3_updates" title="last_3_updates" class="active"><%= t("charity_page.last_3_charity_updates") %></a></h2></li>
+			<li><h2><a href="#charity_updates" title="charity_updates" class="active"><%= t("charity_page.last_3_charity_updates") %></a></h2></li>
 			<li><h2><a href="#last_10_donations" title="last_10_donations"><%= t("charity_page.last_10_donations") %></a></h2></li>
 			<% if is_current_user_charity_admin?(@charity.id) %>
 				<li><h2><a href="#last_10_goals" title="last_10_goals"><%= t("charity_page.last_10_goals") %></a></h2></li>
 			<% end %>
 		</ul>
 		<hr />
-		<div class="active content" id="last_3_updates">
+		<div class="active content" id="charity_updates">
 				<p class="support-info" style="font-weight:normal">(<%= t("charity_page.update_info") %>)</p>
 				<% if @last_3_updates && !@last_3_updates.empty?%>
 					<% @last_3_updates.each do |update| %>

@@ -12,7 +12,6 @@ module GoalSteps
   def finish_goal goal
     ensure_logged_in goal.achiever.username
     visit_goal goal
-    click_on 'Journey'
     sleep 2
     page.select "done", :from => "goal_feedback_goal_stage_id"
     

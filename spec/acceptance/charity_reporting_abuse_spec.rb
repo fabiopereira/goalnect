@@ -15,7 +15,7 @@ feature 'Charity reporting abuse for a goal', %q{
     leo = ensure_logged_in 'leo'
     
     visit_charity_page_as_admin leo.username, charity.id
-    
+    click_on "Last 10 Goals"
     find("#report_goal_#{dannis_goal.id}").click
     page.driver.browser.switch_to.alert.accept
     

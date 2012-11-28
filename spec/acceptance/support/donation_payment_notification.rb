@@ -8,6 +8,7 @@ module DonationPaymentNotificationSteps
       goal_donation.current_stage.should be == GoalDonationStage::APPROVED
 
       visit_goal goal
+      find('a.tab_donations').click
       page.should have_content goal_donation.amount
       page.should have_content goal_donation.donor_name
       page.should have_css("span.icon44")
