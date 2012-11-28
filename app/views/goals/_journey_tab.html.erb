@@ -1,0 +1,62 @@
+<div class="coluna1">
+</div><!-- /coluna1 //-->
+
+<div class="coluna2">
+	<section id="journeys">
+		<h2>Novidades</h2>
+		<hr />
+		<article class="journey clearfix">
+			<figure class="journey_achiever">
+				<%= user_image goal.achiever, :thumbmini%>
+			</figure>
+			<div class="journey_desc">
+				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
+			</div><!-- /journey_desc //-->
+		</article><!-- /journey //-->
+
+		<article class="journey clearfix">
+			<figure class="journey_achiever">
+				<%= user_image goal.achiever, :thumbmini%>
+			</figure>
+			<div class="journey_desc">
+				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
+			</div><!-- /journey_desc //-->
+		</article><!-- /journey //-->
+		<article class="journey clearfix">
+			<figure class="journey_achiever">
+				<%= user_image goal.achiever, :thumbmini%>
+			</figure>
+			<div class="journey_desc">
+				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
+			</div><!-- /journey_desc //-->
+		</article><!-- /journey //-->
+		<article class="journey clearfix">
+			<figure class="journey_achiever">
+				<%= user_image goal.achiever, :thumbmini%>
+			</figure>
+			<div class="journey_desc">
+				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
+			</div><!-- /journey_desc //-->
+		</article><!-- /journey //-->
+		
+		<%= render 'feedback_tab', :goal => @goal %>   
+		
+		<hr />
+	</section><!-- /journeys //-->
+
+	<ul id="comments_donations" class="clearfix">
+		<li><h2><a href="" title="Comentários" class="tab_comments">Comentários</a></h2></li>
+		<li><h2><a href="" title="Doações" class="tab_donations">Doações</a></h2></li>
+	</ul>
+	<hr />
+	<div class="content_comments">
+		<div class="tab-pane fade" id="goal-comments-tab">
+			<fb:comments href="<%= current_url %>"></fb:comments>
+		 </div>
+	</div><!-- /content_comments //-->
+
+	<div class="content_donations">
+		<p>doações</p>
+	</div><!-- /content_donations //-->
+
+</div><!-- /coluna2 //-->

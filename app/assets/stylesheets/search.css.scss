@@ -1,7 +1,20 @@
 #search-result-achievers {
-  width: 933px;
 }
 
 #search-result-charities {
   display: block;
+}
+
+.search-result{ 
+  .coluna1 {
+    float:left;
+    .box-pequeno{
+          &:hover{
+      		background-color: $azul-logo;
+            h5 a {
+		      color:#fff;
+	        }
+      	}
+    }
+  }
 }

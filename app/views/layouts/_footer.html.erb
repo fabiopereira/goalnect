@@ -1,6 +1,5 @@
 <div class="footer span12 well" style="margin-left:0;">
-	<div class="row">
-			<div class="span4">
+			<div class="row">
 				<p class="title-footer"><%=t "footer.information" %></p><br/>
 				<p class="link-footer"><%= link_to t("static.howitworks"), "/s/faq" %></p><br/>
 				<p class="link-footer"><%= link_to t("static.faq"), "/s/faq" %></p><br/>
@@ -8,28 +7,20 @@
 				<p class="link-footer"><a href="mailto:<%= t "email.team" %>" target="blank"><%=t "footer.contact" %></a></p><br/>
 				<p class="link-footer"><%= link_to t("charities.charity"), new_charity_path %></p><br/>
 			</div>
-			<div class="span3">
+			<div class="row">
 				<p class="title-footer"><%=t "footer.find_us" %></p><br/>
 				<p class="link-footer"><a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png", width: "25px", height: "25px") %> Facebook</a></p><br/>
 				<p class="link-footer"><a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png", width: "25px", height: "25px") %> Twitter</a></p><br/>
 				<p class="link-footer"><a href="mailto:<%= t "email.team" %>" target="blank"><%= image_tag("goalnect-mailto-48x48.png", width: "25px", height: "25px") %> Email</a></p><br/>
 			</div>
-			<div class="span4">
+			<div class="row">
 				<p class="title-footer"><%=t "footer.contact" %></p><br/>
 				<p class="link-footer"><%= link_to t("charities.if_you_are_a_charity"), new_charity_path %></p><br/>
 				<p class="link-footer"><%= link_to t("charities.to_suggest_a_charity"), new_charity_path %></p><br/>
 				<p class="link-footer"><%= t"footer.or_call" %> +55 11 3280-7400</p><br/>
 			</div>
-	</div>
-	<div class="row">
-		<div class="footer-end span12">
-			<center>
-					Goalnect 
-			</center>
-	    </div>
-	</div>
-	
-</div>	
+</div>
+
    <!-- GooglePlus +1 button - Place this tag after the last +1 button tag. -->
 	<script type="text/javascript">
 	  (function() {

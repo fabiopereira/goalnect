@@ -44,7 +44,6 @@ textarea {
 
 /* RESET */
 *, h1, h2, h3, h4, h5, p{margin:0; padding:0; outline:none; list-style-type:none; list-style-position:inside;}
-a{text-decoration:none;}
 
 /* Fontes */
 @font-face {
@@ -66,6 +65,8 @@ $cinza-escuro:#666;
 $cinza-claro:#d9d9d9;
 
 /* CLASSESS GERAIS */
+a{color:$azul-logo; text-decoration:none;}
+
 .indent{text-indent:-9999em;}
 .clear{clear:both;}
 .sprite{background:url(josecarlosimg/sprite.png) no-repeat;}
@@ -83,6 +84,13 @@ $cinza-claro:#d9d9d9;
 .azul-claro{color:$azul-claro !important;}
 .cinza-claro{color:$cinza-claro !important;}
 
+p{
+    strong{
+        color:#93c5e9;
+        font-weight:bold;
+    }
+}
+
 /* TÍTULOS */
 h1{
     font-size:2.4em;
@@ -93,6 +101,14 @@ h1{
     }
 }
 
+#bottom-section h2{
+    margin-bottom:30px;
+}
+
+#journeys h2{
+    @include iconsgoal-sprite(clock); 
+    padding:4px 0 0 50px;
+}
 
 h3{
     font-size:18px;
@@ -150,6 +166,17 @@ header{
     }
 }
 
+#menu-footer{
+    font-size:14px;
+    font-family:$bentonsansbold;
+    ul{
+        padding:0;
+        margin:0;
+    }
+    a{
+        color:#fff;
+    }
+}
 
 /* PRINCIPAL */
 #conteudo-cima{
@@ -161,6 +188,7 @@ header{
 
 .coluna1{
     width:180px;
+    min-height:20px;
     margin-right:17px;
     float:left;
 }
@@ -237,14 +265,74 @@ header{
 
 /* INTERNAS */
 
-/* ASIDES */ 
+#bottom-section{
+    hr{
+        background-color:#dfecf4;
+        height:1px;
+        margin-bottom:20px;
+    }
+}
+
+
+#journeys{
+    .journey{
+        margin-bottom:20px;
+    }
+    .journey_achiever{
+        margin-right:15px;
+        float:left;
+    }
+    .journey_desc{
+        @include iconsgoal-sprite(trophy);
+        padding-left:43px;
+        margin-top:10px;
+        font-size:1.2em;
+        float:left;
+    }
+}
+
+#comments_donations{
+    padding:0;
+    margin:40px 0 10px 0;
+    a{
+        color:#9cc9eb;
+        &:hover, &.active{
+            color:$azul-logo;
+        }
+        &.tab_comments{
+            @include iconsgoal-sprite(comments);
+            padding:8px 0 0 77px;
+            margin-right:90px;
+        }
+        &.tab_donations{
+            @include iconsgoal-sprite(donation);
+            padding:8px 0 8px 70px;
+        }
+    }
+    li{
+        float:left;
+    }
+
+}
 
 /* FORMS */
 
-/* PAGINAÇÃO */
-
 /* FOOTER */
-
+footer{
+    background:#93c5e9 url(/assets/footer-bg.jpg) repeat-x;
+    width:100%;
+    min-height:240px;
+    padding-top:15px;
+    .social-buttons{
+        position:absolute;
+        top:20px;
+        right:0;
+    }
+    .row{
+        width:300px;
+        float:left;
+    }
+}
 
 /* ==========================================================================
    Media Queries
