@@ -1,0 +1,18 @@
+.tabs{
+	div.content{
+		display:none;
+	}
+	div.content.active{
+		display:block;
+	}
+	ul li a{
+		color: $azul-claro;
+	}
+	ul li a.active{
+		color: $azul-logo;
+	}
+	li{
+        float:left;
+		margin-left: 15px;
+    }
+}

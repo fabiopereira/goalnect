@@ -303,10 +303,16 @@ header{
             @include iconsgoal-sprite(comments);
             padding:8px 0 0 77px;
             margin-right:90px;
+			&:hover, &.active{
+				background-position: 0 -560px;
+	        }
         }
         &.tab_donations{
             @include iconsgoal-sprite(donation);
             padding:8px 0 8px 70px;
+			&:hover, &.active{
+				background-position: 0 -315px;
+	        }
         }
     }
     li{

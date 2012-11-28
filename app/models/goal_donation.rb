@@ -20,6 +20,14 @@ class GoalDonation < ActiveRecord::Base
     GoalDonationStage.find self.current_stage_id
   end
   
+  def self.how_many_users_donate_to_charity charity_id
+    GoalDonation.count(:user_id,:distinct => true, :conditions => ["charity_id = ? and current_stage_id = ? and user_id is not null", charity_id, GoalDonationStage::APPROVED.id])
+  end
+  
+  def self.how_many_logout_donation_to_charity charity_id
+    GoalDonation.count(:id, :conditions => ["charity_id = ?  and current_stage_id = ? and user_id is null", charity_id, GoalDonationStage::APPROVED.id])
+  end
+  
   def self.find_most_recent_donations_by_goal_id goal_id
     GoalDonation.where("goal_id = ? and current_stage_id = ?", goal_id, GoalDonationStage::APPROVED.id).order('id DESC').limit(5)
   end

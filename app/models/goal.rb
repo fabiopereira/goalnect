@@ -87,6 +87,10 @@ class Goal < ActiveRecord::Base
     find(:all, :conditions => ['LOWER(description) LIKE :q OR LOWER(title) LIKE :q', {:q => "%#{q.downcase}%"}])
   end
   
+  def self.find_how_many_goals_registered_to_charity charity_id
+    GoalDonation.count(:id, :conditions => ["charity_id = ?", charity_id])
+  end
+  
   def support_for current_user
     goal_supports.detect { |s| s.user_id == current_user.id} if current_user
   end

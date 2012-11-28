@@ -44,19 +44,22 @@
 		<hr />
 	</section><!-- /journeys //-->
 
+	<div class="tabs">
 	<ul id="comments_donations" class="clearfix">
-		<li><h2><a href="" title="Comentários" class="tab_comments">Comentários</a></h2></li>
-		<li><h2><a href="" title="Doações" class="tab_donations">Doações</a></h2></li>
+		<li><h2><a href="#content_comments" title="Comentários" class="tab_comments active">Comentários</a></h2></li>
+		<li><h2><a href="#content_donations" title="Doações" class="tab_donations">Doações</a></h2></li>
 	</ul>
 	<hr />
-	<div class="content_comments">
-		<div class="tab-pane fade" id="goal-comments-tab">
-			<fb:comments href="<%= current_url %>"></fb:comments>
-		 </div>
+	<div class="content_comments active content" id="content_comments">
+			<div class="tab-pane fade" id="goal-comments-tab">
+				<fb:comments href="<%= current_url %>"></fb:comments>
+			 </div>
 	</div><!-- /content_comments //-->
 
-	<div class="content_donations">
-		<p>doações</p>
+	<div class="content_donations content" id="content_donations">
+			<p>doações</p>
 	</div><!-- /content_donations //-->
+
+	</div>
 
 </div><!-- /coluna2 //-->

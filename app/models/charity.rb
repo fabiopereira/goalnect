@@ -34,5 +34,16 @@ class Charity < ActiveRecord::Base
   def display_crop_image_view
     false
   end
+  
+  def how_many_goals_registered
+    Goal.find_how_many_goals_registered_to_charity self.id
+  end
+   
+  def how_many_people_donate
+   donors_logged =  GoalDonation.how_many_users_donate_to_charity self.id
+   annonymous_donors = GoalDonation.how_many_logout_donation_to_charity self.id
+   donors_logged + annonymous_donors
+  end
+
    
 end

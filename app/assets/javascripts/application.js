@@ -18,6 +18,7 @@
 //= require bootstrap-wysihtml5-all
 //= require jquery.prettyPhoto
 //= require flexslider 
+//= require tabs 
 //= require_tree .
 
 (function($) {
