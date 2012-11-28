@@ -14,6 +14,7 @@ $box-goal-border-color:#e0edf5;
 
 body{
 	background:url(josecarlosimg/conteudo-bg.png) top repeat-x;
+	//background: $azul-claro;
 	margin-top:78px;
     font-family: $font-text;
 	color:$cinza-escuro;
@@ -156,7 +157,7 @@ input[type="color"]:focus,
 	border-top:2px solid $azul-logo;
     background: #FFFFFF;
     padding:20px 0 0 0px;
-	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 #footer-section{
@@ -419,7 +420,6 @@ input[type="color"]:focus,
 }
 
 .charity-tabs{
-	
 	li{
 		height:30px;
 	}
