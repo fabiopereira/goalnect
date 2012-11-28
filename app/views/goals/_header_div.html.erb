@@ -33,7 +33,7 @@
 				<span class="iconsgoal-daysleft sprite dias-restantes font12 fonte-benton azul-escuro" id="days_left">
 					<%= render "goals/days_left", :goal => goal %>
 				</span>
-				<h5 id="status_message"> <%=raw goal.goalStage.translated_name%></h5>
+				<h5 id="status_message"> <%=raw_scape_xss goal.goalStage.translated_name%></h5>
 				<div id="junto_duvido_button_div" >
 				<ul id="opt-junto-duvido">
 					<% current_user_support = goal.support_for(current_user)	%>

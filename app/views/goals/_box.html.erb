@@ -19,7 +19,7 @@
 		<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
 		<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
 	<% else %>
-    	<%=raw goal.description%>
+    	<%=raw_scape_xss goal.description%>
 	<% end %>
 	</div>
 	
