@@ -1,33 +1,28 @@
 	<div class="coluna1">
-		<%= render 'achiever/box', :achiever => @achiever %>
+		<div class="coluna1">
+			<%= render '/achiever/perfil_box', :achiever => @achiever %>   
+			<%= render '/achiever/quicklinks_box', :achiever => @achiever %>   
+		</div><!-- /coluna1 //-->
 	</div>
 	<div class="coluna2">
 		<article class="box-grande">
-				<p class="subtitle_green"><b><%=t("about_me_title")%>:</b></p>
+				<h2><%= @achiever.screen_name %></h2>
 				<% if @achiever.about_me.blank? %>
 					<%= t 'blank_about_me', :name => @achiever.screen_name %>
 				<% else %>
 					<%= @achiever.about_me %>
 				<% end %>
-				<%= render 'goals/new_goal_url' %>
-				
-				<% if current_user && current_user.charity_id %>
-				  <p><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
-				<% end %>
-				
-				<p><h5><%= t("points_summary")%>:</h5></p>
 				<hr/>
-				<% points_summary = @achiever.points_summary %>
-				<p><%= t("active_points")%>.....<span id="available_points"><%= points_summary.available_points %></span>pts</p>
-				<p><%= t("locked_points")%>.....<span id="locked_points"><%= points_summary.locked_points %></span>pts</p>
-				<p><%= t("redeemed_points")%>.....<span id="redeemed_points"><%= points_summary.redeemed_points %></span>pts</p>
+				<%= render 'achiever/points_summary_horizontal', :points_summary =>  @achiever.points_summary%>
 				<hr/>
-				<p><%= link_to t("statement"), "/#{@achiever.username}/points_statement" %></p>
+				<%= render 'goals/goal_template_form' %>
+				
 		</article>
 	</div>
 </div>   
 	<section id="bottom-section" clear="" >
 		<div class="centraliza clearfix"> 
+			<%= render 'goals/new_goal_url' %>
 			<h1 class="mygoals_header">My Goals</h1>
 			<div class="my_goals">
 			<% my_goals = @achiever.find_active_goals() %>

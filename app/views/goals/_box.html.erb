@@ -15,7 +15,7 @@
 	</h5>     
 	
 	
-	<% if current_user_is_achiever?(@achiever) && goal.goalStage.id == GoalStage::PENDING.id %>
+	<% if current_user_is_achiever?(goal.achiever) && goal.goalStage.id == GoalStage::PENDING.id %>
 		<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
 		<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
 	<% else %>

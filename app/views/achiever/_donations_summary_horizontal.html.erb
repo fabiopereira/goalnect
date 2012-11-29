@@ -1,0 +1,20 @@
+<section class="donations-summary">
+	<div id="donation-amount">
+		<figure>
+			<%= image_tag 'features.atinja_suas_metas_thumbmedium.png' %>
+		</figure>
+		<p id="raised_so_far"><strong>R$ <%= @charity.find_total_raised_amount%></strong> arrecadados</p>
+	</div>
+	<div id="how-many-people">
+		<figure>
+			<%= image_tag 'features.apoie-se_em_amigos_thumbmedium.png' %>
+		</figure>
+		<p>Com a contribuicao de <strong><%=@charity.how_many_people_donate%></strong> pessoas</p>
+	</div>
+	<div id="how-many-goals">
+		<figure>
+			<%= image_tag 'features.atinja_suas_metas_thumbmedium.png' %>
+		</figure>
+		<p>atraves de <strong><%=@charity.how_many_goals_registered%></strong> goals </p>
+	</div>
+</section>

@@ -52,12 +52,9 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     #Generate vantagens file
     generate_vantagens_file cpf, sum_of_donations
-    
     visit_charity_page_as_admin danni.username, charity.id
-    ensure_charity_has_donation_of "50"
-    ensure_charity_has_donation_of "15"
+    page.should have_content dannis_goal.title
     ensure_charity_has_raised_so_far_amount "65"
-    verify_charity_updates charity.id
     GoalDonation.update_all(['pagseguro_fee = ?', 0.40], ['charity_id = ?',charity.id])
      
     visit_all_donations_page_verify_summaries "65", "0.80", "4.88", "59.32"
