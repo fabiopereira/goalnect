@@ -3,12 +3,12 @@ pt:
     site: www.goalnect.com.br
   devise:
     sessions:
-      sign_in: 'Efeturar login'
-      sign_in_subtitle: 'Se já for um usuário do Goalnect'
-      facebook_sign_in: 'Ou entre com seu Facebook'
-      facebook_sign_in_subtitle: 'A forma mais fácil de entrar'
-      sign_up: 'Cadastre-se'
-      sign_up_subtitle: 'Se ainda não for um usuário do Goalnect'
+      sign_in: 'Entre com sua conta'
+      sign_in_subtitle: 'Afinal, você já é um de nós ;D'
+      facebook_sign_in: 'Ou, ainda mais fácil:'
+      facebook_sign_in_subtitle: 'Melhor que isso, só se entrássemos por você :D'
+      sign_up: 'Junte-se a nós!'
+      sign_up_subtitle: 'O desafio é o seu goal, não o cadastro :P'
     links:
       forgot_your_password: 'Esqueceu sua senha?'
       sign_up: 'Cadastrar-se'

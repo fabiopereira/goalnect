@@ -4,11 +4,11 @@ en:
   devise:
     sessions:
       sign_in: 'Sign in'
-      sign_in_subtitle: 'If you are a Goalnect user'
-      facebook_sign_in: 'Or login with Facebook'
-      facebook_sign_in_subtitle: 'The easiest way to login'
-      sign_up: 'Sign up'
-      sign_up_subtitle: 'If you want to be part of Goalnect'
+      sign_in_subtitle: "If you are one of us ;D"
+      facebook_sign_in: "Or, even easier:"
+      facebook_sign_in_subtitle: "What's better than that?"
+      sign_up: "Be one of us!"
+      sign_up_subtitle: "We bet this is easier then your goal :P"
     links:
       forgot_your_password: 'Forgot your password?'
       sign_up: 'Sign up'
