@@ -200,6 +200,9 @@ input[type="color"]:focus,
     }
 }
 
+.static {
+  @extend .box;
+}
 
 .align_right{
 	text-align:right;

@@ -1,21 +1,31 @@
-
-.static p, .static ol li {
-  font-size: 18px;
-  font-family: helvetica;   
-  color: black;	
-  line-height: 27px;
+.static-text {
+  font-family: $font-text;
+  font-size: 16px;
 }
 
-.static h1 {
-  color: navy;	
+.static {
+   p {
+     @extend .static-text;
+     strong {
+       color: $azul-logo;
+     }
+   }
+}
+
+.static h3 {
+  font-size: 2.0em;
+  color: $azul-logo;
+}
+
+.static p, .static ol li {
+  @extend .static-text;
+  color: black;	
 }
 
 .static h2 {
   background: url('question-mark-goalnect-bullet.png') no-repeat;
   background-position-y: 33%;
-  padding: 6px 0 13px 40px;
-  font-family: helvetica;
-  color: navy;	
+  padding: 10px 0 13px 40px;
 }
 
 #how-it-works {
@@ -23,12 +33,9 @@
 	background: url('question-mark-goalnect-bullet.png') no-repeat;
 	background-position-y: 33%;
 	padding: 6px 0 13px 40px;
-	font-family: helvetica;
-	color: navy;	
 }
+
 .a {
-  font-size: 18px;
-  font-family: helvetica;
   line-height: 27px;
 }
 

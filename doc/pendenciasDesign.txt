@@ -1,15 +1,19 @@
 - Goal Tabs (Doações, Comentários, Journey)
+- Retirar formatação de links 
+- Footer
+
+
+
 - Search
   OK - quebrar na charity
   - hover
 
 - Menu dropdown to change image and edit profile
-- Retirar formatação de links 
+
 - Including You using tiptip
 - Centralizar goals
 - Errors/Messages
 - Table (statement)
 - html wysiwyg
-- Footer
 - Anchor and Index for static pages
 
