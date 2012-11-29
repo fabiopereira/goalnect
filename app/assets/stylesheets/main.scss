@@ -43,7 +43,13 @@ textarea {
 /* body{visibility:hidden;} */
 
 /* RESET */
-*, h1, h2, h3, h4, h5, p{margin:0; padding:0; outline:none; list-style-type:none; list-style-position:inside;}
+*, h1, h2, h3, h4, h5, p{margin:0; padding:0; outline:none; list-style-position:inside;}
+
+ol {
+  list-style: decimal inside;
+  list-style-type: decimal;
+  list-style-position:inside;
+}
 
 /* Fontes */
 @font-face {

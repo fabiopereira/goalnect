@@ -17,10 +17,15 @@
   color: $azul-logo;
 }
 
-.static p, .static ol li {
+.static ol li {
+   margin-left: 20px;
+}
+         
+.static p, .static ol li, .static ul li {
   @extend .static-text;
   color: black;	
 }
+
 
 .static a.anchor {
   display: block; 
