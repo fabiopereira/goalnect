@@ -1,0 +1,10 @@
+<article class="box-pequeno">
+	<h5><%= t("points_summary")%>:</h5>
+	<hr/>
+	<% points_summary = achiever.points_summary %>
+	<p><%= t("active_points")%>.....<span id="available_points"><%= points_summary.available_points %></span>pts</p>
+	<p><%= t("locked_points")%>.....<span id="locked_points"><%= points_summary.locked_points %></span>pts</p>
+	<p><%= t("redeemed_points")%>.....<span id="redeemed_points"><%= points_summary.redeemed_points %></span>pts</p>
+	<hr/>
+	<p><%= link_to t("statement"), "/#{achiever.username}/points_statement" %></p>
+</article><!-- /box-pequeno //-->

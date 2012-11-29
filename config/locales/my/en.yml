@@ -135,13 +135,17 @@ en:
     new_charity_update: "New Update"
     list_all_donations: "List All Donations"
     raised_so_far: "Raised so far" 
-    last_10_goals: "Last 10 Goals"
+    recent_goals: "Recent Goals"
     list_all_goals: "List All Goals"
     report: "Report"
     report_abuse: "Report Abuse"
     confirm_report_abuse: "You are about to report abuse for: %{goal_title}"
     no_goals_message: "There are no goals associated to this charity"
     last_7_days_goals: "Last 7 days Goals"
+    raised: "<strong>$ %{raised_amount}</strong> raised"
+    people_contribution: "with donations from <strong> %{people_count} </strong> people"
+    through_goal: "through <strong>%{goal_count}</strong> goals"
+    
   timeLeftPrefix: Left    
     
   point_statement:

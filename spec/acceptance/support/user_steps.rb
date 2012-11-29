@@ -27,8 +27,7 @@ module UserSteps
   def login_user_password email, password
     visit '/'   
     click_on 'Login'   
-    login_user_password_already_in_login_page email, password
-    page.should have_content 'ABOUT ME'       
+    login_user_password_already_in_login_page email, password     
   end    
   
   def ensure_username_exists username
@@ -70,7 +69,7 @@ module UserSteps
     end
     user = User.find_by_username(user.username)
     # visit "/users/confirmation?confirmation_token=#{user.confirmation_token}" 
-    page.should have_content 'ABOUT ME'       
+    page.should have_content user.screen_name      
     user = User.find_by_username(user.username)
   end
   

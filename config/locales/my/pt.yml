@@ -205,13 +205,16 @@ pt:
     new_charity_update: "Nova Atualização"
     list_all_donations: "Todas Doações"
     raised_so_far: "Total Arrecadado"
-    last_10_goals: "Últimos 10 Goals"
+    recent_goals: "Goals Recentes"
     list_all_goals: "Todos Goals"
     report: "Reportar"
     report_abuse: "Reportar"
     confirm_report_abuse: "Você desejar reportr o goal: %{goal_title} ?"
     no_goals_message: "Não existem goals associados com esta ONG."
     last_7_days_goals: "Goals dos Últimos 7 Dias"
+    raised: "<strong>R$ %{raised_amount}</strong> arrecadados"
+    people_contribution: "Com a contribuição de <strong> %{people_count} </strong> pessoas"
+    through_goal: "através de <strong>%{goal_count}</strong> goals"
     
   vimeo:
     teaser: "http://www.youtube.com/watch?v=VSzK3yE_OYY&feature=g-upl&cc_load_policy=1&yt:cc=on"

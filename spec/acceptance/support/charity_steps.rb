@@ -35,10 +35,6 @@ module CharitySteps
     
   end
   
-  def ensure_charity_has_donation_of amount  
-    find('#donations_table').should have_content(amount)
-  end
-  
   def ensure_charity_has_raised_so_far_amount amount
     find('#raised_so_far').should have_content(amount)
   end
@@ -61,64 +57,7 @@ module CharitySteps
     
   end
   
-  def verify_charity_updates charity_id
-    update1 = "Update1 Message"
-    update2 = "Update2 Message"
-    update3 = "Update3 Message"
-    update4 = "Update4 Message"
-    edit = "Edit Message"
-    
-    add_charity_update update1
-    add_charity_update update2
-    add_charity_update update3
-    
-    find("#charity_updates").should have_content(update1)
-    find("#charity_updates").should have_content(update2)
-    find("#charity_updates").should have_content(update3)
-    
-    #display only last 3 updates
-    add_charity_update update4
-    find("#charity_updates").should_not have_content(update1)
-    find("#charity_updates").should have_content(update2)
-    find("#charity_updates").should have_content(update3)
-    find("#charity_updates").should have_content(update4)
-    
-    update = CharityUpdate.find(:first, :conditions => [ "charity_id = ?", charity_id], :order => "id DESC")
-    
-    # TODO: weirrddd!! test doesnt work!!!
-    # visit "/charities/#{charity_id}"
-    # edit_charity_update update, edit
-    # find("#charity_updates").should have_content(edit)
-    
-    delete_charity_update update
-    find("#charity_updates").should_not have_content(update.message)
-    
-  end
   
-  
-  def delete_charity_update update
-    within("#charity_update_#{update.id}") do
-      click_on 'Destroy'   
-      page.driver.browser.switch_to.alert.accept
-    end
-  end
-  
-  def edit_charity_update update, message
-    within("#charity_update_#{update.id}") do
-      click_on 'Edit'   
-      fill_charity_update_message message
-    end
-  end
-  
-  def add_charity_update message
-    click_on "New Update"
-    fill_charity_update_message message
-  end
-  
-  def fill_charity_update_message message
-      page.execute_script %Q{ $('#charity_update_message').data("wysihtml5").editor.setValue("#{message}") }
-      find("#submit").click
-  end
   
 end
 

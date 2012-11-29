@@ -88,7 +88,11 @@ class Goal < ActiveRecord::Base
   end
   
   def self.find_how_many_goals_registered_to_charity charity_id
-    GoalDonation.count(:id, :conditions => ["charity_id = ?", charity_id])
+    Goal.count(:id, :conditions => ["charity_id = ? and goal_stage_id in (?)", charity_id, GoalStage.active_stages])
+  end
+  
+  def self.find_last_40_active_goals_by_charity charity_id
+    Goal.find(:all, :conditions => [ "charity_id = ? and goal_stage_id in (?)", charity_id, GoalStage.active_stages], :limit => 40, :order => "id desc")
   end
   
   def support_for current_user

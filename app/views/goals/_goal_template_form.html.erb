@@ -1,11 +1,16 @@
 <% Togg.le(:feature_goal_template) do %>
   <form class="i_commit" action="/goal_template/i_commit">
 	
-    <div>
-	   <span><%= t("label.commit_to_a_goal") %></span>
-       <%= select_tag(:goal_template, active_goal_template_options) %>
+    <div id="goal_template_form">
+	   <h2><%= t("label.commit_to_a_goal") %></h2>
+	   <figure>
+	   <%= image_tag("nopic/goaltemplate-nopic-thumb.png", id: "image_goal_template", :data => { :default_src => "#{asset_path('nopic/goaltemplate-nopic-thumb.png')}"}) %>
+	   </figure>
+		<div class="select_form">
+			<%= select_tag(:goal_template, active_goal_template_options) %>
+			<input type="submit" value="<%= t 'goal_template.label_commit' %>"/>
+		</div>
     </div>
-	<%= image_tag("template.padrao.png", id: "image_goal_template", :data => { :default_src => "#{asset_path('template.padrao.png')}"}) %>
-    <input type="submit" value="<%= t 'goal_template.label_commit' %>"/>
+    
   </form>
 <% end %>

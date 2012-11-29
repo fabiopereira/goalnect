@@ -1,0 +1,24 @@
+<section id="points-summary">
+	<div id="available_points">
+		<figure>
+			<%= image_tag 'features.atinja_suas_metas_thumbmedium.png' %>
+		</figure>
+		<p><%= t("active_points")%>:</p>
+		<p><strong><%= points_summary.available_points %></strong> pts</p>
+	</div>
+	<div id="locked_points">
+		<figure>
+			<%= image_tag 'features.apoie-se_em_amigos_thumbmedium.png' %>
+		</figure>
+		<p><%= t("locked_points")%>: </p>
+		<p><strong><%= points_summary.locked_points %></strong>  pts</p>
+	</div>
+	<div id="how-many-goals">
+		<figure>
+			<%= image_tag 'features.atinja_suas_metas_thumbmedium.png' %>
+		</figure>
+		<p><%= t("redeemed_points")%>: </p><strong>
+		<p><%= points_summary.redeemed_points %></strong>  pts</p>
+	</div>
+	<span class="statement"><%= link_to t("statement"), "/#{@achiever.username}/points_statement" %></span>
+</section>

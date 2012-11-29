@@ -4,8 +4,9 @@ $(function(){
 	
 	$('.random_img_tag').bind('mouseenter', function() {
     	var img_element = $(this);
+		img_srcs = imgSrcs(img_element);
+		changeToNextImage(img_element, img_srcs);
     	this.iid = setInterval(function() {
-				img_srcs = imgSrcs(img_element);
 				changeToNextImage(img_element, img_srcs);
     		}, 1000);
 	}).bind('mouseleave', function(){

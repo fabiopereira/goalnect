@@ -1,0 +1,11 @@
+<% if current_user_is_achiever?(achiever) %>
+<article class="box-pequeno">
+	<h4>Quick links:</h4>
+	<hr/>
+	<% if current_user.charity_id %>
+	  <p><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
+	<% end %>
+	<p><a href="#">xxx</a></p>
+	<p><a href="#">xxx</a></p>
+</article><!-- /box-pequeno //-->
+<% end %>

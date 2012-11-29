@@ -21,12 +21,6 @@ class CharitiesController < ApplicationController
     else
       @charity = Charity.find(:first, :conditions => [ "lower(nickname) = ?", nickname_or_id.downcase ])
     end
-    @total_raised = GoalDonation.find_total_raised_amount_by_charity_id @charity.id
-    @recent_donations = GoalDonation.find_most_recent_donations_by_charity_id @charity.id
-    @last_3_updates =  CharityUpdate.find(:all, :conditions => [ "charity_id = ?", @charity.id], :limit => 3, :order => "id desc")
-    if (current_user && current_user.charity_id == @charity.id) 
-      @goals = Goal.find(:all, :conditions => [ "charity_id = ? and created_at > ? and goal_stage_id not in (?)", @charity.id, 7.days.ago, GoalStage.inactive_stages_id], :limit => 10, :order => "id desc")
-    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @charity }
