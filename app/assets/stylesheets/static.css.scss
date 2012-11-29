@@ -22,6 +22,13 @@
   color: black;	
 }
 
+.static a.anchor {
+  display: block; 
+  position: relative; 
+  top: -70px; 
+  visibility: hidden;
+}
+
 .static h2 {
   background: url('question-mark-goalnect-bullet.png') no-repeat;
   background-position-y: 33%;
