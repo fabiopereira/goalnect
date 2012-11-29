@@ -22,4 +22,6 @@
 
 # Ignore sprite icons
 /app/assets/images/iconsgoal-*.png
+/app/assets/images/iconsmain-*.png
+
 

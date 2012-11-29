@@ -1,12 +1,12 @@
 <header>
 	<h1><a href="/" class="sprite logo indent">Goalnect</a></h1>
+	<% Togg.le(:feature_authentication) do %>
+	<section id="menu-search">
+    	<%= render 'search/search_form' %>
+	</section>
+	<% end %>
 	<nav id="menu">
 		<ul>
-			<% Togg.le(:feature_authentication) do %>
-			    <li>
-			    	<%= render 'search/search_form' %>
-			    </li>                                 
-			<% end %>
 			<li><a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png", style: "width:25px;height:25px") %></a></li>
 			<li><a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png", style: "width:25px;height:25px") %></a></li>
 			<li><a href="mailto:<%= t "email.team" %>" target="blank"><%= image_tag("goalnect-mailto-48x48.png", style: "width:25px;height:25px") %></a></li>

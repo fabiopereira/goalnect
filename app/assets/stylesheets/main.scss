@@ -423,6 +423,20 @@ footer{
     *zoom: 1;
 }
 
+#menu-search {
+   margin: -41px 0px 0px 177px;
+   input {
+	height: 33px;
+   }
+   input[type=submit] {
+     @include iconsmain-sprite(search);
+   	 width : 50px;
+   	 height :40px;
+   	 border : none;
+   	 color : transparent;
+   }
+}
+
 /* ==========================================================================
    Print styles
    ========================================================================== */
