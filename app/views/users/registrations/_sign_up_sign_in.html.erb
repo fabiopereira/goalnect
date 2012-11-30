@@ -8,6 +8,7 @@
 <h3><%= t 'devise.sessions.sign_in_subtitle' %></h3>
 </div>
 
+<%= image_tag "sign_in.png", :class => "sing_in_img" %>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <p><%= f.email_field :email, :placeholder => User.human_attribute_name('email') %></p>
   <p><%= f.password_field :password, :placeholder => User.human_attribute_name('password') %></p>
@@ -16,7 +17,8 @@
    <br/><%= f.check_box :remember_me %> <%= User.human_attribute_name('remember_me') %>
   <% end -%>
   </p>
-  <%= f.submit t("devise.sessions.sign_in") %>
+  
+  <%= f.submit t("devise.sessions.sign_in_btn"), :class => 'btn btn-success'  %>
 
   <% Togg.le(:feature_authentication) do %>
 	<div id="facebook_login">
@@ -34,7 +36,7 @@
 <h2><%= t 'devise.sessions.sign_up'%></h2>
 <h3><%= t 'devise.sessions.sign_up_subtitle' %></h3>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-
+	<%= image_tag "sign_up.png", :class => "sing_in_img" %>
   <p><%= f.email_field :email, :placeholder => User.human_attribute_name('email') %></p>
   <p><%= f.password_field :password, :placeholder => User.human_attribute_name('password') %></p>
   <p><%= f.password_field :password_confirmation, :placeholder => User.human_attribute_name('password_confirmation') %></p>
@@ -43,7 +45,7 @@
   <p><%= f.text_field :username, :placeholder => User.human_attribute_name('username') %></p>
   <p><%= f.hidden_field :country_id, :value => Country.current_from_locale.id %></p>
 
-  <div><%= f.submit t("devise.sessions.sign_up") %></div>
+  <div><%= f.submit t("devise.sessions.sign_up_btn"), :class => 'btn btn-success' %></div>
 <% end %>
 </div>
 </div>

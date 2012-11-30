@@ -4,10 +4,12 @@ pt:
   devise:
     sessions:
       sign_in: 'Entre com sua conta'
+      sign_in_btn: 'Entrar!'
       sign_in_subtitle: 'Afinal, você já é um de nós ;D'
       facebook_sign_in: 'Ou, ainda mais fácil:'
       facebook_sign_in_subtitle: 'Melhor que isso, só se entrássemos por você :D'
       sign_up: 'Junte-se a nós!'
+      sign_up_btn: 'Cadastrar!'
       sign_up_subtitle: 'O desafio é o seu goal, não o cadastro :P'
     links:
       forgot_your_password: 'Esqueceu sua senha?'
