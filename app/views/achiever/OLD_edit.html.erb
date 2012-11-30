@@ -40,6 +40,13 @@
 	    </div>
 	  </div>
 
+	  <div class="control-group">
+	    <%= f.label :country, :class => 'control-label'  %>
+	    <div class="controls">
+	     <%= collection_select(:user, :country_id, Country.all, :id, :name) %>
+	    </div>
+	  </div>
+
 	  <div class="form-actions">
 	    <%= f.submit nil, :class => 'btn btn-primary' %>
 		<%= link_to t('cancel'), '/'+@user.username, :class => 'btn' %>

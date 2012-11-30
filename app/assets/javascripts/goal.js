@@ -40,7 +40,7 @@ on_change_goal_title = function(){
 }
 
 fill_goal_with_template_values = function (data) {
-		$('#goal_description').data("wysihtml5").editor.setValue(data.description);
+		$('#goal_description').val(data.description);
 		$('#image_goal_template').attr("src", data.image.thumb.url);
 		$('#description_guide').html(data.description_guide);
 		if (data.due_on){

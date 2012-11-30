@@ -19,7 +19,8 @@ module GoalSteps
     click_on "Send"
     page.should have_content "Message can't be blank"
     
-    page.execute_script %Q{ $('#goal_feedback_message').data("wysihtml5").editor.setValue('I made it, yay') }
+    fill_in 'goal_feedback_message', :with => 'I made it, yay'
+    # page.execute_script %Q{ $('#goal_feedback_message').data("wysihtml5").editor.setValue('I made it, yay') }
     click_on "Send"
     
     page.should_not have_css("#goal_feedback_goal_stage_id")
@@ -30,14 +31,14 @@ module GoalSteps
 	  click_on 'START NOW!'
 	  fill_in 'goal_title_selected', :with => title
 	  select_description "Description for goal #{title}"
-    # fill_in 'goal_description', :with => description
     # fill_in 'goal_due_on', :with => 2.months.from_now
     commit_to_charity_and_target_amount charity
 	  Goal.find_by_title title
 	end
 	
 	def select_description description
-	  page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
+    fill_in 'goal_description', :with => description
+    # page.execute_script %Q{ $('#goal_description').data("wysihtml5").editor.setValue('#{description}') }
 	  description
 	end
 	
