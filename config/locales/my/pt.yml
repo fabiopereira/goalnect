@@ -182,6 +182,7 @@ pt:
   point_summary_locked: "<strong>%{locked_pts}</strong> pontos indisponíveis"
   point_summary_active: "<strong>%{active_pts}</strong> pontos"
   backers: "<strong>%{backers}</strong> apoiadores"
+  agreed_terms: Li e aceitei os
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação
