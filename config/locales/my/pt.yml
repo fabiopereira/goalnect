@@ -178,8 +178,9 @@ pt:
   check_out_this_goal: "Confira este goal" 
   report_abuse_success_message: "Este goal foi reportado, e nãao está mais disponível."
   raised: "<strong>R$ %{raised_amount}</strong> arrecadados"
-  point_summary_locked: "<strong>R$ %{locked_pts}</strong> pontos indisponíveis"
-  point_summary_active: "<strong>R$ %{active_pts}</strong> pontos disponíveis"
+  point_summary_locked: "<strong>%{locked_pts}</strong> pontos indisponíveis"
+  point_summary_active: "<strong>%{active_pts}</strong> pontos"
+  backers: "<strong>%{backers}</strong> apoiadores"
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação

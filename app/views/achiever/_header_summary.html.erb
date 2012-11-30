@@ -1,17 +1,19 @@
 <% points_summary = achiever.points_summary%>
 <section id="points-summary">
+	
+	<div id="backers">
+		<figure>
+			<%= image_tag 'features.apoie-se_em_amigos_thumbmedium.png' %>
+		</figure>
+		<p><%=raw_scape_xss t("backers", :backers => achiever.total_backers)%></p>
+	</div>
+	
+	
 	<div id="donation-amount">
 		<figure>
 			<%= image_tag 'raised-amount-thumbmedium.png' %>
 		</figure>
 		<p><%=raw_scape_xss t("raised", :raised_amount => achiever.total_raised)%></p>
-	</div>
-	
-	<div id="locked_points">
-		<figure>
-			<%= image_tag 'locked_points_thumbmedium.png' %>
-		</figure>
-		<p><%=raw_scape_xss t("point_summary_locked", :locked_pts => points_summary.locked_points)%></p>
 	</div>
 	
 	<div id="available_points">

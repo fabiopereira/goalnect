@@ -69,7 +69,13 @@ class User < ActiveRecord::Base
   end
 
   def total_raised
-    GoalDonation.sum(:amount, :joins => 'left outer join goals on goals.id = goal_donations.goal_id', :conditions => ["goals.achiever_id = ?", self.id])
+    GoalDonation.total_raised_by_achiever self.id
+  end
+  
+  def total_backers
+    users = GoalDonation.total_users_donated_to_achiever self.id 
+    anonymous = GoalDonation.total_logout_donation_to_achiever self.id
+    users + anonymous
   end
   
 end
