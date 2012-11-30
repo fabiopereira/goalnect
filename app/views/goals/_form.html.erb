@@ -1,50 +1,70 @@
+<%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
+<div class="coluna2">
+	<article class="box-grande">
+		<%if @goal.achiever.id == current_user.id%>
+			<h2><%=t("headline.goal.title")%></h2>
+		<% else %>
+			<h2><%=t("headline.goal.dare_title")%></h2>
+		<% end %>
+		<hr/>
+		<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/create', :html => { :class => 'form-horizontal' } do |f| %>    
 
-<%= form_for @goal, :url => '/'+@achiever_username+'/goals/create', :html => { :class => 'form-horizontal' } do |f| %>    
+		  <%= render 'layouts/model_error_messages', :target => @goal %>
 
-  <%= render 'layouts/model_error_messages', :target => @goal %>
 
-  <div class="control-group">
-	<%= f.label :title_selected, :class => 'control-label' %>
-	<div class="controls">
-      <%= f.text_field :title_selected, data: {autocomplete_source: GoalTemplate.all_active_current_locale.order(:title).map(&:title)} %>
-    </div>
-	<%= image_tag(img_src('GoalTemplate', @goal.goal_template, :thumb), id: "image_goal_template", :data => { :default_src => "#{asset_path('nopic/goaltemplate-nopic-thumb.png')}"}) %>
-  </div>
+		<section id="infos-goal" class="clearfix">
+			<figure class="imagem-goal">
+				<%= image_tag(img_src('GoalTemplate', @goal.goal_template, :thumb), id: "image_goal_template", :data => { :default_src => "#{asset_path('nopic/goaltemplate-nopic-thumb.png')}"}) %>
+			</figure>
+			<section class="descricao-goal">
+				<div class="control-group">
+					<%= f.label :title_selected, :class => 'control-label' %>
+					<div class="controls">
+				      <%= f.text_field :title_selected, data: {autocomplete_source: GoalTemplate.all_active_current_locale.order(:title).map(&:title)} %>
+				    </div>
+				  </div>
 
-  <div class="control-group">
-    <div class="controls" id="description_guide">
-    </div>
-  </div>
+				  <div class="control-group">
+				    <div class="controls" id="description_guide">
+				    </div>
+				  </div>
 
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :due_on, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year] %>
-    </div>
-  </div>
+				  <div class="control-group">
+				    <%= f.label :description, :class => 'control-label' %>
+				    <div class="controls">
+				      <%= f.text_area :description, :class => 'text_area', :rows => '5', :cols => '50' %>
+				    </div>
+				  </div>
+				  <div class="control-group">
+				    <%= f.label :due_on, :class => 'control-label' %>
+				    <div class="controls">
+				      <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year] %>
+				    </div>
+				  </div>
 
- <div class="control-group">
-    <%= f.label :charity_id, :class => 'control-label' %>
-    <div class="controls">
-     <%= collection_select(:goal, :charity_id, Charity.find_all_by_active(true), :id, :charity_name, {:prompt => 'Select Charity'}) %>
-    </div>
-  </div>
+				 <div class="control-group">
+				    <%= f.label :charity_id, :class => 'control-label' %>
+				    <div class="controls">
+				     <%= collection_select(:goal, :charity_id, Charity.find_all_by_active(true), :id, :charity_name, {:prompt => 'Select Charity'}) %>
+				    </div>
+				  </div>
 
-  <div class="control-group">
-	<%= f.label :target_amount, :class => 'control-label' %>
-	<div class="controls">
-      <%= f.text_field :target_amount %>
-    </div>
-  </div>
+				  <div class="control-group">
+					<%= f.label :target_amount, :class => 'control-label' %>
+					<div class="controls">
+				      <%= f.text_field :target_amount %>
+				    </div>
+				  </div>
+					<hr/>
+				  <div class="form-actions">
+				    <%= f.submit nil, :class => 'btn btn-primary' %>
+					<%= link_to t('.cancel', :default => t("helpers.links.cancel")), '/'+@goal.achiever.username, :class => 'btn' %>
+				  </div>
+			</section><!-- /descricao-goal //-->
+		</section><!-- /infos-goal //-->
+		<% end %>
+		
+	</article>
+</div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-	<%= link_to t('.cancel', :default => t("helpers.links.cancel")), '/'+@achiever_username, :class => 'btn' %>
-  </div>
-<% end %>
+

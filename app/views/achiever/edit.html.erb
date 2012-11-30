@@ -1,13 +1,6 @@
-<script>
-  $(document).ready(function(){
-	$("#user_image_link").click(function () {
-	    $("#user_image").click();
-	});
-  });	
-	
-</script>
-
-
+<%= render 'achiever/achiever_profile', :achiever => @user %>
+<div class="coluna2">
+	<article class="box-grande">
 	<%= form_for @user, :url => '/achiever/update', :html => { :class => 'form-horizontal', :multipart => true } do |f| %>    
 
 		<%= render 'layouts/model_error_messages', :target => @user %>
@@ -15,33 +8,29 @@
 	    <div class="control-group">
 		<%= f.label :screen_name, :class => 'control-label' %>
 		<div class="controls">
-	      <%= f.text_field :screen_name %>
+	      <%= f.text_field :screen_name, :placeholder => User.human_attribute_name('screen_name') %>
 	    </div>
 	  </div>
 
 	  <div class="control-group">
-		<%= f.label :username, :class => 'control-label' %>
+		<label class="control-label" for="user_username"><%= t "url.site" %>/</label>
 		<div class="controls">
-	      <%= f.text_field :username %>
+	      <%= f.text_field :username, :placeholder => User.human_attribute_name('username') %>
 	    </div>
 	  </div>
-
+	
 	  <div class="control-group">
-		<%= f.label :cpf, :class => 'control-label' %>
-		<div class="controls">
-	      <%= f.text_field :cpf %>
-	    </div>
-	  </div>
-
-	  <div class="control-group">
-	    <%= f.label :about_me, :class => 'control-label' %>
+	    <%= f.label :country, :class => 'control-label'  %>
 	    <div class="controls">
-	      <%= f.text_area :about_me, :class => 'text_area', :size => "50x10"  %>
+	     <%= collection_select(:user, :country_id, Country.all, :id, :name) %>
 	    </div>
 	  </div>
+
 
 	  <div class="form-actions">
 	    <%= f.submit nil, :class => 'btn btn-primary' %>
 		<%= link_to t('cancel'), '/'+@user.username, :class => 'btn' %>
 	  </div>
 	<% end %>
+	</article>
+</div>

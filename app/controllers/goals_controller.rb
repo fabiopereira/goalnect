@@ -45,9 +45,10 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/new
   # GET /:user_username/goals/new.json
   def new
-    @achiever_username = params[:user_username] ? params[:user_username] : current_user.username
-    @goal = Goal.new
-    flash[:notice] = t('goal_template.congratulations_almost_there') 
+    achiever_username = params[:user_username] ? params[:user_username] : current_user.username
+    achiever = User.find_by_username(achiever_username)
+    @goal = Goal.new 
+    @goal.achiever = achiever
     fill_goal_with_template_if_exists @goal
     respond_to do |format|
       format.html # new.html.erb
@@ -65,7 +66,6 @@ class GoalsController < ApplicationController
     params[:goal][:achiever] = find_achiever(params)
     params[:goal][:owner] = current_user    
     @goal = Goal.new(params[:goal])
-    @achiever_username = params[:user_username]
     @goal.goal_stage_changed_at = Time.now
     if @goal.owner.id == @goal.achiever.id
       @goal.goal_stage_id = GoalStage::JUST_STARTED.id

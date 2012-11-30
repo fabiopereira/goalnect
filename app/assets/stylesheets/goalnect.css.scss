@@ -80,7 +80,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
 	display: inline-block;
-	height: 20px;
 	padding: 4px 6px;
 	margin-bottom: 10px;
 	font-size: 14px;
@@ -92,11 +91,16 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	border-radius: 4px;
 }
 
+select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	height: 20px;
+}
+
+
 .field_with_errors{
-	border: 1px solid red;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	color: #B94A48;
+	select, textarea, input, .uneditable-input{
+		border: 1px solid #B94A48;
+	}
 }
 
 textarea:focus,
@@ -473,11 +477,15 @@ span.donations_list{
 }
 
 .quick-links{
-	p{
+	p,a{
 		font-size: 14px;
 		line-height: 22px;
+		margin:none;
+		width: 100%;
 		&:hover{
-			background:$cinza-claro;
+			background:$azul-logo;
+			font-weight:bold;
+			color: #fff !important;;
 		}
 	}
 }
