@@ -68,4 +68,8 @@ class User < ActiveRecord::Base
     points_summary.available_points
   end
 
+  def total_raised
+    GoalDonation.sum(:amount, :joins => 'left outer join goals on goals.id = goal_donations.goal_id', :conditions => ["goals.achiever_id = ?", self.id])
+  end
+  
 end

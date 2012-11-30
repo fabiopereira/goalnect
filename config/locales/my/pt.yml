@@ -115,7 +115,9 @@ pt:
   points: Pontos        
   label:
     search: Buscar
-    commit_to_a_goal: "Eu quero ajudar uma ONG porque eu vou"
+    commit_to_a_goal: "Eu quero..."
+    dare_to_a_goal: "Desafie este amigo a..."
+    and_help: "...ajudando quem precisa"
     redeem: Resgate %{points} pontos
   when: Quando    
   redemption_point_transaction:
@@ -157,7 +159,7 @@ pt:
   change_photo: "Trocar Foto"
   edit_profile: "Editar Perfil"
   points_summary: "Pontuação"
-  active_points: "Disponível.."
+  active_points: "Disponível"
   locked_points: "Indisponível"
   redeemed_points: "Resgatados"
   statement: "Extrato"
@@ -173,6 +175,9 @@ pt:
   donation_to: "Doação para"
   check_out_this_goal: "Confira este goal" 
   report_abuse_success_message: "Este goal foi reportado, e nãao está mais disponível."
+  raised: "<strong>R$ %{raised_amount}</strong> arrecadados"
+  point_summary_locked: "<strong>R$ %{locked_pts}</strong> pontos indisponíveis"
+  point_summary_active: "<strong>R$ %{active_pts}</strong> pontos disponíveis"
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação

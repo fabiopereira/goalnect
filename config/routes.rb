@@ -82,6 +82,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/points_statement' => 'points#points_statement'
   match '/:user_username/goals' => 'goals#index'
   match '/:user_username/goals/new' => 'goals#new'
+  match '/goals/new' => 'goals#new'
   match '/:user_username/goals/create' => 'goals#create'
   
   match '/:user_username/goals/show/:goal_id' => 'goals#show'

@@ -5,38 +5,23 @@
 		</div><!-- /coluna1 //-->
 	</div>
 	<div class="coluna2">
-		<article class="box-grande">
-				<h2><%= @achiever.screen_name %></h2>
-				<% if @achiever.about_me.blank? %>
-					<%= t 'blank_about_me', :name => @achiever.screen_name %>
-				<% else %>
-					<%= @achiever.about_me %>
-				<% end %>
-				<hr/>
-				<%= render 'achiever/points_summary_horizontal', :points_summary =>  @achiever.points_summary%>
-				<hr/>
-				<%= render 'goals/goal_template_form' %>
-				
+		<article class="box-grande clearfix">
+			<%= render 'achiever/points_summary_horizontal', :achiever =>  @achiever%>
+			<hr/>
+			<%= render 'goals/goal_template_form', :achiever_username => @achiever.username%>
+			<hr/>
+			<p>"Badges!!!"</p>
 		</article>
 	</div>
 </div>   
 	<section id="bottom-section" clear="" >
 		<div class="centraliza clearfix"> 
-			<%= render 'goals/new_goal_url' %>
 			<h1 class="mygoals_header">My Goals</h1>
 			<div class="my_goals">
 			<% my_goals = @achiever.find_active_goals() %>
-			<% is_my_home = my_goals.empty? && current_user_is_achiever?(@achiever) %>
-			<%if is_my_home %>
-				<%= t "your_next_step_message" %> 
-				<div>
-					<%= render 'goals/goal_template_form' %>
-				</div>
-			<%else%>
 				<% my_goals.each do |goal| %>   
 			     	<%= render 'goals/box', :goal => goal %>
 		    	<% end %>  
-			<% end %>
 			
 			</div>
 		</div>

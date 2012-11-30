@@ -1,3 +1,4 @@
+<% if  goal.goalStage.id != GoalStage::PENDING.id || current_user_is_achiever?(goal.achiever)%>
 <div class="box-goal">
 <article class="box-pequeno">
 	<div class="box_goal_content">
@@ -15,12 +16,8 @@
 	</h5>     
 	
 	
-	<% if current_user_is_achiever?(goal.achiever) && goal.goalStage.id == GoalStage::PENDING.id %>
-		<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
-		<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
-	<% else %>
-    	<%=raw_scape_xss goal.description%>
-	<% end %>
+   	<%=raw_scape_xss goal.description%>
+	
 	</div>
 	
 	<hr/>
@@ -28,6 +25,10 @@
     <%= render 'goals/target_amount_progress', :goal => goal %>
 	
 	<div class="actions clearfix">
+		<% if goal.goalStage.id == GoalStage::PENDING.id %>
+			<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
+			<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
+		<% else %>
 		<a class="isupport_true" href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title='<%=t "possible_button" %>'>
 		</a>
 		<a class="isupport_false" href="<%= i_dont_support_path(goal.achiever.username, goal.id)  %>" title='<%=t "no_way_button" %>'>
@@ -35,7 +36,9 @@
 		<a class="donate" href="<%= donate_goal_path(goal.id)  %>" title='<%=t "donate_now" %>'>
 			<span><%=t "donate_now" %></span>
 		</a>
+		<% end %>
 	</div>
 	
 </article><!-- /box-pequeno //-->    
 </div>
+<% end %>

@@ -7,7 +7,7 @@ en:
       sign_in_subtitle: "If you are one of us ;D"
       facebook_sign_in: "Or, even easier:"
       facebook_sign_in_subtitle: "What's better than that?"
-      sign_up: "Be one of us!"
+      sign_up: "Sign up"
       sign_up_subtitle: "We bet this is easier then your goal :P"
     links:
       forgot_your_password: 'Forgot your password?'
@@ -19,11 +19,14 @@ en:
   goal_template:
     select_option: Choose your Goal
     label_commit: START NOW!
+    commit_to_a_goal: "Commit to a goal"
+    and_help: "...helping who need"
     congratulations_almost_there: "Congratulations just one more step and you'll start changing your life"
     yours: "Or...You choose yours"
   label:
     search: Search
-    commit_to_a_goal: "commit to a goal"
+    commit_to_a_goal: "I want to..."
+    dare_to_a_goal: "Dare this friend to..."
     redeem: Redeem %{points} points
   points: Points
   redemption_point_transaction:
@@ -112,6 +115,8 @@ en:
   donation_to: "Donation to"
   check_out_this_goal: "Check out this goal" 
   report_abuse_success_message: "This goal was reported, it will no longer be available."
+  raised: "<strong>$ %{raised_amount}</strong> raised"
+  
   
   activerecord:
     attributes:

@@ -4,6 +4,7 @@
 	<hr/>
 	<% if current_user.charity_id %>
 	  <p><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
+	  <p><%= link_to t("statement"), "/#{current_user.username}/points_statement" %></p>
 	<% end %>
 	<p><a href="#">xxx</a></p>
 	<p><a href="#">xxx</a></p>
