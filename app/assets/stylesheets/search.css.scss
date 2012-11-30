@@ -18,3 +18,20 @@
     }
   }
 }
+
+form.search {
+input[type=submit] {
+     @include iconsmain-sprite(search);
+	 width : 50px;
+	 height :38px;
+	 border : none;
+	 color : transparent;
+}
+input {
+	height: 33px;
+}
+}
+
+#menu-search {
+   margin: -41px 0px 0px 177px;
+}
