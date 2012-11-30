@@ -15,6 +15,8 @@
 		<hr/>
 		<p><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
 		<p><%= link_to t('edit_profile'), '/achiever/edit'  %></p>
-		<p><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
+		<% if current_user.charity_id %>
+		  <p><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
+		<% end %>
 	<% end %>
 </article><!-- /box-pequeno //-->

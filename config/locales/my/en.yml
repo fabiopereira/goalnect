@@ -186,6 +186,13 @@ en:
   goal:
     due_on: "Due on" 
 
+  photo_change:
+    header: Change and crop your photo
+    upload_header: Choose and upload a new file here
+    upload_action: Upload
+    crop_header: In this section you can crop your photo
+    crop_action: Crop
+    crop_explain: Select the area you want to be shown and then click 'crop'
     
   errors:
     search:

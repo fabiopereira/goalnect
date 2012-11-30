@@ -246,6 +246,13 @@ pt:
     status_locked: Aguardando o Goal
     status_available: Disponíveis para resgate
     status_redeemed: Resgatados no resgate (%{redemption_point_transaction_id})
+  photo_change:
+    header: Aqui você pode alterar e recortar a sua foto
+    upload_header: Selecione um arquivo no seu computador e faça o upload
+    upload_action: Fazer upload
+    crop_header: Nesta área você pode recortar a sua foto
+    crop_action: Recortar
+    crop_explain: Selecione a área da foto que você quer que apareça e depois clique em 'Recortar'
   names:
     yes: Sim
     no: Não

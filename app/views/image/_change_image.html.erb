@@ -1,48 +1,53 @@
-
-<div class="row well">
-	<b>Change profile photo</b>
+<h1><%= t 'photo_change.header' %></h1>
+<div class="coluna1">
+<article class="box-pequeno">
+	<h2>Upload</h2>
 	<%= form_for model, :url => url, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>    
-
+		
 		<%= render 'layouts/model_error_messages', :target => model %>
 
+		<p><%= t 'photo_change.upload_header' %></p>
 		<div>
 			<%= image_tag model.image_url(:thumb) if model.image? %><br/>
 		</div>
 
 	   <div class="control-group">
-		<%= f.label :photo, :class => 'control-label' %>
 		<div class="controls">
 		 <%= f.file_field :image %>
 	    </div>
 	  </div>
-	
+
+      <hr/>	
 	
 	  <div class="form-actions">
-	    <%= f.submit nil, :class => 'btn btn-primary' %>
-		<%= link_to t('cancel'), back_url, :class => 'btn' %>
+	    <%= f.submit t('photo_change.upload_action'), :class => 'btn btn-primary' %>
 	  </div>
 	
-	
 	<% end %>
+</article>
 </div>
 
+<div class="coluna2">
 <% if model.image? && model.display_crop_image_view %>                                               
-<div id="cropping-image">
+<article class="box-grande" id="cropping-image">
+	<h2><%= t 'photo_change.crop_header' %></h2>
 	<%= form_for model, :url => crop_url, :html => { :class => 'form-horizontal'} do |f| %>    
 	
+	<p><%= t 'photo_change.crop_explain' %></p>
 	<%= image_tag model.image_url, id: "cropbox" %>
 	
    	  <% %w[x y w h].each do |attribute| %>
 	    <%= f.hidden_field "crop_#{attribute}", :class => "crop_#{attribute}" %>
 	  <% end %>
  
+      <hr/>	
 	  <div class="form-actions">
-	    <%= f.submit "Crop", :class => 'btn btn-primary' %>
+	    <%= f.submit t("photo_change.crop_action"), :class => 'btn btn-primary' %>
 		<%= link_to t('cancel'), back_url, :class => 'btn' %>
 	  </div>
 	
 	<% end %>
-</div>
+</article>
 <% end %>
-
+</div>
 
