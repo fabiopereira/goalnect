@@ -1,16 +1,24 @@
 <% Togg.le(:feature_goal_template) do %>
-  <form class="i_commit" action="/goal_template/i_commit">
+  <form class="i_commit" action="<%=achiever_username%>/goals/new">
 	
-    <div id="goal_template_form">
-	   <h2><%= t("label.commit_to_a_goal") %></h2>
-	   <figure>
+    <div id="goal_template_form" class="clearfix">
+	   <figure class="imagem-goal">
 	   <%= image_tag("nopic/goaltemplate-nopic-thumb.png", id: "image_goal_template", :data => { :default_src => "#{asset_path('nopic/goaltemplate-nopic-thumb.png')}"}) %>
 	   </figure>
 		<div class="select_form">
+			<% if !current_user || current_user.username != achiever_username %>
+				<h2><%= t("label.dare_to_a_goal") %></h2>
+			<% else %>
+				<h2><%= t("label.commit_to_a_goal") %></h2>
+			<% end %>
 			<%= select_tag(:goal_template, active_goal_template_options) %>
 			<input type="submit" value="<%= t 'goal_template.label_commit' %>"/>
+			<h2 class="subtitle"><%= t("label.and_help") %></h2>
 		</div>
     </div>
     
   </form>
 <% end %>
+
+
+

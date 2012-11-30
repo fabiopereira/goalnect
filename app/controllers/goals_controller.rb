@@ -45,7 +45,7 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/new
   # GET /:user_username/goals/new.json
   def new
-    @achiever_username = params[:user_username]
+    @achiever_username = params[:user_username] ? params[:user_username] : current_user.username
     @goal = Goal.new
     flash[:notice] = t('goal_template.congratulations_almost_there') 
     fill_goal_with_template_if_exists @goal

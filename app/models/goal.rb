@@ -64,7 +64,7 @@ class Goal < ActiveRecord::Base
   end
   
   def self.find_active_goals(user)
-    find(:all, :conditions => ['achiever_id = :u and goal_stage_id not in (:inactive)', {:u => user.id, :inactive => GoalStage.inactive_stages_id}])
+    find(:all, :conditions => ['achiever_id = :u and goal_stage_id not in (:inactive)', {:u => user.id, :inactive => GoalStage.inactive_stages_id}], :order => "id desc")
   end
   
   def find_feedback

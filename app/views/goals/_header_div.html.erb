@@ -14,6 +14,13 @@
 			<%= render 'layouts/social_plugins' %>
 		</section>
 	    <hr/>	
+		<% if @goal.goalStage.id == GoalStage::PENDING.id %>
+		<section>
+			<%= link_to t("accept_challenge"),  accept_challenge_path(@goal.achiever.username, @goal.id), :class => "btn btn-primary" %>
+			<%= link_to t("reject"),  reject_challenge_path(@goal.achiever.username, @goal.id), :class => "btn" %>
+		</section>
+		<hr/>
+		<% end %>
 		<section id="infos-instituicao" class="clearfix">
 			<figure class="logo-instituicao">
 				<%= charity_image @goal.charity, :thumbmedium %>

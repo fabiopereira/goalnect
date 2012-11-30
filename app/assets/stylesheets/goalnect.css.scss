@@ -413,28 +413,27 @@ input[type="color"]:focus,
 }
 
 #points-summary{
-	height:100px;
-	div{
-		width: 220px;
+height:100px;
+div{
+	width: 230px;
+	float:left;
+	p{
+		margin-top: 25px;
+		font-family:$font-title;
+		font-size:12px;
+		strong{
+			font-size: 23px;
+			color:$azul-logo;
+		}
+	}
+	figure{
+		margin-right: 20px;
 		float:left;
-		p{
-			margin-top: 25px;
-			font-family:$font-title;
-			font-size:12px;
-			line-height: 0px;
-			strong{
-				margin-left: 20px;
-				font-size: 23px;
-				color:$azul-logo;
-			}
-		}
-		figure{
-			float:left;
-		}
 	}
-	span.statement{
-		float:right;
-	}
+}
+span.donations_list{
+	float:right;
+}
 }
 
 #goal_template_form{
@@ -442,7 +441,11 @@ input[type="color"]:focus,
 		float:left;
 	}
 	.select_form{
-		margin-top: 60px;
+		padding-top:30px;
+		.subtitle{
+			float:right;
+			padding-right:30px
+		}
 	}
 }
 
