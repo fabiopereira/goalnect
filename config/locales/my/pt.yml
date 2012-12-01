@@ -184,6 +184,13 @@ pt:
   point_summary_active: "<strong>%{active_pts}</strong> pontos"
   backers: "<strong>%{backers}</strong> apoiadores"
   agreed_terms: Li e aceitei os
+  goal_created_successful_messge: "Goal criado com sucesso."
+  dare_created_successful_messge: "Desafio criado com sucesso, aguardando aceitação..."
+  charity_is_not_active: "ONG não está ativa"
+  updates: "Atualizações"
+  comments: "Comentários"
+  donations: "Doações"
+  donated: "<strong> %{name} </strong> doou <strong>R$ %{amount}</strong>"
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação

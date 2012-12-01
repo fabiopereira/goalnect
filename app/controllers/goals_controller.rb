@@ -22,8 +22,8 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/1.json
   def show
     @goal = Goal.find(params[:goal_id])
-    @goal_feedback = GoalFeedback.new
-    @goal_feedback.goal_stage_id = @goal.goal_stage_id
+    @goal_comment = GoalComment.new
+    @goal_comment.goal_id = @goal.id
     display_show_page
   end
 
@@ -74,7 +74,11 @@ class GoalsController < ApplicationController
     end
     respond_to do |format|
       if @goal.save
-          format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: 'Goal was successfully created.' }
+        if @goal.achiever_id == current_user.id
+          format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), t("goal_created_successful_messge") }
+        else
+          format.html {redirect_to :root, notice: t("dare_created_successful_messge") }
+        end
       else
           format.html { render action: "new" }
       end
@@ -198,7 +202,21 @@ class GoalsController < ApplicationController
     end
   end
 
-
+  def add_comment
+     @goal_comment = GoalComment.new(params[:goal_comment])
+     @goal_comment.user = current_user
+     respond_to do |format|
+          if @goal_comment.save
+            format.json { render json: @goal_comment, status: :created, location: @goal_comment }
+          else
+            format.json { render json: @goal_comment.errors, status: :unprocessable_entity }
+          end
+    end
+  end
+  
+  def goal_comment_url goal_comment
+    #rails need this method for the json add_comment to work, since we don't have all the url for goal_comment in the routes..
+  end
   # DELETE /:user_username/goals/1
   # DELETE /:user_username/goals/1.json
   #  def destroy

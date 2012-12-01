@@ -3,51 +3,45 @@
 
 <div class="coluna2">
 	<section id="journeys">
-		<h2>Novidades</h2>
+		<h2><%= t ('updates')%></h2>
 		<hr />
+		<% if current_user %>
+		<div id="comment_clue" class="alert">
+			<%= render "goals/clue_comment-#{I18n.locale}", :goal => @goal%>	
+		</div>
+			<div id="add_comment">
+				<%= form_for(@goal_comment , :url => goal_comment_create(@goal.id)) do |f| %>
+				  <div class="field">
+				    <%= f.text_area :message, :cols => "40", :rows => "6", "data-user-img" => user_full_image_url(current_user, :thumbmini), "data-username" => current_user.username %>
+					<%= f.hidden_field :goal_id %>
+				  </div>
+				  <div class="actions">
+				    <%= f.submit t("send"), :id => "add_comment_btn", :class => "btn btn-primary" %>
+				  </div>
+				<% end %>
+			</div>
+		<% end %>
+		<div id="all_comments">
+		<% @goal.find_comments.each do |comment| %>
 		<article class="journey clearfix">
 			<figure class="journey_achiever">
-				<%= user_image goal.achiever, :thumbmini%>
+				<%= user_image comment.user, :thumbmini%>
 			</figure>
 			<div class="journey_desc">
-				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
+				<p><strong><%= comment.user.screen_name %>: </strong><%= comment.message %></p>
+				<p class="small-font"><%= l comment.created_at, :format => :short %></p>
 			</div><!-- /journey_desc //-->
 		</article><!-- /journey //-->
-
-		<article class="journey clearfix">
-			<figure class="journey_achiever">
-				<%= user_image goal.achiever, :thumbmini%>
-			</figure>
-			<div class="journey_desc">
-				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
-			</div><!-- /journey_desc //-->
-		</article><!-- /journey //-->
-		<article class="journey clearfix">
-			<figure class="journey_achiever">
-				<%= user_image goal.achiever, :thumbmini%>
-			</figure>
-			<div class="journey_desc">
-				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
-			</div><!-- /journey_desc //-->
-		</article><!-- /journey //-->
-		<article class="journey clearfix">
-			<figure class="journey_achiever">
-				<%= user_image goal.achiever, :thumbmini%>
-			</figure>
-			<div class="journey_desc">
-				<p><strong>Arthur Lucena</strong> finalizou o <strong>Goal Parar de Fumar</strong> <br /> 2 minutos atrás</p>
-			</div><!-- /journey_desc //-->
-		</article><!-- /journey //-->
-		
-		<%= render 'feedback_tab', :goal => @goal %>   
-		
+		 <% end %>
+		</div>
+	
 		<hr />
 	</section><!-- /journeys //-->
 
 	<div class="tabs">
 	<ul id="comments_donations" class="clearfix">
-		<li><h2><a href="#content_comments" title="Comentários" class="tab_comments active">Comentários</a></h2></li>
-		<li><h2><a href="#content_donations" title="Doações" class="tab_donations">Doações</a></h2></li>
+		<li><h2><a href="#content_comments" title="Comentários" class="tab_comments active"><%= t('comments')%></a></h2></li>
+		<li><h2><a href="#content_donations" title="Doações" class="tab_donations"><%= t('donations')%></a></h2></li>
 	</ul>
 	<hr />
 	<div class="content_comments active content" id="content_comments">
@@ -56,31 +50,22 @@
 			 </div>
 	</div><!-- /content_comments //-->
 
-	<div class="content_donations content" id="content_donations">
-			<table class="table table-striped table-condensed tiptip"style="border-spacing: 0px;">
-			  <thead>
-			    <tr>
-				  <th width="15px"></th>
-			 	  <th><%= t "activerecord.attributes.goal_donation.donor_name" %></th>
-			      <th><%= t "activerecord.attributes.goal_donation.amount" %></th>
-				  <th><%= t "activerecord.attributes.goal_donation.message" %></th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			      <% @goal.goal_donations_to_display.each do |goal_donation| %>
-			      <tr>
-						<td>
-						   <%= render 'goal_donations/stage_icon', :goal_donation => goal_donation%>	
-						</td>
-				    <td><%= goal_donation.donor_name%></td>
-			        <td><%= goal_donation.amount %></td>
-					<td><%= goal_donation.message %></td>
-			      </tr>
-			    <% end %>		
-			  </tbody>
-			</table>
+	<div class="content_donations content clearfix" id="content_donations">
+			<% @goal.goal_donations_to_display.each do |goal_donation| %>
+			<article class="donation clearfix">
+				<figure class="donation_donor">
+					<%= user_image goal_donation.user, :thumbmini%>
+				</figure>
+				<div class="donation_desc">
+					<p><%=raw_scape_xss t('donated', :name => goal_donation.donor_name, :amount => goal_donation.amount)%>
+					<p><%= goal_donation.message %></p>
+					<p class="small-font"><%= l goal_donation.created_at, :format => :short %></p>
+				</div><!-- /journey_desc //-->
+			</article><!-- /journey //-->
+			 <% end %>
+			
 	</div><!-- /content_donations //-->
 
-	</div>
-
+	
+<%= render 'layouts/social_plugins' %>
 </div><!-- /coluna2 //-->

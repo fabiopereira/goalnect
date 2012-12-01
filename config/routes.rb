@@ -95,7 +95,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/accept_challenge/:goal_id' => 'goals#accept_challenge'
   match '/:user_username/goals/reject_challenge/:goal_id' => 'goals#reject_challenge'
   match '/:user_username/goals/report_abuse/:goal_id' => 'goals#report_abuse'
-  
+  match '/goals/add_comment/:goal_id' => 'goals#add_comment'
   
 
   

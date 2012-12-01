@@ -125,7 +125,14 @@ en:
   report_abuse_success_message: "This goal was reported, it will no longer be available."
   raised: "<strong>$ %{raised_amount}</strong> raised"
   agreed_terms: I read and agreed with the
-  
+  goal_created_successful_messge: "Goal was successfully created."
+  dare_created_successful_messge: "Dare was successfully created, waiting for acceptance..."
+  charity_is_not_active: "Charity is not active"
+  updates: "Updates"
+  comments: "Comments"
+  donations: "Donations"
+  donated: "<strong> %{name} </strong> donated <strong>$ %{amount}</strong>"
+      
   activerecord:
     attributes:
       redemption_point_transaction:

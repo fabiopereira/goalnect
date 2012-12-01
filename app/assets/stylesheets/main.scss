@@ -284,18 +284,66 @@ header{
 
 #journeys{
     .journey{
-        margin-bottom:20px;
+		padding-bottom:5px;
+        margin-bottom:5px;
+		border-bottom: 1px solid #F2F2F2;
     }
     .journey_achiever{
         margin-right:15px;
         float:left;
     }
     .journey_desc{
-        @include iconsgoal-sprite(trophy);
-        padding-left:43px;
-        margin-top:10px;
-        font-size:1.2em;
+        font-size:12px;
+    }
+}
+
+#all_comments{
+	max-height: 250;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+#add_comment{
+	width: 340px;
+	margin-bottom:30px;
+}
+#comment_clue{
+	padding: 8px 8px 8px 14px;
+	width: 340px;
+	float:right;
+	p{
+		font-weight:bold;
+	}
+	li{
+		list-style: disc inside;
+	}
+}
+
+
+#content_donations{
+	margin-bottom: 20px;
+    .donation{
+		padding-bottom:5px;
+        margin:6px;
+	    -moz-border-radius:10px;
+	    -webkit-border-radius:10px;
+	    border-radius:10px;
+		border:1px solid $cinza-claro;
+		width:230px;
+		height: 70px;
+		float:left;
+		overflow:hidden;
+		box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.7);
+    }
+    .donation_donor{
+        margin:5px;
         float:left;
+    }
+    .donation_desc{
+		margin:5px;
+        font-size:12px;
+		float:left;
+		width: 160px;
     }
 }
 

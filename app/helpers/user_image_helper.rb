@@ -21,11 +21,11 @@ class UserImageUrl
   end
   
   def user_uplaoded_image_url
-    @user.image? && @user.image_url(@image_type) ? @user.image_url(@image_type) : nil
+    @user && @user.image? && @user.image_url(@image_type) ? @user.image_url(@image_type) : nil
   end
   
   def facebook_image_url
-    if @user.authentications
+    if @user && @user.authentications
        @user.authentications.each do |auth|
          if auth.provider == "facebook"
            return "https://graph.facebook.com/#{auth.uid}/picture?type=#{IMAGE_TYPE_TO_FACEBOOK_TYPE[@image_type]}"
