@@ -18,7 +18,7 @@ module GoalSteps
   
 	def commit_to_a_goal title, charity
 	  visit '/'
-	  click_on 'START NOW!'
+	  find("#i_commit_button").click
 	  fill_in 'goal_title_selected', :with => title
 	  select_description "Description for goal #{title}"
     # fill_in 'goal_due_on', :with => 2.months.from_now
