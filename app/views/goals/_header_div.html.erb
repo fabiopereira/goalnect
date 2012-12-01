@@ -43,8 +43,14 @@
 				<h5 id="status_message"> <%=raw_scape_xss goal.goalStage.translated_name%></h5>
 				<div id="junto_duvido_button_div" >
 				<ul id="opt-junto-duvido">
+					<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage.id != GoalStage::DONE.id%>
+						<li>
+							<a href="<%= goal_done_path(@goal.id)%>" class="btn btn-primary"><%=t('goal_done.btn')%></a>
+						</li>
+					<% end %>
+					
 					<% current_user_support = goal.support_for(current_user)	%>
-					<li>
+					  <li>
 						<a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title="<%= t"possible" %> <%= t('including_you') if current_user_support.present? and current_user_support.i_support %>" class="sprite botao-tamo-junto" id="i_support_true_button">
 					    <span class="qte" id="i_support_count_true">
 						<%= goal.how_many_believe %>
@@ -53,14 +59,16 @@
 						<%= t"possible" %>
 						</span>
 						</a>
-						</li>
-					    <li>
+					  </li>
+						  
+					  <li>
 						<a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" title="<%= t("no_way") %> <%= t('including_you') if current_user_support.present? and !current_user_support.i_support %>" class="sprite botao-duvido" id="i_support_false_button"><span class="qte" id="i_support_count_false">
 						<%=goal.how_many_dont_believe %>
 						</span>
 						<span class="titulo-botao"><%= t("no_way") %>
 					    </span>
-					    </a></li>
+					    </a>
+					   </li>
 						
 						<% if is_current_user_charity_admin?(goal.charity.id) %>
 						<li>

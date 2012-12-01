@@ -51,8 +51,11 @@ module GoalsHelper
     "/goal_template/i_commit?goal_template=#{goal_template_title}"
   end
   
-  def goal_comment_create(goal_id)
-    "/goals/add_comment/#{goal_id}"
+  def goal_comment_create_json_path(goal_id)
+    "/goals/add_comment/#{goal_id}.json"
   end
   
+  def goal_done_path(goal_id)
+    "/goals/goal_done/#{goal_id}"
+  end
 end
