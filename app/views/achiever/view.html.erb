@@ -13,7 +13,7 @@
 </div>   
 	<section id="bottom-section" clear="" >
 		<div class="centraliza clearfix"> 
-			<h1 class="mygoals_header">My Goals</h1>
+			<h1 class="mygoals_header"><%= t "goal.my_goals_header", :screen_name => @achiever.screen_name %></h1>
 			<div class="my_goals">
 			<% my_goals = @achiever.find_active_goals() %>
 				<% my_goals.each do |goal| %>   

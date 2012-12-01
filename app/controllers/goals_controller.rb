@@ -75,7 +75,7 @@ class GoalsController < ApplicationController
     respond_to do |format|
       if @goal.save
         if @goal.achiever_id == current_user.id
-          format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), t("goal_created_successful_messge") }
+          format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: t("goal_created_successful_messge") }
         else
           format.html {redirect_to :root, notice: t("dare_created_successful_messge") }
         end

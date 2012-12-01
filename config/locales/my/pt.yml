@@ -73,7 +73,8 @@ pt:
         charity_id: "ONG"
         target_amount: "Quantia mínima que deseja arrecadar"
   goal:
-    due_on: "Prazo" 
+    due_on: "Prazo"
+    my_goals_header: Meus Goals
   
   today: Hoje
   timeLeftPrefix: Faltam
