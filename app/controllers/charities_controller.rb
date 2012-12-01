@@ -22,8 +22,12 @@ class CharitiesController < ApplicationController
       @charity = Charity.find(:first, :conditions => [ "lower(nickname) = ?", nickname_or_id.downcase ])
     end
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @charity }
+      if @charity.active
+        format.html # show.html.erb
+        format.json { render json: @charity }
+      else
+        format.html {redirect_to :root, notice: t("charity_is_not_active")  }
+      end
     end
   end
   

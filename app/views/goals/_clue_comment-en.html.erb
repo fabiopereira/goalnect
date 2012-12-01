@@ -1,0 +1,16 @@
+<p>Not sure what to write here?</p>
+<% if goal.achiever.id == current_user.id %>
+<ul>
+	<li>Tell your friends how are you doing with your goal</li>
+	<li>Reply to your friend's comments</li>
+	<li>What would it be your biggest motivation?</li>					
+</ul>
+<% else %>
+<ul>
+	<li>How is your friend doing in your point of view?</li>
+	<li>Offer an incentive: "If you make it, I will pay you lunch for a week, but if you don't, you have to pay me lunch for a week, what do you think?"</li>
+	<li>Doubt your friend: "No way, you won't make it, you are too weak..."</li>
+	<li>Tips: "Hey, Do you the website XX? They have cool diets there..."</li>
+	<li>Offer help: "If you want we can train together"</li>					
+</ul>
+<% end %>

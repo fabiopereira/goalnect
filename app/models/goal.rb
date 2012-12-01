@@ -71,6 +71,10 @@ class Goal < ActiveRecord::Base
     GoalFeedback.find_all_by_goal_id(self.id)
   end
   
+  def find_comments
+    GoalComment.find_all_by_goal_id(self.id, :order => "id desc")
+  end
+  
   def find_most_recent_donations_by_goal_id 
     GoalDonation.find_most_recent_donations_by_goal_id self.id
   end 

@@ -51,4 +51,8 @@ module GoalsHelper
     "/goal_template/i_commit?goal_template=#{goal_template_title}"
   end
   
+  def goal_comment_create(goal_id)
+    "/goals/add_comment/#{goal_id}"
+  end
+  
 end

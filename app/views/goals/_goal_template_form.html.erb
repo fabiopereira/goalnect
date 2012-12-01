@@ -6,10 +6,10 @@
 	   <%= image_tag("nopic/goaltemplate-nopic-thumb.png", id: "image_goal_template", :data => { :default_src => "#{asset_path('nopic/goaltemplate-nopic-thumb.png')}"}) %>
 	   </figure>
 		<div class="select_form">
-			<% if !current_user || current_user.username != achiever_username %>
-				<h2><%= t("label.dare_to_a_goal") %></h2>
-			<% else %>
+			<% if achiever_username == "" || (current_user && current_user.username == achiever_username) %>
 				<h2><%= t("label.commit_to_a_goal") %></h2>
+			<% else %>
+				<h2><%= t("label.dare_to_a_goal") %></h2>
 			<% end %>
 			<%= select_tag(:goal_template, active_goal_template_options) %>
 			<input type="submit" value="<%= t 'goal_template.label_commit' %>"/>

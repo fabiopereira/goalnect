@@ -1,0 +1,16 @@
+<p>Não tem certeza do que escrever aqui?</p>
+<% if goal.achiever.id == current_user.id %>
+<ul>
+	<li>Diga a seus amigos como está o andamento do seu goal, dificuldades?</li>
+	<li>Responda os comentários dos seus amigos</li>
+	<li>O que seria a sua maior motivação?</li>					
+</ul>
+<% else %>
+<ul>
+	<li>Avalie: "Parabéns! você foi muito melhor no treino de hoje."</li>
+	<li>Ofereça um incentivo: "Se você conseguir, te pago almoço por uma semana, mas se não conseguir você paga pra mim, o que acha?"</li>
+	<li>Dúvide do seu amigo: "Até parece que você consegue, sem chance, você já tentou antes..."</li>
+	<li>Dica: "Hey, você já viu o site XX, tem várias dicas legais pra isso lá..."</li>
+	<li>Ofereça ajuda: "Se quiser podemos treinar/estudar juntos"</li>					
+</ul>
+<% end %>
