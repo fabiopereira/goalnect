@@ -11,8 +11,11 @@
 			<% else %>
 				<h2><%= t("label.dare_to_a_goal") %></h2>
 			<% end %>
-			<%= select_tag(:goal_template, active_goal_template_options) %>
-			<input type="submit" value="<%= t 'goal_template.label_commit' %>"/>
+			<div class="select-bg">
+				<%= select_tag(:goal_template, active_goal_template_options) %>
+			</div>
+			<input type="submit" value=""/>
+			<br class="clear" />
 			<h2 class="subtitle"><%= t("label.and_help") %></h2>
 		</div>
     </div>

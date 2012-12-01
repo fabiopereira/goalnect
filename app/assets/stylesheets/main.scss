@@ -77,7 +77,6 @@ a{color:$azul-logo; text-decoration:none;}
 .clear{clear:both;}
 .sprite{background:url(josecarlosimg/sprite.png) no-repeat;}
 
-
 .font12{font-size:12px;}
 .font14{font-size:14px;}
 .font18{font-size:18px;}
@@ -107,6 +106,19 @@ h1{
     }
 }
 
+#clouds h1, #steps h1, #video h1{
+    font-size:60px;
+}
+
+#steps h1{
+    //color:#93c5e9;
+    color:#fff;
+}
+
+#video h1{
+    margin-bottom:33px;
+}
+
 #bottom-section h2{
     margin-bottom:30px;
 }
@@ -115,6 +127,15 @@ h1{
     @include iconsgoal-sprite(clock); 
     padding:4px 0 0 50px;
 }
+
+#goal_template_form h2{
+    color:#8eb7d6;
+}
+
+#box-login h2{
+    color: #fff;
+    font-size:31px;
+} 
 
 h3{
     font-size:18px;
@@ -184,6 +205,95 @@ header{
     a{
         color:#fff;
     }
+}
+
+/* LANDING */
+#clouds{
+    background:url("clouds.png") repeat-x bottom center;
+    width:100%;
+    height:149px;
+    padding-top:20px;
+}
+
+#my-goal-is{
+    background:url("my-goal-is-bg.png") repeat-x;
+    width:100%;
+    height:227px;
+}
+
+ #goal_template_form{
+    width:684px;
+    select{
+        background: transparent;
+        -webkit-appearance: none;
+        width:391px;
+        height:61px;
+        padding:3px 0 0 10px;
+        border:none;
+        color:$azul-logo;
+        font-family:$bentonsansbold;
+        font-size:20px;
+    }
+    .select-bg{
+        background: url("select-bg.png") no-repeat;
+        float:left;
+    }
+}
+
+#box-login{
+    background:#316892;
+    width:250px;
+    height:244px;
+    padding:30px 0 0 30px;
+    position:absolute;
+    top:-26px;
+    right:0;
+}
+
+#steps{
+    width:100%;
+    height:432px;
+    padding-top:54px;
+}
+
+.cycle{
+    li{
+        background:#696;
+        width:928px;
+        height:193px;
+    }
+}
+#nav-cycle{
+    padding-top:20px;
+    position:absolute;
+    left:45%;
+    a{
+        background-color:#fff;
+        display:block;
+        width:11px;
+        height:11px;
+        margin-right:8px;
+        border:1px solid #93c5e9;
+        text-indent:-9999px;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        float:left;
+    }
+    .activeSlide{
+        background-color:#93c5e9;
+    }
+}
+
+#video{
+    background:url("video-bg.png") repeat-x;
+    width:100%;
+    height:486px;
+    padding-top:90px;
+}
+.video-player{
+    width:482px;
+    margin:0 auto;
 }
 
 /* PRINCIPAL */

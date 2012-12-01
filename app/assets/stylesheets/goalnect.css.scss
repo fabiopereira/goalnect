@@ -218,7 +218,7 @@ input[type="color"]:focus,
     background:url(josecarlosimg/goal-bg.png) no-repeat;
 	padding-top: 15px;
 	padding-left: 15px;
-    width:194px;
+    width:180px;
     height:180px;
     float:left;
 }
@@ -449,10 +449,18 @@ span.donations_list{
 	}
 	.select_form{
 		padding-top:30px;
+		float:left;
 		.subtitle{
 			float:right;
 			padding-right:30px
 		}
+	}
+	input[type="submit"]{
+		background:url("submit-goal.png");
+		width:84px;
+		height:61px;
+		border:none;
+		float:left;
 	}
 }
 

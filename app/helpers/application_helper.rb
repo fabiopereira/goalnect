@@ -49,12 +49,11 @@ module ApplicationHelper
   end
   
   def active_goal_template_options
-    active_options = GoalTemplate.all_active_current_locale.map{ |gt|
-      [gt.title] + [gt.title]
-    }
     options_for_select (
-      [[t("goal_template.select_option")]] + 
-      active_options +
+      [[t("goal_template.select_option"), :goal_template_yours]] + 
+      GoalTemplate.all_active_current_locale.map{ |gt|
+        [gt.title] + [gt.title]
+      } +
       [[t("goal_template.yours"), :goal_template_yours]]
     )
   end
