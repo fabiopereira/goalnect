@@ -85,6 +85,26 @@ class GoalsController < ApplicationController
     end
   end
   
+  def goal_done
+    @goal = Goal.find_by_id(params[:goal_id])
+    if @goal.achiever.id != current_user.id
+      @goal.errors[:achiever_id] << t('goal_done.you_are_not_achiever_error_msg')
+    end
+    if GoalStage::DONE == @goal.goalStage
+      @goal.errors[:goal_stage_id] << t('goal_done.goal_is_already_done_error_msg')
+    end
+    @goal.goal_stage_id = GoalStage::DONE.id
+    @goal.goal_stage_changed_at = Time.now
+    respond_to do |format|
+      if @goal.errors.empty? && @goal.save
+        format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: t("goal_done.goal_created_successful_messge") }
+      else
+        Goalog.info "#{t("goal_done.failed_to_set_goal_status_done")} => #{YAML::dump(@goal.errors)}"
+        format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), alert: t("goal_done.failed_to_set_goal_status_done") }
+      end
+    end
+  end
+  
   def add_feedback
     params[:goal_feedback][:goal_id] = params[:goal_id]
     params[:goal_feedback][:user_id] = current_user.id
@@ -204,6 +224,7 @@ class GoalsController < ApplicationController
 
   def add_comment
      @goal_comment = GoalComment.new(params[:goal_comment])
+     @goal_comment.goal_id = params[:goal_id]
      @goal_comment.user = current_user
      respond_to do |format|
           if @goal_comment.save

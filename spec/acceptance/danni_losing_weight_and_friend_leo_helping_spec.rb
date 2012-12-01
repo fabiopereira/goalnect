@@ -37,26 +37,36 @@ feature 'Danni losing weight and friend leo helping', %q{
     
     #Once Danni finishes her goal, all points are unlocked
     finish_goal dannis_goal   
-    ensure_user_has_points :available, danni.username, sum_of_donations
-    ensure_user_has_points :locked, danni.username, 0
-    ensure_user_has_points :redeemed, danni.username, 0
-    ensure_user_has_points :available, leo.username, donation_leo.amount
-    ensure_user_has_points :locked, leo.username, 0
-    ensure_user_has_points :redeemed, leo.username, 0
+    visit '/'
+    page.should have_content "2 backers"
+    page.should have_content "$ 65 raised"
+    page.should have_content "65 points"
     
-    #Danni decides to redeem her points
-    cpf = redeem_points danni.username, sum_of_donations
-    ensure_user_has_points :available, danni.username, 0
-    ensure_user_has_points :locked, danni.username, 0
-    ensure_user_has_points :redeemed, danni.username, sum_of_donations
+    #     ensure_user_has_points :available, danni.username, sum_of_donations
+    #     ensure_user_has_points :locked, danni.username, 0
+    #     ensure_user_has_points :redeemed, danni.username, 0
+    #     ensure_user_has_points :available, leo.username, donation_leo.amount
+    #     ensure_user_has_points :locked, leo.username, 0
+    #     ensure_user_has_points :redeemed, leo.username, 0
+    #     
+    #     #Danni decides to redeem her points
+    #     cpf = redeem_points danni.username, sum_of_donations
+    #     ensure_user_has_points :available, danni.username, 0
+    #     ensure_user_has_points :locked, danni.username, 0
+    #     ensure_user_has_points :redeemed, danni.username, sum_of_donations
+    #     
+    #     #Generate vantagens file
+    #     generate_vantagens_file cpf, sum_of_donations
     
-    #Generate vantagens file
-    generate_vantagens_file cpf, sum_of_donations
+    #verify charity page
     visit_charity_page_as_admin danni.username, charity.id
     page.should have_content dannis_goal.title
     ensure_charity_has_raised_so_far_amount "65"
-    GoalDonation.update_all(['pagseguro_fee = ?', 0.40], ['charity_id = ?',charity.id])
-     
+    page.should have_content "65 raised"
+    page.should have_content "with donations from 2 people"
+    page.should have_content "through 1 goals"
+    
+    GoalDonation.update_all(['pagseguro_fee = ?', 0.40], ['charity_id = ?',charity.id])   
     visit_all_donations_page_verify_summaries "65", "0.80", "4.88", "59.32"
 end
 

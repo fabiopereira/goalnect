@@ -11,7 +11,7 @@ module DonationPaymentNotificationSteps
       find('a.tab_donations').click
       page.should have_content goal_donation.amount
       page.should have_content goal_donation.donor_name
-      page.should have_css("span.icon44")
+      page.should have_content goal_donation.message
 	end
 end
 

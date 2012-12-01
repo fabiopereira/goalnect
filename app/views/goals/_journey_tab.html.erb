@@ -10,10 +10,9 @@
 			<%= render "goals/clue_comment-#{I18n.locale}", :goal => @goal%>	
 		</div>
 			<div id="add_comment">
-				<%= form_for(@goal_comment , :url => goal_comment_create(@goal.id)) do |f| %>
+				<%= form_for(@goal_comment , :url => goal_comment_create_json_path(@goal.id)) do |f| %>
 				  <div class="field">
 				    <%= f.text_area :message, :cols => "40", :rows => "6", "data-user-img" => user_full_image_url(current_user, :thumbmini), "data-username" => current_user.username %>
-					<%= f.hidden_field :goal_id %>
 				  </div>
 				  <div class="actions">
 				    <%= f.submit t("send"), :id => "add_comment_btn", :class => "btn btn-primary" %>

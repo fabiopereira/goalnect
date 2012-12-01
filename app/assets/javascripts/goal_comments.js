@@ -1,9 +1,9 @@
 $(function(){
 	
   $('#add_comment_btn').click(function(e) {
-	e.preventDefault(); 
+	e.preventDefault();
     $.ajax({
-	  url: '/goals/add_comment/' + $('#goal_comment_goal_id').val() + '.json',
+	  url: $('#new_goal_comment').attr('action'),
 	  data: { goal_comment: { message: $('#goal_comment_message').val() , goal_id: $('#goal_comment_goal_id').val()}},
 	  success: function(data) {
 		if (data) {

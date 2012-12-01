@@ -81,14 +81,14 @@ en:
   achiever:
     croptitle: "Crop your image if you want"
   goal_stage:
-    pending: "waiting achiever to accept the dare"
-    not_accepted: "not accepted"
-    just_started: "just started"
+    pending: "Waiting achiever to accept the dare"
+    not_accepted: "Dare not accepted"
+    just_started: "On Going Goal"
     on_its_way: "going somewhere"
     half_way_there: "half way there"
     almost_there: "almost there"
     done: "done"
-    abandoned: "abandoned"
+    abandoned: "Abandoned"
       
   here: "here"
   send: "Send"
@@ -107,7 +107,7 @@ en:
   points_summary: "Points"
   raised: "<strong>$ %{raised_amount}</strong> raised"
   point_summary_locked: "<strong>R$ %{locked_pts}</strong> locked points"
-  point_summary_active: "<strong>R$ %{active_pts}</strong> points"
+  point_summary_active: "<strong>%{active_pts}</strong> points"
   backers: "<strong>%{backers}</strong> backers"
   active_points: "Available"
   locked_points: "Locked"
@@ -206,7 +206,14 @@ en:
     crop_header: In this section you can crop your photo
     crop_action: Crop
     crop_explain: Select the area you want to be shown and then click 'crop'
-    
+
+  goal_done:
+    goal_is_already_done_error_msg: "This goal is already done"
+    you_are_not_achiever_error_msg: "You dont have permission to change this goal to done."
+    goal_created_successful_messge: "Congratulations!You have achieved your goal! :)"
+    failed_to_set_goal_status_done: "Whooops! It ."
+    btn: "DONE!"
+  
   errors:
     search:
       length: You search must contain at least %{min} letters   
