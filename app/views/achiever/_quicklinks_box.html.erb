@@ -1,6 +1,6 @@
 <% if current_user_is_achiever?(achiever) %>
 <article class="box-pequeno quick-links">
-	<h4>Quick links:</h4>
+	<h4><%= t 'quick_links' %>:</h4>
 	<hr/>
 	<p><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
 	<p><%= link_to t('edit_profile'), '/achiever/edit'  %></p>

@@ -7,7 +7,7 @@ pt:
       sign_in_btn: 'Entrar!'
       sign_in_subtitle: 'Afinal, você já é um de nós ;D'
       facebook_sign_in: 'Ou, ainda mais fácil:'
-      facebook_sign_in_subtitle: 'Melhor que isso, só se entrássemos por você :D'
+      facebook_sign_in_subtitle: 'Melhor que isso, só se a gente entrar por você :D'
       sign_up: 'Junte-se a nós!'
       sign_up_btn: 'Cadastrar!'
       sign_up_subtitle: 'O desafio é o seu goal, não o cadastro :P'
@@ -16,6 +16,7 @@ pt:
       sign_up: 'Cadastrar-se'
       didnt_receive_confirmation: "Não recebeu instruções para confirmação?"
       didnt_receive_unlock: "Não recebeu instruções para desbloqueio?"
+  quick_links: Meus links
   facebook:
     login_title: Login com seu Facebook
   goal_template:

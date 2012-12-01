@@ -20,9 +20,8 @@ class Charity < ActiveRecord::Base
   end
   
   def self.search(q)
-    find(:all, :conditions => ['LOWER(charity_name) LIKE :q OR LOWER(description) LIKE :q', {:q => "%#{q.downcase}%"}])
+    find(:all, :conditions => ['active = true AND (LOWER(charity_name) LIKE :q OR LOWER(description) LIKE :q)', {:q => "%#{q.downcase}%"}])
   end
-
   
   def display_crop_image_view
     false

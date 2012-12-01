@@ -16,6 +16,7 @@ en:
       sign_up: 'Sign up'
       didnt_receive_confirmation: "Didn't receive confirmation instructions?"
       didnt_receive_unlock: "Didn't receive unlock instructions?"
+  quick_links: Quick links
   facebook:
     login_title: Login with Facebook
   goal_template:
