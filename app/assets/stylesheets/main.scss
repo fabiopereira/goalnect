@@ -226,10 +226,11 @@ header{
 
  #goal_template_form{
     width:684px;
+	overflow:hidden;
     select{
         background: transparent;
         -webkit-appearance: none;
-        width:391px;
+        width:120%;
         height:61px;
         padding:3px 0 0 10px;
         border:none;
@@ -240,6 +241,8 @@ header{
     .select-bg{
         background: url("select-bg.png") no-repeat;
         float:left;
+		width:391px;
+		overflow: hidden;
     }
 }
 
@@ -256,6 +259,9 @@ header{
 	}
 	h2 {
      padding:0px 0px 5px 0px;
+    }
+	input{
+		width: 200px;
 	}
 	#sign_in_btn {
 	    width: 105px;
