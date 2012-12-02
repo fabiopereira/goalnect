@@ -1,10 +1,10 @@
 $(function(){
-  $('.flexslider').flexslider();
+  // $('.flexslider').flexslider();
 
   $('.cycle').cycle({ 
 	    fx:     'scrollHorz', 
 	    speed:  'fast', 
-    	timeout: 3000, 
+    	timeout: 5000, 
 	    pager:  '#nav-cycle' 
 	});
 });

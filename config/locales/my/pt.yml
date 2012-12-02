@@ -196,7 +196,7 @@ pt:
   donations: "Doações"
   donated: "<strong> %{name} </strong> doou <strong>R$ %{amount}</strong>"
   what_is_your_goal: "Qual é seu desejo?"
-  wait_how_it_works: "Como? Explica aí"
+  wait_how_it_works: "Como? Explica aí ..."
   turn_off_the_lights: "Apague as luzes"
   select_charity: "Selecione uma ONG"   
   show_more: "mostrar mais..."
