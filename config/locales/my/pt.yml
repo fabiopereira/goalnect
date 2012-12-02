@@ -249,6 +249,7 @@ pt:
   send: "Enviar"
   static:
     howitworks: "Como funciona"
+    whatisagoal: "O que é um Goal?"
     terms: "Termos de Uso"
   email:
     team: "contato@goalnect.com"
