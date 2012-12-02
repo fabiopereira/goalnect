@@ -44,8 +44,8 @@
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 		
-	
-			<div class="centraliza clearfix body_min_height">
+			<div class="body_min_height">
+			<div class="centraliza clearfix">
 				<% flash.each do |name, msg| %>
 				  <% if msg.is_a?(String) %>
 				    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -55,6 +55,7 @@
 				  <% end %>
 				<% end %>
 				<%= yield %>
+			</div>
 			</div>
 			<footer>
 				<div class="centraliza clearfix">
