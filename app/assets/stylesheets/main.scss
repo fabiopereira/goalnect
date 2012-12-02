@@ -246,7 +246,7 @@ header{
     height:244px;
     padding:30px 20px 10px 20px;
     position:absolute;
-    top:-26px;
+    top:-50px;
     right:0;
 	.facebook_login_header{
 		margin-left: 20px;
@@ -423,6 +423,12 @@ header{
         margin-bottom:5px;
 		border-bottom: 1px solid #F2F2F2;
     }
+	.journey_hidden{
+		display:none;
+    }
+	.journey_show{
+		display:block;
+	}
     .journey_achiever{
         margin-right:15px;
         float:left;
@@ -430,7 +436,18 @@ header{
     .journey_desc{
         font-size:12px;
     }
+	.show_left{
+		margin: 0 0;
+		float:left;
+		display: block;
+	}
+	.hidden_left{
+		margin: 0 0;
+		float:left;
+		display:none;
+	}
 }
+
 
 #all_comments{
 	max-height: 250;
@@ -446,6 +463,7 @@ header{
 	padding: 8px 8px 8px 14px;
 	width: 340px;
 	float:right;
+	font-size:10px;	
 	p{
 		font-weight:bold;
 	}
@@ -518,7 +536,7 @@ header{
 footer{
     background:#93c5e9 url(/assets/footer-bg.jpg) repeat-x;
     width:100%;
-    min-height:240px;
+    height: 350px;
     padding-top:15px;
     .social-buttons{
         position:absolute;

@@ -70,14 +70,6 @@
 					    </a>
 					   </li>
 						
-						<% if is_current_user_charity_admin?(goal.charity.id) %>
-						<li>
-							<a href="<%=goal_report_abuse_path(goal.achiever.username, goal.id)%>" class="sprite botao-duvido">
-							<span class="titulo-botao"><%= t "report_abuse"%>
-						    </span>
-						    </a>
-						</li>
-						<% end %>	
 				</ul>
 				</div>
 			<div>

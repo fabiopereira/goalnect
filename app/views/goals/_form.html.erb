@@ -45,7 +45,7 @@
 				 <div class="control-group">
 				    <%= f.label :charity_id, :class => 'control-label' %>
 				    <div class="controls">
-				     <%= collection_select(:goal, :charity_id, Charity.find_all_by_active(true), :id, :charity_name, {:prompt => 'Select Charity'}) %>
+				     <%= collection_select(:goal, :charity_id, Charity.find_all_by_active(true), :id, :charity_name, {:prompt => t('select_charity')}) %>
 				    </div>
 				  </div>
 
@@ -58,7 +58,7 @@
 					<hr/>
 				  <div class="form-actions">
 				    <%= f.submit nil, :class => 'btn btn-primary' %>
-					<%= link_to t('.cancel', :default => t("helpers.links.cancel")), '/'+@goal.achiever.username, :class => 'btn' %>
+					<%= link_to t('cancel'), '/'+@goal.achiever.username, :class => 'btn' %>
 				  </div>
 			</section><!-- /descricao-goal //-->
 		</section><!-- /infos-goal //-->

@@ -4,7 +4,9 @@
 	<div class="box_goal_content">
 	<figure class="imagem-goal">
 		<a href="<%= show_goal_path_by_goal goal %>" >
+			<div class="img_user_thumb_div">
 			<%= random_img_tag [img_src_full("goaltemplate", goal.goal_template, :thumb), img_src_full("charity", goal.charity, :thumb), user_full_image_url(goal.achiever, :thumb)] %>
+			</div>
 	    </a>
 	</figure>
 	

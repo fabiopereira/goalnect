@@ -1,5 +1,4 @@
-<div class="footer span12 well" style="margin-left:0;">
-			<div class="row">
+			<div class="column-footer">
 				<p class="title-footer"><%=t "footer.information" %></p><br/>
 				<p class="link-footer"><%= link_to t("static.howitworks"), "/s/faq" %></p><br/>
 				<p class="link-footer"><%= link_to t("static.faq"), "/s/faq" %></p><br/>
@@ -7,19 +6,26 @@
 				<p class="link-footer"><a href="mailto:<%= t "email.team" %>" target="blank"><%=t "footer.contact" %></a></p><br/>
 				<p class="link-footer"><%= link_to t("charities.charity"), new_charity_path %></p><br/>
 			</div>
-			<div class="row">
+			<div class="column-footer">
 				<p class="title-footer"><%=t "footer.find_us" %></p><br/>
 				<p class="link-footer"><a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png", width: "25px", height: "25px") %> Facebook</a></p><br/>
 				<p class="link-footer"><a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png", width: "25px", height: "25px") %> Twitter</a></p><br/>
 				<p class="link-footer"><a href="mailto:<%= t "email.team" %>" target="blank"><%= image_tag("goalnect-mailto-48x48.png", width: "25px", height: "25px") %> Email</a></p><br/>
+				   <div class="g-plusone" data-size="medium"></div>	
+				   <a href="https://twitter.com/goalnect" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @goalnect</a>
 			</div>
-			<div class="row">
+			<div class="column-footer">
 				<p class="title-footer"><%=t "footer.contact" %></p><br/>
 				<p class="link-footer"><%= link_to t("charities.if_you_are_a_charity"), new_charity_path %></p><br/>
 				<p class="link-footer"><%= link_to t("charities.to_suggest_a_charity"), new_charity_path %></p><br/>
 				<p class="link-footer"><%= t"footer.or_call" %> +55 11 3280-7400</p><br/>
 			</div>
-</div>
+			<div class="column-footer-face">
+				<% Togg.le(:feature_fb_social) do %>
+				   <div class="fb-like-box" data-href="http://www.facebook.com/goalnect" data-width="270" data-show-faces="true" data-border-color="navy" data-stream="false" data-header="true">
+				<% end %>
+			</div>
+
 
    <!-- GooglePlus +1 button - Place this tag after the last +1 button tag. -->
 	<script type="text/javascript">

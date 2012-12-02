@@ -39,7 +39,7 @@ en:
       header: You are about to redeem %{point_amount} points
       message_vantagens: Message explaining where the points are going to
       redeem_success_message: Congratulations, you have redeemed %{redeemed_points} points
-  search_friends: "Search friends"
+  search_friends: "Search"
   search:
     result_title: "Result from your search"
     goals_achievers_title: "Goals and Achievers"
@@ -132,6 +132,12 @@ en:
   comments: "Comments"
   donations: "Donations"
   donated: "<strong> %{name} </strong> donated <strong>$ %{amount}</strong>"
+  what_is_your_goal: "What is your goal?"
+  wait_how_it_works: "Wait, how it works?"
+  turn_off_the_lights: "Turn off the lights"
+  select_charity: "Select Charity"    
+  show_more: "show more"
+  show_less: "show less"  
       
   activerecord:
     attributes:
@@ -199,6 +205,7 @@ en:
   goal:
     due_on: "Due on" 
     my_goals_header: My Goals
+    user_goals_header: "%{screen_name}'s Goals"
 
   photo_change:
     header: Change and crop your photo

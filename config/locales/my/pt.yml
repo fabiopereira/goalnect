@@ -77,6 +77,7 @@ pt:
   goal:
     due_on: "Prazo"
     my_goals_header: Meus Goals
+    user_goals_header: "Goals - %{screen_name}"
   
   today: Hoje
   timeLeftPrefix: Faltam
@@ -193,6 +194,12 @@ pt:
   comments: "Comentários"
   donations: "Doações"
   donated: "<strong> %{name} </strong> doou <strong>R$ %{amount}</strong>"
+  what_is_your_goal: "Qual é seu desejo?"
+  wait_how_it_works: "Como? Explica aí"
+  turn_off_the_lights: "Apague as luzes"
+  select_charity: "Selecione uma ONG"   
+  show_more: "mostrar mais..."
+  show_less: "mostrar menos"
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação

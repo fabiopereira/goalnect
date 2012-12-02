@@ -42,7 +42,7 @@ class UserImageUrl
 end
 
 def user_image(user, image_type)
-   image_tag(user_image_url(user, image_type))
+   image_tag(user_image_url(user, image_type), :class => "user-#{image_type}")
 end
 
 def user_image_url(user, image_type)

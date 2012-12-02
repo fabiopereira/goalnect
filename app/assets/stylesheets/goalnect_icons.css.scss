@@ -1,6 +1,8 @@
+$iconsgoal-spacing: 10px;
 @import "iconsgoal/*.png";
 @include all-iconsgoal-sprites;
 
+$iconsmain-spacing: 10px;
 @import "iconsmain/*.png";
 @include all-iconsmain-sprites;
 
