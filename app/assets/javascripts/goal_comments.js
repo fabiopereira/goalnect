@@ -11,7 +11,7 @@ $(function(){
 			img_url = msg_element.data('user-img');
 			username = msg_element.data('username');
 			message = data.message;
-			date_time = data.created_at;
+			date_time = data.created_at_formated
 			$('#all_comments').prepend("<article class='journey clearfix'><figure class='journey_achiever'><img src='"+ img_url +"'></figure><div class='journey_desc'><p><strong>"+ username +": </strong>" + message + "</p><p class='small-font'>" + date_time +"</p></div></article>");
 			msg_element.val("");
 		} 

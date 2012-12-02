@@ -4,8 +4,13 @@ class ApplicationController < ActionController::Base
   before_filter :set_user_return_to
   before_filter :set_locale
   skip_before_filter :verify_authenticity_token
+  around_filter :user_time_zone, if: :current_user
   
   include CharitiesHelper
+  
+  def user_time_zone(&block)
+    Time.use_zone(current_user.country.time_zone, &block)
+  end
   
   def authenticate_admin_user!
     authenticate_user! 

@@ -25,6 +25,7 @@
 		<% total_comments = 0 %>
 		<% @goal.find_comments.each_with_index do |comment, index| %>
 		<% if index < 4 %>
+		<%=index%>
 		<article class="journey clearfix">
 		<% else %>
 		<article class="journey clearfix journey_hidden">
@@ -45,6 +46,9 @@
 			<a href="#" id="show_more_id" class="show_left"><%=t('show_more')%></a>
 			<a href="#" id="show_less_id" class="hidden_left"><%=t('show_less')%></a>
 		<% end %>
+		<% if total_comments == 0 %>
+			<%= t('there_are_no_updates') %>
+		<% end %>
 		</div>
 	</section><!-- /journeys //-->
 	<section id="goal_fb_comments" class="goal_bottom_section">
@@ -60,7 +64,11 @@
 		<hr/>
 		<h2><%= t('donations')%></h2>
 		<hr />
-		<% @goal.goal_donations_to_display.each do |goal_donation| %>
+		<% goal_donations = @goal.goal_donations_to_display%>
+		<% if goal_donations.empty? %>
+			<%= t ('there_are_no_donations')%>
+		<% else %>
+		<% goal_donations.each do |goal_donation| %>
 		<article class="donation clearfix">
 			<figure class="donation_donor">
 				<div class="img_user_thumbmini_div">
@@ -73,6 +81,7 @@
 				<p class="small-font"><%= l goal_donation.created_at, :format => :short %></p>
 			</div><!-- /journey_desc //-->
 		</article><!-- /journey //-->
+		<% end %>
 		<% end %>
 	</section>
 

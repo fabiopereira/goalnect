@@ -6,4 +6,14 @@ class GoalComment < ActiveRecord::Base
   
   validates_presence_of :goal_id, :message, :user_id
   
+  def created_at_formated
+    I18n.l(created_at, :format => :short)
+  end
+  
+  def as_json(options = {})
+      json = super(options)
+      json['created_at_formated'] = created_at_formated
+      json
+  end
+  
 end

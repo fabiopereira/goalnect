@@ -1,8 +1,8 @@
 class Country < ActiveHash::Base
   include ActiveHash::Enum
   self.data = [
-    {:id => 1, :name => "Australia", :locale => "en"},
-    {:id => 2, :name => "Brasil", :locale => "pt"}
+    {:id => 1, :name => "Australia", :locale => "en", :time_zone => "Australia/Sydney"},
+    {:id => 2, :name => "Brasil", :locale => "pt", :time_zone => "Brasilia"}
   ]
   enum_accessor :name
   
