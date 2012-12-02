@@ -7,11 +7,6 @@
 	<% end %>
 	<nav id="menu">
 		<ul>
-			<li><a href="http://www.facebook.com/goalnect" target="blank"><%= image_tag("facebook.png", style: "width:25px;height:25px") %></a></li>
-			<li><a href="http://www.twitter.com/goalnect" target="blank"><%= image_tag("twitter.png", style: "width:25px;height:25px") %></a></li>
-			<li><a href="mailto:<%= t "email.team" %>" target="blank"><%= image_tag("goalnect-mailto-48x48.png", style: "width:25px;height:25px") %></a></li>
-
-
 			<li> <%= link_to t("static.howitworks"), "/s/faq" %> </li>
 			
 			<% Togg.le(:feature_sign_in) do %>
@@ -27,7 +22,9 @@
 			    <% if user_signed_in? %>
 			       <li> 
 			    	   <a href="<%= current_user.full_url %>" >
+						<div class="img_user_thumbmini_div">
 			             <%= user_image current_user, :thumbmini %>
+						</div>
 			           </a>
 		           </li>
 			    <% end %>

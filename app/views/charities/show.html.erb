@@ -6,7 +6,7 @@
 	<article class="box-grande">
 			<section class="descricao-charity">
 				<h2><%= @charity.charity_name %></h2>
-				<h4 class="align_right"> <%= @charity.website%> </h4>
+				<p><h3> <%= @charity.website%> </h3></p>
 				<p id="goal_description_text"> 
 					<%=raw_scape_xss(@charity.description) %>
 				</p>

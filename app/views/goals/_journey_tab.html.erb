@@ -21,17 +21,29 @@
 			</div>
 		<% end %>
 		<div id="all_comments">
-		<% @goal.find_comments.each do |comment| %>
+		<% total_comments = 0 %>
+		<% @goal.find_comments.each_with_index do |comment, index| %>
+		<% if index < 4 %>
 		<article class="journey clearfix">
+		<% else %>
+		<article class="journey clearfix journey_hidden">
+		<% end %>
 			<figure class="journey_achiever">
+				<div class="img_user_thumbmini_div">
 				<%= user_image comment.user, :thumbmini%>
+				</div>
 			</figure>
 			<div class="journey_desc">
 				<p><strong><%= comment.user.screen_name %>: </strong><%= comment.message %></p>
 				<p class="small-font"><%= l comment.created_at, :format => :short %></p>
 			</div><!-- /journey_desc //-->
 		</article><!-- /journey //-->
-		 <% end %>
+		<% total_comments = index%>
+		<% end %>
+		<% if total_comments >= 4 %>
+			<a href="#" id="show_more_id" class="show_left"><%=t('show_more')%></a>
+			<a href="#" id="show_less_id" class="hidden_left"><%=t('show_less')%></a>
+		<% end %>
 		</div>
 	
 		<hr />
@@ -53,7 +65,9 @@
 			<% @goal.goal_donations_to_display.each do |goal_donation| %>
 			<article class="donation clearfix">
 				<figure class="donation_donor">
+					<div class="img_user_thumbmini_div">
 					<%= user_image goal_donation.user, :thumbmini%>
+					</div>
 				</figure>
 				<div class="donation_desc">
 					<p><%=raw_scape_xss t('donated', :name => goal_donation.donor_name, :amount => goal_donation.amount)%>

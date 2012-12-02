@@ -12,11 +12,16 @@ $box-goal-border-color:#e0edf5;
 
 .centraliza{width:960px/*829*/; margin:0 auto; position:relative;padding:20px 0 0 0px;}
 
+
 body{
 	background:url(josecarlosimg/conteudo-bg.png) top repeat-x;
 	margin-top:78px;
     font-family: $font-text;
 	color:$cinza-escuro;
+}
+
+.body_min_height{
+	min-height:300px;
 }
 
 hr {
@@ -137,6 +142,11 @@ input[type="color"]:focus,
     
 }
 
+.column-footer{
+	width:215px;
+	float:left;
+}
+
 #sign_in{
     width:430px;
     margin-right:20px;
@@ -189,11 +199,25 @@ input[type="color"]:focus,
 .box-pequeno{
   @extend .box;
   figure{
-      margin-bottom:5px;
-  	img {
-          width : 160px;
-  	}
+     margin-bottom:5px;
   }
+}
+
+.img_user_thumb_div {
+      width: 160px;
+	  height: 160px; 
+	  overflow: hidden;
+	  position: relative;
+}
+
+.img_user_thumbmini_div {
+	  width: 50px;
+	  height: 50px; 
+	  overflow: hidden;
+	  position: relative;
+	  img{
+		vertical-align : top;
+	  }
 }
 
 .box-grande{
@@ -339,10 +363,10 @@ input[type="color"]:focus,
     float:left;    
 	.box-pequeno{     
 		border: 2px solid $box-goal-border-color;
-		height: 380px;
+		height: 388px;
 	}
 	.box_goal_content{
-		height: 269px;
+		height: 278px;
 		overflow: hidden;
 	}
 	.status-bar {

@@ -19,6 +19,22 @@ $(function(){
 	});
   })
 
+
+  $('#show_more_id').click(function(e) {
+	e.preventDefault();
+	$('.journey_hidden').removeClass('journey_hidden').addClass('journey_show')
+	$('#show_more_id').removeClass('show_left').addClass('hidden_left')
+	$('#show_less_id').removeClass('hidden_left').addClass('show_left')
+	
+  });
+
+  $('#show_less_id').click(function(e) {
+	e.preventDefault();
+	$('.journey_show').removeClass('journey_show').addClass('journey_hidden')
+	$('#show_more_id').removeClass('hidden_left').addClass('show_left')
+	$('#show_less_id').removeClass('show_left').addClass('hidden_left')
+  });
+
 });
 
 
