@@ -21,10 +21,10 @@ pt:
   facebook:
     login_title: Entrar com Facebook
   goal_template:
-    select_option: Escolha o seu Goal
+    select_option: Escolha o seu Goal ...
     label_commit: COMECE AGORA!
     congratulations_almost_there: "Parabéns, você está a um passo de mudar a sua vida pra melhor!"
-    yours: "Ou, comece agora escohendo o seu"
+    yours: "Ou, crie o seu..."
   currency: R$
   headline:
     home:

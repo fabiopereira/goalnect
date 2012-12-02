@@ -481,6 +481,9 @@ span.donations_list{
 	}
 	input[type="submit"]{
 		background:url("submit-goal.png");
+		&:hover{
+		  background:url("submit-goal_hover.png");
+	    }
 		width:84px;
 		height:61px;
 		border:none;
