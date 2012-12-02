@@ -2,7 +2,8 @@
 </div><!-- /coluna1 //-->
 
 <div class="coluna2">
-	<section id="journeys">
+	<section id="journeys" class="goal_bottom_section">
+		<hr/>
 		<h2><%= t ('updates')%></h2>
 		<hr />
 		<% if current_user %>
@@ -45,39 +46,35 @@
 			<a href="#" id="show_less_id" class="hidden_left"><%=t('show_less')%></a>
 		<% end %>
 		</div>
-	
-		<hr />
 	</section><!-- /journeys //-->
-
-	<div class="tabs">
-	<ul id="comments_donations" class="clearfix">
-		<li><h2><a href="#content_comments" title="Comentários" class="tab_comments active"><%= t('comments')%></a></h2></li>
-		<li><h2><a href="#content_donations" title="Doações" class="tab_donations"><%= t('donations')%></a></h2></li>
-	</ul>
-	<hr />
-	<div class="content_comments active content" id="content_comments">
-			<div class="tab-pane fade" id="goal-comments-tab">
-				<fb:comments href="<%= current_url %>"></fb:comments>
-			 </div>
-	</div><!-- /content_comments //-->
-
-	<div class="content_donations content clearfix" id="content_donations">
-			<% @goal.goal_donations_to_display.each do |goal_donation| %>
-			<article class="donation clearfix">
-				<figure class="donation_donor">
-					<div class="img_user_thumbmini_div">
-					<%= user_image goal_donation.user, :thumbmini%>
-					</div>
-				</figure>
-				<div class="donation_desc">
-					<p><%=raw_scape_xss t('donated', :name => goal_donation.donor_name, :amount => goal_donation.amount)%>
-					<p><%= goal_donation.message %></p>
-					<p class="small-font"><%= l goal_donation.created_at, :format => :short %></p>
-				</div><!-- /journey_desc //-->
-			</article><!-- /journey //-->
-			 <% end %>
-			
-	</div><!-- /content_donations //-->
+	<section id="goal_fb_comments" class="goal_bottom_section">
+		<hr />
+		<h2>Facebook <%= t ('comments')%></h2>
+		<hr/>
+		<div class="tab-pane fade" id="goal-comments-tab">
+			<div class="fb-comments" data-href="<%= current_url %>" data-width="730" data-num-posts="4"></div>
+		</div>	
+	</section>
+	
+	<section id="goal_donations" class="goal_bottom_section clearfix">
+		<hr/>
+		<h2><%= t('donations')%></h2>
+		<hr />
+		<% @goal.goal_donations_to_display.each do |goal_donation| %>
+		<article class="donation clearfix">
+			<figure class="donation_donor">
+				<div class="img_user_thumbmini_div">
+				<%= user_image goal_donation.user, :thumbmini%>
+				</div>
+			</figure>
+			<div class="donation_desc">
+				<p><%=raw_scape_xss t('donated', :name => goal_donation.donor_name, :amount => goal_donation.amount)%>
+				<p><%= goal_donation.message %></p>
+				<p class="small-font"><%= l goal_donation.created_at, :format => :short %></p>
+			</div><!-- /journey_desc //-->
+		</article><!-- /journey //-->
+		<% end %>
+	</section>
 
 	
 <%= render 'layouts/social_plugins' %>

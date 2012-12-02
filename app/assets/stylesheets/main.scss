@@ -126,11 +126,6 @@ h1{
     margin-bottom:30px;
 }
 
-#journeys h2{
-    @include iconsgoal-sprite(clock); 
-    padding:4px 0 0 50px;
-}
-
 #goal_template_form h2{
     color:#8eb7d6;
 }
@@ -430,6 +425,32 @@ header{
 }
 
 
+.goal_bottom_section{
+	hr{
+       margin-bottom:0px;
+	}	
+	margin-bottom:30px;
+}
+
+#journeys h2{
+    @include iconsgoal-sprite(clock); 
+    padding: 5px 0 0 50px;
+	margin-bottom:0px;
+}
+
+#goal_fb_comments h2{
+    @include iconsgoal-sprite(comments);
+    padding: 9px 0 0 77px;
+	margin-bottom:0px;
+}
+
+#goal_donations h2{
+    @include iconsgoal-sprite(donation);
+    padding: 11px 0 7px 70px;
+	margin-bottom:0px;
+}
+
+
 #journeys{
     .journey{
 		padding-bottom:5px;
@@ -486,7 +507,7 @@ header{
 }
 
 
-#content_donations{
+#goal_donations{
 	margin-bottom: 20px;
     .donation{
 		padding-bottom:5px;
