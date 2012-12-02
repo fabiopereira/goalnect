@@ -63,6 +63,9 @@
 		<% @goals.each do |goal| %>   
 	     	<%= render 'goals/box', :goal => goal %>
     	<% end %>
+		<% @goals.each do |goal| %>   
+	     	<%= render 'goals/box', :goal => goal, :first_img => :achiever %>
+    	<% end %>
 	</div>
 </section>
 
