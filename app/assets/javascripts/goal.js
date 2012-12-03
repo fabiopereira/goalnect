@@ -23,6 +23,12 @@ $(function(){
 	});
   })
 
+  $('#goal_charity_id').change(function() {
+	charity_id = $('#goal_charity_id').val();
+	$('.charity_show').removeClass('charity_show').addClass('charity_hidden');
+  	$('#goal_charity_id_'+charity_id).removeClass('charity_hidden').addClass('charity_show');
+  })
+
 });
 
 on_change_goal_title = function(){
