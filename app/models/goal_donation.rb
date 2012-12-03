@@ -1,5 +1,5 @@
 class GoalDonation < ActiveRecord::Base
-  MIN_AMOUNT = 1
+  MIN_AMOUNT = 5
   
   attr_accessible :amount, :goal_id, :message, :user_id, :donor_name, :processed, :created_at, :goalnect_fee, :pagseguro_fee, :goal, :charity_id
   attr_accessible :current_stage_id
