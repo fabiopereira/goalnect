@@ -60,11 +60,9 @@
 
 <section id="bottom-section" clear="" >
 	<div class="centraliza clearfix"> 
-		<% @goals.each do |goal| %>   
-	     	<%= render 'goals/box', :goal => goal %>
-    	<% end %>
-		<% @goals.each do |goal| %>   
-	     	<%= render 'goals/box', :goal => goal, :first_img => :achiever %>
+		<% @goals.each_with_index do |goal, index| %>  
+		 	<% first_img = (index % 2 == 0) ? :achiever : :goal_template %>
+			<%= render 'goals/box', :goal => goal, :first_img => first_img %>
     	<% end %>
 	</div>
 </section>
