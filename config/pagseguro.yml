@@ -17,9 +17,9 @@ demo:
   <<: *development
 
 production:
-  authenticity_token: 9CA8D46AF0C6177CB4C23D76CAF5E4B0
-  email: user@example.com
-  return_to: "http://exemplo.com.br/pedido/efetuado"
+  authenticity_token: 14EFCD25D94742119FE117221330183F
+  email: contato@goalnect.com
+  return_to: "http://www.goalnect.com/goal_donation_payment_notifications/confirm"
 
 
   # https://ws.pagseguro.uol.com.br/v2/transactions?initialDate=2012-11-01T00:00&finalDate=2012-11-07T00:00&page=1&maxPageResults=100&email=camilahayashi@gmail.com&token=06AFDC23913D4942A20527527249ACC0
