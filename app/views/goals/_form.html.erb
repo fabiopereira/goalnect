@@ -45,7 +45,26 @@
 				 <div class="control-group">
 				    <%= f.label :charity_id, :class => 'control-label' %>
 				    <div class="controls">
-				     <%= collection_select(:goal, :charity_id, Charity.find_all_by_active(true), :id, :charity_name, {:prompt => t('select_charity')}) %>
+					<% charities = Charity.find_all_by_active(true) %>
+					<%= collection_select(:goal, :charity_id, charities, :id, :charity_name, {:prompt => t('select_charity')}) %>
+					
+					<% charities.each_with_index do |charity| %>
+					
+					<div class="charity_hidden" id="goal_charity_id_<%=charity.id%>">
+						<hr/>
+						<figure class="new_goal_charity_img">
+							<a href="<%= charity_show_path charity.id %>" target="blank">
+						        <%= img_tag charity, :thumb %>
+						    </a>
+						</figure>
+						<p><h2><%= charity.charity_name %></h2></p>
+						<p> <%= charity.description %></p>
+						<hr/>
+					</div>
+					
+					<% end %>
+					
+				     
 				    </div>
 				  </div>
 
