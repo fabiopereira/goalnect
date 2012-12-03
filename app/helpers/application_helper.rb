@@ -32,6 +32,15 @@ module ApplicationHelper
     GoalDonationStage::REFUNDED               => "icon56"
   }
   
+  FACEBOOK_LOCALE = {
+    :en => "en_US",
+    :pt => "pt_BR"
+  }
+  
+  def facebook_locale
+    FACEBOOK_LOCALE[I18n.locale]
+  end
+  
   def goal_donation_stage_icon stage
     GOAL_DONATION_STAGE_ICON[stage]
   end

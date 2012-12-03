@@ -7,7 +7,7 @@
 		<%= csrf_meta_tag %>
 		<%= javascript_include_tag "application" %>
 		<% Togg.le(:feature_fb_social) do %>
-		  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1">
+		  <script src="http://connect.facebook.net/<%= facebook_locale %>/all.js#xfbml=1">
 		  </script>
 		  <!--twitter -->
 		  <script>
@@ -40,9 +40,10 @@
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  js.src = '//connect.facebook.net/<%= facebook_locale %>/all.js#xfbml=1';
 		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
 		
 			<div class="body_min_height">
 			<div class="centraliza clearfix">

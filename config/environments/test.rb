@@ -45,4 +45,5 @@ Goalnect::Application.configure do
   
   ENV['FACEBOOK_APP_ID'] = '457960647556335'
   ENV['FACEBOOK_SECRET_KEY'] = 'be4c079576a4317f5a622ff33f60b9ae'
+  ENV['FIXED_LOCALE'] = "en"
 end
