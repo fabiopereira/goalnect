@@ -83,5 +83,5 @@ Goalnect::Application.configure do
   
   #google analytics
   GA.tracker = "UA-33640820-1"
-  ENV['FIXED_LOCALE'] = :pt
+  ENV['FIXED_LOCALE'] = "pt"
 end
