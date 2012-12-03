@@ -202,7 +202,8 @@ pt:
   show_more: "mostrar mais..."
   show_less: "mostrar menos"
   there_are_no_updates: "Não existem atualizações para este goal."
-  there_are_no_donations: "Não existem doações para este goal."
+  there_are_no_donations: "Não existem doações para este goal."  
+  there_are_no_goals: "Não existem goals cadastrados."
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação

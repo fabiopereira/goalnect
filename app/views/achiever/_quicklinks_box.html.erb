@@ -2,10 +2,10 @@
 <article class="box-pequeno quick-links">
 	<h4><%= t 'quick_links' %>:</h4>
 	<hr/>
-	<p><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></p>
-	<p><%= link_to t('edit_profile'), '/achiever/edit'  %></p>
+	<div><%= link_to t('change_photo'), '/achiever/edit_profile_photo' %></div>
+	<div><%= link_to t('edit_profile'), '/achiever/edit'  %></div>
 	<% if current_user.charity_id %>
-	  <p><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></p>
+	  <div><%= link_to current_user.charity.charity_name, charity_path(current_user.charity.id) %></div>
 	<% end %>
 </article><!-- /box-pequeno //-->
 <% end %>

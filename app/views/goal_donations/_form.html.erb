@@ -11,7 +11,10 @@
   <%= t "donation.anonymous_login_message" %> 
   <%= link_to('Login', sign_in_and_redirect_to_current)  %>
 <% end %>
-
+                    
+<div id="donation-step-img">              
+	<%= image_tag("goal-donation-step-1-#{I18n.locale}.png") %>
+</div>                                        
 <%= f.hidden_field :goal_id%>
 
   <div class="field">
@@ -25,27 +28,27 @@
       <% end %>
 	</div>
 	<%= t "currency" %>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount , :size => "8" %>
   </div>
 
-  <div class="field">
-    <%= f.text_area :message, :rows => 1, :placeholder => t("placeholder.goal_donation.description", :achiever_name => @goal.achiever.screen_name) %>
-  </div>
-	<div>
+	<div class="field">
 	<% if user_signed_in? %>
 	  <p><%= t "activerecord.attributes.goal_donation.donor_name" %>: <b><%= current_user.screen_name %><b></p>
 	<% else %>
-	  <%= f.label :donor_name %>
+	  <p><%= f.label :donor_name %>:</p>
 	  <%= f.text_field :donor_name %>
 	<% end %>
-	</div>
+	</div>       
+	
+	<div class="field">  
+	  <p><%= f.label :message %>:   </p>
+      <%= f.text_area :message, :rows => 1, :placeholder => t("placeholder.goal_donation.description", :achiever_name => @goal.achiever.screen_name) %>
+  	</div>
 
-	<div>              
-		<%= image_tag("goal-donation-step-1-#{I18n.locale}.png") %>
-	</div>
+
 
 <div class="form-actions">
-    <%= f.submit t("donation.donate"),  :class => 'btn btn-primary', :id => 'donate_button' %>
+    <%= f.submit t("donation.donate"),  :class => 'btn btn-success', :id => 'donate_button' %>
 	<%= link_to t('back'), :back, :class => 'btn' %>
 </div>
 
@@ -53,6 +56,38 @@
 </article>
 
 
-<% end %>
+<% end %>     
+</div>
+<section id="bottom-section" clear="" >
+	<div id="goal_donations" class="centraliza clearfix">     
+	 	<div class="coluna1">
+		</div><!-- /coluna1 //-->
 
+		<div class="coluna2">   
+		  <h2><%= t('donations')%></h2>        
+		  <hr/>
+		  <% goal_donations = @goal.goal_donations_to_display%>
+		  <% if goal_donations.empty? %>
+				<%= t ('there_are_no_donations')%>
+		  <% else %>
+			<% goal_donations.each do |goal_donation| %>
+			<article class="donation clearfix">
+				<figure class="donation_donor">
+					<div class="img_user_thumbmini_div">
+					<%= user_image goal_donation.user, :thumbmini%>
+					</div>
+				</figure>
+				<div class="donation_desc">
+					<p><%=raw_scape_xss t('donated', :name => goal_donation.donor_name, :amount => goal_donation.amount)%>
+					<p><%= goal_donation.message %></p>
+					<p class="small-font"><%= l goal_donation.created_at, :format => :short %></p>
+				</div><!-- /journey_desc //-->
+			</article><!-- /journey //-->
+			<% end %>
+		  <% end %>   
+		</div>
+	</div>
+</section>
+              
+</div>
 

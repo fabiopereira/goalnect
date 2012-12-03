@@ -20,11 +20,16 @@
 					<%= t "goal.user_goals_header", :screen_name => @achiever.screen_name %>
 				<% end %>
 			</h1>
-			<div class="my_goals">
-			<% my_goals = @achiever.find_active_goals() %>
+			<div class="my_goals">   
+		   
+			<% my_goals = @achiever.find_active_goals() %>  
+			<% if my_goals && !my_goals.empty? %>
 				<% my_goals.each do |goal| %>   
 			     	<%= render 'goals/box', :goal => goal %>
-		    	<% end %>  
+		    	<% end %> 
+		 	<%else%>        
+				<%= t('there_are_no_goals')%>
+			<%end%>
 			
 			</div>
 		</div>

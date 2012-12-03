@@ -7,8 +7,7 @@ module DonationPaymentNotificationSteps
       goal_donation = GoalDonation.find_by_message(goal_donation.message)
       goal_donation.current_stage.should be == GoalDonationStage::APPROVED
 
-      visit_goal goal
-      find('a.tab_donations').click
+      visit_goal goal               
       page.should have_content goal_donation.amount
       page.should have_content goal_donation.donor_name
       page.should have_content goal_donation.message

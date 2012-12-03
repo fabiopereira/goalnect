@@ -5,6 +5,10 @@ module ApplicationHelper
   
   def raw_scape_xss (content)
     raw content.gsub('<script>','&lt;script&gt;').gsub('</script>','&lt;/script&gt;')
+  end  
+  
+  def raw_scape_html (content)
+      raw content.gsub('<','&lt;').gsub('>','&gt;').gsub("\n",'<br/>')   
   end
   
   def current_url

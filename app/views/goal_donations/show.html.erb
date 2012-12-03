@@ -1,16 +1,15 @@
-<div class="coluna1">
-<article class="box-pequeno">
 <%= render 'goal_donations/goal_donation_summary', :goal => @goal_donation.goal %>
-</article>
-</div>
+
 
 
 <div class="coluna2">
-<article class="box-grande">
+<article class="box-grande" id="donation-confirmation">
+ 	<div id="donation-step-img">              
+		<%= image_tag("goal-donation-step-2-#{I18n.locale}.png") %>
+	</div>                       
+<h2 class="donation_confirmation"><%=t "donation.confirmation_page" %></h2>      
 
-<div class="page-header">
-  <h1><%=t "donation.confirmation_page" %></h1>
-</div>
+
 
 <p>
 <%=raw_scape_xss t("donation.you_are_donating_to_confirmation", :amount => @goal_donation.amount,  :charity_name => @goal_donation.charity.charity_name, :achiever => @goal_donation.goal.achiever.screen_name, :goal => @goal_donation.goal.title) %>
@@ -19,9 +18,6 @@
 
 <% if @goal_donation.current_stage == GoalDonationStage::WAITING_NOTIFICATION %>
   <p><%=t"donation.confirm_message"%></p>
-  <div>              
-		<%= image_tag("goal-donation-step-2-#{I18n.locale}.png") %>
-  </div>
   <%= pagseguro_form @order, :submit => "", :email => @goal_donation.charity.pagseguro_email %>
 <% else %>   
   <p>

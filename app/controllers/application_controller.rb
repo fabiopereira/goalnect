@@ -57,6 +57,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def is_goal_donation_waiting_notification
+    goal_donation = GoalDonation.find(params[:id])                                
+    if goal_donation.current_stage_id  !=  GoalDonationStage::WAITING_NOTIFICATION.id   
+       flash[:alert] = "This donation has already been sent to pagseguro"
+      redirect_to root_path
+    end
+  end
+  
   def is_current_user_achiever
     if !is_current_user_achiever?
       flash[:alert] = "This area is restricted to goal achiever"

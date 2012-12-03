@@ -14,7 +14,7 @@ $box-goal-border-color:#e0edf5;
 
 
 body{
-	background:url(josecarlosimg/conteudo-bg.png) top repeat-x;
+	background:url(conteudo-bg.png) top repeat-x;
 	margin-top:78px;
     font-family: $font-text;
 	color:$cinza-escuro;
@@ -239,7 +239,7 @@ input[type="color"]:focus,
 }
 
 .imagem-goal{
-    background:url(josecarlosimg/goal-bg.png) no-repeat;
+    background:url(goal-bg.png) no-repeat;
 	padding-top: 15px;
 	padding-left: 15px;
     width:180px;
@@ -316,7 +316,7 @@ input[type="color"]:focus,
 }
 
 .status-bar{
-    background:#f0f1f1 url(josecarlosimg/status-bar-bg.png);
+    background:#f0f1f1 url(status-bar-bg.png);
     width:380px;
     height:9px;
     margin-bottom: 15px;
@@ -325,7 +325,7 @@ input[type="color"]:focus,
     -webkit-border-radius:3px;
     border-radius:3px;
     .progress{
-        background:#a9c639 url(josecarlosimg/progress-bg.png);
+        background:#a9c639 url(progress-bg.png);
         height:9px;
         -moz-border-radius:3px;
         -webkit-border-radius:3px;
@@ -515,15 +515,49 @@ span.donations_list{
 }
 
 .quick-links{
-	p,a{
+	div {    
+		a {text-decoration : none }
 		font-size: 14px;
 		line-height: 22px;
 		margin:none;
 		width: 100%;
-		&:hover{
+		&:hover{      
+			a{
+		        color: #fff !important;; 
+			}
 			background:$azul-logo;
 			font-weight:bold;
 			color: #fff !important;;
 		}
+	}      
+}
+        
+
+#user_goal_img_donation_summary{
+	margin: 10px 25px 10px 25px;      
+	border: 1px solid $cinza-claro;
+}      
+
+form.pagseguro input[type=submit]{
+	background:url(pagseguro-94x52-doar-assina.gif) no-repeat;
+	width: 94px;
+	height:52px;
+	border:0;
+}
+#donation-confirmation{   
+	h2{
+		padding-bottom: 20px;
 	}
+	p{   
+		font-size: 18px;
+	}
+}             
+
+#donation-step-img{
+ 	float:right;       
+}                      
+
+.donation_confirmation{
+margin-bottom: 20px;
+padding-top: 30px;
 }

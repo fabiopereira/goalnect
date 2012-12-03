@@ -10,19 +10,16 @@
         <%= img_tag goal.charity, :thumb %>
 </figure>
 
-</p>
-<p>
-	<%= truncate(goal.charity.description, :length => 200, :omission =>"...") %>
-</p>
-
+</p> 
 
 <hr/>
 <p>
 	<small><%= t("donation.supporting") %> <%= goal.achiever.screen_name %>:</small>
-</p>
+</p>     
+<div id="user_goal_img_donation_summary">
 <%= user_image goal.achiever, :thumbmini %>
 <%= img_tag_null_safe 'GoalTemplate', goal.goal_template, :thumbmini %>
-
+</div>
 <h5><%= goal.title %></h5> 
 
 
