@@ -141,7 +141,8 @@ en:
   show_less: "show less"  
   there_are_no_updates: "There are no updates for this Goal"
   there_are_no_donations: "There are no donations for this Goal"        
-  there_are_no_goals: "There are no goals"      
+  there_are_no_goals: "There are no goals"
+  choose_file: "Choose Photo"      
       
   activerecord:
     attributes:

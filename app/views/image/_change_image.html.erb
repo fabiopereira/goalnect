@@ -13,7 +13,10 @@
 
 	   <div class="control-group">
 		<div class="controls">
-		 <%= f.file_field :image %>
+			<div id="file_upload">
+				<input type="button" value='<%=t("choose_file")%>' id="fake_file_btn" class="btn">
+		 		<%= f.file_field :image, :width => '100px', :id=>"real_file_btn" %>
+			</div>
 	    </div>
 	  </div>
 
