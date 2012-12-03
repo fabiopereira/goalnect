@@ -20,6 +20,3 @@ demo:
 
 production:
   <<: *defaults
-  feature_authentication: false 
-  feature_sign_in: true
-  feature_goal_template: false
