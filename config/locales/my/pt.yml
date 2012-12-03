@@ -288,9 +288,17 @@ pt:
     failed_to_set_goal_status_done: "Oooops! Não foi possível alterar o goal para concluído."
     btn: "Concluído!"
     
-  errors:
+  errors:    
+    facebook_login_error: "Não foi possível criar a sua conta pelo facebook, Por favor tente novamente mais tarde." 
     search:
       length: Sua busca deve conter no mínimo %{min} letras
     charity:
       report_abuse_error: "Não foi possível reportar o goal"
-
+                                                                  
+  alerts:
+      area_restricted_to_admin: "Esta área é restrita para administradores." 
+      area_restricted_to_charity_admin: "Esta área é restrita para administradores de ONGs." 
+      goal_is_not_active: "Goal não está ativo"   
+      donation_sent_to_pagseguro: "Esta doação já foi enviada"
+      area_restricted_to_achiever: "Esta área é restrita para o Criador de Goals"   
+      goal_has_been_reported: "Goal está inativo, foi reportado abuso"

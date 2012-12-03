@@ -26,7 +26,7 @@ class CharitiesController < ApplicationController
         format.html # show.html.erb
         format.json { render json: @charity }
       else
-        format.html {redirect_to :root, notice: t("charity_is_not_active")  }
+        format.html {redirect_to :root, alert: t("charity_is_not_active")  }
       end
     end
   end

@@ -227,9 +227,17 @@ en:
     failed_to_set_goal_status_done: "Whooops! It ."
     btn: "DONE!"
   
-  errors:
+  errors: 
+    facebook_login_error: "Error while creating a user account. Please try again." 
     search:
       length: You search must contain at least %{min} letters   
     charity:
       report_abuse_error: Unable to report abuse for this goal 
-      
+                                                                    
+  alerts:
+    area_restricted_to_admin: "This area is restricted to administrators only."  
+    area_restricted_to_charity_admin: "This area is restricted to charity administrators only." 
+    goal_is_not_active: "Goal is not active"   
+    donation_sent_to_pagseguro: "This donation has already been sent to pagseguro"
+    area_restricted_to_achiever: "This area is restricted to goal achiever"   
+    goal_has_been_reported: "Goal is inactive, it has been reported by the charity"                             

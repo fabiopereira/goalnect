@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def authenticate_admin_user!
     authenticate_user! 
     unless current_user.admin?
-      flash[:alert] = "This area is restricted to administrators only."
+      flash[:alert] = t('alerts.area_restricted_to_admin')
       redirect_to root_path 
     end
   end
@@ -23,21 +23,21 @@ class ApplicationController < ActionController::Base
   def charity_admin_user!
     charity_id = params[:charity_id] ? params[:charity_id]  : params[:id]
     unless current_user && (current_user.admin? || is_current_user_charity_admin?(charity_id))
-      flash[:alert] = "This area is restricted to charity administrators only."
+      flash[:alert] = t('alerts.area_restricted_to_charity_admin')
       redirect_to root_path 
     end
   end
   
   def charity_updates_admin_user!
      unless current_user && (current_user.admin? || is_current_user_charity_update_admin?)
-        flash[:alert] = "This area is restricted to charity administrators only."
+        flash[:alert] =  t('alerts.area_restricted_to_charity_admin')
         redirect_to root_path 
       end
   end
   
   def goal_show!
     if !(is_current_user_achiever? || is_goal_active?)
-      flash[:alert] = "Goal is not active, this goal is restricted to goal achiever"
+      flash[:alert] = t('alerts.goal_is_not_active')
       if params[:user_username]
         redirect_to "/#{params[:user_username]}"
       else
@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   
   def is_goal_active!
     if !is_goal_active?
-      flash[:alert] = "Goal is not active"
+      flash[:alert] = t('alerts.goal_is_not_active')   
        if params[:user_username] && params[:goal_id]
           redirect_to "/#{params[:user_username]}/goals/show/#{params[:goal_id]}"
         else
@@ -60,14 +60,14 @@ class ApplicationController < ActionController::Base
   def is_goal_donation_waiting_notification
     goal_donation = GoalDonation.find(params[:id])                                
     if goal_donation.current_stage_id  !=  GoalDonationStage::WAITING_NOTIFICATION.id   
-       flash[:alert] = "This donation has already been sent to pagseguro"
+       flash[:alert] = t("alerts.donation_sent_to_pagseguro")
       redirect_to root_path
     end
   end
   
   def is_current_user_achiever
     if !is_current_user_achiever?
-      flash[:alert] = "This area is restricted to goal achiever"
+      flash[:alert] = t("alerts.area_restricted_to_achiever")
       if params[:user_username]
         redirect_to "/#{params[:user_username]}"
       else
@@ -92,7 +92,7 @@ class ApplicationController < ActionController::Base
       id = params[:goal_id] ? params[:goal_id] : params[:id]
       goal = Goal.find(id)
       if GoalStage::REPORT_ABUSE == goal.goalStage
-        flash[:alert] = "Goal is inactive, it has been reported by the charity"
+        flash[:alert] = t("alerts.goal_has_been_reported")
         redirect_to root_path
       end
     end
@@ -120,7 +120,7 @@ class ApplicationController < ActionController::Base
   
   def a_charity_administrator_user! 
     unless current_user && (current_user.admin? || current_user.charity_id)
-       flash[:alert] = "This area is restricted to charity administrators only."
+       flash[:alert] =  t('alerts.area_restricted_to_charity_admin')   
        redirect_to root_path 
      end
   end
