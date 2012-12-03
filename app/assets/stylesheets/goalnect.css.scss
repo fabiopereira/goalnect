@@ -493,10 +493,7 @@ span.donations_list{
 		}
 	}
 	input[type="submit"]{
-		background:url("submit-goal.png");
-		&:hover{
-		  background:url("submit-goal_hover.png");
-	    }
+	    @include iconsmain-sprite(goal_template_submit);
 		width:84px;
 		height:61px;
 		border:none;
