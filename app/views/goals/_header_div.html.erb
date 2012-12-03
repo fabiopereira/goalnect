@@ -7,6 +7,7 @@
 			<section class="descricao-goal">
 				<h2 class="titulo-goal"><%= goal.title%></h2>
 				<h4 class="align_right"><%= t "goal_created_by", :owner => goal.owner.screen_name %>  -  <%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
+				<br/>
 				<p id="goal_description_text"><%=raw_scape_html goal.description%></p>
 			</section><!-- /descricao-goal //-->
 		</section><!-- /infos-goal //-->
