@@ -1,6 +1,6 @@
 $(function(){
   // $('.flexslider').flexslider();
-
+  
   $('.cycle').cycle({ 
 	    fx:     'scrollHorz', 
 	    speed:  'fast', 

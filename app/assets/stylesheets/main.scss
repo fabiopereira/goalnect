@@ -248,7 +248,7 @@ header{
     background:#316892;
     width:220px;
     height:244px;
-    padding:20px 20px 10px 20px;
+    padding:40px 20px 10px 20px;
     position:absolute;
     top:-50px;
     right:0;
@@ -398,20 +398,16 @@ header{
 }
 
 
-.botao-apoiar{
-    display:table-cell;
+.botao-apoiar{           
     background-position:-169px -92px;
     width:106px;
     height:70px;
-    padding-left:70px;
-    vertical-align:middle;
-    text-transform:uppercase;
+    padding-left:70px;         
     color:#fff;
     font-size:18px;
     line-height:70px;
     float:right;
-    text-shadow: 0px -1px 0px #9fb353;
-    filter: dropshadow(color=#9fb353, offx=0, offy=-1);
+    text-shadow: 0px -1px 0px #9fb353;                   
     &:hover{
         background-position:-169px -162px;
     }

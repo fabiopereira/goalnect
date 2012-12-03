@@ -397,7 +397,8 @@ input[type="color"]:focus,
 		a.donate{
 			width: 112px;
 			@include iconsgoal-sprite(donate_small);
-			margin-left: 4px;
+			margin-left: 4px; 
+			text-shadow: 0px -1px 0px #9fb353; 
 			span{
 				float:left;
 				margin-top: 12px;
