@@ -9,6 +9,7 @@
   .coluna1 {
     float:left;
     .box-pequeno{
+		  height: 210px;
           &:hover{
       		background-color: $azul-logo;
             h5 a {
