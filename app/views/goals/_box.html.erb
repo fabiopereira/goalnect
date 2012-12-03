@@ -28,8 +28,9 @@
 	
 	<div class="actions clearfix">
 		<% if goal.goalStage.id == GoalStage::PENDING.id %>
-			<%= link_to t("accept_challenge"),  accept_challenge_path(goal.achiever.username, goal.id), :class => "btn btn-primary" %>
-			<%= link_to t("reject"),  reject_challenge_path(goal.achiever.username, goal.id), :class => "btn" %>
+			<a href="<%= show_goal_path_by_goal goal %>" class="btn btn-primary view-challenge" >
+				<%= t('view_dare')%>
+	    	</a>
 		<% else %>
 		<a class="isupport_true" href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title='<%=t "possible_button" %>'>
 		</a>

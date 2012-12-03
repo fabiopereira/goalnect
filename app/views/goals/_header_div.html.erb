@@ -6,7 +6,7 @@
 			</figure>
 			<section class="descricao-goal">
 				<h2 class="titulo-goal"><%= goal.title%></h2>
-				<h4 class="align_right"><%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
+				<h4 class="align_right"><%= t "goal_created_by", :owner => goal.owner.screen_name %>  -  <%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
 				<p id="goal_description_text"><%=raw_scape_html goal.description%></p>
 			</section><!-- /descricao-goal //-->
 		</section><!-- /infos-goal //-->
@@ -15,9 +15,11 @@
 		</section>
 	    <hr/>	
 		<% if @goal.goalStage.id == GoalStage::PENDING.id %>
-		<section>
-			<%= link_to t("accept_challenge"),  accept_challenge_path(@goal.achiever.username, @goal.id), :class => "btn btn-primary" %>
-			<%= link_to t("reject"),  reject_challenge_path(@goal.achiever.username, @goal.id), :class => "btn" %>
+		<section id="challenge_div">
+			<p id="challenge_question"><%=t('you_have_been_challenged_by', :challenger => @goal.owner.screen_name)%></p>
+			
+			<%= link_to t("accept_challenge"),  accept_challenge_path(@goal.achiever.username, @goal.id), :class => "btn btn-success" %>
+			<%= link_to t("reject"),  reject_challenge_path(@goal.achiever.username, @goal.id), :class => "btn btn-danger" %>
 		</section>
 		<hr/>
 		<% end %>
@@ -37,18 +39,17 @@
 
 		<section id="status-goal" class="clearfix">
 			<div>
+				<div>
 				<span class="iconsgoal-daysleft sprite dias-restantes font12 fonte-benton azul-escuro" id="days_left">
 					<%= render "goals/days_left", :goal => goal %>
 				</span>
-				<h5 id="status_message"> <%=raw_scape_xss goal.goalStage.translated_name%></h5>
+				<h5 id="status_message"> <%=raw_scape_xss goal.goalStage.translated_name%><br/>
+				<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage.id != GoalStage::DONE.id%>
+				 <a href="<%= goal_done_path(@goal.id)%>" class="btn btn-primary clearfix"><%=t('goal_done.btn')%></a>
+				<% end %></h5>
+				</div>
 				<div id="junto_duvido_button_div" >
-				<ul id="opt-junto-duvido">
-					<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage.id != GoalStage::DONE.id%>
-						<li>
-							<a href="<%= goal_done_path(@goal.id)%>" class="btn btn-primary"><%=t('goal_done.btn')%></a>
-						</li>
-					<% end %>
-					
+				<ul id="opt-junto-duvido">					
 					<% current_user_support = goal.support_for(current_user)	%>
 					  <li>
 						<a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title="<%= (current_user_support.present? and current_user_support.i_support) ? t('including_you') : t("what_do_you_think") %>" class="sprite botao-tamo-junto tiptip" id="i_support_true_button">
