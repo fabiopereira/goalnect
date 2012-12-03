@@ -171,8 +171,8 @@ pt:
   locked_points: "Indisponível"
   redeemed_points: "Resgatados"
   statement: "Extrato"
-  accept_challenge: "aceitar desafio"
-  reject: "rejeitar"
+  accept_challenge: "Aceitar Desafio"
+  reject: "Rejeitar Desafio"
   new_goal: "Novo Goal"
   dare_this_friend: "Desafie este amigo"
   list_goals: "Listar Goals"
@@ -205,6 +205,9 @@ pt:
   there_are_no_donations: "Não existem doações para este goal."  
   there_are_no_goals: "Não existem goals cadastrados."
   choose_file: "Selecione Foto"
+  view_dare: "Visualizar Desafio"
+  you_have_been_challenged_by: "Você foi desafiado por %{challenger}"
+  goal_created_by: "Goal criado por %{owner}"
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação
@@ -287,7 +290,7 @@ pt:
     you_are_not_achiever_error_msg: "Você não tem permissão de alterar este goal para concluído."
     goal_created_successful_messge: "Parabéns!! Você acabou de concluir um goal! :)"
     failed_to_set_goal_status_done: "Oooops! Não foi possível alterar o goal para concluído."
-    btn: "Concluído!"
+    btn: "Concluir este Goal!"
     
   errors:    
     facebook_login_error: "Não foi possível criar a sua conta pelo facebook, Por favor tente novamente mais tarde." 

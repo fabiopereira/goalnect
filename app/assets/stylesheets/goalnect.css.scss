@@ -96,7 +96,11 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	border-radius: 4px;
 }
 
-select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+select{
+	height: 30px;
+} 
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
 	height: 20px;
 }
 
@@ -386,6 +390,14 @@ input[type="color"]:focus,
 			width: 42px;
 			float:left;
 		}
+		a.view-challenge{
+			width: 165px;
+			height: 25px;
+			font-size: 18px;
+			vertical-align: middle;
+			margin-top: 6px;
+			font-family: $font-title;
+		}
 		a.isupport_true{
 			@include iconsgoal-sprite(isupport_true_small);	
 			margin-right: 2px;
@@ -598,4 +610,11 @@ padding-top: 30px;
 		height:30px;
 	}
 	
+}
+
+#challenge_div{
+	margin-left: 200px;
+}
+#challenge_question{
+	font-size: 18px;
 }
