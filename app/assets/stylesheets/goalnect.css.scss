@@ -560,4 +560,28 @@ form.pagseguro input[type=submit]{
 .donation_confirmation{
 margin-bottom: 20px;
 padding-top: 30px;
+}     
+
+#charity_new_basic_details{
+    width:430px;
+    margin-right:20px;
+	float: left;    
+	p{
+	  margin-bottom:0px;
+	}
+}
+
+
+
+#charity_new_contact{
+    width:430px;
+	padding-left:20px;                     
+	float:left;  
+	p{
+	  margin-bottom:0px;
+	}
+}         
+
+.charity_new_image{
+	float:right;
 }

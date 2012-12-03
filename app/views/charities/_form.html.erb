@@ -1,60 +1,30 @@
 <%= render 'layouts/model_error_messages', :target => @charity %>
 <%= form_for @charity, :html => { :class => 'form-horizontal' } do |f| %>     
-<div class="span4">
-     <div class="control-group">
-	    <%= f.label :charity_name, :class => 'control-label' %>
-	    <div class="controls">
-	      <%= f.text_field :charity_name, :class => 'text_field' %>
-	    </div>
-	  </div>
-   	  <div class="control-group">
-	    <%= f.label :nickname, :class => 'control-label' %>
-	    <div class="controls">
-	      <%= f.text_field :nickname, :class => 'text_field' %>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <%= f.label :contact_name, :class => 'control-label' %>
-	    <div class="controls">
-	      <%= f.text_field :contact_name, :class => 'text_field' %>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <%= f.label :email, :class => 'control-label' %>
-	    <div class="controls">
-	      <%= f.email_field :email, :class => 'text_field' %>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <%= f.label :phone, :class => 'control-label' %>
-	    <div class="controls">
-	      <%= f.text_field :phone, :class => 'text_field' %><br/>
-		  <i><%= t "charities.including_country_code"%></i>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <%= f.label :website, :class => 'control-label' %>
-	    <div class="controls">
-	      <%= f.text_field :website, :class => 'text_field' %>
-	    </div>
-	  </div>
-</div>    
-<div class="span7">
-  	<%= image_tag("charity-heart.png") %>
-</div>            
-<div class="span12">
-	<div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_area', :rows => 5 %><br/>
-	  <i><%= t "charities.charity_description"%></i>
+   <div id="charity_new_basic_details">		
+	   <p> <%= f.label :charity_name, :class => 'control-label' %>   </p>   
+	   <p>   <%= f.text_field :charity_name, :class => 'text_field' %>      
+	    <p><%= f.label :nickname, :class => 'control-label' %> </p>              
+	    <p>  <%= f.text_field :nickname, :class => 'text_field' %> </p>          
+	    <p><%= f.label :contact_name, :class => 'control-label' %>    </p>       
+	     <p> <%= f.text_field :contact_name, :class => 'text_field' %></p>  
+	</div>    
+	<div id="charity_new_contact">	                 
+	    <p><%= f.label :email, :class => 'control-label' %>  </p>     
+	    <p>  <%= f.email_field :email, :class => 'text_field' %>  </p> 
+	    <p><%= f.label :phone, :class => 'control-label' %>  </p>          
+	     <p> <%= f.text_field :phone, :class => 'text_field' %><br/>  </p> 
+		 <p> <i><%= t "charities.including_country_code"%></i> </p> 
+	    <p><%= f.label :website, :class => 'control-label' %>  </p>   
+	    <p>  <%= f.text_field :website, :class => 'text_field' %>  </p>      
     </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit t("send"), :class => 'btn btn-primary' %>
-  </div>          
-</div>
-  
-
-<% end %>
+    
+    <%= image_tag("charity-heart.png", :class =>"charity_new_image") %>   
+    <p><%= f.label :description, :class => 'control-label' %> </p> 
+    <p><%= f.text_area :description, :class => 'text_area', :rows => 5 %></p> 
+	<p><i><%= t "charities.charity_description"%></i></p> 
+	
+    <div class="form-actions">
+		<%= f.submit t("send"), :class => 'btn btn-primary' %>
+	</div>  
+      
+      <% end %>        
