@@ -78,6 +78,7 @@ pt:
     due_on: "Prazo"
     my_goals_header: Meus Goals
     user_goals_header: "Goals - %{screen_name}"
+    target_amount_guide: "sem pontos ou vírgulas, exemplo: 1000"
   
   today: Hoje
   timeLeftPrefix: Faltam
