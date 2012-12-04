@@ -307,3 +307,4 @@ pt:
       donation_sent_to_pagseguro: "Esta doação já foi enviada"
       area_restricted_to_achiever: "Esta área é restrita para o Criador de Goals"   
       goal_has_been_reported: "Goal está inativo, foi reportado abuso"
+      goal_doesnt_belong_to_achiever: "Este goal não pertence a este usuário."
