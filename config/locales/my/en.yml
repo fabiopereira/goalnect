@@ -244,4 +244,5 @@ en:
     goal_is_not_active: "Goal is not active"   
     donation_sent_to_pagseguro: "This donation has already been sent to pagseguro"
     area_restricted_to_achiever: "This area is restricted to goal achiever"   
-    goal_has_been_reported: "Goal is inactive, it has been reported by the charity"                             
+    goal_has_been_reported: "Goal is inactive, it has been reported by the charity"   
+    goal_doesnt_belong_to_achiever: "This goal doesn't belong to this user."                          

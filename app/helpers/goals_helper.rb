@@ -13,7 +13,7 @@ module GoalsHelper
   end
 
   def show_goal_path(user_username, goal_id)
-    "/#{user_username}/goals/show/#{goal_id}"
+    "/#{user_username}/#{goal_id}"
   end
 
   def show_goal_path_by_goal(goal)

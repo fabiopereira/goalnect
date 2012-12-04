@@ -37,7 +37,7 @@ class GoalDonation < ActiveRecord::Base
   end
   
   def self.total_raised_by_achiever user_id
-     GoalDonation.sum(:amount, :joins => 'left outer join goals on goals.id = goal_donations.goal_id', :conditions => ["goals.achiever_id = ?", user_id])
+     GoalDonation.sum(:amount, :joins => 'left outer join goals on goals.id = goal_donations.goal_id', :conditions => ["goals.achiever_id = ?  and current_stage_id = ? ", user_id, GoalDonationStage::APPROVED.id])
   end
   
   def self.find_most_recent_donations_by_goal_id goal_id

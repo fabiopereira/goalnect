@@ -22,9 +22,15 @@ class GoalsController < ApplicationController
   # GET /:user_username/goals/1.json
   def show
     @goal = Goal.find(params[:goal_id])
-    @goal_comment = GoalComment.new
-    @goal_comment.goal_id = @goal.id
-    display_show_page
+    if (@goal.achiever.username != params[:user_username])
+      respond_to do |format|
+        format.html {redirect_to :root, alert: t("alerts.goal_doesnt_belong_to_achiever") }
+      end
+    else
+      @goal_comment = GoalComment.new
+      @goal_comment.goal_id = @goal.id
+      display_show_page
+    end
   end
 
   def display_show_page

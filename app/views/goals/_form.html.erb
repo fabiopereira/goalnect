@@ -58,7 +58,7 @@
 						    </a>
 						</figure>
 						<p><h2><%= charity.charity_name %></h2></p>
-						<p> <%= charity.description %></p>
+						<p class="new_goal_charity_description"> <%= raw_scape_html charity.description %></p>
 						<hr/>
 					</div>
 					
@@ -71,7 +71,8 @@
 				  <div class="control-group">
 					<%= f.label :target_amount, :class => 'control-label' %>
 					<div class="controls">
-				      <%= f.text_field :target_amount %>
+				      <label><%= t('currency')%></label><%= f.text_field :target_amount %>
+					  <p><%=t('goal.target_amount_guide')%></p>
 				    </div>
 				  </div>
 					<hr/>

@@ -97,7 +97,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/report_abuse/:goal_id' => 'goals#report_abuse'
   match '/goals/add_comment/:goal_id' => 'goals#add_comment'
   match '/goals/goal_done/:goal_id' => 'goals#goal_done'
-  
+  match '/:user_username/:goal_id' => 'goals#show'
 
   
 #root :to => "home#index"

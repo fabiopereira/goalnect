@@ -78,6 +78,7 @@ pt:
     due_on: "Prazo"
     my_goals_header: Meus Goals
     user_goals_header: "Goals - %{screen_name}"
+    target_amount_guide: "sem pontos ou vírgulas, exemplo: 1000"
   
   today: Hoje
   timeLeftPrefix: Faltam
@@ -121,7 +122,7 @@ pt:
     abandoned: "Ah que pena! <br/> Goal Abandonado..."
   points: Pontos        
   label:
-    search: Buscar
+    search: Buscar Amigos/ONGs
     commit_to_a_goal: "Eu quero..."
     dare_to_a_goal: "Desafie este amigo a..."
     and_help: "...ajudando quem precisa"
@@ -134,7 +135,7 @@ pt:
       header: Você está a um passo de resgatar %{point_amount} pontos
       message_vantagens: Mensagem avisando que precisa se cadastrar no vantagens
       redeem_success_message: Parabéns, você transferiu %{redeemed_points} pontos com sucesso
-  search_friends: "Buscar"
+  search_friends: "Buscar Amigos/ONGs"
   search:
     result_title: "Resultados da sua busca"
     goals_achievers_title: "Goalnectadores e Goals"
@@ -306,3 +307,4 @@ pt:
       donation_sent_to_pagseguro: "Esta doação já foi enviada"
       area_restricted_to_achiever: "Esta área é restrita para o Criador de Goals"   
       goal_has_been_reported: "Goal está inativo, foi reportado abuso"
+      goal_doesnt_belong_to_achiever: "Este goal não pertence a este usuário."

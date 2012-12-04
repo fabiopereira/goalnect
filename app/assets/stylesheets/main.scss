@@ -515,10 +515,10 @@ header{
 	    -webkit-border-radius:10px;
 	    border-radius:10px;
 		border:1px solid $cinza-claro;
-		width:230px;
+		width:350px;
 		height: 70px;
 		float:left;
-		overflow:hidden;
+		overflow:auto;
 		box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.7);
     }
     .donation_donor{
@@ -529,7 +529,7 @@ header{
 		margin:5px;
         font-size:12px;
 		float:left;
-		width: 160px;
+		width: 280px;
     }
 }
 
