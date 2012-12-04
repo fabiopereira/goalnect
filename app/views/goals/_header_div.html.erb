@@ -9,7 +9,7 @@
 				<h4 class="align_right"><%= t "goal_created_by", :owner => goal.owner.screen_name %>  -  <%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
 				<br/>
 				<p id="goal_description_text"><%=raw_scape_html goal.description%></p>
-				<p><a onclick='postToFeed("<%= current_url %>", "<%= goal.title%>", "<%= img_src_full 'GoalTemplate', @goal.goal_template, :thumb %>"); return false;'>Post to Feed</a></p>
+				<p><a onclick='postToFeed("<%= current_url %>", "<%= goal.title%>"); return false;'>Post to Feed</a></p>
 			</section><!-- /descricao-goal //-->
 		</section><!-- /infos-goal //-->
 		<section class="goal-social-plugins">
