@@ -1,12 +1,18 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
+  include CharitiesHelper
   # protect_from_forgery
   before_filter :set_user_return_to
-  before_filter :set_locale
+  before_filter :set_locale, :redirect_to_valid_host
   skip_before_filter :verify_authenticity_token
   around_filter :user_time_zone, if: :current_user
-  
-  include CharitiesHelper
+
+  VALID_HOST = "www.goalnect.com"
+  def redirect_to_valid_host
+    if Rails.env.production?
+        redirect_to "http://#{VALID_HOST}#{request.fullpath}" unless request.host == VALID_HOST
+    end
+  end
   
   def user_time_zone(&block)
     Time.use_zone(current_user.country.time_zone, &block)
@@ -150,8 +156,8 @@ class ApplicationController < ActionController::Base
   # http://guides.rubyonrails.org/i18n.html
   def set_locale
     I18n.locale = [
-        ENV['FIXED_LOCALE'], 
         set_locale_from_param,
+        ENV['FIXED_LOCALE'], 
         set_locale_from_current_user,
         set_locale_from_domain,
         set_locale_from_accept_language_http_header,

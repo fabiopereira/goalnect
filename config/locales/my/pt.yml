@@ -187,7 +187,7 @@ pt:
   point_summary_locked: "<strong>%{locked_pts}</strong> pontos indisponíveis"
   point_summary_active: "<strong>%{active_pts}</strong> pontos"
   backers: "<strong>%{backers}</strong> apoiadores"
-  agreed_terms: Li e aceitei os
+  agreed_terms: Ao me cadastrar concordo com os
   goal_created_successful_messge: "Goal criado com sucesso."
   dare_created_successful_messge: "Desafio criado com sucesso, aguardando aceitação..."
   charity_is_not_active: "ONG não está ativa"
