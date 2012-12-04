@@ -36,6 +36,24 @@
 	</head>
 	<body>
 		<div id="fb-root"></div>
+		<script> 
+	      FB.init({appId: "<%= ENV['FACEBOOK_APP_ID']%>", status: true, cookie: true});
+	      function postToFeed(url, title, img) {
+	        // calling the API ...
+	        var obj = {
+	          method: 'feed',
+	          redirect_uri: url,
+	          link: url,
+	          picture: img,
+	          name: title
+	        };
+	        function callback(response) {
+	          // document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+	        }
+	        FB.ui(obj, callback);
+	      }
+	    </script>
+		
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
