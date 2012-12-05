@@ -50,6 +50,7 @@ en:
     goal:
       title: New Goal
       dare_title: "New Dare"
+      edit: "You are editing the Goal %{title}"
   vimeo:
     teaser: "http://vimeo.com/46359215"
 
@@ -222,7 +223,9 @@ en:
     dare_charity_phrase: "Your friend suggested yout to support this charity: "
     goal_created_by: "Goal created by: %{owner}"
     dare_created_by: "Dare created by: %{owner}"
-    
+    not_possible_to_change_charity_msg: "You are not allowed to change the Charity, there are donation for this Goal already"
+    done_btn: "DONE!"
+    edit_btn: "Edit Goal"
 
   photo_change:
     header: Change and crop your photo
@@ -237,7 +240,6 @@ en:
     you_are_not_achiever_error_msg: "You dont have permission to change this goal to done."
     goal_created_successful_messge: "Congratulations!You have achieved your goal! :)"
     failed_to_set_goal_status_done: "Whooops! It ."
-    btn: "DONE!"
   
   errors: 
     facebook_login_error: "Error while creating a user account. Please try again." 

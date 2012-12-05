@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_filter :report_abuse!, :except => [:new, :create]
   before_filter :is_goal_active!, :except => [:accept_challenge, :reject_challenge, :new, :create, :show]
   before_filter :goal_show!, :only => [:show]
-  before_filter :is_current_user_achiever, :only  => [:accept_challenge, :reject_challenge, :add_feedback, :change_stage]
+  before_filter :is_current_user_achiever, :only  => [:accept_challenge, :reject_challenge, :add_feedback, :change_stage, :edit]
   
   include GoalsHelper
   # GET /:user_username/goals
@@ -64,7 +64,7 @@ class GoalsController < ApplicationController
 
   # GET /:user_username/goals/1/edit
   def edit
-    @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:goal_id])
     @achiever = @goal.achiever
   end
 
@@ -79,7 +79,7 @@ class GoalsController < ApplicationController
        @goal.goal_stage_id = GoalStage::PENDING.id
     end
     respond_to do |format|
-      if @goal.save
+     if @goal.save
         if @goal.achiever_id == current_user.id
           format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: t("goal_created_successful_messge") }
         else
@@ -191,14 +191,14 @@ class GoalsController < ApplicationController
   # PUT /:user_username/goals/1
   # PUT /:user_username/goals/1.json
   def update
-    @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:goal_id])
     @achiever = @goal.achiever
     respond_to do |format|
       if @goal.update_attributes(params[:goal])
         format.html { redirect_to show_goal_path(@achiever.username, @goal.id), notice: 'Goal was successfully updated.'}
         format.json { head :no_content }
       else
-        format.html { redirect_to edit_goal_path(@achiever.username, @goal.id)}
+        format.html { render action: "edit" }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end

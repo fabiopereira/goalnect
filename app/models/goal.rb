@@ -118,4 +118,8 @@ class Goal < ActiveRecord::Base
     (raised_so_far / target_amount) * 100
   end
   
+  def is_there_donations_for_this_goal
+    GoalDonation.is_there_donations_for_this_goal self.id
+  end
+  
 end

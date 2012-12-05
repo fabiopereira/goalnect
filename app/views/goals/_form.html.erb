@@ -1,13 +1,17 @@
 <%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
 <div class="coluna2">
 	<article class="box-grande">
-		<%if @goal.achiever.id == current_user.id%>
-			<h2><%=t("headline.goal.title")%></h2>
-		<% else %>
-			<h2><%=t("headline.goal.dare_title")%></h2>
+		<% if !@goal.id %>
+			<%if @goal.achiever.id == current_user.id%>
+				<h2><%=t("headline.goal.title")%></h2>
+			<% else %>
+				<h2><%=t("headline.goal.dare_title")%></h2>
+			<% end %>
+		<% else%>
+			<h2><%=t("headline.goal.edit", :title => @goal.title)%></h2>
 		<% end %>
 		<hr/>
-		<%= form_for @goal, :url => '/'+@goal.achiever.username+'/goals/create', :html => { :class => 'form-horizontal' } do |f| %>    
+		<%= form_for @goal, :url => url_value, :html => { :class => 'form-horizontal' } do |f| %>    
 
 		  <%= render 'layouts/model_error_messages', :target => @goal %>
 
@@ -42,6 +46,14 @@
 				    </div>
 				  </div>
 
+			    <% if @goal.id && @goal.is_there_donations_for_this_goal%>
+					<div class="control-group">
+					  <hr/>
+					    <label><%=t('goal.not_possible_to_change_charity_msg')%></label>
+					    <h3><%=@goal.charity.charity_name%></h3>
+					  <hr/>
+					</div>
+				<% else %>
 				 <div class="control-group">
 				    <%= f.label :charity_id, :class => 'control-label' %>
 				    <div class="controls">
@@ -50,7 +62,7 @@
 					
 					<% charities.each_with_index do |charity| %>
 					
-					<div class="charity_hidden" id="goal_charity_id_<%=charity.id%>">
+					  <div class="charity_hidden" id="goal_charity_id_<%=charity.id%>">
 						<hr/>
 						<figure class="new_goal_charity_img">
 							<a href="<%= charity_show_path charity.id %>" target="blank">
@@ -60,14 +72,12 @@
 						<p><h2><%= charity.charity_name %></h2></p>
 						<p class="new_goal_charity_description"> <%= raw_scape_html charity.description %></p>
 						<hr/>
-					</div>
+					  </div>
 					
 					<% end %>
-					
-				     
 				    </div>
 				  </div>
-
+				<%end%>
 				  <div class="control-group">
 					<%= f.label :target_amount, :class => 'control-label' %>
 					<div class="controls">
