@@ -38,10 +38,11 @@
 		<div id="fb-root"></div>
 		<script> 
 	      FB.init({appId: "<%= ENV['FACEBOOK_APP_ID']%>", status: true, cookie: true});
-	      function postToFeed(url, title) {
+	      function postToFeed(url, title, return_url) {
 	        // calling the API ...
 	        var obj = {
 	          method: 'feed',
+	          redirect_uri: return_url,
 	          link: url,
 	          name: title
 	        };

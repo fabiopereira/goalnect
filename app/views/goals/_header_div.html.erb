@@ -87,7 +87,7 @@
 			<hr/>
 			<%= render 'layouts/social_plugins' %>
 			<% title_facebook = t('goal.post_on_facebook_title', :achiever => goal.achiever.screen_name, :title => goal.title.downcase)%>
-			<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook%>"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
+			<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook%>","<%=close_fb_popup_path%>"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
 		</section>
 		
 	</article><!-- /box-grande //-->

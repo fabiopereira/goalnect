@@ -19,6 +19,15 @@ module ApplicationHelper
     end
   end
   
+  def close_fb_popup_path
+     if Rails.env.development? or Rails.env.test?
+        'http://' + request.host + ':' + request.port.to_s + '/static/close_fb_popup'
+      else
+        'http://' + request.host + '/static/close_fb_popup'
+      end
+  end
+  
+  
   def bool_to_yn b
     b ? I18n.t("names.yes") : I18n.t("names.no")
   end  
