@@ -79,7 +79,13 @@ pt:
     my_goals_header: Meus Goals
     user_goals_header: "Goals - %{screen_name}"
     target_amount_guide: "sem pontos ou vírgulas, exemplo: 1000"
-  
+    post_on_facebook_btn: "Divulgue no Facebook"
+    post_on_facebook_title: "%{achiever} quer %{title}, apoie este Goal!"
+    charity_support_phrase: "Motive este amigo doando para a causa que ele escolheu:"
+    dare_charity_phrase: "Seu amigo sugeriu você apoiar a causa desta ONG: "
+    goal_created_by: "Goal criado por %{owner}"
+    dare_created_by: "Desafio criado por %{owner}"
+    
   today: Hoje
   timeLeftPrefix: Faltam
   donation:
@@ -196,7 +202,7 @@ pt:
   comments: "Comentários"
   donations: "Doações"
   donated: "<strong> %{name} </strong> doou <strong>R$ %{amount}</strong>"
-  what_is_your_goal: "Qual é seu desejo?"
+  what_is_your_goal: "Qual é a sua meta para 2013?"
   wait_how_it_works: "Como? Explica aí ..."
   turn_off_the_lights: "Entenda em 3 minutos"
   select_charity: "Selecione uma ONG"   
@@ -208,7 +214,7 @@ pt:
   choose_file: "Selecione Foto"
   view_dare: "Visualizar Desafio"
   you_have_been_challenged_by: "Você foi desafiado por %{challenger}"
-  goal_created_by: "Goal criado por %{owner}"
+  
 
   goal_donation_stage:
     waiting_notification: Aguardando Confirmação
@@ -291,7 +297,7 @@ pt:
     you_are_not_achiever_error_msg: "Você não tem permissão de alterar este goal para concluído."
     goal_created_successful_messge: "Parabéns!! Você acabou de concluir um goal! :)"
     failed_to_set_goal_status_done: "Oooops! Não foi possível alterar o goal para concluído."
-    btn: "Concluir este Goal!"
+    btn: "Já atingiu esta meta? Clique aqui"
     
   errors:    
     facebook_login_error: "Não foi possível criar a sua conta pelo facebook, Por favor tente novamente mais tarde." 

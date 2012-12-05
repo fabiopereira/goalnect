@@ -145,7 +145,6 @@ en:
   choose_file: "Choose Photo" 
   view_dare: "View Dare"   
   you_have_been_challenged_by: "You have been challenged by %{challenger}"  
-  goal_created_by: "Goal created by: %{owner}"
       
   activerecord:
     attributes:
@@ -215,6 +214,13 @@ en:
     due_on: "Due on" 
     my_goals_header: My Goals
     user_goals_header: "%{screen_name}'s Goals"
+    post_on_facebook_btn: "Post on Facebook"
+    post_on_facebook_title: "%{achiever} wants to %{title}, support this Goal!"
+    charity_support_phrase: "Show some support donating to"
+    dare_charity_phrase: "Your friend suggested yout to support this charity: "
+    goal_created_by: "Goal created by: %{owner}"
+    dare_created_by: "Dare created by: %{owner}"
+    
 
   photo_change:
     header: Change and crop your photo

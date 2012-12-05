@@ -1,10 +1,13 @@
 $font-text: arial, verdana, sans-serif;
 $font-title: "BentonSans-Bold";
 $azul-logo:#3e58a7;
-$azul-claro:#9cc9eb;
+//$azul-claro:#9cc9eb;
 $cinza-escuro:#666;
 $cinza-claro:#d9d9d9;
-$green-logo:#00933B;
+//$green-logo:#22B089;
+$green-logo:#1FA07D;
+$magenta-logo:#D4145A;
+$azul-claro: $green-logo;
 
 $box-goal-img-border-color:#e4e4e4;
 $box-goal-img-background-color:#f5f5f5;
@@ -278,17 +281,34 @@ input[type="color"]:focus,
     p{
         margin-bottom:0;
     }
+	h3{
+		a{
+			color: $green-logo;
+		}
+		color: $green-logo;
+	}
+}
+
+#goal_charity_phrase{
+	font-family: $font-title;
+	font-size: 14px;
+	color: $cinza-escuro;
+}
+
+#due_on_section{
+	float:left;
+	width:400px;
+}
+
+#goal-created-by{
+	font-family:$font-title;
+	font-style:bold;
 }
 
 #status-goal{
 	div{
 		display: inline;
 		figure{
-	        float:left;
-	    }
-	    p{
-	        width:421px;
-	        margin:20px 0 0 15px;
 	        float:left;
 	    }
 	    .dias-restantes{
@@ -343,7 +363,7 @@ input[type="color"]:focus,
     font-family:$font-title;
     position:relative;
     p{
-        color:$azul-logo;
+        color:$green-logo;
     }
     .porcentagem{
         position:absolute;
@@ -381,6 +401,10 @@ input[type="color"]:focus,
 		width: 190px;
 		font-size: 10px;
 	}
+	a.view-challenge{
+		margin-left: 27px;
+		margin-top: 13px;
+	}
 	.actions {
 		position: absolute;
 		margin-top: 8px;
@@ -390,14 +414,7 @@ input[type="color"]:focus,
 			width: 42px;
 			float:left;
 		}
-		a.view-challenge{
-			width: 165px;
-			height: 25px;
-			font-size: 18px;
-			vertical-align: middle;
-			margin-top: 6px;
-			font-family: $font-title;
-		}
+		
 		a.isupport_true{
 			@include iconsgoal-sprite(isupport_true_small);	
 			margin-right: 2px;
@@ -631,3 +648,6 @@ padding-top: 30px;
 .new_goal_charity_description{
 	text-align:justify;
 }
+
+
+
