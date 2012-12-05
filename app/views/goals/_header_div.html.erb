@@ -89,7 +89,7 @@
 		<section class="goal-social-plugins clearfix">
 			<hr/>       
 			<%= render 'goals/social_plugins', :goal => goal %>
-			<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook %>","<%=close_fb_popup_path%>", "#imagem-goal"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
+			<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook_for_goal goal %>","<%=close_fb_popup_path%>", "#imagem-goal"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
 		</section>
 		
 	</article><!-- /box-grande //-->

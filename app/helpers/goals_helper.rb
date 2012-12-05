@@ -7,6 +7,14 @@ module GoalsHelper
   def goals_path(user_username)
     "/#{user_username}/goals"
   end
+  
+  def title_facebook_for_goal goal
+    t('goal.post_on_facebook_title', 
+      :achiever => goal.achiever.screen_name, 
+      :charity_name => goal.charity.charity_name, 
+      :title => goal.title.downcase
+    )
+  end
 
   def edit_goal_path(goal_id)
     "/goals/edit/#{goal_id}"
