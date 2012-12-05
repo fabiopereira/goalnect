@@ -1,2 +1,2 @@
 <%- model_class = @goal.class -%>
-<%= render :partial => 'form' %>
+<%= render 'goals/form', :url_value => '/'+@goal.achiever.username+'/goals/create' %>

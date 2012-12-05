@@ -5,7 +5,6 @@ Goalnect::Application.routes.draw do
 
   resources :charities
   resources :goal_supports
-  resources :goal
   resources :redemption_point_transactions
 
 #admin routes
@@ -98,6 +97,8 @@ Goalnect::Application.routes.draw do
   match '/goals/add_comment/:goal_id' => 'goals#add_comment'
   match '/goals/goal_done/:goal_id' => 'goals#goal_done'
   match '/:user_username/:goal_id' => 'goals#show'
+  match '/goals/edit/:goal_id' => 'goals#edit'
+  match '/goals/update/:goal_id' => 'goals#update'
 
   
 #root :to => "home#index"

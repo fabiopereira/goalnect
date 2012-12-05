@@ -33,6 +33,7 @@ pt:
     goal:
       title: Você está a um passo de criar a página para o seu Goal
       dare_title: Você está a um passo de desafiar o seu amigo
+      edit: "Você está editando o Goal %{title}"
   activerecord:
     models:
       user: "Usuário"
@@ -85,6 +86,9 @@ pt:
     dare_charity_phrase: "Seu amigo sugeriu você apoiar a causa desta ONG: "
     goal_created_by: "Goal criado por %{owner}"
     dare_created_by: "Desafio criado por %{owner}"
+    not_possible_to_change_charity_msg: "Não é permitido alterar a ONG, pois este goal ja possui doações."
+    done_btn: "Já atingiu esta meta? Clique aqui"
+    edit_btn: "Editar Goal"
     
   today: Hoje
   timeLeftPrefix: Faltam
@@ -298,7 +302,6 @@ pt:
     you_are_not_achiever_error_msg: "Você não tem permissão de alterar este goal para concluído."
     goal_created_successful_messge: "Parabéns!! Você acabou de concluir um goal! :)"
     failed_to_set_goal_status_done: "Oooops! Não foi possível alterar o goal para concluído."
-    btn: "Já atingiu esta meta? Clique aqui"
     
   errors:    
     facebook_login_error: "Não foi possível criar a sua conta pelo facebook, Por favor tente novamente mais tarde." 
@@ -312,6 +315,6 @@ pt:
       area_restricted_to_charity_admin: "Esta área é restrita para administradores de ONGs." 
       goal_is_not_active: "Goal não está ativo"   
       donation_sent_to_pagseguro: "Esta doação já foi enviada"
-      area_restricted_to_achiever: "Esta área é restrita para o Criador de Goals"   
+      area_restricted_to_achiever: "Esta área é restrita para o Goalnectador"   
       goal_has_been_reported: "Goal está inativo, foi reportado abuso"
       goal_doesnt_belong_to_achiever: "Este goal não pertence a este usuário."

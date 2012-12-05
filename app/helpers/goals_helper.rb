@@ -8,8 +8,8 @@ module GoalsHelper
     "/#{user_username}/goals"
   end
 
-  def edit_goal_path(user_username, goal_id)
-    "/#{user_username}/goals/edit/#{goal_id}"
+  def edit_goal_path(goal_id)
+    "/goals/edit/#{goal_id}"
   end
 
   def show_goal_path(user_username, goal_id)
