@@ -4,7 +4,7 @@ class Goal < ActiveRecord::Base
   MIN_TARGET_AMOUNT = 50
 
   attr_accessible :title, :title_selected
-  attr_accessible :description, :due_on, :owner, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
+  attr_accessible :description, :due_on, :owner, :owner_id, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
   
   belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
   belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_id'
