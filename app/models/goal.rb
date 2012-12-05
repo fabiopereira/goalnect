@@ -1,7 +1,6 @@
 require 'time_diff'
 
 class Goal < ActiveRecord::Base        
-  #extend ActiveHash::Associations::ActiveRecordExtensions
   MIN_TARGET_AMOUNT = 50
 
   attr_accessible :title, :title_selected
@@ -12,7 +11,6 @@ class Goal < ActiveRecord::Base
   belongs_to :charity
   belongs_to :goal_template
 
-  #belongs_to_active_hash :goalStage 
   has_many :goal_donations
   has_many :goal_supports
 
