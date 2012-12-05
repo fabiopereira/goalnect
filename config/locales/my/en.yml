@@ -243,7 +243,7 @@ en:
       length: You search must contain at least %{min} letters   
     charity:
       report_abuse_error: Unable to report abuse for this goal 
-                                                                    
+  know_our_charities: Our charities and causes
   alerts:
     area_restricted_to_admin: "This area is restricted to administrators only."  
     area_restricted_to_charity_admin: "This area is restricted to charity administrators only." 

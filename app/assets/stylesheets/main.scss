@@ -65,7 +65,7 @@ ol {
 // Variaveis
 $bentonsansbold:"BentonSans-Bold", arial, verdana, sans-serif;
 $azul-logo:#3e58a7;
-$azul-claro:#9cc9eb;
+$azul-claro:#8eb7d6;
 $cinza-escuro:#666;
 $cinza-claro:#d9d9d9;
 
@@ -241,6 +241,9 @@ header{
     }                       
     #goal_template_form_subtitle{
 		padding-right: 0px;
+    }
+    #goal_template_form_subtitle_link{
+		color:$azul-claro;
     }
 }
 
@@ -537,7 +540,7 @@ header{
     padding:0;
     margin:40px 0 10px 0;
     a{
-        color:#9cc9eb;
+        color:$azul-claro;
         &:hover, &.active{
             color:$azul-logo;
         }
@@ -657,6 +660,11 @@ footer{
     *zoom: 1;
 }
 
+#charities {
+  section.charity {
+    display: block;
+  }
+}
 
 /* ==========================================================================
    Print styles

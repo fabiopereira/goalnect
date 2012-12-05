@@ -1,5 +1,4 @@
 class CharitiesController < ApplicationController
-  before_filter :authenticate_admin_user!, :only => [:index, :destroy]
   before_filter :charity_admin_user!, :only => [:edit, :update, :change_logo, :crop, :donations, :previous_month_donations_pdf, :current_month_donations_pdf, :donations_pdf, :show_goals]
   
   # GET /charities
@@ -121,34 +120,6 @@ class CharitiesController < ApplicationController
     end
   end
 
-  # PUT /charities/1
-  # PUT /charities/1.json
-  def update
-    @charity = Charity.find(params[:id])
-
-    respond_to do |format|
-      if @charity.update_attributes(params[:charity])
-        format.html { redirect_to @charity, notice: 'Charity was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @charity.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /charities/1
-  # DELETE /charities/1.json
-  def destroy
-    @charity = Charity.find(params[:id])
-    @charity.destroy
-
-    respond_to do |format|
-      format.html { redirect_to charities_url }
-      format.json { head :no_content }
-    end
-  end
-  
   def crop
     @charity = Charity.find(params[:id])
     crop_image @charity    
