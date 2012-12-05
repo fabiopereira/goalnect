@@ -69,11 +69,11 @@ pt:
         due_on: "Prazo" 
         owner: "Criador" 
         title: "Titulo"
-        title_selected: "Titulo"
+        title_selected: "Um breve título"
         achiever: "Goalnectador" 
         charity: "ONG"
-        charity_id: "ONG"
-        target_amount: "Quantia mínima que deseja arrecadar"
+        charity_id: "Minha ONG, Minha Causa! Todas doações vão pra ela"
+        target_amount: "Quantia mínima que deseja arrecadar para essa causa"
   goal:
     due_on: "Prazo"
     my_goals_header: Meus Goals
@@ -91,12 +91,12 @@ pt:
   donation:
       donate: "Doar"
       new_donation_title: "Nova doação"
-      anonymous_login_message: "Você está fazendo uma doação anônima"      
+      anonymous_login_message: "Você está fazendo uma doação sem estar logado."
       you_are_donating_to: "Você está doando para" 
       supporting: "Em apoio a" 
       you_are_donating_to_confirmation: "Você está doando $<b>%{amount}</b> para <b>%{charity_name}</b> (Goal: <b>%{goal}</b> - <b>%{achiever}</b>)" 
       confirm_message: "Para confirmar e efetuar a doação clique em 'Doar com PagSeguro'"
-      confirmation_page: "Só mais um passo para confirmar a sua doação"
+      confirmation_page: "Só mais um passo para confirmar a sua doação..."
       received_and_waiting: "Doação efetuada, estamos aguardando a confirmação do pagamento."
   achiever:
     croptitle: "Selecione a área que quer que apareça desta imagem"
@@ -127,6 +127,7 @@ pt:
     done: "Yeaaaaahhhh!! <br/> Concluído"
     abandoned: "Ah que pena! <br/> Goal Abandonado..."
   points: Pontos        
+  know_our_charities: Clique e conheça nossas causas
   label:
     search: Buscar Amigos/ONGs
     commit_to_a_goal: "Eu quero..."
