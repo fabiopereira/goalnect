@@ -109,3 +109,12 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 color: white;
 background-color: #BD362F;
 }
+
+form.pagseguro input[type=submit]{
+    @extend .btn;
+    @extend .btn-success;  
+	height:50px;
+	width: 250px;
+	font-size: 22px;
+}
+

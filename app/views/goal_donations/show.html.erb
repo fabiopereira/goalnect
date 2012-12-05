@@ -17,8 +17,20 @@
 
 
 <% if @goal_donation.current_stage == GoalDonationStage::WAITING_NOTIFICATION %>
-  <p><%=t"donation.confirm_message"%></p>
-  <%= pagseguro_form @order, :submit => "", :email => @goal_donation.charity.pagseguro_email %>
+  <p><%=t"donation.confirm_message"%> :</p>
+
+  <section class="pagseguro_form_section">
+  <%= pagseguro_form @order, :submit => t("donation.donate_pagseguro"), :email => @goal_donation.charity.pagseguro_email %>
+  <figure>
+  	<%= image_tag 'pagseguro-logo.png', :class => "pagseguro-logo" %>
+  </figure>
+  </section>
+
+  <hr/>
+  <p id="pagseguro_accepts"><%=t"donation.pagseguro_accepts"%></p>
+  <figure>
+  	<%= image_tag 'pagseguro-meios.png' %>
+  </figure>
 <% else %>   
   <p>
      <%= render 'goal_donations/stage_icon', :goal_donation => @goal_donation%> 

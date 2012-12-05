@@ -55,7 +55,9 @@ en:
 
   currency: $
   donation:
+    pagseguro_accepts: PagSeguro accepts
     donate: "Donate"
+    donate_pagseguro: "Donate with PagSeguro"
     new_donation_title: "New donation"
     anonymous_login_message: "You are donating anonymously"
     you_are_donating_to: "You are donating to"

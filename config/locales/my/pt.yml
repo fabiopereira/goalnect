@@ -89,7 +89,9 @@ pt:
   today: Hoje
   timeLeftPrefix: Faltam
   donation:
+      pagseguro_accepts: O PagSeguro aceita as formas de pagamento abaixo
       donate: "Doar"
+      donate_pagseguro: "Doar com PagSeguro"
       new_donation_title: "Nova doação"
       anonymous_login_message: "Você está fazendo uma doação sem estar logado."
       you_are_donating_to: "Você está doando para" 
