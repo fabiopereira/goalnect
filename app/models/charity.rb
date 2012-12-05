@@ -36,6 +36,10 @@ class Charity < ActiveRecord::Base
    annonymous_donors = GoalDonation.how_many_logout_donation_to_charity self.id
    donors_logged + annonymous_donors
   end
+  
+  def self.all_active
+    Charity.find_all_by_active(true)
+  end
 
   def last_40_active_goals_by_charity
     Goal.find_last_40_active_goals_by_charity self.id

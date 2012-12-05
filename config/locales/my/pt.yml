@@ -133,7 +133,7 @@ pt:
     done: "Yeaaaaahhhh!! <br/> Concluído"
     abandoned: "Ah que pena! <br/> Goal Abandonado..."
   points: Pontos        
-  know_our_charities: Clique e conheça nossas causas
+  know_our_charities: Conheça nossas causas
   label:
     search: Buscar Amigos/ONGs
     commit_to_a_goal: "Eu quero..."

@@ -4,7 +4,7 @@ class CharitiesController < ApplicationController
   # GET /charities
   # GET /charities.json
   def index
-    @charities = Charity.find_all_by_active(true)
+    @charities = Charity.all_active
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @charities }
