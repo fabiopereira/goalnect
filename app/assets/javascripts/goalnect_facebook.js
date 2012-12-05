@@ -1,7 +1,9 @@
 function postToFeed(url, title, return_url, image_container) {
   // calling the API ...
   var host = $('<a>').prop('href', url).prop('hostname');
-  var imgSrc = host + $(image_container).find("img").attr("src");
+  var imgSrc = "http://" + host + $(image_container).find("img").attr("src");
+  alert(imgSrc);
+
 
   var obj = {
     method: 'feed',
