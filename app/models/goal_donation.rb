@@ -71,4 +71,8 @@ class GoalDonation < ActiveRecord::Base
   def self.sum_goalnect_fees_by_charity_between_dates charity_id, from, to
     GoalDonation.sum(:goalnect_fee, :conditions => ["charity_id = ? and current_stage_id = ? and created_at between ? and ?", charity_id, GoalDonationStage::APPROVED.id, from, to])
   end
+  
+  def to_s
+    "GoalDonation => [id:#{self.id},amount:#{self.amount}, goal_id:#{self.goal_id}]"
+  end
 end
