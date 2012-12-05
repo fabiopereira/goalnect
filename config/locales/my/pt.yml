@@ -69,11 +69,11 @@ pt:
         due_on: "Prazo" 
         owner: "Criador" 
         title: "Titulo"
-        title_selected: "Titulo"
+        title_selected: "Um breve título"
         achiever: "Goalnectador" 
         charity: "ONG"
-        charity_id: "ONG"
-        target_amount: "Quantia mínima que deseja arrecadar"
+        charity_id: "Minha ONG, Minha Causa! Todas doações vão pra ela"
+        target_amount: "Quantia mínima que deseja arrecadar para essa causa"
   goal:
     due_on: "Prazo"
     my_goals_header: Meus Goals

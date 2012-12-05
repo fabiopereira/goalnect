@@ -49,9 +49,8 @@ class Goal < ActiveRecord::Base
     if (title_selected.present?)
       goal_template = GoalTemplate.find_by_title(title_selected)
       if goal_template
-        self.goal_template_id = goal_template.id
+        self.goal_template = goal_template
         self.title = goal_template.title
-        self.description = goal_template.description unless self.description
         if goal_template.due_on
           self.due_on = goal_template.due_on
         end
