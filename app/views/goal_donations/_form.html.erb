@@ -8,8 +8,10 @@
   	<%= render 'layouts/model_error_messages', :target => @goal_donation %>
 
 <% unless user_signed_in? %>
-  <%= t "donation.anonymous_login_message" %> 
-  <%= link_to('Login', sign_in_and_redirect_to_current)  %>
+  <h3>
+  <%= t "donation.anonymous_login_message" %>
+  <%= link_to('Login', sign_in_and_redirect_to_current)  %> 
+  </h3>
 <% end %>
                     
 <div id="donation-step-img">              
