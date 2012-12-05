@@ -1,55 +1,62 @@
 <div class="coluna2">
 	<article class="box-grande">
-		<section id="infos-goal" class="clearfix">
-			<figure class="imagem-goal">
-				<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
-			</figure>
-			<section class="descricao-goal">
-				<h2 class="titulo-goal"><%= goal.title%></h2>
-				<h4 class="align_right"><%= t "goal_created_by", :owner => goal.owner.screen_name %>  -  <%= t "goal.due_on" %>: <%= l goal.due_on%></h4>
-				<br/>
-				<p id="goal_description_text"><%=raw_scape_html goal.description%></p>
-			</section><!-- /descricao-goal //-->
-		</section><!-- /infos-goal //-->
-		<section class="goal-social-plugins">
-			<%= render 'layouts/social_plugins' %>
-		</section>
-	    <hr/>	
 		<% if @goal.goalStage.id == GoalStage::PENDING.id %>
 		<section id="challenge_div">
-			<p id="challenge_question"><%=t('you_have_been_challenged_by', :challenger => @goal.owner.screen_name)%></p>
-			
+			<p id="challenge_question"><%=t('you_have_been_challenged_by', :challenger => @goal.owner.screen_name)%></p>		
 			<%= link_to t("accept_challenge"),  accept_challenge_path(@goal.achiever.username, @goal.id), :class => "btn btn-success" %>
 			<%= link_to t("reject"),  reject_challenge_path(@goal.achiever.username, @goal.id), :class => "btn btn-danger" %>
 		</section>
 		<hr/>
-		<% end %>
-		<section id="infos-instituicao" class="clearfix">
-			<figure class="logo-instituicao">
-				<%= charity_image @goal.charity, :thumbmedium %>
-			</figure>
-			<article class="descricao-instituicao">
-				<p class="font14 fonte-benton azul-claro">Vamos juntos, esse Goal vai apoiar a</p>
-				<h3><a href="<%= charity_show_path @goal.charity.id %>" ><%= @goal.charity.charity_name%></a></h3>
-				
-				<%= render 'goals/target_amount_progress', :goal => goal %>
-			</article><!-- /descricao-instituicao //-->
-			<p><a href="<%= donate_goal_path(goal.id)%>" title="<%=t("donate_now")%>" class="sprite botao-apoiar" id="donate_button"><%=t("donate_now")%></a></p>
-		</section><!-- /infos-instituicao //-->
-		<hr/>
+		<% end %>	
+			<section id="infos-instituicao" class="clearfix">
+				<figure class="logo-instituicao">
+					<%= charity_image @goal.charity, :thumbmedium %>
+				</figure>
+				<article class="descricao-instituicao">
+					<% if @goal.goalStage.id == GoalStage::PENDING.id %>
+						<p id="goal_charity_phrase"><%=t('goal.dare_charity_phrase')%></p>
+					<% else %>
+						<p id="goal_charity_phrase"><%=t('goal.charity_support_phrase')%></p>
+					<% end %>
+					<h3><a href="<%= charity_show_path @goal.charity.id %>" ><%= @goal.charity.charity_name%></a></h3>
 
+					<%= render 'goals/target_amount_progress', :goal => goal %>
+				</article><!-- /descricao-instituicao //-->
+				<p><a href="<%= donate_goal_path(goal.id)%>" title="<%=t("donate_now")%>" class="sprite botao-apoiar" id="donate_button"><%=t("donate_now")%></a></p>
+			</section><!-- /infos-instituicao //-->
+			<hr/>
+		
+		<section id="infos-goal" class="clearfix">
+			<figure class="imagem-goal">	
+				<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
+			</figure>
+			<section class="descricao-goal">
+				<h2 class="titulo-goal"><%= goal.title%></h2>
+				<p id="goal-created-by"><b>
+					<% if goal.owner.id == goal.achiever.id %>
+						<%= t "goal.goal_created_by", :owner => goal.owner.screen_name %>  
+					<% else %>
+						<%= t "goal.dare_created_by", :owner => goal.owner.screen_name %>  
+					<% end %>
+					-  <%= t "goal.due_on" %>: <%= l goal.due_on%>
+				</b></p>
+				<br/>
+				<p id="goal_description_text"><%=raw_scape_html goal.description%></p>
+			</section><!-- /descricao-goal //-->
+		</section><!-- /infos-goal //-->
+	    <hr/>	
 		<section id="status-goal" class="clearfix">
 			<div>
-				<div>
+				<div id="due_on_section">
 				<span class="iconsgoal-daysleft sprite dias-restantes font12 fonte-benton azul-escuro" id="days_left">
 					<%= render "goals/days_left", :goal => goal %>
 				</span>
-				<h5 id="status_message"> <%=raw_scape_xss goal.goalStage.translated_name%><br/>
+				<h5 id="status_message"> <%=raw_scape_xss goal.goalStage.translated_name%></h5>
 				<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage.id != GoalStage::DONE.id%>
-				 <a href="<%= goal_done_path(@goal.id)%>" class="btn btn-primary clearfix"><%=t('goal_done.btn')%></a>
-				<% end %></h5>
+				 <p class="clearfix"><a href="<%= goal_done_path(@goal.id)%>" class="btn btn-primary"><%=t('goal_done.btn')%></a></p>
+				<% end %>
 				</div>
-				<div id="junto_duvido_button_div" >
+				<div id="junto_duvido_button_div" class="clearfix">
 				<ul id="opt-junto-duvido">					
 					<% current_user_support = goal.support_for(current_user)	%>
 					  <li>
@@ -76,7 +83,12 @@
 				</div>
 			<div>
 		</section><!-- /status-goal //-->
-		
+		<section class="goal-social-plugins clearfix">
+			<hr/>
+			<%= render 'layouts/social_plugins' %>
+			<% title_facebook = t('goal.post_on_facebook_title', :achiever => goal.achiever.screen_name, :title => goal.title.downcase)%>
+			<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook%>","<%=close_fb_popup_path%>"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
+		</section>
 		
 	</article><!-- /box-grande //-->
 </div><!-- /coluna2 //-->

@@ -26,12 +26,12 @@
 
     <%= render 'goals/target_amount_progress', :goal => goal %>
 	
+	<% if goal.goalStage.id == GoalStage::PENDING.id %>
+		<a href="<%= show_goal_path_by_goal goal %>" class="btn btn-primary view-challenge" >
+			<%= t('view_dare')%>
+    	</a>
+	<% else %>
 	<div class="actions clearfix">
-		<% if goal.goalStage.id == GoalStage::PENDING.id %>
-			<a href="<%= show_goal_path_by_goal goal %>" class="btn btn-primary view-challenge" >
-				<%= t('view_dare')%>
-	    	</a>
-		<% else %>
 		<a class="isupport_true" href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" title='<%=t "possible_button" %>'>
 		</a>
 		<a class="isupport_false" href="<%= i_dont_support_path(goal.achiever.username, goal.id)  %>" title='<%=t "no_way_button" %>'>
@@ -39,8 +39,8 @@
 		<a class="donate" href="<%= donate_goal_path(goal.id)  %>" title='<%=t "donate_now" %>'>
 			<span><%=t "donate_now" %></span>
 		</a>
-		<% end %>
 	</div>
+	<% end %>
 	
 </article><!-- /box-pequeno //-->    
 </div>
