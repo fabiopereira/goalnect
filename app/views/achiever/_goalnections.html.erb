@@ -1,0 +1,53 @@
+<% goalnections = @goalnection_summary.goalnections %>  
+<% if goalnections && !goalnections.empty? %>
+	<% goalnections.each do |goalnection| %>  
+	<a href="<%= show_goal_path_by_goal goalnection.goal %>" > 
+		<div class="goalnections">
+			<div id="goalnections-header" class="clearfix">
+			<div id="goalnections-img">
+			  		<% first_img = :achiever %>
+			  		<%= random_img_tag_for_goal goalnection.goal, first_img, :thumbmini %>
+			</div>
+				<p id="goalnections_goal_title">
+					<%= goalnection.goal.title%>
+				</p>
+			<p class="small-paragraph">
+				<%= "Goalnectador: #{goalnection.goal.achiever.screen_name}"%>
+			</p>
+			<p class="small-paragraph">
+				<%= "Goal Created By: #{goalnection.goal.owner.screen_name}"%>
+			</p>
+			<p class="small-paragraph">
+				<%= "Goal Status: #{goalnection.goal.goalStage.translated_name}"%>
+			</p>
+			</div>
+			<div id="goalnections-description" class="clearfix">
+				<hr id="goalnections-hr"/>
+				<ul>
+				<% if goalnection.donation %>
+					<li><%="Doou #{goalnection.donation}"%></li>
+				<% else %>
+					<li class="pending_action">Ainda nao doou para este goal</li>
+				<% end %>
+				<% if goalnection.update %>
+					<li>Adicionou incentivo/adamento para este goal</li>
+				<% else %>
+					 <li class="pending_action">Ainda não adicionou nenhum incentivo/andamento/dica para este goal</li>
+				<% end %>
+				<% if goalnection.i_support.nil? %>
+					 <li class="pending_action">nao deu a opniao se este Goalnectador consegue atingir a meta</li>
+				<% else %>
+					<% if goalnection.i_support %>
+						<li>Acredita que o goalnectador ira conseguir atingir a meta</li>
+					<%else%>
+						<li>Duvida que o goalnectador ira conseguir a meta</li>
+					<%end %> 	
+				<% end %>
+				</ul>
+			</div>	
+		</div>
+	</a>
+	<% end %> 
+<%else%>        
+	<%= t('goal.there_are_no_goalnections')%>
+<%end%>

@@ -6,7 +6,7 @@
 		<a href="<%= show_goal_path_by_goal goal %>" >
 			<div class="img_user_thumb_div">
 			<%  first_img ||= :goal_template  %>
-			<%= random_img_tag_for_goal goal, first_img  %>
+			<%= random_img_tag_for_goal goal, first_img, :thumb  %>
 			</div>
 	    </a>
 	</figure>

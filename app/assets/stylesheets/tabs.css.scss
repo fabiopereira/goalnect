@@ -5,14 +5,14 @@
 	div.content.active{
 		display:block;
 	}
-	ul li a{
-		color: $azul-claro;
+	a.tab{
+		color: $cinza-claro;
+		font-size: 18px;
+		font-family: $font-title;
+		margin-right:50px;
 	}
-	ul li a.active{
+	a.tab.active{
 		color: $azul-logo;
 	}
-	li{
-        float:left;
-		margin-left: 15px;
-    }
+	
 }

@@ -78,7 +78,7 @@ pt:
   goal:
     due_on: "Prazo"
     my_goals_header: Meus Goals
-    user_goals_header: "Goals - %{screen_name}"
+    user_goals_header: "Goals"
     target_amount_guide: "sem pontos ou vírgulas, exemplo: 1000"
     post_on_facebook_btn: "Divulgue no Facebook"
     post_on_facebook_title: "%{achiever} quer %{title} ajudando %{charity_name}, AJUDE também!"
@@ -89,6 +89,10 @@ pt:
     not_possible_to_change_charity_msg: "Não é permitido alterar a ONG, pois este goal ja possui doações."
     done_btn: "Já atingiu esta meta? Clique aqui"
     edit_btn: "Editar Goal"
+    goalnections: "Goalnexões"
+    donations: "Doações Realizadas"
+    backers: "Apoiadores"
+    there_are_no_goalnections: "Você ainda não tem nenhuma goalnexão, comece agora apoiando seus amigos "
     
   today: Hoje
   timeLeftPrefix: Faltam

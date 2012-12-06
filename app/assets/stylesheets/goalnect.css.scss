@@ -653,5 +653,40 @@ span.donations_list{
 	text-align:justify;
 }
 
-
+.goalnections{
+	border: 2px solid $box-goal-border-color;
+	padding: 10px 10px 10px 10px;
+	margin: 0px 10px 10px 0px;
+	width:445px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	float:left;
+	font-size: 12px;
+	color: $cinza-escuro;
+	#goalnections-header{
+		#goalnections-img{
+			float:left;
+			margin: 5px 5px 5px 0px;
+		}
+	}
+	#goalnections_goal_title{
+		color: $azul-logo;
+		font-weight: bold;
+	}
+	#goalnections-hr{
+		margin-bottom: 5px;
+	}
+	li{
+		list-style: disc inside;
+		font-size:13px;
+	}
+	.small-paragraph{
+		font-size:11px;
+		font-weight: normal;
+	}
+	.pending_action{
+		color: $magenta-logo;
+	}
+}
 
