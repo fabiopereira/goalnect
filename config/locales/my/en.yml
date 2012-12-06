@@ -238,12 +238,13 @@ en:
     goalnections: "Goalnections"
     donations: "Donations"
     backers: "Backers"
-    there_are_no_goalnections: "You don't have any goalnections yet, start now supporting your friends"
+    there_are_no_goalnections: "There are no goalnections."
+    there_are_no_goalnections_start_supporting_friends: "You don't have any goalnections yet, start now supporting your friends or creating goals."
     status: "Goal Status"
     feedback: "Feedbacks"
     incentives: "Tips/Incentives"
   goalnections:
-    donated: "Doou R$"
+    donated: "Donated $ %{amount}"
     hasnt_donated_yet: "Hasn't donated to this goal yet"
     added_feedback_incentive: "Added incentive/feedback or tip for this goal"
     hasnt_add_feedback_incentive: "Hasn't added any incentive, tip or feedback for this goal"
@@ -253,6 +254,7 @@ en:
   my_donations:
     amount: "Donated Amount"
     status: "Donation Status"
+    there_are_no_donations: "There are no donations."
 
   photo_change:
     header: Change and crop your photo

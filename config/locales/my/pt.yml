@@ -92,12 +92,13 @@ pt:
     goalnections: "Goalnexões"
     donations: "Doações Realizadas"
     backers: "Apoiadores"
-    there_are_no_goalnections: "Você ainda não tem nenhuma goalnexão, comece agora apoiando seus amigos "
+    there_are_no_goalnections: "Não existem goalnexões."
+    there_are_no_goalnections_start_supporting_friends: "Você ainda não tem nenhuma goalnexão, comece agora apoiando seus amigos ou criando um goal."
     status: "Estado do Goal"
     feedback: "Andamento do Goal"
     incentives: "Dicas/Incentivos/Avaliações"
   goalnections:
-    donated: "Doou R$"
+    donated: "Doou R$ %{amount} para este goal"
     hasnt_donated_yet: "Ainda não doou para este goal"
     added_feedback_incentive: "Adicionou incentivo, dica ou adamento para este goal"
     hasnt_add_feedback_incentive: "Ainda não adicionou nenhum incentivo/andamento/dica para este goal"
@@ -107,6 +108,7 @@ pt:
   my_donations:
     amount: "Valor Doado"
     status: "Estado da Doação"
+    there_are_no_donations: "Não existem doações realizadas."
     
   today: Hoje
   timeLeftPrefix: Faltam

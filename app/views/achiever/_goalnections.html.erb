@@ -28,7 +28,7 @@
 				<hr id="goalnections-hr"/>
 				<ul>
 				<% if goalnection.donation %>
-					<li><%=t('goalnections.donated')%>: <%= goalnection.donation %></li>
+					<li><%=t('goalnections.donated', :amount => goalnection.donation)%></li>
 				<% else %>
 					<li class="pending_action"><%=t('goalnections.hasnt_donated_yet')%></li>
 				<% end %>
@@ -52,5 +52,9 @@
 	</a>
 	<% end %> 
 <%else%>        
-	<%= t('goal.there_are_no_goalnections')%>
+	<% if current_user_is_achiever?(@achiever)%>
+		<%= t('goal.there_are_no_goalnections_start_supporting_friends')%>
+	<% else %>
+		<%= t('goal.there_are_no_goalnections')%>
+	<% end %>
 <%end%>

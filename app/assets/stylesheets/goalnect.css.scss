@@ -688,6 +688,9 @@ span.donations_list{
 	.pending_action{
 		color: $magenta-logo;
 	}
+	&:hover{
+		border: 2px solid $azul-logo;	
+	}
 }
 
 
@@ -720,6 +723,9 @@ span.donations_list{
 				color: $magenta-logo;
 			}
 		}
+	}
+	&:hover{
+		border: 2px solid $azul-logo;	
 	}
 	
 }
