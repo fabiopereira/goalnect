@@ -1,6 +1,12 @@
 scroll javascript 
 http://jquerytools.org/documentation/scrollable/autoscroll.html
 http://www.appliedjquery.com/articles/jquery_automated_twitter_scroll_widget
+                                           
+Twitter tips
+http://www.computerhope.com/tips/tip149.htm
+Dica da INes
+http://www.tweetadder.com/
+
 
 
 Bárbara Miyaji
