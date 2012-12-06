@@ -57,7 +57,7 @@
 				 <div class="control-group">
 				    <%= f.label :charity_id, :class => 'control-label' %>
 				    <div class="controls">
-					<% charities = Charity.find_all_by_active(true) %>
+					<% charities = Charity.all_active %>
 					<%= collection_select(:goal, :charity_id, charities, :id, :charity_name, {:prompt => t('select_charity')}) %>
 					
 					<% charities.each_with_index do |charity| %>

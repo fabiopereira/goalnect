@@ -8,7 +8,7 @@ module ApplicationHelper
   end  
   
   def raw_scape_html (content)
-      raw content.gsub('<','&lt;').gsub('>','&gt;').gsub("\n",'<br/>')   
+      raw content.nil? ? "" : content.gsub('<','&lt;').gsub('>','&gt;').gsub("\n",'<br/>')   
   end
   
   def current_url

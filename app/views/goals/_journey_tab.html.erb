@@ -84,7 +84,5 @@
 		<% end %>
 	</section>
 
-	
-	<% title_facebook = t('goal.post_on_facebook_title', :achiever => goal.achiever.screen_name, :title => goal.title.downcase)%>
-	<%= render 'layouts/social_plugins', :text => title_facebook %>
+	<%= render 'goals/social_plugins', :goal => goal %>
 </div><!-- /coluna2 //-->

@@ -27,7 +27,7 @@
 			<hr/>
 		
 		<section id="infos-goal" class="clearfix">
-			<figure class="imagem-goal">	
+			<figure id="imagem-goal" class="imagem-goal">	
 				<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
 			</figure>
 			<section class="descricao-goal">
@@ -87,10 +87,9 @@
 			<div>
 		</section><!-- /status-goal //-->
 		<section class="goal-social-plugins clearfix">
-			<hr/>
-			<% title_facebook = t('goal.post_on_facebook_title', :achiever => goal.achiever.screen_name, :title => goal.title.downcase)%>
-			<%= render 'layouts/social_plugins', :text => title_facebook %>
-			<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook%>","<%=close_fb_popup_path%>"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
+			<hr/>       
+			<%= render 'goals/social_plugins', :goal => goal %>
+			<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook_for_goal goal %>","<%=close_fb_popup_path%>", "#imagem-goal"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
 		</section>
 		
 	</article><!-- /box-grande //-->

@@ -81,7 +81,7 @@ pt:
     user_goals_header: "Goals"
     target_amount_guide: "sem pontos ou vírgulas, exemplo: 1000"
     post_on_facebook_btn: "Divulgue no Facebook"
-    post_on_facebook_title: "%{achiever} quer %{title}, apoie este Goal!"
+    post_on_facebook_title: "%{achiever} quer %{title} ajudando %{charity_name}, AJUDE também!"
     charity_support_phrase: "Motive este amigo doando para a causa que ele escolheu:"
     dare_charity_phrase: "Seu amigo sugeriu você apoiar a causa desta ONG: "
     goal_created_by: "Goal criado por %{owner}"
@@ -97,7 +97,9 @@ pt:
   today: Hoje
   timeLeftPrefix: Faltam
   donation:
+      pagseguro_accepts: O PagSeguro aceita as formas de pagamento abaixo
       donate: "Doar"
+      donate_pagseguro: "Doar com PagSeguro"
       new_donation_title: "Nova doação"
       anonymous_login_message: "Você está fazendo uma doação sem estar logado."
       you_are_donating_to: "Você está doando para" 
@@ -135,7 +137,7 @@ pt:
     done: "Yeaaaaahhhh!! <br/> Concluído"
     abandoned: "Ah que pena! <br/> Goal Abandonado..."
   points: Pontos        
-  know_our_charities: Clique e conheça nossas causas
+  know_our_charities: Conheça nossas causas
   label:
     search: Buscar Amigos/ONGs
     commit_to_a_goal: "Eu quero..."

@@ -201,7 +201,7 @@ input[type="color"]:focus,
 	 color:$cinza-escuro;
   }
 }
-
+              
 .box-pequeno{
   @extend .box;
   figure{
@@ -564,18 +564,24 @@ span.donations_list{
 	border: 1px solid $cinza-claro;
 }      
 
-form.pagseguro input[type=submit]{
-	background:url(pagseguro-94x52-doar-assina.gif) no-repeat;
-	width: 94px;
-	height:52px;
-	border:0;
-}
 #donation-confirmation{   
 	h2{
 		padding-bottom: 20px;
 	}
+	
 	p{   
 		font-size: 18px;
+	}
+	
+	#pagseguro_accepts {
+	  font-size:12px;
+	}
+	section.pagseguro_form_section {
+      text-align:center;
+	}
+	.pagseguro-logo {
+	  padding: 5px 0 0 0;
+	  width: 100px;
 	}
 }             
 
@@ -584,8 +590,7 @@ form.pagseguro input[type=submit]{
 }                      
 
 .donation_confirmation{
-margin-bottom: 20px;
-padding-top: 30px;
+  margin-bottom: 20px;
 }     
 
 #charity_new_basic_details{
