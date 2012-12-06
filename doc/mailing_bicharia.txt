@@ -1,0 +1,92 @@
+RS		
+Jornal Metro		leitor.poa@metrojornal.com.br
+ClicRBS		
+Baguete		juliana@baguete.com.br
+Correio do Povo		
+Jornal NH		redacaomultimidia@gruposinos.com.br
+Diario Popular		ines@diariopopular.com.br
+Gazeta do Sul		portal@gaz.com.br
+TO		
+Jornal do Tocantins		economiageral@jornaldotocantins.com.br
+SP		
+Diário SP		contato@diariosp.com.br
+A Tribuna		redacao@atribuna.com.br
+Correio Popular		correiopontocom@rac.com.br
+Gazeta de Ribeirão		katiaf@rac.com.br
+Jornal Todo Dia		redacao@tododia.com.br
+Estadão		redacao@estadao.com.br
+Diário do Comércio		contato@dcomercio.com.br
+PI		
+Portal O Dia		redacao@portalodia.com
+SE		
+Jornal da Cidade		jornalismo@jornaldacidade.net
+AC		
+A Gazeta do Acre		fabiospontes@gmail.com
+Página 20		editoria@pagina20.com.br
+AP		
+A Gazeta		 agazeta.ap@uol.com.br 
+AM		
+A Crítica		online@acritica.com.br
+Em Tempo		portal@emtempo.com.br
+D24AM		portald24am@gmail.com
+AL		
+Extra Alagoas		gazeta@gazetaweb.com
+O Jornal		contato@novoextra.com.br
+Mais AL		redacao@mais.al
+Primeira edição		contato@primeiraedicao.com.br
+BA		
+Correio		sergio.costa@redebahia.com.br
+Bahia Notícias		marielegoes@bahianoticias.com.br
+CE		
+Diário do Nordeste		 aloredacao@diariodonordeste.com.br
+O Estado		redacao@oestadoce.com.br
+O Povo		redacaoportal@opovo.com.br
+DF		
+Correio Brasiliense		anapaula.df@dabr.com.br
+ES		
+A Gazeta		http://gazetaonline.globo.com/index.php?id=/fale_conosco/index.php
+Jornal ES Hoje		eshoje@eshoje.com.br
+GO		
+O Popular		http://www.opopular.com.br/cmlink/o-popular/fale-conosco
+DM		arthur@dm.com.br
+MA		
+O Imparcial		redacao@oimparcial.com.br
+O Estado		ingrid@mirante.com.br
+MT		
+Circuito Mato Grosso		andhressa@circuitomt.com.br
+MS		
+Correio do Estado	Beatriz	cesite@correiodoestado.com.br
+MG		
+Estado de Minas		jornalismo@uai.com.br
+O Tempo		gabrielasales@otempo.com.br
+PA		
+Diário do Pará		online@diariodopara.com.br
+PB		
+Jornal da Paraíba		faleconosco@jornaldaparaiba.com.br
+PR		
+A Gazeta do Povo		pautagpol@gazetadopovo.com.br
+Bem Paraná		amanda@jornaldoestado.com.br
+PE		
+Diário do PE		deboraalbuquerque.pe@dabr.com.br
+Folha PE		danubiajuliao@folhape.com.br
+SC		
+Diário Catarinense		leitor@diario.com.br
+Página 3		carol@pagina3.com.br
+Tribuna Catarinense		tribuna@jornaltribuna.com.br
+A notícia		leitor@an.com.br
+RN		
+Tribuna do Norte		pauta@tribunadonorte.com.br
+Diários		redacao.rn@diariosassociados.com.br
+Jornal de Hoje		artigos@jornaldehoje.com.br 
+RJ		
+O Globo		http://oglobo.globo.com/servicos/faleconosco_jornal/_faleconosco.asp?cache=false
+O Dia		http://appsodia.ig.com.br/portal/faleconosco.html
+Correio do Brasil		redacao@correiodobrasil.com.br
+Jornal do Brasil		mbn@jb.com.br
+Extra		http://extra.globo.com/
+PORTAIS		
+Meio e Mensagem		http://www.meioemensagem.com.br/home/fale_conosco
+Startupi		diego@startupi.com.br
+G1		Você no G1
+R7		http://www.r7.com/institucional/fale-com-o-r7/
+Terra		http://noticias.terra.com.br/vcreporter/noticias/0,,OI5199997-EI11491,00-EnvieAgora.html
