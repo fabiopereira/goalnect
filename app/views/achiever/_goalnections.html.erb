@@ -5,42 +5,45 @@
 		<div class="goalnections">
 			<div id="goalnections-header" class="clearfix">
 			<div id="goalnections-img">
-			  		<% first_img = :achiever %>
-			  		<%= random_img_tag_for_goal goalnection.goal, first_img, :thumbmini %>
+				<%= user_image goalnection.goal.achiever,:thumbmini %>
 			</div>
 				<p id="goalnections_goal_title">
 					<%= goalnection.goal.title%>
 				</p>
 			<p class="small-paragraph">
-				<%= "Goalnectador: #{goalnection.goal.achiever.screen_name}"%>
+				<%= t('goalnector')%>: <%=goalnection.goal.achiever.screen_name%>
 			</p>
 			<p class="small-paragraph">
-				<%= "Goal Created By: #{goalnection.goal.owner.screen_name}"%>
+				<% if goalnection.goal.owner_id == goalnection.goal.achiever_id %>
+					<%= t('goal.goal_created_by', :owner => goalnection.goal.owner.screen_name)%> 
+				<% else %>
+					<%= t('goal.dare_created_by', :owner => goalnection.goal.owner.screen_name)%>
+				<% end %>
 			</p>
 			<p class="small-paragraph">
-				<%= "Goal Status: #{goalnection.goal.goalStage.translated_name}"%>
+				<%= t('goal.status')%>: <%=goalnection.goal.goalStage.translated_name %>
 			</p>
 			</div>
 			<div id="goalnections-description" class="clearfix">
 				<hr id="goalnections-hr"/>
 				<ul>
 				<% if goalnection.donation %>
-					<li><%="Doou #{goalnection.donation}"%></li>
+					<li><%=t('goalnections.donated')%>: <%= goalnection.donation %></li>
 				<% else %>
-					<li class="pending_action">Ainda nao doou para este goal</li>
+					<li class="pending_action"><%=t('goalnections.hasnt_donated_yet')%></li>
 				<% end %>
 				<% if goalnection.update %>
-					<li>Adicionou incentivo/adamento para este goal</li>
+					<li><%=t('goalnections.added_feedback_incentive')%></li>
 				<% else %>
-					 <li class="pending_action">Ainda não adicionou nenhum incentivo/andamento/dica para este goal</li>
+					 <li class="pending_action"><%=t('goalnections.hasnt_add_feedback_incentive')%> </li>
 				<% end %>
 				<% if goalnection.i_support.nil? %>
-					 <li class="pending_action">nao deu a opniao se este Goalnectador consegue atingir a meta</li>
+					 <li class="pending_action"><%=t('goalnections.hasnt_added_support')%></li>
 				<% else %>
 					<% if goalnection.i_support %>
-						<li>Acredita que o goalnectador ira conseguir atingir a meta</li>
+						<li><%=t('goalnections.added_support_true')%></li>
 					<%else%>
-						<li>Duvida que o goalnectador ira conseguir a meta</li>
+						<li><%=t('goalnections.added_support_false')%></li>
 					<%end %> 	
 				<% end %>
 				</ul>

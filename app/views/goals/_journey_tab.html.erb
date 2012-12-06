@@ -4,7 +4,11 @@
 <div class="coluna2">
 	<section id="journeys" class="goal_bottom_section">
 		<hr/>
-		<h2><%= t ('updates')%></h2>
+		<% if current_user_is_achiever?(@goal.achiever) %>
+		<h2><%= t ('goal.feedback')%></h2>
+		<% else %>
+		<h2><%= t ('goal.incentives')%></h2>
+		<% end %>
 		<hr />
 		<% if current_user %>
 		<div id="comment_clue" class="alert">

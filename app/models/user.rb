@@ -72,6 +72,10 @@ class User < ActiveRecord::Base
     GoalDonation.total_raised_by_achiever self.id
   end
   
+  def find_donations
+    GoalDonation.find(:all, :conditions => ["user_id = ?", self.id], :order=> 'created_at desc')
+  end
+  
   def total_backers
     users = GoalDonation.total_users_donated_to_achiever self.id 
     anonymous = GoalDonation.total_logout_donation_to_achiever self.id

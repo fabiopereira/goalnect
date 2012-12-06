@@ -26,7 +26,11 @@ class GoalnectionSummary
     if donations && !donations.empty?
       donations.each do |donation|
         goalnection = retrieve_goalnection group_by_goal, donation.goal  
-        goalnection.donation = donation.amount
+        if goalnection.donation
+          goalnection.donation = goalnection.donation + donation.amount
+        else
+          goalnection.donation = donation.amount
+        end
       end
     end
   end

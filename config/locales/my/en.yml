@@ -148,6 +148,15 @@ en:
   choose_file: "Choose Photo" 
   view_dare: "View Dare"   
   you_have_been_challenged_by: "You have been challenged by %{challenger}"  
+  goalnector: "Goalnector"
+  
+  goal_donation_stage:
+    waiting_notification: "Waiting Payment Confirmation"
+    approved: "Approved"
+    pending: "Pending"
+    verifying: "Verifying"
+    canceled: "Canceled"
+    refunded: "Refunded"
       
   activerecord:
     attributes:
@@ -230,6 +239,20 @@ en:
     donations: "Donations"
     backers: "Backers"
     there_are_no_goalnections: "You don't have any goalnections yet, start now supporting your friends"
+    status: "Goal Status"
+    feedback: "Feedbacks"
+    incentives: "Tips/Incentives"
+  goalnections:
+    donated: "Doou R$"
+    hasnt_donated_yet: "Hasn't donated to this goal yet"
+    added_feedback_incentive: "Added incentive/feedback or tip for this goal"
+    hasnt_add_feedback_incentive: "Hasn't added any incentive, tip or feedback for this goal"
+    hasnt_added_support: "Hasn't given an opnion if goalnector will make it"
+    added_support_true: "Believes goalnector will make it"
+    added_support_false: "Doesn't believe goalnector will make it"
+  my_donations:
+    amount: "Donated Amount"
+    status: "Donation Status"
 
   photo_change:
     header: Change and crop your photo

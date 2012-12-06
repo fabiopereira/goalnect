@@ -1,0 +1,33 @@
+<% donations = @achiever.find_donations %>  
+<% if donations && !donations.empty? %>
+	<% donations.each do |donation| %>  
+	<a href="<%= show_goal_path_by_goal donation.goal %>" > 
+		<div class="my-donations">
+		  	<div id="donations-img">
+			  	<%= user_image donation.goal.achiever,:thumbmini %>
+			</div>
+			<div id="donation-text">
+				<p id="donations_goal_title">
+					<%= donation.goal.title%>
+				</p>
+				<p>
+					<%=t("my_donations.amount")%>: <%=t('currency')%> <%= donation.amount%>
+				</p>
+				<p>
+					<%=t('goalnector')%>: <%= donation.goal.achiever.screen_name %>
+				</p>
+				<p>
+					<%=t('my_donations.status')%>: 
+					<% if donation.current_stage.id == GoalDonationStage::APPROVED.id %>
+						<span class="status_approved"><%= donation.current_stage.translated_name%></span>
+					<% else %>
+						<span class="status_warning"><%= donation.current_stage.translated_name%></span>
+					<% end %>
+				</p>
+			</div>	
+		</div>
+	</a>
+	<% end %> 
+<%else%>        
+	<%= t('goal.there_are_no_donations')%>
+<%end%>

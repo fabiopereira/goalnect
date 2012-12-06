@@ -93,6 +93,20 @@ pt:
     donations: "Doações Realizadas"
     backers: "Apoiadores"
     there_are_no_goalnections: "Você ainda não tem nenhuma goalnexão, comece agora apoiando seus amigos "
+    status: "Estado do Goal"
+    feedback: "Andamento do Goal"
+    incentives: "Dicas/Incentivos/Avaliações"
+  goalnections:
+    donated: "Doou R$"
+    hasnt_donated_yet: "Ainda não doou para este goal"
+    added_feedback_incentive: "Adicionou incentivo, dica ou adamento para este goal"
+    hasnt_add_feedback_incentive: "Ainda não adicionou nenhum incentivo/andamento/dica para este goal"
+    hasnt_added_support: "Não opiniou se este goalnectador consegue ou não atingir a meta"
+    added_support_true: "Acredita que o goalnectador conseguirá a meta"
+    added_support_false: "Duvida que o goalnectador conseguirá meta"
+  my_donations:
+    amount: "Valor Doado"
+    status: "Estado da Doação"
     
   today: Hoje
   timeLeftPrefix: Faltam
@@ -130,12 +144,12 @@ pt:
   goal_stage:
     pending: "Desafio aguardando aceitação..."
     not_accepted: "Xiiii...Desafio rejeitado"
-    just_started: "Goal em andamento..."
-    on_its_way: "Yeah!! <br/> Tá caminhando..."
-    half_way_there: "Yeah!! <br/> No meio do caminho..."
-    almost_there: "Yeah!! <br/> Quase lá..."
-    done: "Yeaaaaahhhh!! <br/> Concluído"
-    abandoned: "Ah que pena! <br/> Goal Abandonado..."
+    just_started: "Em andamento..."
+    on_its_way: "Yeah!!  Tá caminhando..."
+    half_way_there: "Yeah!! No meio do caminho..."
+    almost_there: "Yeah!! Quase lá..."
+    done: "Yeaaaaahhhh!! Concluído"
+    abandoned: "Ah que pena! Goal Abandonado..."
   points: Pontos        
   know_our_charities: Conheça nossas causas
   label:
@@ -225,10 +239,11 @@ pt:
   choose_file: "Selecione Foto"
   view_dare: "Visualizar Desafio"
   you_have_been_challenged_by: "Você foi desafiado por %{challenger}"
+  goalnector: "Goalnectador"
   
 
   goal_donation_stage:
-    waiting_notification: Aguardando Confirmação
+    waiting_notification: "Aguardando Confirmação do PagSeguro"
     approved: Aprovada
     pending: Pendente
     verifying: Pendente (Verificando)

@@ -690,3 +690,37 @@ span.donations_list{
 	}
 }
 
+
+.my-donations{
+	border: 2px solid $box-goal-border-color;
+	padding: 10px 10px 10px 10px;
+	margin: 0px 10px 10px 0px;
+	width:445px;
+	height:70px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 12px;
+	color: $cinza-escuro;
+	float:left;
+	#donations-img{
+			float:left;
+			margin: 5px 5px 5px 0px;
+	}
+	#donations_goal_title{
+		color: $azul-logo;
+		font-weight: bold;
+	}
+	#donation-text{
+		p{
+			.status_approved{
+				color: $green-logo;
+			}
+			.status_warning{
+				color: $magenta-logo;
+			}
+		}
+	}
+	
+}
+

@@ -30,9 +30,7 @@
 				</a>
 				<hr/>
 				<div id="tab-my-goals" class="content active"> 
-
 						<div class="my_goals">   
-
 						<% my_goals = @achiever.find_active_goals() %>  
 						<% if my_goals && !my_goals.empty? %>
 							<% my_goals.each do |goal| %>   
@@ -41,18 +39,15 @@
 					 	<%else%>        
 							<%= t('there_are_no_goals')%>
 						<%end%>
-
 						</div>
 					</div>
 
 					<div id="tab-goalnections" class="centraliza content clearfix"> 
 						<%= render 'achiever/goalnections' %>
-						
 					</div>
 
 					<div id="tab-my-donations" class="centraliza content clearfix"> 
-
-						MY DONATIONS
+						<%= render 'achiever/my_donations'%>
 					</div>
 
 			   </div>
