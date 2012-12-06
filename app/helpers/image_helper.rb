@@ -21,10 +21,10 @@ module ImageHelper
     image_tag(img_srcs[0], :class => "random_img_tag", "data-srcs" => img_srcs.join(","))
   end
 
-  def random_img_tag_for_goal goal, first_img = :goal_template
-    goal_template_img = img_src_full("goaltemplate", goal.goal_template, :thumb)
-    charity_img = img_src_full("charity", goal.charity, :thumb)
-    achiever_img = user_full_image_url(goal.achiever, :thumb)
+  def random_img_tag_for_goal goal, first_img = :goal_template, type = :thumb
+    goal_template_img = img_src_full("goaltemplate", goal.goal_template, type)
+    charity_img = img_src_full("charity", goal.charity, type)
+    achiever_img = user_full_image_url(goal.achiever, type)
     if (first_img == :achiever)
       random_img_tag [achiever_img, goal_template_img, charity_img]
     else 

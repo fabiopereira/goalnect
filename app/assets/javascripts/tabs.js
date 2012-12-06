@@ -1,10 +1,10 @@
 $(function(){
 	$(".tabs").each(function(){
 		var tabs_group = $(this);
-		tabs_group.find("ul li a").click(function(e){
+		tabs_group.find("a.tab").click(function(e){
 			e.preventDefault(); 
 			
-			tabs_group.find("ul li a").removeClass('active')
+			tabs_group.find("a.tab").removeClass('active')
 			tabs_group.find("div.content").removeClass('active')
 			
 			active_tab = $(this);

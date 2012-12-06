@@ -11,27 +11,51 @@
 		</article>
 	</div>
 </div>   
-	<section id="bottom-section" clear="" >
-		<div class="centraliza clearfix"> 
-			<h1 class="mygoals_header">
-				<% if current_user_is_achiever?(@achiever) %>
-					<%= t "goal.my_goals_header"%>
-				<% else %>
-					<%= t "goal.user_goals_header", :screen_name => @achiever.screen_name %>
-				<% end %>
-			</h1>
-			<div class="my_goals">   
-		   
-			<% my_goals = @achiever.find_active_goals() %>  
-			<% if my_goals && !my_goals.empty? %>
-				<% my_goals.each do |goal| %>   
-			     	<%= render 'goals/box', :goal => goal %>
-		    	<% end %> 
-		 	<%else%>        
-				<%= t('there_are_no_goals')%>
-			<%end%>
-			
-			</div>
+
+	<section id="bottom-section" clear="">
+		<div class="centraliza clearfix ">
+			<div class="tabs">
+				<a href="#tab-my-goals" class="tab active">
+					<% if current_user_is_achiever?(@achiever) %>
+						<%= t "goal.my_goals_header"%>
+					<% else %>
+						<%= t "goal.user_goals_header", :screen_name => @achiever.screen_name %>
+					<% end %>
+				</a>
+				<a href="#tab-goalnections" class="tab">
+					<%= t "goal.goalnections"%>
+				</a>
+				<a href="#tab-my-donations" class="tab">
+				   <%= t "goal.donations" %>
+				</a>
+				<hr/>
+				<div id="tab-my-goals" class="content active"> 
+
+						<div class="my_goals">   
+
+						<% my_goals = @achiever.find_active_goals() %>  
+						<% if my_goals && !my_goals.empty? %>
+							<% my_goals.each do |goal| %>   
+						     	<%= render 'goals/box', :goal => goal %>
+					    	<% end %> 
+					 	<%else%>        
+							<%= t('there_are_no_goals')%>
+						<%end%>
+
+						</div>
+					</div>
+
+					<div id="tab-goalnections" class="centraliza content clearfix"> 
+						<%= render 'achiever/goalnections' %>
+						
+					</div>
+
+					<div id="tab-my-donations" class="centraliza content clearfix"> 
+
+						MY DONATIONS
+					</div>
+
+			   </div>
 		</div>
 	</section>
 <div>

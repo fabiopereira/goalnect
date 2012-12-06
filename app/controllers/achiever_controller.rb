@@ -8,6 +8,7 @@ class AchieverController < ApplicationController
     end
 
     @achiever = User.find_by_username(user_username)
+    @goalnection_summary = GoalnectionSummary.new(@achiever)
   end
   
   def edit

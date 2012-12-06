@@ -60,6 +60,14 @@ class Goal < ActiveRecord::Base
     find(:all, :conditions => ['achiever_id != :u and owner_id = :u', {:u => user.id}])
   end
   
+  def self.find_active_goals_dared_by(user)
+    find(:all, :conditions => ['achiever_id != :u and owner_id = :u and goal_stage_id not in (:inactive)', {:u => user.id, :inactive => GoalStage.inactive_stages_id}])
+  end
+  
+  def self.find_active_goals_created_by(user)
+    find(:all, :conditions => [' owner_id = :u and goal_stage_id not in (:inactive)', {:u => user.id, :inactive => GoalStage.inactive_stages_id}])
+  end
+  
   def self.find_active_goals(user)
     find(:all, :conditions => ['achiever_id = :u and goal_stage_id not in (:inactive)', {:u => user.id, :inactive => GoalStage.inactive_stages_id}], :order => "id desc")
   end

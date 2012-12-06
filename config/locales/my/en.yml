@@ -224,6 +224,10 @@ en:
     not_possible_to_change_charity_msg: "You are not allowed to change the Charity, there are donation for this Goal already"
     done_btn: "DONE!"
     edit_btn: "Edit Goal"
+    goalnections: "Goalnections"
+    donations: "Donations"
+    backers: "Backers"
+    there_are_no_goalnections: "You don't have any goalnections yet, start now supporting your friends"
 
   photo_change:
     header: Change and crop your photo
