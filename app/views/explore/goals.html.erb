@@ -1,4 +1,21 @@
 <h1>Goals</h1>
-<div class="static">
+
+<div class="coluna1">
+<article class="box-pequeno">
 	
+</article>
+</div>
+
+<div class="coluna2">
+	<div id="explore-goals" class="clearfix"> 
+		<%= render 'explore_goals_section', 
+		           :goals => @goals_latest,       
+		           :goal_section_title => t('explore_goals.latest') %>
+		<%= render 'explore_goals_section', 
+		           :goals => @goals_with_recent_donation, 
+		           :goal_section_title => t('explore_goals.with_recent_donation') %>
+		<%= render 'explore_goals_section', 
+		           :goals => @goals_random_scope, 
+		           :goal_section_title => t('explore_goals.random_scope') %>
+	</div>
 </div>
