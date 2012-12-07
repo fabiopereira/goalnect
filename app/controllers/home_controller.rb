@@ -3,8 +3,7 @@ class HomeController < ApplicationController
   include GoalExplorer
 
   def index
-    # @goals = Goal.landing
-    @goals = []
+    @goals = Goal.landing
     respond_to do |format|
       format.html 
     end
