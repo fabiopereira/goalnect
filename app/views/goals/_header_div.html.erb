@@ -31,7 +31,7 @@
 				<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
 			</figure>
 			<section class="descricao-goal">
-				<h2 class="titulo-goal"><%= goal.title%></h2>
+				<h2 class="titulo-goal"><%= title goal.title%></h2>
 				<p id="goal-created-by"><b>
 					<% if goal.owner.id == goal.achiever.id %>
 						<%= t "goal.goal_created_by", :owner => goal.owner.screen_name %>  
