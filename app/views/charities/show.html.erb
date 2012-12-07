@@ -3,7 +3,8 @@
 	<%= render 'charities/box', :charity => @charity %>
 </div>
 <div class="coluna2">
-	<article class="box-grande">
+	<article class="box-grande-fb">
+		<div class="clearfix">
 			<section class="descricao-charity">
 				<h2><%= @charity.charity_name %></h2>
 				<p><h3> <%= @charity.website%> </h3></p>
@@ -42,6 +43,7 @@
 					<%= render 'layouts/social_plugins', :text => @charity.charity_name %>
 				</section>
 			</section><!-- /descricao-goal //-->
+		</div>
 </article>
 </div>
 

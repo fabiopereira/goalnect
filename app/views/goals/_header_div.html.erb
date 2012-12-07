@@ -1,5 +1,5 @@
 <div class="coluna2">
-	<article class="box-grande">
+	<article class="box-grande-fb">
 		<% if @goal.goalStage.id == GoalStage::PENDING.id %>
 		<section id="challenge_div">
 			<p id="challenge_question"><%=t('you_have_been_challenged_by', :challenger => @goal.owner.screen_name)%></p>		
