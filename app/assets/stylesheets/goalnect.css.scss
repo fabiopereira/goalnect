@@ -665,9 +665,14 @@ span.donations_list{
 	font-size: 12px;
 	color: $cinza-escuro;
 	#goalnections-header{
+		height: 60px;
 		#goalnections-img{
 			float:left;
 			margin: 5px 5px 5px 0px;
+			width: 60px;
+		    height: 60px; 
+		    overflow: hidden;
+		    position: relative;
 		}
 	}
 	#goalnections_goal_title{
@@ -707,8 +712,12 @@ span.donations_list{
 	color: $cinza-escuro;
 	float:left;
 	#donations-img{
-			float:left;
-			margin: 5px 5px 5px 0px;
+		float:left;
+		margin: 5px 5px 5px 0px;
+		width: 60px;
+	    height: 60px; 
+	    overflow: hidden;
+	    position: relative;
 	}
 	#donations_goal_title{
 		color: $azul-logo;
