@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :support_info]
+  before_filter :authenticate_user!, :except => [:show, :support_info, :explore]
   before_filter :report_abuse!, :except => [:new, :create]
   before_filter :is_goal_active!, :except => [:accept_challenge, :reject_challenge, :new, :create, :show]
   before_filter :goal_show!, :only => [:show]
@@ -203,6 +203,10 @@ class GoalsController < ApplicationController
       end
     end
   end
+  
+  def explore
+  end
+  
   
   def i_support
     create_support true

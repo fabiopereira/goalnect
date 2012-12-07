@@ -56,6 +56,10 @@ class Goal < ActiveRecord::Base
     end
   end
   
+  scope :latest, where('goal_stage_id not in (:inactive)', {:inactive => GoalStage.inactive_stages_id}).order('id desc')
+  scope :explore_limit, limit(4)
+  scope :landing, latest.explore_limit
+  
   def self.find_goals_dared_by(user)
     find(:all, :conditions => ['achiever_id != :u and owner_id = :u', {:u => user.id}])
   end
