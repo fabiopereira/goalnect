@@ -97,6 +97,10 @@ pt:
     status: "Estado do Goal"
     feedback: "Andamento do Goal"
     incentives: "Dicas/Incentivos/Avaliações"
+  seo:
+    home_title: Metas para 2013
+    home_description: "No Goalnect suas metas para 2013 podem ajudar causas sociais. Suas metas se transformam em ferramentas de divulgação das causas e você ajuda a fazer um mundo melhor" 
+    home_keywords: "meta, metas, metas 2013, ano novo, objetivos, viajar, doações, doação, doar, causa, perder peso, correr, maratona, parar de fumar, social, ong, ongs, oscip"
   goalnections:
     donated: "Doou R$ %{amount} para este goal"
     hasnt_donated_yet: "Ainda não doou para este goal"
@@ -231,7 +235,7 @@ pt:
   donated: "<strong> %{name} </strong> doou <strong>R$ %{amount}</strong>"
   what_is_your_goal: "Qual é a sua meta para 2013?"
   wait_how_it_works: "Como? Explica aí ..."
-  turn_off_the_lights: "Entenda em 3 minutos"
+  turn_off_the_lights: "Entenda em 2 minutos"
   select_charity: "Selecione uma ONG"   
   show_more: "mostrar mais..."
   show_less: "mostrar menos"

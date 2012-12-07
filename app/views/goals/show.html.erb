@@ -12,8 +12,13 @@ $(function() {
 	<% end %>
 });
 </script>
-		<%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
-		<%= render 'goals/header_div', :goal => @goal %>
+
+<% title @goal.title %>
+<% meta :description => title_facebook_for_goal(@goal),
+        :keywords => "#{@goal.title}, #{t('seo.home_keywords')}" %>
+
+<%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
+<%= render 'goals/header_div', :goal => @goal %>
 </div>
 <section id="bottom-section">
 	<div id="goal-tabs" class="centraliza clearfix">
@@ -21,4 +26,3 @@ $(function() {
 	</div>
 </section>
 <div>
-	

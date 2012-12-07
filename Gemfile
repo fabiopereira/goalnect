@@ -26,6 +26,10 @@ group :development, :test do
   # gem "database_cleaner", ">= 0.7.2"
 end
 
+# SEO
+gem 'headliner' 
+gem 'metamagic' 
+
 gem 'flexslider'     
 gem 'le'
 gem 'awesome_print'
