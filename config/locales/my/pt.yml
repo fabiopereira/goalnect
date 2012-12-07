@@ -100,7 +100,7 @@ pt:
   seo:
     home_title: Metas para 2013
     home_description: "No Goalnect suas metas para 2013 podem ajudar causas sociais. Suas metas se transformam em ferramentas de divulgação das causas e você ajuda a fazer um mundo melhor" 
-    home_keywords: "metas 2013, objetivos, viajar, perder peso, correr, maratona, parar de fumar, ong, ongs, oscip"
+    home_keywords: "meta, metas, metas 2013, ano novo, objetivos, viajar, doações, doação, doar, causa, perder peso, correr, maratona, parar de fumar, social, ong, ongs, oscip"
   goalnections:
     donated: "Doou R$ %{amount} para este goal"
     hasnt_donated_yet: "Ainda não doou para este goal"
