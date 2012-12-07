@@ -243,6 +243,10 @@ en:
     status: "Goal Status"
     feedback: "Feedbacks"
     incentives: "Tips/Incentives"
+  seo:
+    home_title: Your Goals can help people who need
+    home_description: Your Goals can help people who need
+    home_keywords: goal, charity, help
   goalnections:
     donated: "Donated $ %{amount}"
     hasnt_donated_yet: "Hasn't donated to this goal yet"
