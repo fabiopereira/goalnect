@@ -236,6 +236,11 @@ input[type="color"]:focus,
     }
 }
 
+.box-grande-fb{
+    @extend .box-grande;
+	overflow: visible;
+}
+
 .static {
   @extend .box;
 }
@@ -739,3 +744,7 @@ span.donations_list{
 	
 }
 
+#warning_information{
+	color: $magenta-logo;
+	font-size:14px;
+}
