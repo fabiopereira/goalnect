@@ -1,5 +1,5 @@
 <header>
-	<h1><a href="/" class="sprite logo indent">Goalnect</a></h1>
+	<h1><a href="/home" class="sprite logo indent">Goalnect</a></h1>
 	<% Togg.le(:feature_authentication) do %>
 	<section id="menu-search">
     	<%= render 'search/search_form' %>
@@ -7,7 +7,7 @@
 	<% end %>
 	<nav id="menu">
 		<ul>
-			<li> <%= link_to t('static.whatisagoal'), "/s/faq#what-is-a-goal" %> </li>
+			<li> <%= link_to t('goals'), "/explore/goals" %> </li>
 			<li> <%= link_to t("static.howitworks"), "/s/faq" %> </li>
 			
 			<% Togg.le(:feature_sign_in) do %>

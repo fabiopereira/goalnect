@@ -1,0 +1,43 @@
+<section id="explore-goals-page">
+<h1>
+  <!-- <a id='explore-goals-header' href='/s/faq#what-is-a-goal' class="tiptip" title="<%= t 'static.whatisagoal' %>"> -->
+	Goals
+  <!-- </a> -->
+</h1>
+
+<div>
+<div class="coluna1">
+<article class="box-pequeno goal-filter">
+	<h4>Veja outros:</h4>
+	<hr/>
+	<div><%= link_to 'Selecionados', '/explore/goals' %></div>
+	<hr/>
+	<% GoalTemplate.all_active_current_locale.each do |goal_template| %>
+	  <div><%= link_to goal_template.title, "/explore/goals/#{goal_template.title}" %></div>
+	<% end %>
+</article>
+</div>
+
+<div class="coluna2">
+	<article class="box-grande">
+	<div id="explore-goals" class="clearfix">
+		<% if @goals %>
+		<%= render 'explore_goals_section', 
+		           :goals => @goals,       
+		           :goal_section_title => params[:q] %>
+		<% else %>
+		<%= render 'explore_goals_section', 
+		           :goals => @goals_latest,       
+		           :goal_section_title => t('explore_goals.latest') %>
+		<%= render 'explore_goals_section', 
+		           :goals => @goals_with_recent_donation, 
+		           :goal_section_title => t('explore_goals.with_recent_donation') %>
+		<%= render 'explore_goals_section', 
+		           :goals => @goals_random_scope, 
+		           :goal_section_title => t('explore_goals.random_scope') %>
+		<% end %>
+	</div>
+	</article>
+</div>    
+<div>
+</section>

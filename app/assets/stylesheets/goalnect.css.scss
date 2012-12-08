@@ -384,26 +384,35 @@ input[type="color"]:focus,
 .my_goals{
 	margin: 0 auto;
 }
-
+  
 .box-goal{
     width:215px;
     margin-right:17px;
     float:left;    
+	font-size: 12px;
 	.box-pequeno{     
 		border: 2px solid $box-goal-border-color;
 		height: 388px;
+	}   
+	.valores{
+	  font-size: 12px;
 	}
 	.box_goal_content{
 		height: 276px;
-		overflow: hidden;
+		overflow: hidden;    
+		p.box-goal-description{
+			font-size: 12px;
+		}
 	}
 	.status-bar {
 		width:190px;
 		margin-bottom: 5px;
 	}
 	.valores {
-		width: 190px;
-		font-size: 10px;
+		width: 190px;   
+		p{
+			margin-bottom: 0px;
+		}
 	}
 	a.view-challenge{
 		margin-left: 27px;
@@ -545,22 +554,30 @@ span.donations_list{
 	float:right;
 }
 
-.quick-links{
-	div {    
-		a {text-decoration : none }
-		font-size: 14px;
-		line-height: 22px;
-		margin:none;
-		width: 100%;
-		&:hover{      
-			a{
-		        color: #fff !important;; 
-			}
-			background:$azul-logo;
-			font-weight:bold;
-			color: #fff !important;;
-		}
-	}      
+.box-links {
+  div {    
+  	a {text-decoration : none }
+  	font-size: 14px;
+  	line-height: 22px;
+  	margin:none;
+  	width: 100%;
+  	&:hover{      
+  		a{
+  	        color: #fff !important;; 
+  		}
+  		background:$azul-logo;
+  		font-weight:bold;
+  		color: #fff !important;;
+  	}
+  }      
+}
+
+.quick-links {
+  @extend .box-links;
+}            
+
+.goal-filter {
+  @extend .box-links;
 }
         
 

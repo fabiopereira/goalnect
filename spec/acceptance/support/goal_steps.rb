@@ -97,6 +97,22 @@ module GoalSteps
     GoalDonation.find_by_message(message)
 	end
 	
+	def non_registered_user_explores_goal_template goal_template
+    ensure_logged_out
+    visit '/explore/goals'
+    click_on goal_template.title
+    page.should have_content goal_template.title
+	end                                                         
+	
+	def non_registered_user_explores_goals
+    ensure_logged_out
+    visit '/explore/goals'
+    
+	  page.should have_content "Latest goals"
+	  page.should have_content "Random goals"
+	  page.should have_content "Received donations recently"
+	end
+	
 	def verify_donation_values goal, goal_donation
 
 	 check_element_value "email_cobranca", goal.charity.pagseguro_email

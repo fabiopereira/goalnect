@@ -62,6 +62,7 @@ Goalnect::Application.routes.draw do
   
   
   root to: 'home#index'    
+  match '/home' => 'home#index'
   
   Togg.le(:feature_goal_template) do
     match '/goal_template/i_commit' => 'goal_templates#i_commit'
@@ -75,7 +76,9 @@ Goalnect::Application.routes.draw do
   match '/jc/:static_content' => 'static#jc'
   
   match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
-
+  match '/explore/goals' => 'explore#goals'
+  match '/explore/goals/:q' => 'explore#goals'
+  
   match '/:user_username' => 'achiever#view'
 
   match '/:user_username/points_statement' => 'points#points_statement'

@@ -11,6 +11,9 @@ class GoalDonation < ActiveRecord::Base
   validates_presence_of :goal_id, :amount, :donor_name, :current_stage_id
   validates :amount, :numericality => { :greater_than_or_equal_to => MIN_AMOUNT }
   
+  scope :approved, where("current_stage_id = #{GoalDonationStage::APPROVED.id}")
+  scope :recent, order('id DESC')
+  
   def decimal_amount
     amount.to_f
   end

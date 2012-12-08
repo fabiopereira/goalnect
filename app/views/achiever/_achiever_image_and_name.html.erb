@@ -1,0 +1,12 @@
+<figure>
+	<a href="<%= achiever.full_url %>" >
+		<div class="img_user_thumb_div">
+        	<%= image_tag user_image_url(achiever, :thumb), :id => "achiever_profile_img" %>
+    	</div>
+	</a>
+</figure>
+<h5 class="achiever_screen_name">
+	<a class="achiever_screen_name_link" href="<%= achiever.full_url %>" >
+		<%= achiever.screen_name %>
+    </a>
+</h5>

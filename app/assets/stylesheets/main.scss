@@ -247,6 +247,13 @@ header{
     }
 }
 
+.explore_more_goals {
+  text-align:center;
+  font-size:18px;
+  font-family:$bentonsansbold;
+  font-weight:bold;
+}
+
 #box-login{
     background:#316892;
     width:220px;
@@ -255,6 +262,15 @@ header{
     position:absolute;
     top:-50px;
     right:0;
+    .img_user_thumb_div {
+      margin-left: 30px;
+    }
+    .achiever_screen_name {
+       text-align:center;
+       a.achiever_screen_name_link{
+         color: white;
+       }
+    }
 	.facebook_login_header{
 		margin-left: 20px;
 	}

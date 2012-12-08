@@ -14,6 +14,10 @@
 			<%= render 'goals/goal_template_form', :achiever_username => "" %>
 		</div><!-- /my-goal-is-infos //-->
 		<section id="box-login">
+			<% if current_user %>
+			  <h2>Logado como:</h2>
+			  <%= render 'achiever/achiever_image_and_name', :achiever => current_user %>
+			<% else %>
 			<h2>Login</h2>
 			
 			<%= form_for("user", :url => user_session_path) do |f| %>
@@ -32,6 +36,7 @@
 				  <%= link_to t('facebook.login_title'), '/auth/facebook/', :class => "fb-button" %>
 				</div>
 			  <% end %>
+			<% end %>
 		</section><!-- /box-login //-->
 	</div>
 </section><!-- /my-goal-is //-->
@@ -69,6 +74,10 @@
 			<%= render 'goals/box', :goal => goal, :first_img => first_img %>
     	<% end %>
 	</div>
+	<div class="centraliza clearfix explore_more_goals"> 
+    <a href="/explore/goals"><%= t "explore_goals.explore_more" %> ...</a>
+    </div>
+	
 </section>
 
 
