@@ -21,7 +21,7 @@ module CharitiesHelper
   end
   
   def is_current_user_charity_admin?(charity_id)
-    current_user && current_user.charity_id && current_user.charity_id.to_s == charity_id.to_s
+    current_user && (current_user.admin? || (current_user.charity_id && current_user.charity_id.to_s == charity_id.to_s))
   end
   
   def charity_show_goals_path(charity_id)
