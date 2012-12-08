@@ -61,6 +61,7 @@ class Goal < ActiveRecord::Base
   scope :landing_limit, limit(4)
   scope :explore_limit, limit(3)
   scope :landing, latest.landing_limit
+  scope :no_goal_template, active.where('goal_template_id is null')
   scope :random_scope, active.order('random()')
     
   def self.find_goals_dared_by(user)
