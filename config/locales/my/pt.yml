@@ -32,6 +32,7 @@ pt:
     latest: "Saindo do forno (Últimos cadastrados)"
     random_scope: "Aleatórios, pode sair qualquer goal"
     with_recent_donation: "Apoiados recentemente"
+    explore_more: Veja mais goals
   headline:
     home:
       subtitle1: "O Goalnect é a mais nova plataforma de crowdfunding do Brasil onde você e seus amigos atigem as suas metas juntos, ajudam instituições de caridade e ainda ganham pontos e prêmios"
