@@ -242,6 +242,7 @@ pt:
   donated: "<strong> %{name} </strong> doou <strong>R$ %{amount}</strong>"
   what_is_your_goal: "Qual é a sua meta para 2013?"
   wait_how_it_works: "Como? Explica aí ..."
+  more_how_it_works: "Ahhh, entendi, mas ainda tenho dúvidas"
   turn_off_the_lights: "Entenda em 2 minutos"
   select_charity: "Selecione uma ONG"   
   show_more: "mostrar mais..."
