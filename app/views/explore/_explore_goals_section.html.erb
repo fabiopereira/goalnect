@@ -1,7 +1,10 @@
-<section class="explore-goals">
-<h2><%= goal_section_title %></h2>
+<section class="explore-goals">      
+<h2><%= goal_section_title %></h2>  
+<hr>    
+<div class="clearfix">
 <% goals.each_with_index do |goal, index| %>
  	<% first_img = (index % 2 == 0) ? :achiever : :goal_template %>
 	<%= render 'goals/box', :goal => goal, :first_img => first_img %>
-<% end %>                  
+<% end %>
+</div>                  
 </section>

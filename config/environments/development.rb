@@ -46,4 +46,5 @@ Goalnect::Application.configure do
   ENV['AWS_SECRET_ACCESS_KEY'] = 'cnqZg/aT+go1fXuk2IWLggC6SiXkTZ84KOFWuti1'
   ENV['AWS_S3_BUCKET'] = 'goalnectdevelopment'
   
+  ENV['FIXED_LOCALE'] = "pt"
 end

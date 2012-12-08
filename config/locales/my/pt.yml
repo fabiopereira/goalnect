@@ -1,6 +1,8 @@
 pt:
   url:
     site: www.goalnect.com.br
+  login:
+    not_me: Não sou eu
   devise:
     sessions:
       sign_in: 'Entre com sua conta'

@@ -255,6 +255,15 @@ header{
     position:absolute;
     top:-50px;
     right:0;
+    .img_user_thumb_div {
+      margin-left: 30px;
+    }
+    .achiever_screen_name {
+       text-align:center;
+       a.achiever_screen_name_link{
+         color: white;
+       }
+    }
 	.facebook_login_header{
 		margin-left: 20px;
 	}

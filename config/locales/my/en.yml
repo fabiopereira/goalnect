@@ -55,6 +55,10 @@ en:
     teaser: "http://vimeo.com/46359215"
 
   currency: $
+  explore_goals:
+    latest: "Latest goals"
+    random_scope: "Random goals"
+    with_recent_donation: "Received donations recently"
   donation:
     pagseguro_accepts: PagSeguro accepts
     donate: "Donate"

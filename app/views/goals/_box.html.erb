@@ -1,5 +1,5 @@
 <% if  goal.goalStage.id != GoalStage::PENDING.id || current_user_is_achiever?(goal.achiever)%>
-<div class="box-goal">
+<div id="box-goal" class="box-goal">
 <article class="box-pequeno">
 	<div class="box_goal_content">
 	<figure class="imagem-goal">
@@ -18,7 +18,7 @@
 	</h5>     
 	
 	
-   	<%=raw_scape_html goal.description%>
+   	<p class="box-goal-description"><%=raw_scape_html goal.description%> </p>
 	
 	</div>
 	

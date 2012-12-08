@@ -27,6 +27,7 @@ module GoalTemplateSteps
     goal = commit_to_a_goal_template charity, goal_template
     
     goal.goal_template.should == goal_template
+    goal
 	end
 	
 	def ensure_event_exists title, due_on
