@@ -1,0 +1,25 @@
+.how-goalnect-works-boxes {
+  div {
+    display:block;
+    z-index:1;
+    float:left;
+    width: 180px;
+    margin: 0 0 0 8px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border: 2px solid $box-goal-border-color;
+	&:hover{
+	  border: 2px solid $azul-logo;
+	  //position:absolute;
+      //width: 280px;
+      //height:auto;
+      //z-index:2;
+	}
+    img {
+       width: 180px;
+       height: 300px;
+    }
+  }
+}
+
