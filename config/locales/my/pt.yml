@@ -29,9 +29,9 @@ pt:
     yours: "Ou, crie o seu..."
   currency: R$
   explore_goals:
-    latest: "Saindo do forno (Últimos cadastrados)"
-    random_scope: "Aleatórios, pode sair qualquer goal"
-    with_recent_donation: "Apoiados recentemente"
+    latest: "Saindo do forno - últimos cadastrados"
+    random_scope: "Aleatórios, surpresa!!!"
+    with_recent_donation: "Receberam doações recentemente"
     explore_more: Veja mais goals
   headline:
     home:

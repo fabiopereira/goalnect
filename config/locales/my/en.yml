@@ -59,6 +59,7 @@ en:
     latest: "Latest goals"
     random_scope: "Random goals"
     with_recent_donation: "Received donations recently"
+    explore_more: See more goals
   donation:
     pagseguro_accepts: PagSeguro accepts
     donate: "Donate"
