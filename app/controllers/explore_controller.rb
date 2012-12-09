@@ -9,10 +9,10 @@ class ExploreController < ApplicationController
     query = params[:goal_query];
     if query
       if query == 'no_goal_template'
-        @goals = Goal.no_goal_template.limit(30)
+        @goals = Goal.no_goal_template
         @result_title = "Personalizados"
       else  
-        @goals = Goal.find_all_by_title(query).limit(30)
+        @goals = Goal.find_all_by_title(query, :limit => 30)
         @result_title = query
       end
     else 
