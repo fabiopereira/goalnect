@@ -12,7 +12,7 @@ pt:
       facebook_sign_in_subtitle: 'Basta clicar aqui...'
       sign_up: 'Junte-se a nós!'
       sign_up_btn: 'Cadastrar!'
-      sign_up_subtitle: 'Este cadastro pode ser mais fácil, basta clicar no botão "Entrar com o Facebook" ao lado ...'
+      sign_up_subtitle: 'Este cadastro pode ser mais fácil, basta clicar no botão "Entrar com Facebook" ao lado ...'
       forgot_your_password: 'Esqueceu sua senha?'
     links:
       forgot_your_password: 'Esqueceu sua senha?'
@@ -83,6 +83,8 @@ pt:
         charity: "ONG"
         charity_id: "Minha ONG"
         target_amount: "Quantia mínima que deseja arrecadar para essa causa"
+  explained:
+    username: "Escolha o endereço da sua página no Goalnect. Por exemplo se vc digitar fabio sua página será www.goalnect.com.br/fabio"
   goal:
     charity_id_explained: Minha Causa! Todas doações vão pra ela
     due_on: "Prazo"

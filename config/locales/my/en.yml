@@ -27,6 +27,8 @@ en:
     and_help: "...helping who need"
     congratulations_almost_there: "Congratulations just one more step and you'll start changing your life"
     yours: "Or...You choose yours"
+  explained:
+    username: "You can choose your goalnect page url"
   label:
     search: Search
     commit_to_a_goal: "I want to..."

@@ -37,9 +37,13 @@
   <p><%= f.email_field :email, :placeholder => User.human_attribute_name('email') %></p>
   <p><%= f.password_field :password, :placeholder => User.human_attribute_name('password') %></p>
   <p><%= f.password_field :password_confirmation, :placeholder => User.human_attribute_name('password_confirmation') %></p>
-  <p><%= f.text_field :screen_name, :placeholder => User.human_attribute_name('screen_name') %></p>
-  <%= t "url.site" %>/<br/>
-  <p><%= f.text_field :username, :placeholder => User.human_attribute_name('username') %></p>
+  <p><%= f.text_field :screen_name, :placeholder => User.human_attribute_name('screen_name') %></p> 
+
+  <%= t "url.site" %>/  <br/> 
+	<div id="box-your-page">                  
+		  <%= f.text_field :username, :placeholder => User.human_attribute_name('username') %>   
+		  <div class="tiptip explained_question_mark" title="<%= t "explained.username" %>"></div>       
+	</div>
   <p><%= f.hidden_field :country_id, :value => Country.current_from_locale.id %></p>
   <p><%=t('agreed_terms')%> <%= link_to t("static.terms"), "/s/terms", :target => 'blank' %></p>
   <div><%= f.submit t("devise.sessions.sign_up_btn"), :class => 'btn btn-success' %></div>
