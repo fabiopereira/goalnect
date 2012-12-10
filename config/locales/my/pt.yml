@@ -12,7 +12,7 @@ pt:
       facebook_sign_in_subtitle: 'Basta clicar aqui...'
       sign_up: 'Junte-se a nós!'
       sign_up_btn: 'Cadastrar!'
-      sign_up_subtitle: 'Este cadastro pode ser mais fácil, basta clicar no botão "Entrar com o Facebook" ao lado ...'
+      sign_up_subtitle: 'Este cadastro pode ser mais fácil, basta clicar no botão "Entrar com Facebook" ao lado ...'
       forgot_your_password: 'Esqueceu sua senha?'
     links:
       forgot_your_password: 'Esqueceu sua senha?'
