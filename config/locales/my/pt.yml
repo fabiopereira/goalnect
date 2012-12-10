@@ -22,6 +22,7 @@ pt:
   quick_links: Meus links
   facebook:
     login_title: Entrar com Facebook
+    agreed_terms: Ao entrar concordo com os
   goal_template:
     select_option: Escolha o seu Goal ...
     label_commit: COMECE AGORA!

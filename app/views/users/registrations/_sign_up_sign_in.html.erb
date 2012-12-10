@@ -7,8 +7,8 @@
   <div id="facebook_login">
 	<h2><%= t 'devise.sessions.facebook_sign_in' %></h2>
 	<h3><%= t 'devise.sessions.facebook_sign_in_subtitle' %></h3>
-
-	  <%= link_to t('facebook.login_title'), '/auth/facebook/', :class => "fb-button" %>
+	<%= render 'users/registrations/login_facebook_button' %>
+	<p><%=t('facebook.agreed_terms')%> <%= link_to t("static.terms"), "/s/terms", :target => 'blank' %></p>
  </div> 
  <% end %>
  	
