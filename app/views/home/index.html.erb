@@ -13,31 +13,7 @@
 		<div id="my-goal-is-infos">
 			<%= render 'goals/goal_template_form', :achiever_username => "" %>
 		</div><!-- /my-goal-is-infos //-->
-		<section id="box-login">
-			<% if current_user %>
-			  <h2>Logado como:</h2>
-			  <%= render 'achiever/achiever_image_and_name', :achiever => current_user %>
-			<% else %>
-			<h2>Login</h2>
-			
-			<%= form_for("user", :url => user_session_path) do |f| %>
-			  <%= f.email_field :email, :placeholder => User.human_attribute_name('email')  %>
-			  <%= f.password_field :password, :placeholder => User.human_attribute_name('password'), :autocomplete => "off" %>
-			  <p><%= link_to t('devise.sessions.forgot_your_password'), new_password_path('user'), :class => "login_small_link" %>  |  
-			  <%= link_to(t('devise.sessions.sign_up_btn'), new_user_session_path, :class => "login_small_link")  %></p>
-			
-			  <%= f.submit t("devise.sessions.sign_in_btn"), :class => 'donate', :id => 'sign_in_btn'  %>
-
-			<% end %>
-
-			  <% Togg.le(:feature_authentication) do %>
-				<hr/>
-				<div class="facebook_login_header">
-				  <%= link_to t('facebook.login_title'), '/auth/facebook/', :class => "fb-button" %>
-				</div>
-			  <% end %>
-			<% end %>
-		</section><!-- /box-login //-->
+		<%= render 'home/box_login' %>
 	</div>
 </section><!-- /my-goal-is //-->
 
