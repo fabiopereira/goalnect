@@ -1,0 +1,19 @@
+<section id="box-login">
+	<% if current_user %>
+	  <h2>Logado como:</h2>
+	  <%= render 'achiever/achiever_image_and_name', :achiever => current_user %>
+	<% else %>
+
+	  <h2>Entrar é super</h2>
+	  <h2>fácil e rápido!</h2>
+	  <h2>É só...</h2>
+	  <% Togg.le(:feature_authentication) do %>
+		<div class="facebook_login_header">
+		  <%= render 'users/registrations/login_facebook_button' %>
+		</div>
+		<hr/>
+	  <% end %>
+	
+	  <h3>Mas se preferir, veja nossas outras opções de login e cadastro <a href="/users/sign_in">aqui</a></h3>
+	<% end %>
+</section><!-- /box-login //-->

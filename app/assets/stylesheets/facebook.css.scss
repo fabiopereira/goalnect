@@ -11,23 +11,20 @@ a.fb-button:visited {
 }
 
 .fb-button {
-    background: #5F78AB;
-    background-image: url('facebook_icons.png');
-    background-repeat: no-repeat;
-    background-position: -1px -81px;
-    border-top: 1px solid #29447E;
-    border-right: 1px solid #29447E;
-    border-bottom: 1px solid #1A356E;
-    border-left: 1px solid #29447E;
+    @include iconsmain-sprite(facebook);
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8A9CC2;
     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8A9CC2;
     cursor: pointer;
     font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
-    height: 23px;
+    height: 44px;
+    width:173px;
     line-height: 23px;
-    padding: 0px 5px 0px 30px;
+    padding: 0px 5px 0px 42px;
     text-align: left;
+    .fb-button-text {
+		margin-top:10px;
+    }
 }

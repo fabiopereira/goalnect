@@ -13,46 +13,35 @@
 		<div id="my-goal-is-infos">
 			<%= render 'goals/goal_template_form', :achiever_username => "" %>
 		</div><!-- /my-goal-is-infos //-->
-		<section id="box-login">
-			<% if current_user %>
-			  <h2>Logado como:</h2>
-			  <%= render 'achiever/achiever_image_and_name', :achiever => current_user %>
-			<% else %>
-			<h2>Login</h2>
-			
-			<%= form_for("user", :url => user_session_path) do |f| %>
-			  <%= f.email_field :email, :placeholder => User.human_attribute_name('email')  %>
-			  <%= f.password_field :password, :placeholder => User.human_attribute_name('password'), :autocomplete => "off" %>
-			  <p><%= link_to t('devise.sessions.forgot_your_password'), new_password_path('user'), :class => "login_small_link" %>  |  
-			  <%= link_to(t('devise.sessions.sign_up_btn'), new_user_session_path, :class => "login_small_link")  %></p>
-			
-			  <%= f.submit t("devise.sessions.sign_in_btn"), :class => 'donate', :id => 'sign_in_btn'  %>
-
-			<% end %>
-
-			  <% Togg.le(:feature_authentication) do %>
-				<hr/>
-				<div class="facebook_login_header">
-				  <%= link_to t('facebook.login_title'), '/auth/facebook/', :class => "fb-button" %>
-				</div>
-			  <% end %>
-			<% end %>
-		</section><!-- /box-login //-->
+		<%= render 'home/box_login' %>
 	</div>
 </section><!-- /my-goal-is //-->
 
 <section id="steps">
 	<div class="centraliza">
 		<h1><%= t('wait_how_it_works')%></h1>
-		<ul class="cycle">
+		
+		<section class="how-goalnect-works-boxes">
+			<div id="how-goalnect-works-box-1"><%= image_tag 'howitworks/how-goalnect-works-box-1.png' %></div>
+			<div id="how-goalnect-works-box-2"><%= image_tag 'howitworks/how-goalnect-works-box-2.png' %></div>
+			<div id="how-goalnect-works-box-3"><%= image_tag 'howitworks/how-goalnect-works-box-3.png' %></div>
+			<div id="how-goalnect-works-box-4"><%= image_tag 'howitworks/how-goalnect-works-box-4.png' %></div>
+			<div id="how-goalnect-works-box-5"><%= image_tag 'howitworks/how-goalnect-works-box-5.png' %></div>
+		</section>
+		<div class="clearfix"></div>
+		<div id="steps_more" class="centraliza clearfix landing_explore_more"> 
+	      <a href="/s/faq"><%= t "more_how_it_works" %> ...</a>
+	    </div>
+		
+		<!-- <ul class="cycle">
 			<li><%= image_tag 'iconshowitworksslider/goalnect-how-it-works-slider-1.png' %></li>
 			<li><%= image_tag 'iconshowitworksslider/goalnect-how-it-works-slider-2.png' %></li>
 			<li><%= image_tag 'iconshowitworksslider/goalnect-how-it-works-slider-3.png' %></li>
 			<li><%= image_tag 'iconshowitworksslider/goalnect-how-it-works-slider-4.png' %></li>
 			<li><%= image_tag 'iconshowitworksslider/goalnect-how-it-works-slider-5.png' %></li>
-		</ul>
+		</ul> -->
 		<div id="steps-fb-like">
-		<div class="fb-like" data-href="https://www.facebook.com/goalnect" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+		  <div class="fb-like" data-href="https://www.facebook.com/goalnect" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 		<div>
 		<div id="nav-cycle"></div>
 	</div><!-- /centraliza //-->
@@ -74,7 +63,7 @@
 			<%= render 'goals/box', :goal => goal, :first_img => first_img %>
     	<% end %>
 	</div>
-	<div class="centraliza clearfix explore_more_goals"> 
+	<div class="centraliza clearfix landing_explore_more"> 
     <a href="/explore/goals"><%= t "explore_goals.explore_more" %> ...</a>
     </div>
 	

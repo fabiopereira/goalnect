@@ -115,6 +115,7 @@ h1{
 }
 
 #steps-fb-like {
+   margin: -20px 0 0 0;
    float:right;
 }
 
@@ -130,10 +131,22 @@ h1{
     color:#8eb7d6;
 }
 
-#box-login h2{
+          
+#box-login {
+h2{
     color: #fff;
     font-size:31px;
-} 
+    text-align:center;
+}
+h3{
+    color: #a7d7f2;
+    font-size:18px;
+    text-align:center;
+    a {
+     color: #fff;
+    }
+}
+}
 
 h3{
     font-size:18px;
@@ -247,7 +260,18 @@ header{
     }
 }
 
-.explore_more_goals {
+.landing_explore_more {
+  text-align:center;
+  font-size:18px;
+  font-family:$bentonsansbold;
+  font-weight:bold;
+}
+                       
+#steps_more {
+  padding-top: 15px
+}
+
+.how_it_works_more {
   text-align:center;
   font-size:18px;
   font-family:$bentonsansbold;
@@ -257,10 +281,10 @@ header{
 #box-login{
     background:#316892;
     width:220px;
-    height:244px;
-    padding:40px 20px 10px 20px;
+    height:257px;
+    padding:10px 20px 10px 20px;
     position:absolute;
-    top:-50px;
+    top:-25px;
     right:0;
     .img_user_thumb_div {
       margin-left: 30px;
@@ -272,7 +296,7 @@ header{
        }
     }
 	.facebook_login_header{
-		margin-left: 20px;
+		margin-left: 0px;
 	}
 	h2 {
      padding:0px 0px 5px 0px;
@@ -304,11 +328,6 @@ header{
 	}
 }
 
-#steps{
-    width:100%;
-    height:432px;
-    padding-top:54px;
-}
 
 .cycle{
     li{

@@ -6,8 +6,15 @@ class ExploreController < ApplicationController
   end
   
   def goals
-    if params[:q]
-      @goals = Goal.find_all_by_title(params[:q])
+    query = params[:goal_query];
+    if query
+      if query == 'no_goal_template'
+        @goals = Goal.no_goal_template
+        @result_title = "Personalizados"
+      else  
+        @goals = Goal.find_all_by_title(query, :limit => 30)
+        @result_title = query
+      end
     else 
       @goals_latest = Goal.latest.explore_limit
 

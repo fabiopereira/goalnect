@@ -77,7 +77,7 @@ Goalnect::Application.routes.draw do
   
   match '/goal_donations/populate_pagseguro_fee' => 'goal_donations#populate_pagseguro_fee'
   match '/explore/goals' => 'explore#goals'
-  match '/explore/goals/:q' => 'explore#goals'
+  match '/explore/goals/:goal_query' => 'explore#goals'
   
   match '/:user_username' => 'achiever#view'
 
