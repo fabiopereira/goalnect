@@ -82,6 +82,8 @@ pt:
         charity: "ONG"
         charity_id: "Minha ONG"
         target_amount: "Quantia mínima que deseja arrecadar para essa causa"
+  explained:
+    username: "Escolha o endereço da sua página no Goalnect. Por exemplo se vc digitar fabio sua página será www.goalnect.com.br/fabio"
   goal:
     charity_id_explained: Minha Causa! Todas doações vão pra ela
     due_on: "Prazo"

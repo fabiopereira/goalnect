@@ -265,6 +265,19 @@ header{
   font-size:18px;
   font-family:$bentonsansbold;
   font-weight:bold;
+}     
+            
+
+#box-your-page{
+	width: 252px;
+
+}
+
+.explained_question_mark {
+   @include iconsmain-sprite(question_mark_small);
+   height:30px;
+   width:30px;
+   float:right;
 }
                        
 #steps_more {
