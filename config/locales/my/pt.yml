@@ -81,9 +81,10 @@ pt:
         title_selected: "Um breve título"
         achiever: "Goalnectador" 
         charity: "ONG"
-        charity_id: "Minha ONG, Minha Causa! Todas doações vão pra ela"
+        charity_id: "Minha ONG"
         target_amount: "Quantia mínima que deseja arrecadar para essa causa"
   goal:
+    charity_id_explained: Minha Causa! Todas doações vão pra ela
     due_on: "Prazo"
     my_goals_header: Meus Goals
     user_goals_header: "Goals"
