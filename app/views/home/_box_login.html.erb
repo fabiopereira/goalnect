@@ -1,8 +1,10 @@
-<section id="box-login">
 	<% if current_user %>
+	<section id="box-logged-in">
 	  <h2>Logado como:</h2>
 	  <%= render 'achiever/achiever_image_and_name', :achiever => current_user %>
+	</section>
 	<% else %>
+	<section id="box-login">
 
 	  <h2>Fácil e Rápido</h2>
 
@@ -14,5 +16,6 @@
 	  <% end %>
 	
 	  <h3>Posso entrar de outro jeito? <a href="/users/sign_in">Claro, aqui</a></h3>
+	</section><!-- /box-login //-->
 	<% end %>
-</section><!-- /box-login //-->
+

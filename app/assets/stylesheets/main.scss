@@ -332,6 +332,12 @@ header{
 	}
 }
 
+#box-logged-in{
+	@extend #box-login;
+	h2 {
+     padding:10px 0px 5px 0px;
+    }
+}
 
 .cycle{
     li{
