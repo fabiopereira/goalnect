@@ -4,10 +4,10 @@ en:
   devise:
     sessions:
       sign_in: 'Sign in'
-      sign_in_btn: 'Sign in!'
-      sign_in_subtitle: "If you are one of us ;D"
-      facebook_sign_in: "Or, even easier:"
-      facebook_sign_in_subtitle: "What's better than that?"
+      sign_in_btn: 'Or sign in!'
+      sign_in_subtitle: "Sign in with your account"
+      facebook_sign_in: "It is quickier and easier"
+      facebook_sign_in_subtitle: 'Just click on "Login with facebook"'
       sign_up: "Sign up"
       sign_up_btn: 'Sign up!'
       sign_up_subtitle: "We bet this is easier then your goal :P"

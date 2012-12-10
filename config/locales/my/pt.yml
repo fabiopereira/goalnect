@@ -5,14 +5,14 @@ pt:
     not_me: Não sou eu
   devise:
     sessions:
-      sign_in: 'Entre com sua conta'
+      sign_in: 'Ou entre com sua conta'
       sign_in_btn: 'Entrar!'
-      sign_in_subtitle: 'Afinal, você já é um de nós ;D'
-      facebook_sign_in: 'Ou, ainda mais fácil:'
-      facebook_sign_in_subtitle: 'Melhor que isso, só se a gente entrar por você :D'
+      sign_in_subtitle: 'Se você se cadastrou pelo formulário ao lado...'
+      facebook_sign_in: 'Entrar com facebook é mais fácil e rápido'
+      facebook_sign_in_subtitle: 'Basta clicar aqui...'
       sign_up: 'Junte-se a nós!'
       sign_up_btn: 'Cadastrar!'
-      sign_up_subtitle: 'O desafio é o seu goal, não o cadastro :P'
+      sign_up_subtitle: 'Este cadastro pode ser mais fácil, basta clicar no botão "Entrar com o Facebook" ao lado ...'
       forgot_your_password: 'Esqueceu sua senha?'
     links:
       forgot_your_password: 'Esqueceu sua senha?'
