@@ -4,9 +4,8 @@
 	  <%= render 'achiever/achiever_image_and_name', :achiever => current_user %>
 	<% else %>
 
-	  <h2>Entrar é super</h2>
-	  <h2>fácil e rápido!</h2>
-	  <h2>É só...</h2>
+	  <h2>Fácil e Rápido</h2>
+
 	  <% Togg.le(:feature_authentication) do %>
 		<div class="facebook_login_header">
 		  <%= render 'users/registrations/login_facebook_button' %>
@@ -14,7 +13,6 @@
 		<hr/>
 	  <% end %>
 	
-	  <h3>Mas se preferir, veja nossas outras opções de login e cadastro <a href="/users/sign_in">aqui</a></h3>
-	<p><%=t('facebook.agreed_terms')%> <%= link_to t("static.terms"), "/s/terms", :target => 'blank' %></p>
+	  <h3>Posso entrar de outro jeito? <a href="/users/sign_in">Claro, aqui</a></h3>
 	<% end %>
 </section><!-- /box-login //-->
