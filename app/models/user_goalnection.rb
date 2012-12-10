@@ -1,4 +1,4 @@
-class Goalnection
+class UserGoalnection
 
   attr_accessor :goal, :donation, :update, :i_support, :goal_created_by
 

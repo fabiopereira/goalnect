@@ -1,4 +1,4 @@
-class GoalnectionSummary
+class UserGoalnectionSummary
   
   attr_reader :goalnections
   
@@ -65,7 +65,7 @@ class GoalnectionSummary
   def retrieve_goalnection group_by_goal, goal
     goalnection = group_by_goal[goal.id]
     if !goalnection
-      goalnection = Goalnection.new
+      goalnection = UserGoalnection.new
       goalnection.goal = goal
       group_by_goal[goal.id] = goalnection
     end
