@@ -115,7 +115,7 @@ h1{
 }
 
 #steps-fb-like {
-   margin: -20px 0 0 0;
+   margin: 20px 0 0 0;
    float:right;
 }
 
@@ -138,10 +138,14 @@ h2{
     font-size:31px;
     text-align:center;
 }
+hr{
+	margin-top:20px;
+}
 h3{
     color: #a7d7f2;
     font-size:18px;
     text-align:center;
+	margin-top: 20px;
     a {
      color: #fff;
     }
@@ -294,10 +298,10 @@ header{
 #box-login{
     background:#316892;
     width:220px;
-    height:257px;
+    height:250px;
     padding:10px 20px 10px 20px;
     position:absolute;
-    top:-25px;
+    top:-23px;
     right:0;
     .img_user_thumb_div {
       margin-left: 30px;
@@ -312,7 +316,7 @@ header{
 		margin-left: 0px;
 	}
 	h2 {
-     padding:0px 0px 5px 0px;
+     padding:38px 0px 5px 0px;
     }
 	input{
 		width: 200px;
@@ -333,7 +337,7 @@ header{
 		color:white;
 		margin-bottom:10px;
 		text-align:center;
-		a.login_small_link{
+		a{
 			text-decoration:none;
 			color:white;
 		}
