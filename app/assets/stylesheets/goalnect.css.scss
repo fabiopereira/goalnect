@@ -276,8 +276,16 @@ input[type="color"]:focus,
     }
 }
 
+.descricao-charity {
+h3{
+	a{
+		color: $green-logo;
+	}
+	color: $green-logo;
+}
+}                       
 
-.descricao-instituicao{
+.descricao-instituicao {
     width:400px;
     margin-right:10px;
     float:left;
