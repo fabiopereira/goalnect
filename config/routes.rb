@@ -79,6 +79,11 @@ Goalnect::Application.routes.draw do
   match '/explore/goals' => 'explore#goals'
   match '/explore/goals/:goal_query' => 'explore#goals'
   
+  match '/send_emails' => 'email_sender#send_mail_page'
+  match '/send_emails/for_donation_received' => 'email_sender#for_donation_received'
+  match '/send_emails/for_goal_without_donations' => 'email_sender#for_goal_without_donations'
+  
+  
   match '/:user_username' => 'achiever#view'
 
   match '/:user_username/points_statement' => 'points#points_statement'

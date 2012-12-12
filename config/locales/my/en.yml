@@ -157,6 +157,7 @@ en:
   view_dare: "View Dare"   
   you_have_been_challenged_by: "You have been challenged by %{challenger}"  
   goalnector: "Goalnector"
+  support_or_dare_this_friend: "Donate to one of the goals or dare this friend! "
   
   goal_donation_stage:
     waiting_notification: "Waiting Payment Confirmation"

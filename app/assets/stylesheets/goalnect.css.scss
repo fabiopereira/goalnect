@@ -226,9 +226,18 @@ input[type="color"]:focus,
 	  }
 }
 
+#achiever_header_guide{
+	margin-top: 26px;
+}
+
+#search_goalnections{
+	font-size:14px;
+	margin: 0px 0px 20px 0px;
+}
+
 .box-grande{
     @extend .box;
-    padding: 15px 15px 45px 15px;
+    padding: 15px 15px 30px 15px;
 	margin-bottom:15px;
     p{
         margin-bottom:15px;

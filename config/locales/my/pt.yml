@@ -24,7 +24,7 @@ pt:
     login_title: Entrar com Facebook
     agreed_terms: Ao entrar concordo com os
   goal_template:
-    select_option: Escolha o seu Goal ...
+    select_option: Escolha o Goal ...
     label_commit: COMECE AGORA!
     congratulations_almost_there: "Parabéns, você está a um passo de mudar a sua vida pra melhor!"
     yours: "Ou, crie o seu..."
@@ -258,6 +258,7 @@ pt:
   view_dare: "Visualizar Desafio"
   you_have_been_challenged_by: "Você foi desafiado por %{challenger}"
   goalnector: "Goalnectador"
+  support_or_dare_this_friend: "Apoie/Doe para um dos goals deste amigo, ele não tem goal? Crie um desafio!"
   
 
   goal_donation_stage:

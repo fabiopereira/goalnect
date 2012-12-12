@@ -32,6 +32,14 @@ class GoalStage < ActiveHash::Base
         GoalStage::DONE]
   end
   
+  def self.active_stages_except_done
+     values = [
+        GoalStage::JUST_STARTED,
+        GoalStage::ON_ITS_WAY,
+        GoalStage::HALF_WAY_THERE, 
+        GoalStage::ALMOST_THERE]
+  end
+  
   def self.inactive_stages_id
     values = [
         GoalStage::NOT_ACCEPTED.id,

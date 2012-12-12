@@ -4,7 +4,7 @@ class Goal < ActiveRecord::Base
   MIN_TARGET_AMOUNT = 50
 
   attr_accessible :title, :title_selected
-  attr_accessible :description, :due_on, :owner, :owner_id, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
+  attr_accessible :description, :due_on, :created_at, :owner, :owner_id, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
   
   belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
   belongs_to :achiever, :class_name => 'User', :foreign_key => 'achiever_id'
@@ -110,6 +110,10 @@ class Goal < ActiveRecord::Base
   
   def self.find_last_40_active_goals_by_charity charity_id
     Goal.find(:all, :conditions => [ "charity_id = ? and goal_stage_id in (?)", charity_id, GoalStage.active_stages], :limit => 40, :order => "id desc")
+  end
+  
+  def self.find_goals_without_donations start_date, end_date
+    Goal.includes(:goal_donations).where("goal_donations.id is null and goals.created_at between ? and ?  and goal_stage_id in (?)", start_date, end_date, GoalStage.active_stages_except_done)    
   end
   
   def support_for current_user
