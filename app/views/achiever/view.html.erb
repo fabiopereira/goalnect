@@ -57,11 +57,13 @@
 					</div>
 
 					<div id="tab-goalnections" class="centraliza content clearfix"> 
+						<% if !current_user_is_achiever?(@achiever) %>
 						<form class="search" action="/search">
 						  <p id="search_goalnections">Aumente sua Goalnexão apoiando seus amigos:
 						  <input id="q" name="q" type="text" value="<%= params[:q] %>" placeholder="Buscar Amigos"/>
 						  <input type="submit" value="<%= t 'label.search' %>"/></p>
 						</form>			
+						<% end %>
 						<%= render 'achiever/goalnections' %>
 					</div>
 
