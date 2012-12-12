@@ -32,6 +32,7 @@ en:
   label:
     search: Search
     commit_to_a_goal: "I want to..."
+    wants: wants
     dare_to_a_goal: "Dare this friend to..."
     redeem: Redeem %{points} points
   points: Points
