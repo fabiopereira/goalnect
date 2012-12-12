@@ -172,6 +172,7 @@ pt:
   label:
     search: Buscar Amigos/ONGs
     commit_to_a_goal: "Eu quero..."
+    wants: quer
     dare_to_a_goal: "Desafie este amigo a..."
     and_help: "...ajudando quem precisa"
     redeem: Resgate %{points} pontos

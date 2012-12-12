@@ -11,6 +11,11 @@
 	    </a>
 	</figure>
 	
+	<h4>
+		<a href="<%= show_goal_path_by_goal goal %>" >
+			<%= truncate(goal.achiever.screen_name, :length => 20, :omission => ".") %> <%= t 'label.wants' %>
+	    </a>
+	</h4>     
 	<h5>
 		<a href="<%= show_goal_path_by_goal goal %>" >
 			<%= goal.title %>
