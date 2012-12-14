@@ -7,7 +7,11 @@
 		<article class="box-grande clearfix">
 			<%= render 'achiever/header_summary', :achiever =>  @achiever%>
 			<hr/>
-			<%= render 'goals/goal_template_form', :achiever_username => @achiever.username%>
+				<% if current_user_is_achiever?(@achiever) %>
+					<%= render 'goals/goal_template_form', :achiever_username => @achiever.username%>
+				<% else %>
+					<h3 id="achiever_header_guide"><%= t('support_or_dare_this_friend')%></h3>
+				<% end %>
 		</article>
 	</div>
 </div>   
@@ -28,26 +32,47 @@
 				<a href="#tab-my-donations" class="tab">
 				   <%= t "goal.donations" %>
 				</a>
+				<% if !current_user_is_achiever?(@achiever) %>
+				<a href="#tab-create-goal" class="tab">
+						Desafiar este amigo
+				</a>
+				<% end %>
 				<hr/>
 				<div id="tab-my-goals" class="content active"> 
-						<div class="my_goals">   
+					<div class="my_goals">   
 						<% my_goals = @achiever.find_active_goals() %>  
 						<% if my_goals && !my_goals.empty? %>
 							<% my_goals.each do |goal| %>   
 						     	<%= render 'goals/box', :goal => goal %>
 					    	<% end %> 
 					 	<%else%>        
-							<p id="warning_information"><%= t('there_are_no_goals')%></p>
+							<% if !current_user_is_achiever?(@achiever) %>
+							  <p id="warning_information">Este amigo ainda não tem goals cadastrados, crie um desafio para ele.</p>
+							  <%= render 'goals/goal_template_form', :achiever_username => @achiever.username%>
+							<% else %>
+							  <p id="warning_information"><%= t('there_are_no_goals')%></p>
+							<% end %>
 						<%end%>
 						</div>
 					</div>
 
 					<div id="tab-goalnections" class="centraliza content clearfix"> 
+						<% if current_user_is_achiever?(@achiever) %>
+						<form class="search" action="/search">
+						  <p id="search_goalnections">Aumente sua Goalnexão apoiando seus amigos:
+						  <input id="q" name="q" type="text" value="<%= params[:q] %>" placeholder="Buscar Amigos"/>
+						  <input type="submit" value="<%= t 'label.search' %>"/></p>
+						</form>			
+						<% end %>
 						<%= render 'achiever/goalnections' %>
 					</div>
 
 					<div id="tab-my-donations" class="centraliza content clearfix"> 
 						<%= render 'achiever/my_donations'%>
+					</div>
+					
+					<div id="tab-create-goal" class="centraliza content clearfix">
+						<%= render 'goals/goal_template_form', :achiever_username => @achiever.username%>
 					</div>
 
 			   </div>

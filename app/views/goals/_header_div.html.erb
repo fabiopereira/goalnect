@@ -27,11 +27,21 @@
 			<hr/>
 		
 		<section id="infos-goal" class="clearfix">
-			<figure id="imagem-goal" class="imagem-goal">	
-				<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
+			<figure id="imagem-goal" class="imagem-goal imagem-goal-header-div">
+					<% if goal.goal_template && goal.goal_template.goal_template_type_id == GoalTemplateType::EVENT.id %>
+					<a href="<%=event_show_path(goal.goal_template.id)%>" target="blank"><%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %></a>
+					<%else%>
+					<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
+					<%end%>
 			</figure>
 			<section class="descricao-goal">
-				<h2 class="titulo-goal"><%= goal.title %></h2>
+				<h5 class="titulo-goal">
+					<% if goal.goal_template && goal.goal_template.goal_template_type_id == GoalTemplateType::EVENT.id %>
+					<a href="<%=event_show_path(goal.goal_template.id)%>" target="blank"><%= goal.title %></a>
+					<%else%>
+					<%= goal.title %>
+					<%end%>
+				</h5>
 				<p id="goal-created-by"><b>
 					<% if goal.owner.id == goal.achiever.id %>
 						<%= t "goal.goal_created_by", :owner => goal.owner.screen_name %>  
@@ -40,7 +50,6 @@
 					<% end %>
 					-  <%= t "goal.due_on" %>: <%= l goal.due_on%>
 				</b></p>
-				<br/>
 				<p id="goal_description_text"><%=raw_scape_html goal.description%></p>
 			</section><!-- /descricao-goal //-->
 		</section><!-- /infos-goal //-->
@@ -52,12 +61,6 @@
 					<%= render "goals/days_left", :goal => goal %>
 				</span>
 				<h5 id="status_message"> <%=raw_scape_xss goal.goalStage.translated_name%></h5>
-				<% if current_user_is_achiever?(@goal.achiever) && @goal.goalStage.id != GoalStage::DONE.id%>
-				 <p class="clearfix">
-					<a href="<%= goal_done_path(@goal.id)%>" class="btn btn-primary"><%=t('goal.done_btn')%></a>
-					<a href="<%= edit_goal_path(@goal.id)%>" class="btn"><%=t('goal.edit_btn')%></a>
-				 </p>
-				<% end %>
 				</div>
 				<div id="junto_duvido_button_div" class="clearfix">
 				<ul id="opt-junto-duvido">					

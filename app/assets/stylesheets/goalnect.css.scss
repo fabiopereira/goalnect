@@ -226,9 +226,18 @@ input[type="color"]:focus,
 	  }
 }
 
+#achiever_header_guide{
+	margin-top: 26px;
+}
+
+#search_goalnections{
+	font-size:14px;
+	margin: 0px 0px 20px 0px;
+}
+
 .box-grande{
     @extend .box;
-    padding: 15px 15px 45px 15px;
+    padding: 15px 15px 30px 15px;
 	margin-bottom:15px;
     p{
         margin-bottom:15px;
@@ -772,4 +781,60 @@ span.donations_list{
 #warning_information{
 	color: $magenta-logo;
 	font-size:14px;
+}
+
+.box-event{
+	border: 2px solid $box-goal-border-color;
+	
+	&:hover{
+	  border: 2px solid $azul-logo;
+	}
+}
+
+#bottom-section .traditional_hr{
+	@extend hr;
+	background-color: #F2F2F2;
+	border: none;
+}
+
+#want_to_join{
+	float:right;
+}
+#want_to_join_show_event{
+	text-align:center
+}
+.bigger_paragraph{
+	font-size:14px;
+}
+.align-center{
+	text-align:center;
+}
+#event-medium{
+	float:left;
+	border: 1px solid $cinza-claro;
+	padding: 5px 5px 5px 5px;
+	margin: 0px 10px 0px 0px;
+}
+
+#event-search{
+	text-align:center;
+	margin: 5px 0px 15px 0px;
+}
+#ativo-img{
+	width:100px;
+}
+#events{
+	margin: 15px 0px 0px 0px;
+}
+
+.box-goal-actions {
+  text-align: center;
+  .btn {
+    width: 110px;
+    margin: 0px 0px 10px 0px;	
+  }
+}
+
+.imagem-goal-header-div{
+	margin-right: 10px;
 }

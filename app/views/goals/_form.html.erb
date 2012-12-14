@@ -29,20 +29,19 @@
 				  </div>
 
 				  <div class="control-group">
-				    <div class="controls" id="description_guide">
-				    </div>
-				  </div>
-
-				  <div class="control-group">
 				    <%= f.label :description, :class => 'control-label' %>
 				    <div class="controls">
-				      <%= f.text_area :description, :class => 'text_area', :rows => '5', :cols => '50', :placeholder => @goal.goal_template ? @goal.goal_template.description : "" %>
+				      <%= f.text_area :description, :class => 'text_area', :rows => '5', :cols => '50', :placeholder => @goal.goal_template ? @goal.goal_template.description_guide : "" %>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <%= f.label :due_on, :class => 'control-label' %>
 				    <div class="controls">
-				      <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year] %>
+					  <% if @goal.goal_template && @goal.goal_template.due_on %>
+				        <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year] , :disabled => "disabled" %>
+					  <% else %>
+				  	    <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year]%>
+					  <% end %>
 				    </div>
 				  </div>
 

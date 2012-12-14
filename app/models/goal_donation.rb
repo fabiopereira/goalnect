@@ -1,7 +1,7 @@
 class GoalDonation < ActiveRecord::Base
   MIN_AMOUNT = 5
   
-  attr_accessible :amount, :goal_id, :message, :user_id, :donor_name, :processed, :created_at, :goalnect_fee, :pagseguro_fee, :goal, :charity_id
+  attr_accessible :amount, :goal_id, :message, :user_id, :donor_name, :processed, :created_at, :updated_at, :goalnect_fee, :pagseguro_fee, :goal, :charity_id
   attr_accessible :current_stage_id
   
   belongs_to :goal, :class_name => 'Goal', :foreign_key => 'goal_id'
@@ -45,6 +45,10 @@ class GoalDonation < ActiveRecord::Base
   
   def self.find_most_recent_donations_by_goal_id goal_id
     GoalDonation.where("goal_id = ? and current_stage_id = ?", goal_id, GoalDonationStage::APPROVED.id).order('id DESC').limit(5)
+  end
+  
+  def self.find_approved_donations_between start_date, end_date
+    GoalDonation.where("current_stage_id = ? and updated_at between ? and ?", GoalDonationStage::APPROVED.id, start_date, end_date)
   end
   
   def self.find_all_to_display_by_goal_id goal_id

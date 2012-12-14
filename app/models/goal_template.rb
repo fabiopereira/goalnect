@@ -1,7 +1,7 @@
 class GoalTemplate < ActiveRecord::Base
   attr_accessible :active, :description, :title, :locale, :image, :due_on, :goal_template_type_id, :description_guide, :publish_home
 
-  validates_presence_of :title, :active, :description, :locale
+  validates_presence_of :title, :description, :locale
   validates_uniqueness_of :title
   
   mount_uploader :image, GoalTemplateImageUploader
@@ -20,6 +20,13 @@ class GoalTemplate < ActiveRecord::Base
   
   def goal_template_type
     GoalTemplateType.find(self.goal_template_type_id)
+  end
+  
+  def top_10_goals
+    goals = Goal.find_all_by_goal_template_id(self.id)
+    # goals.sort_by{|e| -e[:raised_so_far]}
+    #          .first(2)
+    goals
   end
   
 end

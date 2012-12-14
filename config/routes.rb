@@ -32,6 +32,9 @@ Goalnect::Application.routes.draw do
     end 
   end
   
+  match '/events' => 'goal_templates#events'
+  match '/events/:event_id' => 'goal_templates#show_event'
+  
   match '/search' => 'search#search'
   match '/search/:q' => 'search#search'
   
@@ -79,6 +82,11 @@ Goalnect::Application.routes.draw do
   match '/explore/goals' => 'explore#goals'
   match '/explore/goals/:goal_query' => 'explore#goals'
   
+  match '/send_emails' => 'email_sender#send_mail_page'
+  match '/send_emails/for_donation_received' => 'email_sender#for_donation_received'
+  match '/send_emails/for_goal_without_donations' => 'email_sender#for_goal_without_donations'
+  
+  
   match '/:user_username' => 'achiever#view'
 
   match '/:user_username/points_statement' => 'points#points_statement'
@@ -99,6 +107,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/report_abuse/:goal_id' => 'goals#report_abuse'
   match '/goals/add_comment/:goal_id' => 'goals#add_comment'
   match '/goals/goal_done/:goal_id' => 'goals#goal_done'
+  match '/goals/goal_abandoned/:goal_id' => 'goals#goal_abandoned'
   match '/:user_username/:goal_id' => 'goals#show'
   match '/goals/edit/:goal_id' => 'goals#edit'
   match '/goals/update/:goal_id' => 'goals#update'
