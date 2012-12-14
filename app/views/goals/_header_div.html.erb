@@ -27,11 +27,21 @@
 			<hr/>
 		
 		<section id="infos-goal" class="clearfix">
-			<figure id="imagem-goal" class="imagem-goal imagem-goal-header-div">	
-				<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
+			<figure id="imagem-goal" class="imagem-goal imagem-goal-header-div">
+					<% if goal.goal_template && goal.goal_template.goal_template_type_id == GoalTemplateType::EVENT.id %>
+					<a href="<%=event_show_path(goal.goal_template.id)%>" target="blank"><%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %></a>
+					<%else%>
+					<%= img_tag_null_safe 'GoalTemplate', @goal.goal_template, :thumb %>
+					<%end%>
 			</figure>
 			<section class="descricao-goal">
-				<h5 class="titulo-goal"><%= goal.title %></h5>
+				<h5 class="titulo-goal">
+					<% if goal.goal_template && goal.goal_template.goal_template_type_id == GoalTemplateType::EVENT.id %>
+					<a href="<%=event_show_path(goal.goal_template.id)%>" target="blank"><%= goal.title %></a>
+					<%else%>
+					<%= goal.title %>
+					<%end%>
+				</h5>
 				<p id="goal-created-by"><b>
 					<% if goal.owner.id == goal.achiever.id %>
 						<%= t "goal.goal_created_by", :owner => goal.owner.screen_name %>  
