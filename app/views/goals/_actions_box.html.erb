@@ -1,0 +1,11 @@
+<% if current_user_is_achiever?(goal.achiever) && goal.goalStage.id == GoalStage::JUST_STARTED.id%>
+<article class="box-pequeno box-goal-actions">
+	<p class="bigger_paragraph"><%= t 'goal_menu' %></p>
+	<hr/>
+
+	<div><a href="<%= edit_goal_path(goal.id)%>" class="btn"><%=t('goal.edit_btn')%></a></div>
+	<div><a href="<%= goal_done_path(goal.id)%>" class="btn btn-primary"><%=t('goal.done_btn')%></a></div>
+	<div><a href="<%= goal_abandoned_path(goal.id)%>" class="btn btn-danger"><%=t('goal.abandon_btn')%></a></div>
+
+</article><!-- /box-pequeno //-->
+<% end %>

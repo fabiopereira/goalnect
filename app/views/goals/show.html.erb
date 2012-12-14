@@ -17,7 +17,11 @@ $(function() {
 <% meta :description => title_facebook_for_goal(@goal),
         :keywords => "#{@goal.title}, #{t('seo.home_keywords')}" %>
 
-<%= render 'achiever/achiever_profile', :achiever => @goal.achiever %>
+<div class="coluna1">
+	<%= render '/achiever/box', :achiever => @goal.achiever %>     
+	<%= render '/goals/actions_box', :goal => @goal %>  
+</div><!-- /coluna1 //-->
+		
 <%= render 'goals/header_div', :goal => @goal %>
 </div>
 <section id="bottom-section">

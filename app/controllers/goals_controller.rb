@@ -92,6 +92,14 @@ class GoalsController < ApplicationController
   end
   
   def goal_done
+    goal_change_status GoalStage::DONE, t("goal_done.goal_created_successful_messge") ,t("goal_done.failed_to_set_goal_status_done")
+  end
+  
+  def goal_abandoned
+    goal_change_status GoalStage::ABANDONED, t("goal_abandoned_message") ,t("failed_to_set_goal_as_abandoned")
+  end
+  
+  def goal_change_status goal_stage, successful_msg, fail_msg
     @goal = Goal.find_by_id(params[:goal_id])
     if @goal.achiever.id != current_user.id
       @goal.errors[:achiever_id] << t('goal_done.you_are_not_achiever_error_msg')
@@ -99,14 +107,14 @@ class GoalsController < ApplicationController
     if GoalStage::DONE == @goal.goalStage
       @goal.errors[:goal_stage_id] << t('goal_done.goal_is_already_done_error_msg')
     end
-    @goal.goal_stage_id = GoalStage::DONE.id
+    @goal.goal_stage_id = goal_stage.id
     @goal.goal_stage_changed_at = Time.now
     respond_to do |format|
       if @goal.errors.empty? && @goal.save
-        format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: t("goal_done.goal_created_successful_messge") }
+        format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), notice: successful_msg }
       else
-        Goalog.info "#{t("goal_done.failed_to_set_goal_status_done")} => #{YAML::dump(@goal.errors)}"
-        format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), alert: t("goal_done.failed_to_set_goal_status_done") }
+        Goalog.info "#{fail_msg} => #{YAML::dump(@goal.errors)}"
+        format.html { redirect_to show_goal_path(@goal.achiever.username, @goal.id), alert: fail_msg }
       end
     end
   end

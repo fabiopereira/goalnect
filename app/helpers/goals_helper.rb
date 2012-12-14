@@ -66,4 +66,8 @@ module GoalsHelper
   def goal_done_path(goal_id)
     "/goals/goal_done/#{goal_id}"
   end
+  
+  def goal_abandoned_path(goal_id)
+    "/goals/goal_abandoned/#{goal_id}"
+  end
 end

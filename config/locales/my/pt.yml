@@ -98,8 +98,9 @@ pt:
     goal_created_by: "Goal criado por %{owner}"
     dare_created_by: "Desafio criado por %{owner}"
     not_possible_to_change_charity_msg: "Não é permitido alterar a ONG, pois este goal ja possui doações."
-    done_btn: "Já atingiu esta meta? Clique aqui"
-    edit_btn: "Editar Goal"
+    done_btn: "Concluir Goal "
+    edit_btn: " Editar Goal  "
+    abandon_btn: "Abandonar Goal"
     goalnections: "Goalnexões"
     donations: "Doações Realizadas"
     backers: "Apoiadores"
@@ -363,3 +364,12 @@ pt:
   events:
       event_helping_who_need: Participe de um evento ajudando uma causa
       search: Buscar Eventos
+      events: Eventos
+      join_event_btn: Quero participar deste evento ajudando uma causa
+      didnt_find_event: Não encontrou o evento que irá participar? Crie uma meta personalizada
+      no_result_found: A busca não retornou nenhum resultado.
+      goalnect_dont_register_you_to_the_event: "O Goalnect permite que você crie uma página para arrecadar doações para uma instituição como forma de patrocínio/incentivo por estar participando do evento, mas não realiza a inscrição no evento, para realizar a inscrição acesse"
+      date: "Data:"  
+
+  goal_abandoned_message: "Poxa que pena.. o Goal foi abandonado, tente mais da próxima vez ;)"
+  failed_to_set_goal_as_abandoned: "Houve um problema ao abandonar o Goal, por favor tente novamente mais tarde."

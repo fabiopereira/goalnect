@@ -107,6 +107,7 @@ Goalnect::Application.routes.draw do
   match '/:user_username/goals/report_abuse/:goal_id' => 'goals#report_abuse'
   match '/goals/add_comment/:goal_id' => 'goals#add_comment'
   match '/goals/goal_done/:goal_id' => 'goals#goal_done'
+  match '/goals/goal_abandoned/:goal_id' => 'goals#goal_abandoned'
   match '/:user_username/:goal_id' => 'goals#show'
   match '/goals/edit/:goal_id' => 'goals#edit'
   match '/goals/update/:goal_id' => 'goals#update'

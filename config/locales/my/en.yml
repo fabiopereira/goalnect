@@ -301,4 +301,13 @@ en:
     goal_doesnt_belong_to_achiever: "This goal doesn't belong to this user."     
   events:
     event_helping_who_need: Join an event helping people who need    
-    search: Search Event                 
+    search: Search Event
+    events: Events
+    join_event_btn: "I want to join this event helping people who need"             
+    didnt_find_event: "Didn't find the event you were looking for? Create your own goal "
+    no_result_found: "Results not found"
+    goalnect_dont_register_you_to_the_event: "Goalnect allows you create a page to raise donation for a charity, as a sponsorship/incentive to join the event, but Goalnect doens't register you to the event, click here to register"
+    date: "Date:"
+    
+  goal_abandoned_message: "Oh noo..Goal was abandoned... try more next time! ;)"
+  failed_to_set_goal_as_abandoned: "There was a problem to abandon the goal, please try again later."    
