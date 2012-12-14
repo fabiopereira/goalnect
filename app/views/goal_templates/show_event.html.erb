@@ -4,19 +4,15 @@
 	<article class="box-pequeno">
 		<figure>	
 			<a href="<%= event_show_path(@event.id)%>" >
-		        <%= img_tag @event, :thumb %>
+		        <%= image_tag @event.image_url(:thumb) , :id => "event-img" %>
 		    </a>
 		</figure>
 		<hr/>
 		<p class="bigger_paragraph align-center">
-			Data: <%= @event.due_on%>
+			<b>Data: <%= @event.due_on%></b>
 		</p>
-		
-		<% today = Date.today %>
-		<% if @event.due_on > today %>
 		<hr/>
-		<p id="want_to_join"><a href='<%=commit_to_event_path(@event.title)%>' class="btn btn-success"><%= t('events.join_event_btn')%></a></p>
-		<%end%>
+		<p class="align-center"><%= t('events.for_more_info')%><a href="http://www.ativo.com/eventos" target="blank"><%=image_tag 'logo_ativo.com_H.jpg' ,:id => 'ativo-img'%></a></p>		
 	</article><!-- /box-pequeno //-->
 	</div>
 	
@@ -30,30 +26,15 @@
 				<p class="new_goal_charity_description" id="goal_description_text"> 
 					<%=raw_scape_xss(@event.description) %>
 				</p>
+				<% today = Date.today %>
+				<% if @event.due_on > today %>
 				<hr/>
-				<section class="donations-summary">
-					<div id="donation-amount">
-						<figure>
-							<%= image_tag 'raised-amount-thumbmedium.png' %>
-						</figure>
-						<p id="raised_so_far"><%=raw_scape_xss(t "charity_page.raised", :raised_amount => @event.id)%></p>
-					</div>
-					<div id="how-many-people">
-						<figure>
-							<%= image_tag 'features.apoie-se_em_amigos_thumbmedium.png' %>
-						</figure>
-						<p><%=raw_scape_xss(t "charity_page.people_contribution", :people_count => @event.id)%>
-					</div>
-					<div id="how-many-goals">
-						<figure>
-							<%= image_tag 'features.atinja_suas_metas_thumbmedium.png' %>
-						</figure>
-						<p><%=raw_scape_xss(t "charity_page.through_goal", :goal_count => @event.id)%>
-					</div>
-				</section>
+				<p id="want_to_join_show_event"><a href='<%=commit_to_event_path(@event.title)%>' class="btn btn-success"><%= t('events.join_event_btn')%></a></p>
+				<%end%>
 				<hr/>
-				<section class="goal-social-plugins">
+				<section class="goal-social-plugins clearfix">
 					<%= render 'layouts/social_plugins', :text => @event.title %>
+					<a class="btn btn-primary goal_facebook_btn " onclick='postToFeed("<%= current_url %>", "<%= title_facebook_for_event @event %>","<%=close_fb_popup_path%>", "#event-img"); return false;'><%=t('goal.post_on_facebook_btn')%></a>
 				</section>
 			</section><!-- /descricao-goal //-->
 		</div>
