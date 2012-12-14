@@ -1,0 +1,5 @@
+ültimos usuarios cadastrados
+http://www.goalnect.com/admin/users?order=created_at_desc
+
+ültimas doações
+http://www.goalnect.com/admin/goal_donations?order=created_at_desc
