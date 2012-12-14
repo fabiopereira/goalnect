@@ -783,14 +783,6 @@ span.donations_list{
 	font-size:14px;
 }
 
-.box-event{
-	border: 2px solid $box-goal-border-color;
-	
-	&:hover{
-	  border: 2px solid $azul-logo;
-	}
-}
-
 #bottom-section .traditional_hr{
 	@extend hr;
 	background-color: #F2F2F2;
@@ -800,31 +792,14 @@ span.donations_list{
 #want_to_join{
 	float:right;
 }
-#want_to_join_show_event{
-	text-align:center
-}
 .bigger_paragraph{
 	font-size:14px;
 }
 .align-center{
 	text-align:center;
 }
-#event-medium{
-	float:left;
-	border: 1px solid $cinza-claro;
-	padding: 5px 5px 5px 5px;
-	margin: 0px 10px 0px 0px;
-}
-
-#event-search{
-	text-align:center;
-	margin: 5px 0px 15px 0px;
-}
 #ativo-img{
 	width:100px;
-}
-#events{
-	margin: 15px 0px 0px 0px;
 }
 
 .box-goal-actions {

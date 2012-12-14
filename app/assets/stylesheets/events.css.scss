@@ -1,0 +1,30 @@
+#event_q {
+  width: 800px;
+}
+
+.box-event{
+	border: 2px solid $box-goal-border-color;
+	
+	&:hover{
+	  border: 2px solid $azul-logo;
+	}
+}
+
+#want_to_join_show_event{
+	text-align:center
+}
+
+#event-medium{
+	float:left;
+	border: 1px solid $cinza-claro;
+	padding: 5px 5px 5px 5px;
+	margin: 0px 10px 0px 0px;
+}
+
+#event-search{
+	text-align:center;
+	margin: 5px 0px 15px 0px;
+}
+#events{
+	margin: 15px 0px 0px 0px;
+}
