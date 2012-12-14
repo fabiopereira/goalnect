@@ -370,7 +370,7 @@ pt:
       no_result_found: A busca não retornou nenhum resultado.
       goalnect_dont_register_you_to_the_event: "O Goalnect permite que você crie uma página para arrecadar doações para uma instituição como forma de patrocínio/incentivo por estar participando do evento, mas não realiza a inscrição no evento, para realizar a inscrição acesse"
       date: "Data:"  
-      post_on_facebook_title: "Participe do evento '%{event_title}' ajudando uma causa"
+      post_on_facebook_title: "Participe do evento %{event_title} ajudando uma causa"
       for_more_info: "Para mais informações:"
 
   goal_abandoned_message: "Poxa que pena.. o Goal foi abandonado, tente mais da próxima vez ;)"

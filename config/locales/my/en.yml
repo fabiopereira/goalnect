@@ -308,7 +308,7 @@ en:
     no_result_found: "Results not found"
     goalnect_dont_register_you_to_the_event: "Goalnect allows you create a page to raise donation for a charity, as a sponsorship/incentive to join the event, but Goalnect doens't register you to the event, click here to register"
     date: "Date:"
-    post_on_facebook_title: "Join the event '%{event_title}' helping people who need"
+    post_on_facebook_title: "Join the event %{event_title} helping people who need"
     for_more_info: "For more information access:"
     
   goal_abandoned_message: "Oh noo..Goal was abandoned... try more next time! ;)"
