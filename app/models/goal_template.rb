@@ -1,7 +1,7 @@
 class GoalTemplate < ActiveRecord::Base
   attr_accessible :active, :description, :title, :locale, :image, :due_on, :goal_template_type_id, :description_guide, :publish_home
 
-  validates_presence_of :title, :active, :description, :locale
+  validates_presence_of :title, :description, :locale
   validates_uniqueness_of :title
   
   mount_uploader :image, GoalTemplateImageUploader
