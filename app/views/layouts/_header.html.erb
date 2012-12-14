@@ -8,6 +8,7 @@
 	<nav id="menu">
 		<ul>
 			<li> <%= link_to t('goals'), "/explore/goals" %> </li>
+			<li> <%= link_to "Eventos", "/events" %> </li>
 			<li> <%= link_to t("static.howitworks"), "/s/faq" %> </li>
 			
 			<% Togg.le(:feature_sign_in) do %>

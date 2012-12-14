@@ -22,4 +22,10 @@ class GoalTemplate < ActiveRecord::Base
     GoalTemplateType.find(self.goal_template_type_id)
   end
   
+  def top_10_goals
+    goals = Goal.find_all_by_goal_template_id(self.id)
+    goals.sort_by{|e| -e[:raised_so_far]}
+         .first(2)
+  end
+  
 end

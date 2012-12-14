@@ -1,0 +1,30 @@
+<h1><%= t "events.event_helping_who_need" %></h1>
+
+  <div id="event-search">
+	<form class="search" action="/events">
+      <input id="event_q" name="event_q" type="text" value="<%= params[:event_q] %>" placeholder="<%= t 'events.search' %>"/>
+      <input type="submit" value="<%= t 'label.search' %>"/>
+    </form>
+  </div>
+
+</div>
+
+<section id="bottom-section" clear="" >
+  <div class="centraliza clearfix">
+	<p class="bigger_paragraph">O Goalnect permite que você crie uma página para arrecadar doações para uma instituição como forma de patrocínio/incentivo por estar participando do evento, mas não realiza a inscrição no evento, para realizar a inscrição vá para <a href="http://www.ativo.com/eventos" target="blank"><%=image_tag 'selo_inscricao4.jpg' ,:id => 'ativo-img'%></a></p>
+	<div id="events">
+	  <% if @events && !@events.empty? %>
+	    <% @events.each do |event| %>
+          <%= render 'goal_templates/event_box', :event => event %>
+        <% end %>
+      <% else %>
+		<p id="warning_information">A busca não retornou nenhum resultado.</p>
+	  <% end %>
+	</div>
+    <hr class="traditional_hr">
+    <p class="bigger_paragraph">Não encontrou o evento que irá participar? Crie uma meta personalizada <a href="/goals/new"> aqui</a></p> 
+ </div>
+ 
+</section>
+
+<div>

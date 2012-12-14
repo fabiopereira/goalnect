@@ -359,3 +359,7 @@ pt:
       area_restricted_to_achiever: "Esta área é restrita para o Goalnectador"   
       goal_has_been_reported: "Goal está inativo, foi reportado abuso"
       goal_doesnt_belong_to_achiever: "Este goal não pertence a este usuário."
+  
+  events:
+      event_helping_who_need: Participe de um evento ajudando uma causa
+      search: Buscar Eventos

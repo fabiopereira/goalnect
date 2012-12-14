@@ -32,6 +32,9 @@ Goalnect::Application.routes.draw do
     end 
   end
   
+  match '/events' => 'goal_templates#events'
+  match '/events/:event_id' => 'goal_templates#show_event'
+  
   match '/search' => 'search#search'
   match '/search/:q' => 'search#search'
   
