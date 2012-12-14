@@ -49,7 +49,7 @@
 		<% top_10_goals = @event.top_10_goals %>
 		<% if top_10_goals && !top_10_goals.empty?%>
 			<% top_10_goals.each do |goal| %>   
-	     		<%= render 'goals/box', :goal => goal %>
+	     		<%= render 'goals/box', :goal => goal, :first_img => :achiever %>
     			<% end %>
 		<% else %>
 			<%=t "events.no_goals_message"%>
