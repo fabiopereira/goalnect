@@ -30,6 +30,7 @@
 				<% if @event.due_on > today %>
 				<hr/>
 				<p id="want_to_join_show_event"><a href='<%=commit_to_event_path(@event.title)%>' class="btn btn-success"><%= t('events.join_event_btn')%></a></p>
+				<p class="bigger_paragraph"><%= t('events.goalnect_dont_register_you_to_the_event')%> <a href="http://www.ativo.com/eventos" target="blank"><%=image_tag 'selo_inscricao4.jpg' ,:id => 'ativo-img'%></a></p>
 				<%end%>
 				<hr/>
 				<section class="goal-social-plugins clearfix">

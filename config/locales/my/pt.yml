@@ -239,7 +239,7 @@ pt:
   point_summary_active: "<strong>%{active_pts}</strong> pontos"
   backers: "<strong>%{backers}</strong> apoiadores"
   agreed_terms: Ao me cadastrar concordo com os
-  goal_created_successful_messge: "Goal criado com sucesso."
+  goal_created_successful_messge: "Goal criado com sucesso, divulgue sua meta para seus amigos (mande o link desta página para eles), lembre-se a melhor forma de arrecadar doações é no boca boca, no contato direto. ;)"
   dare_created_successful_messge: "Desafio criado com sucesso, aguardando aceitação..."
   charity_is_not_active: "ONG não está ativa"
   updates: "Atualizações"
