@@ -171,6 +171,7 @@ pt:
   points: Pontos        
   know_our_charities: Conheça nossas causas
   label:
+    view_who_supports: Veja oq acham
     search: Buscar Amigos/ONGs
     commit_to_a_goal: "Eu quero..."
     wants: quer

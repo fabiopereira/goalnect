@@ -30,6 +30,7 @@ en:
   explained:
     username: "You can choose your goalnect page url"
   label:
+    view_who_supports: See what they think
     search: Search
     commit_to_a_goal: "I want to..."
     wants: wants

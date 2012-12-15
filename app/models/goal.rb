@@ -138,10 +138,6 @@ class Goal < ActiveRecord::Base
     supports_from_boolean(false)
   end
   
-  def support_names_csv support
-    support_names(support).join(",")
-  end
-  
   def how_many_believe
     supports_from_boolean(true).length
   end

@@ -80,7 +80,7 @@ $(function() {
    $( "#support-dialog" ).dialog({
       autoOpen: false,
       hide: "explode",
-	  width: "580px"
+	  width: "585px"
    });
  
    $( "#view_supports" ).click(function(e) {
