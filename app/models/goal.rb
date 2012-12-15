@@ -130,6 +130,14 @@ class Goal < ActiveRecord::Base
     supports_from_boolean(support).map{|goal_support| goal_support.user.screen_name }
   end
   
+  def list_support_true
+    supports_from_boolean(true)
+  end
+  
+  def list_support_false
+    supports_from_boolean(false)
+  end
+  
   def support_names_csv support
     support_names(support).join(",")
   end

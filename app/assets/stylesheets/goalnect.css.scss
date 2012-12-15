@@ -813,3 +813,35 @@ span.donations_list{
 .imagem-goal-header-div{
 	margin-right: 10px;
 }
+
+
+div.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix{
+	border: 1px solid $box-goal-border-color;
+    background: $box-goal-border-color;
+    color: $azul-logo;
+    font-weight: bold;
+}
+
+#believe-box{
+	width: 250px;
+	float:left;
+	margin: 0px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+	border: 2px solid $box-goal-border-color;
+	.user-thumbmini{
+	   float:left;
+	   margin: 0px 10px 10px 0px;
+	}
+	p{
+		margin-top:10px;
+	}
+}
+#doubt-box{
+  @extend #believe-box;
+  h3{
+    color: $magenta-logo;
+  }
+}
+#view_supports{
+	margin: 0px 0px 0px 22px;
+}

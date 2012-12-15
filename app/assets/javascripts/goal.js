@@ -74,3 +74,18 @@ enable_due_on_date = function(){
 	$('#goal_due_on_2i').prop('disabled', false);
 	$('#goal_due_on_1i').prop('disabled', false);
 }
+
+$.fx.speeds._default = 1000;
+$(function() {
+   $( "#support-dialog" ).dialog({
+      autoOpen: false,
+      hide: "explode",
+	  width: "580px"
+   });
+ 
+   $( "#view_supports" ).click(function(e) {
+	  e.preventDefault(); 
+      $( "#support-dialog" ).dialog( "open" );
+      return false;
+   });
+});

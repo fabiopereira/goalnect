@@ -1,0 +1,24 @@
+<div id="support-box">
+<div id="support-dialog" title="Opiniões">
+  <div id="believe-box">
+    <h3>Acreditam:</h3>
+    <hr/>
+    <% goal.list_support_true.each do |support| %>
+	  <div class="clearfix">
+  	    <%= user_image support.user, :thumbmini %> <p><%= support.user.screen_name %></p>
+      </div> 
+    <% end%>
+  </div>  
+
+  <div id="doubt-box">
+    <h3 class="doubt">Duvidam:</h3>
+    <hr/>
+    <% goal.list_support_false.each do |support| %>
+	  <div class="clearfix">
+  	  <%= user_image support.user, :thumbmini %> <p><%= support.user.screen_name %></p>
+	  </div>
+    <% end%>
+  </div>
+</div>
+</div>
+<a id="view_supports" href="#">Visualizar Opiniões</a>
