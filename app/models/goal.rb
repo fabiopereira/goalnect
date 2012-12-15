@@ -122,12 +122,24 @@ class Goal < ActiveRecord::Base
     goal_supports.detect { |s| s.user_id == current_user.id} if current_user
   end
   
+  def supports_from_boolean support
+    goal_supports.select { |x| x.i_support == support }
+  end
+  
+  def support_names support
+    supports_from_boolean(support).map{|goal_support| goal_support.user.screen_name }
+  end
+  
+  def support_names_csv support
+    support_names(support).join(",")
+  end
+  
   def how_many_believe
-    goal_supports.select { |x| x.i_support }.length
+    supports_from_boolean(true).length
   end
   
   def how_many_dont_believe
-    goal_supports.select { |x| !x.i_support }.length
+    supports_from_boolean(false).length
   end
   
   def raised_so_far
