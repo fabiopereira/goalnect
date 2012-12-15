@@ -5,7 +5,12 @@
     <hr/>
     <% goal.list_support_true.each do |support| %>
 	  <div class="clearfix">
-  	    <%= user_image support.user, :thumbmini %> <p><%= support.user.screen_name %></p>
+		<a href="<%= support.user.full_url %>" >
+		<div class="img_user_thumbmini_div">
+  	    	<%= user_image support.user, :thumbmini %>
+		</div>
+		</a>
+        <p><%= support.user.screen_name %></p>
       </div> 
     <% end%>
   </div>  
@@ -15,7 +20,12 @@
     <hr/>
     <% goal.list_support_false.each do |support| %>
 	  <div class="clearfix">
-  	  <%= user_image support.user, :thumbmini %> <p><%= support.user.screen_name %></p>
+		<a href="<%= support.user.full_url %>" >
+		<div class="img_user_thumbmini_div">
+  	      <%= user_image support.user, :thumbmini %> 
+        </div>
+		</a>
+        <p><%= support.user.screen_name %></p>
 	  </div>
     <% end%>
   </div>
