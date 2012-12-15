@@ -20,10 +20,10 @@ class GoalTemplatesController < ApplicationController
   
   def events
     today = Date.today
-    if params[:event_q]
-      @events = GoalTemplate.find(:all, :conditions => ["due_on >= ? and goal_template_type_id = ? and active = ? and LOWER(title) like ?", today, GoalTemplateType::EVENT.id, true, "%#{params[:event_q].downcase}%"])
+    if params[:event_q] && !params[:event_q].blank?
+      @events = GoalTemplate.search_active_events params[:event_q]
     else
-      @events = GoalTemplate.find(:all, :conditions => ["due_on >= ? and goal_template_type_id = ?  and active = ?", today, GoalTemplateType::EVENT.id, true])
+      @events = GoalTemplate.find_all_active_events
     end
   end
   
