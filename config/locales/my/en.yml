@@ -140,6 +140,7 @@ en:
   agreed_terms: "I read and agreed with the"
   goal_created_successful_messge: "Goal was successfully created."
   dare_created_successful_messge: "Dare was successfully created, waiting for acceptance..."
+  goal_was_updated_msg: "Goal was successfully updated."
   charity_is_not_active: "Charity is not active"
   updates: "Updates"
   comments: "Comments"

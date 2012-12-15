@@ -203,7 +203,7 @@ class GoalsController < ApplicationController
     @achiever = @goal.achiever
     respond_to do |format|
       if @goal.update_attributes(params[:goal])
-        format.html { redirect_to show_goal_path(@achiever.username, @goal.id), notice: 'Goal was successfully updated.'}
+        format.html { redirect_to show_goal_path(@achiever.username, @goal.id), notice: t('goal_was_updated_msg')}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
