@@ -67,7 +67,7 @@
 					<% current_user_support = goal.support_for(current_user)	%>
 					  <li>
 						<a href="<%= i_support_goal_path(goal.achiever.username, goal.id)  %>" 
-							title="<%= (current_user_support.present? and current_user_support.i_support) ? "#{t('including_you')}." : t("what_do_you_think") %> <%= goal.support_names_csv(true) %>" 
+							title="<%= (current_user_support.present? and current_user_support.i_support) ? "#{t('including_you')}." : t("what_do_you_think") %>" 
 							class="sprite botao-tamo-junto tiptip" 
 							id="i_support_true_button">
 					    <span class="qte" id="i_support_count_true">
@@ -81,7 +81,7 @@
 						  
 					  <li>
 						<a href="<%= i_dont_support_path(goal.achiever.username, goal.id) %>" 
-							title="<%= (current_user_support.present? and !current_user_support.i_support) ? "#{t('including_you')}." : t("what_do_you_think") %> <%= goal.support_names_csv(false) %>" 
+							title="<%= (current_user_support.present? and !current_user_support.i_support) ? "#{t('including_you')}." : t("what_do_you_think") %>" 
 							class="sprite botao-duvido tiptip" 
 							id="i_support_false_button">
 						 <span class="qte" id="i_support_count_false">

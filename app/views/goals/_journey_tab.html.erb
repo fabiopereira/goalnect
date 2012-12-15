@@ -74,11 +74,17 @@
 		<% goal_donations.each do |goal_donation| %>
 		<article class="donation clearfix">
 			<figure class="donation_donor">
-				<a href="<%= goal_donation.user.full_url %>" >
-				<div class="img_user_thumbmini_div">
-				<%= user_image goal_donation.user, :thumbmini%>
-				</div>
-				</a>
+				<% if goal_donation.user %>
+				  <a href="<%= goal_donation.user.full_url %>" >
+				    <div class="img_user_thumbmini_div">
+				      <%= user_image goal_donation.user, :thumbmini%>
+				    </div>
+				   </a>
+				<% else %>
+				   <div class="img_user_thumbmini_div">
+				      <%= user_image goal_donation.user, :thumbmini%>
+				   </div>
+				<% end %>
 			</figure>
 			<div class="donation_desc">
 				<p><%=raw_scape_xss t('donated', :name => goal_donation.donor_name, :amount => goal_donation.amount)%>
