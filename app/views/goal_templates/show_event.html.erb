@@ -4,7 +4,7 @@
 	<article class="box-pequeno">
 		<figure id="event-img">	
 			<a href="<%= event_show_path(@event.id)%>" >
-		        <%= image_tag @event.image_url(:thumb)  %>
+		       <%= img_tag event, :thumb %>
 		    </a>
 		</figure>
 		<hr/>
