@@ -814,6 +814,9 @@ span.donations_list{
 	margin-right: 10px;
 }
 
+#view_supports{
+	margin: 0px 0px 0px 22px;
+}
 
 div.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix{
 	border: 1px solid $box-goal-border-color;
@@ -822,7 +825,13 @@ div.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix{
     font-weight: bold;
 }
 
-#believe-box{
+
+
+#support-dialog {
+ overflow: auto;
+ max-height: 300px;   
+ }
+ #believe-box{
 	width: 250px;
 	float:left;
 	margin: 0px 5px 5px 5px;
@@ -834,14 +843,13 @@ div.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix{
 	}
 	p{
 		margin-top:10px;
-	}
-}
-#doubt-box{
-  @extend #believe-box;
-  h3{
-    color: $magenta-logo;
+ 	}
   }
-}
-#view_supports{
-	margin: 0px 0px 0px 22px;
-}
+
+  #doubt-box{
+    @extend #believe-box;
+    h3{
+      color: $magenta-logo;
+    } 
+  }
+
