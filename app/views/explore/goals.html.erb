@@ -11,12 +11,17 @@
 	<h4>Veja outros:</h4>
 	<hr/>
 	<div><%= link_to 'Selecionados', '/explore/goals' %></div>
+	<div><%= link_to 'Personalizados', '/explore/goals/no_goal_template' %></div>
 	<hr/>
-	<% GoalTemplate.all_active_current_locale.each do |goal_template| %>
+	<% GoalTemplate.all_active_exclude_events_current_locale.each do |goal_template| %>
 	  <div><%= link_to goal_template.title, "/explore/goals/#{goal_template.title}" %></div>
 	<% end %>
 	<hr/>
-	<div><%= link_to 'Personalizados', '/explore/goals/no_goal_template' %></div>
+	<h4><%= t 'events.events' %>:</h4>
+	<hr/>
+	<% GoalTemplate.all_active_event_current_locale.each do |goal_template| %>
+	  <div><%= link_to goal_template.title, "/explore/goals/#{goal_template.title}" %></div>
+	<% end %>
 </article>
 </div>
 

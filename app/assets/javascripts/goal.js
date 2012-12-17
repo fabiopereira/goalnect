@@ -79,7 +79,6 @@ $.fx.speeds._default = 1000;
 $(function() {
    $( "#support-dialog" ).dialog({
       autoOpen: false,
-      hide: "explode",
 	  width: "585px"
    });
  
