@@ -59,10 +59,12 @@ class Goal < ActiveRecord::Base
   end
 
   scope :active, where('goal_stage_id not in (:inactive)', {:inactive => GoalStage.inactive_stages_id})
+  scope :in_progress_stages, where('goal_stage_id in (:in_progress_stages)', {:in_progress_stages => GoalStage.in_progress_stages})
+  scope :latest_in_progress, in_progress_stages.order('id desc')
   scope :latest, active.order('id desc')
   scope :landing_limit, limit(4)
   scope :explore_limit, limit(3)
-  scope :landing, latest.landing_limit
+  scope :landing, latest_in_progress.landing_limit
   scope :no_goal_template, active.limit(30).where('goal_template_id is null')
   scope :random_scope, active.order('random()')
     
