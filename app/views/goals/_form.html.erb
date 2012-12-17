@@ -40,7 +40,7 @@
 					  <% if @goal.goal_template && @goal.goal_template.due_on %>
 				        <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year] , :disabled => "disabled" %>
 					  <% else %>
-				  	    <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year]%>
+				  	    <%= f.date_select :due_on, :class => 'date_select', :order => [:day, :month, :year], :start_year => Time.now.year, :end_year => (Time.now.year + 1)%>
 					  <% end %>
 				    </div>
 				  </div>
