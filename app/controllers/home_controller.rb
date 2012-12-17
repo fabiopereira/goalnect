@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @goals = Goal.landing
+    @events = GoalTemplate.find_up_coming_events
     respond_to do |format|
       format.html 
     end
