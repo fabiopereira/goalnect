@@ -57,6 +57,7 @@ FactoryGirl.define do
     description {|g| "My Goal is to complete #{g.title}, blah blah" }
     locale Country::AUSTRALIA.locale
     active true
+    goal_template_type_id GoalTemplateType::STANDARD.id
   end
 end
 

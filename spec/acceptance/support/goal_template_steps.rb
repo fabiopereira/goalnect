@@ -6,7 +6,10 @@ module GoalTemplateSteps
 	def ensure_goal_template_exists title
 	  goal_template = GoalTemplate.find_by_title_and_active title, true
 	  unless goal_template
-	    FactoryGirl.create(:goal_template, title: title, locale: I18n.locale.to_s)
+	    FactoryGirl.create(:goal_template, title: title, locale: 'en')
+  	  goal_template = GoalTemplate.find_by_title_and_active title, true
+  	  goal_template.should_not be_nil
+  	  goal_template
 	  end
 	end
 	

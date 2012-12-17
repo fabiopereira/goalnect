@@ -4,7 +4,7 @@ en:
   devise:
     sessions:
       sign_in: 'Sign in'
-      sign_in_btn: 'Or sign in!'
+      sign_in_btn: 'Sign in!'
       sign_in_subtitle: "Sign in with your account"
       facebook_sign_in: "It is quickier and easier"
       facebook_sign_in_subtitle: 'Just click on "Login with facebook"'

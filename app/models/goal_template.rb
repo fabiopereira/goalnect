@@ -7,8 +7,8 @@ class GoalTemplate < ActiveRecord::Base
   mount_uploader :image, GoalTemplateImageUploader
   
   def self.all_active_exclude_events_current_locale
-    GoalTemplate.where("active = ? and locale = ? and goal_template_type_id = ?", 
-                            true, I18n.locale.to_s, GoalTemplateType::STANDARD.id)
+    GoalTemplate.where("active = ? and locale = ? and goal_template_type_id != ?", 
+                            true, I18n.locale.to_s, GoalTemplateType::EVENT.id)
   end
   
   def self.all_active_current_locale
