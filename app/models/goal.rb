@@ -62,7 +62,7 @@ class Goal < ActiveRecord::Base
   scope :in_progress_stages, where('goal_stage_id in (:in_progress_stages)', {:in_progress_stages => GoalStage.in_progress_stages})
   scope :latest_in_progress, in_progress_stages.order('id desc')
   scope :latest, active.order('id desc')
-  scope :publish_home, where('publish_home is null or publish_home = true')
+  scope :publish_home, where('publish_home = true')
   scope :landing_limit, limit(4)
   scope :explore_limit, limit(3)
   scope :explore_latest, latest_in_progress.publish_home.explore_limit
