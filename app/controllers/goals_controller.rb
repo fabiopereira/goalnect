@@ -78,6 +78,7 @@ class GoalsController < ApplicationController
     else
        @goal.goal_stage_id = GoalStage::PENDING.id
     end
+    @goal.publish_home = true
     respond_to do |format|
      if @goal.save
         if @goal.achiever_id == current_user.id

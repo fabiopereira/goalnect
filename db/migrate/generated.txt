@@ -110,4 +110,6 @@ rails g migration add_due_on_and_description_guide_and_type_to_goal_template goa
 
 rails g migration add_publish_home_to_goal_template  publish_home:boolean
 
+rails g migration add_publish_home_to_goal  publish_home:boolean
+
 

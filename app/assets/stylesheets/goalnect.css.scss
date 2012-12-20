@@ -182,6 +182,14 @@ input[type="color"]:focus,
 	padding-bottom: 20px;
 }
 
+.bottom-section{
+	@extend #bottom-section;
+	padding: 0px 0 0 0px;
+	h1{
+		color: $azul-logo;
+	}
+}
+
 #footer-section{
 	border-top:2px solid $cinza-escuro;
     background: $cinza-claro;

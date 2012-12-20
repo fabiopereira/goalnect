@@ -371,9 +371,11 @@ pt:
       didnt_find_event: Não encontrou o evento que irá participar? Crie uma meta personalizada
       no_result_found: A busca não retornou nenhum resultado.
       goalnect_dont_register_you_to_the_event: "O Goalnect permite que você crie uma página para arrecadar doações para uma instituição como forma de patrocínio/incentivo por estar participando do evento, mas não realiza a inscrição no evento, para realizar a inscrição acesse"
-      date: "Data:"  
+      date: "Data"  
       post_on_facebook_title: "Participe do evento %{event_title} ajudando uma causa"
       for_more_info: "Para mais informações:"
+      explore_more: "Veja mais eventos"
 
   goal_abandoned_message: "Poxa que pena.. o Goal foi abandonado, tente mais da próxima vez ;)"
   failed_to_set_goal_as_abandoned: "Houve um problema ao abandonar o Goal, por favor tente novamente mais tarde."
+  charity_twiter_text: "Olhem a ONG %{charity_name} cadastrada no Goalnect"

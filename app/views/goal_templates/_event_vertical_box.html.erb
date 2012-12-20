@@ -1,0 +1,25 @@
+<div class="box-goal">
+<article class="box-pequeno">
+	<div class="box_goal_content">
+	<figure class="imagem-goal">
+		<a href="<%= event_show_path(event.id)%>" >
+			<div class="img_user_thumb_div">
+			<%= img_tag event, :thumb %>
+			</div>
+	    </a>
+	</figure> 
+	<h5>
+		<a href="<%= event_show_path(event.id)%>" >
+			<%= event.title %>
+	    </a>
+	</h5>     
+	<b><p class="bigger_paragraph align-center">
+		<%= t 'events.date' %>: <%= event.due_on%>
+	</p></b>
+	</div>
+	
+	<hr class="traditional_hr"/>
+	<p id="want_to_join"><a href="<%=commit_to_event_path(event.title)%>" class="btn btn-success"><%= t('events.join_event_btn')%></a></p>
+	
+</article><!-- /box-pequeno //-->    
+</div>

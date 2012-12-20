@@ -27,6 +27,11 @@ class GoalTemplate < ActiveRecord::Base
     GoalTemplateType.find(self.goal_template_type_id)
   end
   
+  def self.find_up_coming_events
+    today = Date.today
+    @events = GoalTemplate.find(:all, :conditions => ["due_on >= ? and goal_template_type_id = ?  and active = ?  and locale = ?", today, GoalTemplateType::EVENT.id, true, I18n.locale.to_s], :order => "due_on", :limit => 4)
+  end
+  
   def self.find_all_active_events
     today = Date.today
     @events = GoalTemplate.find(:all, :conditions => ["due_on >= ? and goal_template_type_id = ?  and active = ?  and locale = ?", today, GoalTemplateType::EVENT.id, true, I18n.locale.to_s], :order => "due_on")

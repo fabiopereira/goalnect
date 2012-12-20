@@ -309,9 +309,11 @@ en:
     didnt_find_event: "Didn't find the event you were looking for? Create your own goal "
     no_result_found: "Results not found"
     goalnect_dont_register_you_to_the_event: "Goalnect allows you create a page to raise donation for a charity, as a sponsorship/incentive to join the event, but Goalnect doens't register you to the event, click here to register"
-    date: "Date:"
+    date: "Date"
     post_on_facebook_title: "Join the event %{event_title} helping people who need"
     for_more_info: "For more information access:"
+    explore_more: "Explore more"
     
   goal_abandoned_message: "Oh noo..Goal was abandoned... try more next time! ;)"
   failed_to_set_goal_as_abandoned: "There was a problem to abandon the goal, please try again later."    
+  charity_twiter_text: "Check this charity %{charity_name} registred on Goalnect"
