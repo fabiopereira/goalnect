@@ -40,7 +40,7 @@
 				</section>
 				<hr/>
 				<section class="goal-social-plugins">
-					<%= render 'layouts/social_plugins', :text => @charity.charity_name %>
+					<%= render 'layouts/social_plugins_specific_url', :text =>  t( "charity_twiter_text", :charity_name => @charity.charity_name), :url => charity_show_by_nickname_path(@charity.nickname) %>
 				</section>
 			</section><!-- /descricao-goal //-->
 		</div>

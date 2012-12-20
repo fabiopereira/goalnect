@@ -16,7 +16,7 @@ class ExploreController < ApplicationController
         @result_title = query
       end
     else 
-      @goals_latest = Goal.latest.explore_limit
+      @goals_latest = Goal.explore_latest
 
       recent_donations = GoalDonation.approved.recent.includes(:goal).limit(3)
       @goals_with_recent_donation = goals_from_donations(recent_donations)

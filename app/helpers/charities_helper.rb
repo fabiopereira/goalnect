@@ -8,6 +8,10 @@ module CharitiesHelper
     "/charities/#{charity_id}"
   end
   
+  def charity_show_by_nickname_path(nickname)
+    "#{current_host}/charities/#{nickname}"
+  end
+  
   def charity_donations_path(charity_id)
     "/charities/#{charity_id}/donations"
   end
@@ -26,6 +30,14 @@ module CharitiesHelper
   
   def charity_show_goals_path(charity_id)
     "/charities/#{charity_id}/show_goals"
+  end
+  
+  def current_host
+    if Rails.env.development? or Rails.env.test?
+      'http://' + request.host + ':' + request.port.to_s
+    else
+      'http://' + request.host
+    end
   end
   
 end

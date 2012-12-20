@@ -4,7 +4,7 @@ class Goal < ActiveRecord::Base
   MIN_TARGET_AMOUNT = 50
 
   attr_accessible :title, :title_selected
-  attr_accessible :description, :due_on, :created_at, :owner, :owner_id, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id
+  attr_accessible :description, :due_on, :created_at, :owner, :owner_id, :achiever, :goal_stage_id, :goal_stage_changed_at, :charity_id, :charity, :target_amount, :achiever_id, :goal_template_id, :publish_home
   
   attr_accessor :raised_so_far_amount
   
@@ -62,9 +62,11 @@ class Goal < ActiveRecord::Base
   scope :in_progress_stages, where('goal_stage_id in (:in_progress_stages)', {:in_progress_stages => GoalStage.in_progress_stages})
   scope :latest_in_progress, in_progress_stages.order('id desc')
   scope :latest, active.order('id desc')
+  scope :publish_home, where('publish_home is null or publish_home = true')
   scope :landing_limit, limit(4)
   scope :explore_limit, limit(3)
-  scope :landing, latest_in_progress.landing_limit
+  scope :explore_latest, latest_in_progress.publish_home.explore_limit
+  scope :landing, latest_in_progress.publish_home.landing_limit
   scope :no_goal_template, active.limit(30).where('goal_template_id is null')
   scope :random_scope, active.order('random()')
     

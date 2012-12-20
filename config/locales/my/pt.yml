@@ -378,3 +378,4 @@ pt:
 
   goal_abandoned_message: "Poxa que pena.. o Goal foi abandonado, tente mais da próxima vez ;)"
   failed_to_set_goal_as_abandoned: "Houve um problema ao abandonar o Goal, por favor tente novamente mais tarde."
+  charity_twiter_text: "Olhem a ONG %{charity_name} cadastrada no Goalnect"

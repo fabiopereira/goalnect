@@ -316,3 +316,4 @@ en:
     
   goal_abandoned_message: "Oh noo..Goal was abandoned... try more next time! ;)"
   failed_to_set_goal_as_abandoned: "There was a problem to abandon the goal, please try again later."    
+  charity_twiter_text: "Check this charity %{charity_name} registred on Goalnect"
