@@ -28,7 +28,8 @@ end
 
 # SEO
 gem 'headliner' 
-gem 'metamagic' 
+gem 'metamagic'
+gem 'dynamic_sitemaps' 
 
 gem 'flexslider'     
 gem 'le'
