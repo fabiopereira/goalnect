@@ -84,6 +84,13 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', en
 filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-submitted {
+  color: gray;
+  &:hover{
+    color: gray;
+  }
+}
+
 .btn-success:hover, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
 color: white;
 background-color: #51A351;
