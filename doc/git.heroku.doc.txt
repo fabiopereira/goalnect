@@ -119,4 +119,7 @@ rake staging deploy
 rake staging heroku:config:list 
 
 
+/goal_donations/populate_pagseguro_fee?days_ago=47&days_ago_end=30
+
+
 
