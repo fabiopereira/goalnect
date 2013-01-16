@@ -58,7 +58,7 @@ class PagseguroConsultApi
   end
   
   def self.set_default_values options
-    options[:initial_date] = options[:initial_date] ? options[:initial_date] : 7.days.ago
+    options[:initial_date] = options[:initial_date] ? options[:initial_date] : options[:days_ago] ? options[:days_ago].to_i.days.ago : 7.days.ago
     options[:final_date] = options[:final_date] ? options[:final_date] : Date.today
     options[:page_number] = options[:page_number] ?  options[:page_number] : 1
   end
