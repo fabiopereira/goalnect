@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
 
   VALID_HOST = "www.goalnect.com"
   def redirect_to_valid_host
-    if Rails.env.production?
-        redirect_to "http://#{VALID_HOST}#{request.fullpath}" unless request.host == VALID_HOST
-    end
+    # if Rails.env.production?
+    #     redirect_to "http://#{VALID_HOST}#{request.fullpath}" unless request.host == VALID_HOST
+    # end
   end
   
   def user_time_zone(&block)
