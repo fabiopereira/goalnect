@@ -91,4 +91,5 @@ Goalnect::Application.configure do
   GA.tracker = "UA-33640820-2"  
   
   ENV["letoken"] = "e4fbfd5e-ca0f-47d0-910b-329bcc1d7280"
+  ENV['FIXED_LOCALE'] = "pt"
 end
